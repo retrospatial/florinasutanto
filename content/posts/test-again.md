@@ -1,6 +1,7 @@
 ---
 title: test again
 desc: this is a description
+cover: /blog/Vibesession-Thumbnail.jpg
 date: 2026-01-10
 tags:
   - tag1
