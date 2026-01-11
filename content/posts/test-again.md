@@ -1,5 +1,6 @@
 ---
 title: test again
+desc: this is a description
 date: 2026-01-10
 tags:
   - tag1
