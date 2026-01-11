@@ -2,10 +2,10 @@
 
 backend:
   name: github
-  repo: user/repo
+  repo: retrospatial/website
 
-media_folder: /static/media
-public_folder: /media
+media_folder: /static/cms
+public_folder: /cms
 
 collections:
   - name: posts
