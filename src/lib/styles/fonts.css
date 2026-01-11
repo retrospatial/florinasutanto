@@ -1,0 +1,386 @@
+/* Editorial */
+@font-face {
+	font-family: 'Editorial New';
+	src: url('/fonts/editorial/PPEditorialNew-Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('/fonts/editorial/PPEditorialNew-Italic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('/fonts/editorial/PPEditorialNew-Ultralight.otf') format('opentype');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('/fonts/editorial/PPEditorialNew-UltralightItalic.otf') format('opentype');
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('/fonts/editorial/PPEditorialNew-Ultrabold.otf') format('opentype');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Editorial New';
+	src: url('/fonts/editorial/PPEditorialNew-UltraboldItalic.otf') format('opentype');
+	font-weight: 800;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* Exposure - Regular */
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-100].otf') format('opentype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-90].otf') format('opentype');
+	font-weight: 310;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-80].otf') format('opentype');
+	font-weight: 320;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-70].otf') format('opentype');
+	font-weight: 330;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-60].otf') format('opentype');
+	font-weight: 340;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-50].otf') format('opentype');
+	font-weight: 350;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-40].otf') format('opentype');
+	font-weight: 360;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-30].otf') format('opentype');
+	font-weight: 370;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-20].otf') format('opentype');
+	font-weight: 380;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[-10].otf') format('opentype');
+	font-weight: 390;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[0].otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+10].otf') format('opentype');
+	font-weight: 410;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+20].otf') format('opentype');
+	font-weight: 420;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+30].otf') format('opentype');
+	font-weight: 430;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+40].otf') format('opentype');
+	font-weight: 440;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+50].otf') format('opentype');
+	font-weight: 450;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+60].otf') format('opentype');
+	font-weight: 460;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+70].otf') format('opentype');
+	font-weight: 470;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+80].otf') format('opentype');
+	font-weight: 480;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+90].otf') format('opentype');
+	font-weight: 490;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureTrial[+100].otf') format('opentype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Exposure - Italic */
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-100].otf') format('opentype');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-90].otf') format('opentype');
+	font-weight: 310;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-80].otf') format('opentype');
+	font-weight: 320;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-70].otf') format('opentype');
+	font-weight: 330;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-60].otf') format('opentype');
+	font-weight: 340;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-50].otf') format('opentype');
+	font-weight: 350;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-40].otf') format('opentype');
+	font-weight: 360;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-30].otf') format('opentype');
+	font-weight: 370;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-20].otf') format('opentype');
+	font-weight: 380;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[-10].otf') format('opentype');
+	font-weight: 390;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[0].otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+10].otf') format('opentype');
+	font-weight: 410;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+20].otf') format('opentype');
+	font-weight: 420;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+30].otf') format('opentype');
+	font-weight: 430;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+40].otf') format('opentype');
+	font-weight: 440;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+50].otf') format('opentype');
+	font-weight: 450;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+60].otf') format('opentype');
+	font-weight: 460;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+70].otf') format('opentype');
+	font-weight: 470;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+80].otf') format('opentype');
+	font-weight: 480;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+90].otf') format('opentype');
+	font-weight: 490;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Exposure';
+	src: url('/fonts/exposure/ExposureItalicTrial[+100].otf') format('opentype');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}

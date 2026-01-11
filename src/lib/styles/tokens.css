@@ -1,0 +1,63 @@
+@theme {
+	--font-exposure: 'Exposure', serif;
+	--font-body: 'Spectral', serif;
+	--font-mono: 'Fira Code', monospace;
+
+	--color-accent-blue: #5298a0;
+	--color-accent-cream: #f3e3cf;
+	--color-accent-purple: #ab9df2;
+	--color-accent-orange: #ca9248;
+	--color-accent-green: #d8f328;
+	--color-dark-gray: #101010;
+
+	--spacing-navbar: 3rem;
+}
+
+@utility nav-title {
+	@apply font-exposure text-4xl font-[350] transition-colors duration-300;
+}
+
+@utility heading-1 {
+	@apply font-exposure text-8xl leading-loose font-[350];
+}
+
+@utility heading-2 {
+	@apply font-exposure text-5xl leading-loose font-[350] md:text-6xl;
+}
+
+@utility heading-3 {
+	@apply font-exposure text-4xl leading-loose font-[350];
+}
+
+@utility body {
+	@apply font-exposure text-xl leading-normal;
+}
+
+@utility tag {
+	@apply font-exposure text-xl font-[380];
+}
+
+@utility button-text {
+	@apply font-mono text-sm font-semibold;
+}
+
+@utility social-icons {
+	@apply hover:text-accent-cream text-accent-blue cursor-pointer text-4xl transition-colors duration-300;
+}
+
+/* entries */
+@utility entry-heading {
+	@apply font-exposure text-2xl leading-normal font-[375];
+}
+
+@utility entry-body {
+	@apply font-exposure text-lg leading-normal;
+}
+
+@utility entry-role {
+	@apply px-1.5 font-mono text-sm leading-normal uppercase;
+}
+
+@utility entry-tag {
+	@apply font-mono text-sm leading-normal uppercase;
+}
