@@ -8,6 +8,6 @@ tags:
 ---
 made a mistake earlier
 
-![map](/blog/Google%20Maps.jpeg)
+![](/blog/gmaps.jpeg)
 
 here's an image
