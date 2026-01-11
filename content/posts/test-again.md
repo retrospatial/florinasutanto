@@ -10,4 +10,6 @@ made a mistake earlier
 
 ![map](/blog/gmaps.jpeg "caption?")
 
+[this is a caption]{.caption}
+
 here's an image
