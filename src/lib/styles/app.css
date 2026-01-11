@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@import './fonts.css';
+@import './tokens.css';
+
+@layer base {
+	html,
+	body {
+		overflow-x: hidden;
+		height: 100%;
+	}
+
+	.intro p {
+		@apply mb-8;
+	}
+
+	a .about-link {
+		@apply text-accent-blue hover:text-accent-cream transition-colors duration-300;
+	}
+
+	.background {
+		background-image: url('/assets/bg.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--color-dark-gray);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--color-accent-cream);
+		border-radius: 9999px;
+	}
+}

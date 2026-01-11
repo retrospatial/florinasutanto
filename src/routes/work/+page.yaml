@@ -1,0 +1,45 @@
+authored:
+  - title: Does X Cause Y?
+    desc: What a fake sleep study can tell us about research design.
+    link: https://methodologies.citizencodex.com/
+    source: Citizen Codex
+    role: Author
+    tags: [Story, Data, Dev]
+    cover: methods.mp4
+  - title: Dancing in the Darkness
+    desc: In times of crisis, do we all just want to go out and dance?
+    link: https://recessionpop.citizencodex.com/
+    source: Citizen Codex
+    role: Author
+    tags: [Story, Data, Dev]
+    cover: recpop.mp4
+  - title: Who's Behind the Book Bans?
+    desc: Book bans have risen dramatically across the U.S. in recent years. See who's behind them.
+    link: https://bookbans.citizencodex.com/
+    source: Citizen Codex
+    role: Author
+    tags: [Story, Data, Dev]
+    cover: bookbans.mp4
+
+contributed:
+  - title: Who Gets Shipped And Why?
+    desc: We looked at a decade of fanfic couples. See who gets shipped and why.
+    link: https://pudding.cool/2024/10/fanfic/
+    source: The Pudding
+    role: Contributor
+    tags: [Story, Data]
+    cover: pudding.mp4
+  - title: Confronting the Global Cancer Crisis
+    desc: How Brazil's response to noncommunicable diseases can guide a global prevention strategy.
+    link: https://impact.vitalstrategies.org/
+    source: Citizen Codex
+    role: Contributor
+    tags: [Story, Data, Dev]
+    cover: vital.mp4
+  - title: Magical Girls Vs. Fighting Boys
+    desc: What 2000 hours of Anime tell us about gendered narratives.
+    link: https://animelandscape.citizencodex.com/
+    source: Citizen Codex
+    role: Contributor
+    tags: [Data, Dev]
+    cover: anime.mp4
