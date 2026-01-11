@@ -8,6 +8,6 @@ tags:
 ---
 made a mistake earlier
 
-![](/blog/gmaps.jpeg)
+![map](/blog/gmaps.jpeg "caption?")
 
 here's an image
