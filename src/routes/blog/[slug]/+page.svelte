@@ -5,6 +5,12 @@
 
 	export let data;
 	const { post } = data;
+
+	const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric'
+	});
 </script>
 
 <section class="w-4/5 md:w-1/2 mx-auto body text-white">
@@ -18,10 +24,10 @@
 	> -->
 	<article class=" flex flex-col gap-4">
 		<h1 class="blog-title">{post.title}</h1>
-		<p class="blog-date">{post.date}</p>
+		<p class="blog-date">{formattedDate}</p>
 		<div class="blog-tags flex flex-row gap-2">
 			{#each post.tags as tag}
-				<span class="blog-tag border-[0.5px] border-white rounded-md px-1.5 py-0.5">{tag}</span>
+				<span class="blog-tag border-[0.5px] border-white rounded-md px-2 py-1">{tag}</span>
 			{/each}
 		</div>
 		<div class="mt-4">
@@ -38,11 +44,11 @@
 	}
 
 	.blog-tag {
-		@apply font-mono text-sm leading-normal lowercase md:text-base;
+		@apply font-mono text-sm leading-none uppercase md:text-base;
 	}
 
 	.blog-date {
-		@apply font-mono text-sm leading-normal md:text-base;
+		@apply font-mono text-sm leading-normal uppercase md:text-base;
 	}
 
 	.blog-back-button {
