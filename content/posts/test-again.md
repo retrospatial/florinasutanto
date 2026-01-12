@@ -2,7 +2,7 @@
 title: test again
 desc: this is a description
 cover: /blog/Vibesession-Thumbnail.jpg
-date: 2026-01-10
+date: January 12, 2026
 tags:
   - tag1
   - tag2
