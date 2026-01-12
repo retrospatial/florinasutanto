@@ -10,7 +10,7 @@ tags:
 ---
 made a mistake earlier
 
-![map](/blog/gmaps.jpeg 'caption?')
+![map](/blog/gmaps.jpeg)
 
 [this is a caption]{.caption}
 
