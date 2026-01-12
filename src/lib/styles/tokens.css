@@ -7,6 +7,7 @@
 	--color-accent-cream: #f3e3cf;
 	--color-accent-purple: #ab9df2;
 	--color-accent-orange: #ca9248;
+	--color-accent-pink: #de748d;
 	--color-accent-green: #d8f328;
 	--color-dark-gray: #101010;
 
@@ -14,50 +15,46 @@
 }
 
 @utility nav-title {
-	@apply font-exposure text-4xl font-[350] transition-colors duration-300;
+	@apply font-exposure text-2xl font-[350] transition-colors duration-300 md:text-4xl;
 }
 
 @utility heading-1 {
-	@apply font-exposure text-8xl leading-loose font-[350];
+	@apply font-exposure text-5xl leading-normal font-[350] md:text-8xl;
 }
 
 @utility heading-2 {
-	@apply font-exposure text-5xl leading-loose font-[350] md:text-6xl;
-}
-
-@utility heading-3 {
-	@apply font-exposure text-4xl leading-loose font-[350];
+	@apply font-exposure text-4xl leading-normal font-[350] md:text-6xl md:leading-loose;
 }
 
 @utility body {
-	@apply font-exposure text-xl leading-normal;
+	@apply font-exposure text-lg leading-normal md:text-xl;
 }
 
-@utility tag {
-	@apply font-exposure text-xl font-[380];
-}
+/* @utility tag {
+	@apply font-exposure text-lg font-[380] md:text-xl;
+} */
 
 @utility button-text {
-	@apply font-mono text-sm font-semibold;
+	@apply font-mono text-xs font-semibold md:text-sm;
 }
 
 @utility social-icons {
-	@apply hover:text-accent-cream text-accent-blue cursor-pointer text-4xl transition-colors duration-300;
+	@apply hover:text-accent-cream text-accent-blue cursor-pointer text-3xl transition-colors duration-300;
 }
 
 /* entries */
 @utility entry-heading {
-	@apply font-exposure text-2xl leading-normal font-[375];
+	@apply font-exposure text-xl leading-normal font-[375] text-balance md:text-2xl md:text-wrap;
 }
 
 @utility entry-body {
-	@apply font-exposure text-lg leading-normal;
+	@apply font-exposure text-base leading-normal md:text-lg;
 }
 
 @utility entry-role {
-	@apply px-1.5 font-mono text-sm leading-normal uppercase;
+	@apply px-1.5 font-mono text-xs leading-normal uppercase md:text-sm;
 }
 
 @utility entry-tag {
-	@apply font-mono text-sm leading-normal uppercase;
+	@apply font-mono text-xs leading-normal uppercase md:text-sm;
 }

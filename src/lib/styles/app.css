@@ -10,7 +10,11 @@
 	}
 
 	.intro p {
-		@apply mb-8;
+		@apply mb-4 md:mb-8;
+	}
+
+	a {
+		@apply cursor-pointer;
 	}
 
 	a .about-link {
@@ -34,5 +38,18 @@
 	::-webkit-scrollbar-thumb {
 		background: var(--color-accent-cream);
 		border-radius: 9999px;
+	}
+
+	/* blog styling */
+	.markdown img {
+		@apply mx-auto my-4 h-auto w-full rounded;
+	}
+
+	.markdown h1 {
+		@apply font-exposure mb-2 text-3xl leading-normal font-normal md:text-4xl;
+	}
+
+	.markdown .caption {
+		@apply mb-4 block text-center text-base italic;
 	}
 }

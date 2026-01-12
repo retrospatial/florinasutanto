@@ -17,25 +17,17 @@
 
 		mm = gsap.matchMedia();
 
-		mm.add(
-			{
-				isMobile: '(max-width: 768px)',
-				isDesktop: '(min-width: 769px)'
-			},
-			(context) => {
-				const { isMobile } = context.conditions as { isMobile: boolean };
-
+		setTimeout(() => {
+			// Desktop animations
+			mm.add('(min-width: 769px)', () => {
 				rowRefs.forEach((el, i) => {
 					if (!el) return;
 
-					const fromX = isMobile ? 0 : i % 2 === 0 ? -80 : 80;
+					const fromX = i % 2 === 0 ? -85 : 85;
 
 					gsap.fromTo(
 						el,
-						{
-							opacity: 0,
-							x: fromX
-						},
+						{ opacity: 0, x: fromX },
 						{
 							opacity: 1,
 							x: 0,
@@ -51,16 +43,17 @@
 				});
 
 				ScrollTrigger.refresh();
-			}
-		);
+			});
+		}, 100);
 	});
 
 	onDestroy(() => {
 		mm?.revert();
+		ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 	});
 </script>
 
-<section class="w-3/4 mx-auto body">
+<section class="w-4/5 mx-auto body">
 	<div class="relative mb-8">
 		<svg
 			viewBox="0 0 360 320"
@@ -95,7 +88,7 @@
 			<a href={item.link} target="_blank" rel="noopener noreferrer" class="group">
 				<div
 					bind:this={rowRefs[i]}
-					class={`flex md:max-h-60 h-full items-center  flex-col justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 ${
+					class={`flex md:max-h-60 h-full items-center flex-col justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 ${
 						i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
 					}`}
 				>
@@ -122,9 +115,9 @@
 					</div>
 
 					<div
-						class={`flex flex-col gap-2 w-full md:max-w-lg  text-white group-hover:text-black transition-colors
+						class={`flex flex-col gap-2 my-2 w-full md:max-w-lg text-white group-hover:text-black transition-colors
 						 md:mx-8 md:px-0 px-4 pb-4 md:pb-0
-						${i % 2 === 0 ? 'items-start text-left ' : 'items-end text-right'}`}
+						${i % 2 === 0 ? 'items-start text-left' : 'items-end text-right'}`}
 					>
 						<h2 class="entry-heading lowercase">{item.title}</h2>
 						<p class="entry-tag">{item.type}</p>

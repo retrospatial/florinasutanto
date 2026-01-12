@@ -4,13 +4,42 @@ backend:
   name: github
   repo: retrospatial/website
 
-media_folder: /static/cms
-public_folder: /cms
+media_folder: /static/blog
+public_folder: /blog
 
 collections:
   - name: posts
     label: Posts
     folder: /content/posts
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Body, name: body, widget: markdown }
+      - label: Title
+        name: title
+        widget: string
+        required: true
+
+      - label: Description
+        name: desc
+        widget: string
+        required: true
+
+      - label: Cover
+        name: cover
+        widget: image
+        required: false
+
+      - label: Body
+        name: body
+        widget: markdown
+        required: true
+
+      - label: Date
+        name: date
+        widget: datetime
+        format: MMMM D, YYYY
+        time_format: true
+
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+
