@@ -8,9 +8,10 @@ tags:
   - tag2
   - tag3
 ---
+
 made a mistake earlier
 
-![map](/blog/gmaps.jpeg "caption?")
+![map](/blog/gmaps.jpeg 'caption?')
 
 [this is a caption]{.caption}
 
