@@ -46,10 +46,50 @@
 	}
 
 	.markdown h1 {
-		@apply font-exposure mb-2 text-3xl leading-normal font-normal md:text-4xl;
+		@apply font-exposure mb-2 text-3xl leading-normal md:text-4xl;
+	}
+
+	.markdown h2 {
+		@apply font-exposure mb-2 text-2xl leading-normal md:text-3xl;
+	}
+
+	.markdown h3 {
+		@apply font-exposure mb-2 text-xl leading-normal md:text-2xl;
+	}
+
+	.markdown p {
+		@apply font-exposure mb-4 text-base leading-normal md:text-lg;
+	}
+
+	.markdown ul {
+		@apply list-inside list-disc text-base leading-normal md:text-lg;
+	}
+
+	.markdown ol {
+		@apply list-inside list-decimal text-base leading-normal md:text-lg;
+	}
+
+	.markdown li {
+		@apply font-exposure mb-2 text-base leading-normal md:text-lg;
+	}
+
+	.markdown blockquote {
+		@apply border-accent-pink my-8 border-l-4 pl-4 md:pl-6;
+	}
+
+	.markdown :not(pre) > code {
+		@apply rounded-md bg-gray-800 px-1.5 py-0.5 font-mono text-sm leading-normal md:text-base;
+	}
+
+	.markdown pre {
+		@apply bg-dark-gray my-6 overflow-x-auto rounded-md p-4;
+	}
+
+	.markdown pre code {
+		@apply bg-transparent p-0 font-mono text-sm leading-normal md:text-base;
 	}
 
 	.markdown .caption {
-		@apply mb-4 block text-center text-base italic;
+		@apply mb-4 block text-center text-base italic md:text-lg;
 	}
 }

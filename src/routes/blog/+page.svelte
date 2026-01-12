@@ -1,6 +1,15 @@
 <script lang="ts">
 	export let data;
 	const { posts } = data;
+
+	const formatDate = (dateString: string | null) => {
+		if (!dateString) return '';
+		return new Date(dateString).toLocaleDateString('en-US', {
+			month: 'long',
+			day: 'numeric',
+			year: 'numeric'
+		});
+	};
 </script>
 
 <section class="w-4/5 mx-auto">
@@ -27,15 +36,14 @@
 							</h2>
 							<p class="blog-list-desc">{post.desc}</p>
 							<div class="flex flex-row items-center gap-2">
-								<span class="blog-list-date">{post.date}</span>
+								<span class="blog-list-date">{formatDate(post.date)}</span>
 
 								{#if post.tags}
 									<span class="">•</span>
 
 									<div class="blog-list-tags flex flex-row gap-2">
 										{#each post.tags as tag}
-											<span
-												class="blog-list-tag border-[0.5px] border-white rounded-md px-1.5 py-0.5"
+											<span class="blog-list-tag border-[0.5px] border-white rounded-md px-2 py-1"
 												>{tag}</span
 											>
 										{/each}
@@ -72,10 +80,10 @@
 	}
 
 	.blog-list-tag {
-		@apply font-mono text-xs leading-normal lowercase md:text-sm;
+		@apply font-mono text-xs leading-none uppercase md:text-sm;
 	}
 
 	.blog-list-date {
-		@apply font-mono text-xs leading-normal md:text-sm;
+		@apply font-mono text-xs leading-normal uppercase md:text-sm;
 	}
 </style>
