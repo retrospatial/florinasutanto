@@ -1,7 +1,7 @@
 ---
 title: test
 desc: hi
-date: 2026-01-11
+date: January 12, 2026
 ---
 # h1
 
@@ -17,7 +17,7 @@ date: 2026-01-11
 2. f
 3. h
 
-> this is a blockquote. dfsgdsfg sdf gds fgds fg sdfg sdf gds fg sdfg sdf gs dfgsdf gs dfg sdf gsd fg sdf gsd fg sdf gsd fg sdf gs dfgsdfg this is a blockquote. dfsgdsfg sdf gds fgds fg sdfg sdf gds fg sdfg sdf gs dfgsdf gs dfg sdf gsd fg sdf gsd fg sdf gsd fg sdf gs dfgsdfg 
+> this is a blockquote. dfsgdsfg sdf gds fgds fg sdfg sdf gds fg sdfg sdf gs dfgsdf gs dfg sdf gsd fg sdf gsd fg sdf gsd fg sdf gs dfgsdfg this is a blockquote. dfsgdsfg sdf gds fgds fg sdfg sdf gds fg sdfg sdf gs dfgsdf gs dfg sdf gsd fg sdf gsd fg sdf gsd fg sdf gs dfgsdfg
 
 ```plain
 <script lang="ts">
