@@ -14,14 +14,18 @@ about_short:
 
 about_long:
   title: More About Me
-  text: >
-    Where to start!
-
-
-    I have many hobbies and interests. My most longstanding one is writing: outside of school and work, I love writing fanfiction, short stories, fandom meta, media reviews, music roundups, life recaps, and other longform musings, all purely for fun and not for profit or publication. I primarily write on Dreamwidth, an old-school, no-frills blogging platform where my internet friends migrated to 
-
-
-    I enjoy playing sports and being outside. These days, I mainly practice <a href="https://pkgenboston.com/" target="_blank" rel="noopener noreferrer">[parkour]{.about-link}</a> and <a href="https://www.eshcircusarts.com/" target="_blank" rel="noopener noreferrer">[aerial straps]{.about-link}</a>, with a side of bouldering, swimming, and hiking. I go scuba diving whenever I go home to Indonesia (so beautiful!). I'm a big advocate for bringing back recess into our adult lives.
-
-
-    creative technology, strudel, creative code etc, personal sites
+  text:
+    - title: Sports
+      desc: Parkour, aerials, bouldering, scuba diving, swimming
+    - title: Fav Songs This Week
+      desc: last fm api
+    - title: ssdfgsdfg
+      desc: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has b
+    - title: dd
+      desc: park
+    - title: f
+      desc: park
+    - title: ghfg
+      desc: park
+    - title: wha
+      desc: park

@@ -35,6 +35,9 @@ importers:
       markdown-it-bracketed-spans:
         specifier: ^1.0.1
         version: 1.0.1
+      svg-brush:
+        specifier: ^0.1.5
+        version: 0.1.5(svelte@5.45.8)
     devDependencies:
       '@eslint/compat':
         specifier: ^1.4.0
@@ -1512,6 +1515,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  simplify-js@1.2.4:
+    resolution: {integrity: sha512-vITfSlwt7h/oyrU42R83mtzFpwYk3+mkH9bOHqq/Qw6n8rtR7aE3NZQ5fbcyCUVVmuMJR6ynsAhOfK2qoah8Jg==}
+
   sirv@3.0.2:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
     engines: {node: '>=18'}
@@ -1569,6 +1575,14 @@ packages:
   svelte@5.45.8:
     resolution: {integrity: sha512-1Jh7FwVh/2Uxg0T7SeE1qFKMhwYH45b2v53bcZpW7qHa6O8iU1ByEj56PF0IQ6dU4HE5gRkic6h+vx+tclHeiw==}
     engines: {node: '>=18'}
+
+  svg-brush@0.1.5:
+    resolution: {integrity: sha512-8dFmw5AgXwl+k9ymQMmWKe/zQsZA/jOzjw/xKg6Bs6bdwQya04DRBnIK0+VVxTx21Z8Zly47wUnEhv929c8F8Q==}
+    peerDependencies:
+      svelte: ^5.0.0
+
+  svg-path-parser@1.1.0:
+    resolution: {integrity: sha512-jGCUqcQyXpfe38R7RFfhrMyfXcBmpMNJI/B+4CE9/Unkh98UporAc461GTthv+TVDuZXsBx7/WiwJb1Oh4tt4A==}
 
   tabbable@6.3.0:
     resolution: {integrity: sha512-EIHvdY5bPLuWForiR/AN2Bxngzpuwn1is4asboytXtpTgsArc+WmSJKVLlhdh71u7jFcryDqB2A8lQvj78MkyQ==}
@@ -2923,6 +2937,8 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
+  simplify-js@1.2.4: {}
+
   sirv@3.0.2:
     dependencies:
       '@polka/url': 1.0.0-next.29
@@ -2998,6 +3014,14 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.21
       zimmerframe: 1.1.4
+
+  svg-brush@0.1.5(svelte@5.45.8):
+    dependencies:
+      simplify-js: 1.2.4
+      svelte: 5.45.8
+      svg-path-parser: 1.1.0
+
+  svg-path-parser@1.1.0: {}
 
   tabbable@6.3.0: {}
 

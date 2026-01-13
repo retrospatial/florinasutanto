@@ -9,8 +9,8 @@
 		height: 100%;
 	}
 
-	.intro p {
-		@apply mb-4 md:mb-8;
+	.body .markdown p {
+		@apply font-exposure mb-4 text-lg leading-normal md:mb-8 md:text-xl;
 	}
 
 	a {
