@@ -49,6 +49,7 @@
 		"iconify-icon": "^3.0.2",
 		"markdown-it": "^14.1.0",
 		"markdown-it-attrs": "^4.3.1",
-		"markdown-it-bracketed-spans": "^1.0.1"
+		"markdown-it-bracketed-spans": "^1.0.1",
+		"svg-brush": "^0.1.5"
 	}
 }

@@ -26,20 +26,20 @@
 	@apply font-exposure text-4xl leading-normal font-[350] md:text-6xl md:leading-loose;
 }
 
-@utility body {
-	@apply font-exposure text-lg leading-normal md:text-xl;
+@utility heading-3 {
+	@apply font-exposure text-xl leading-normal font-[375] md:text-2xl;
 }
 
-/* @utility tag {
-	@apply font-exposure text-lg font-[380] md:text-xl;
-} */
+@utility body {
+	@apply font-exposure mb-4 text-lg leading-normal md:mb-8 md:text-xl;
+}
 
 @utility button-text {
 	@apply font-mono text-xs font-semibold md:text-sm;
 }
 
 @utility social-icons {
-	@apply hover:text-accent-cream text-accent-blue cursor-pointer text-3xl transition-colors duration-300;
+	@apply hover:text-accent-cream text-accent-blue cursor-pointer text-4xl transition-colors duration-300;
 }
 
 /* entries */

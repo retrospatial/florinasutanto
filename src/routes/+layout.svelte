@@ -28,36 +28,40 @@
 
 <section class="background fixed inset-0 -z-10"></section>
 
-{#if mounted}
-	<nav class="pt-navbar" in:fly|global={{ y: -40, duration: 600, easing: cubicOut, delay: 400 }}>
-		<div
-			class="w-4/5 mx-auto relative grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row justify-between items-start text-white"
-		>
-			<a href="/"
-				><p class="nav-title hover:text-accent-blue {about ? 'text-accent-blue italic' : ''}">
-					about
-				</p></a
+<div class="max-w-screen-2xl mx-auto">
+	{#if mounted}
+		<nav class="pt-navbar" in:fly|global={{ y: -40, duration: 600, easing: cubicOut, delay: 400 }}>
+			<div
+				class="w-4/5 mx-auto relative grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row justify-between items-start text-white"
 			>
-			<a href="/work"
-				><p class="nav-title hover:text-accent-purple {work ? 'text-accent-purple italic' : ''}">
-					work
-				</p></a
-			>
-			<a href="/personal"
-				><p class="nav-title hover:text-accent-green {personal ? 'text-accent-green italic' : ''}">
-					personal
-				</p></a
-			>
-			<a href="/blog"
-				><p class="nav-title hover:text-accent-pink {blog ? 'text-accent-pink italic' : ''}">
-					blog
-				</p></a
-			>
-		</div>
-	</nav>
-{/if}
+				<a href="/"
+					><p class="nav-title hover:text-accent-blue {about ? 'text-accent-blue italic' : ''}">
+						about
+					</p></a
+				>
+				<a href="/work"
+					><p class="nav-title hover:text-accent-purple {work ? 'text-accent-purple italic' : ''}">
+						work
+					</p></a
+				>
+				<a href="/personal"
+					><p
+						class="nav-title hover:text-accent-green {personal ? 'text-accent-green italic' : ''}"
+					>
+						personal
+					</p></a
+				>
+				<a href="/blog"
+					><p class="nav-title hover:text-accent-pink {blog ? 'text-accent-pink italic' : ''}">
+						blog
+					</p></a
+				>
+			</div>
+		</nav>
+	{/if}
+</div>
 
-<main class="relative py-8 md:py-16">
+<main class="relative py-8 md:py-16 max-w-screen-2xl mx-auto">
 	{#if mounted}
 		{#key pathname}
 			<div in:fly|global={{ y: 40, duration: 600, easing: cubicOut }}>
