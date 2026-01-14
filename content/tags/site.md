@@ -1,3 +1,3 @@
 ---
-title: Personal Site
+title: site
 ---

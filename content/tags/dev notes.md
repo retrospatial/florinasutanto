@@ -1,3 +1,3 @@
 ---
-title: Dev Notes
+title: dev notes
 ---
