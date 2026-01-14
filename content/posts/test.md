@@ -2,8 +2,10 @@
 title: test
 desc: hi
 date: January 12, 2026
+tags:
+  - updates
+  - site
 ---
-
 # h1
 
 ## h2
