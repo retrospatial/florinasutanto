@@ -2,6 +2,7 @@
 	--font-exposure: 'Exposure', serif;
 	--font-body: 'Spectral', serif;
 	--font-mono: 'Fira Code', monospace;
+	--font-courier: 'Courier Prime', monospace;
 
 	--color-accent-blue: #5298a0;
 	--color-accent-cream: #f3e3cf;
@@ -30,8 +31,16 @@
 	@apply font-exposure text-xl leading-normal font-[375] md:text-2xl;
 }
 
-@utility body {
+@utility body-lg {
 	@apply font-exposure mb-4 text-lg leading-normal md:mb-8 md:text-xl;
+}
+
+@utility body-md {
+	@apply font-exposure mb-4 text-base leading-normal md:mb-8 md:text-lg;
+}
+
+@utility body-sm {
+	@apply font-exposure mb-4 text-sm leading-normal md:mb-8 md:text-base;
 }
 
 @utility button-text {

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Radio from '$lib/helpers/Radio.svelte';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/helpers/Image.svelte';
+	import MoreAboutMe from '$lib/components/MoreAboutMe.svelte';
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
 	import { fly } from 'svelte/transition';
@@ -120,18 +121,13 @@
 
 		{#key selectedOption}
 			<div in:fly={{ y: 40, duration: 600, easing: cubicOut, delay: 200 }}>
-				<div class="text-white body">
+				<div class="text-white">
 					{#if selectedOption === 'short'}
-						{@html md(content.about_short.text)}
-					{:else}
-						<div class="columns-3 gap-4">
-							{#each content.about_long.text as item (item.title)}
-								<div class="border-6 rounded-md border-accent-blue break-inside-avoid mb-4 p-4">
-									<h3 class="heading-3 uppercase">{item.title}</h3>
-									<p class="body">{@html md(item.desc)}</p>
-								</div>
-							{/each}
+						<div class="body-lg">
+							{@html md(content.about_short.text)}
 						</div>
+					{:else}
+						<MoreAboutMe />
 					{/if}
 				</div>
 

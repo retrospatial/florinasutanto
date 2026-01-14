@@ -9,8 +9,16 @@
 		height: 100%;
 	}
 
-	.body .markdown p {
+	.body-lg .markdown p {
 		@apply font-exposure mb-4 text-lg leading-normal md:mb-8 md:text-xl;
+	}
+
+	.body-md .markdown p {
+		@apply font-exposure mb-4 text-base leading-normal md:mb-8 md:text-lg;
+	}
+
+	.body-sm .markdown p {
+		@apply font-exposure mb-4 text-sm leading-normal md:mb-8 md:text-base;
 	}
 
 	a {
