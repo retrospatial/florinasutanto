@@ -1,6 +1,6 @@
 ---
 title: test again
-desc: this is a description
+desc: this is a description testestestes
 cover: /blog/Vibesession-Thumbnail.jpg
 date: January 12, 2026
 tags:
@@ -8,7 +8,6 @@ tags:
   - tag2
   - tag3
 ---
-
 made a mistake earlier
 
 ![map](/blog/gmaps.jpeg)
