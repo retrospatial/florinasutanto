@@ -1,5 +1,8 @@
 <script lang="ts">
 	import Image from '$lib/helpers/Image.svelte';
+	import { page } from '$app/state';
+
+	let content = page.data.about_long;
 
 	interface Track {
 		name: string;
@@ -98,11 +101,15 @@
 </script>
 
 <div class="tracking-tighter flex items-center justify-center flex-col gap-4 mx-4">
-	<div class="flex flex-row justify-around items-center">
+	<div class="flex items-center justify-center relative">
 		<div class="heading-3 text-black/85 w-full max-w-2/3 flex text-balance text-center">
-			Favorite Songs This Week
+			{content.text[0].title}
 		</div>
-		<!-- <Image src="vinyl.png" alt="vinyl" class="w-full h-auto max-w-12 animate-spin-slow" /> -->
+		<Image
+			src="vinyl.png"
+			alt="vinyl"
+			class="w-full h-auto max-w-10 animate-spin-slow absolute  right-6"
+		/>
 	</div>
 	<div class="w-full">
 		{#each tracks as t (t.url)}

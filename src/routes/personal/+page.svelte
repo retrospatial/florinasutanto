@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
+	import Image from '$lib/helpers/Image.svelte';
 	import { isVideo } from '$lib/utils/video';
 	import { onMount, onDestroy } from 'svelte';
 
@@ -103,11 +104,11 @@
 								preload="auto"
 								aria-label="screencapture"
 							>
-								<source src={`/assets/covers/${item.cover}`} type="video/mp4" />
+								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 							</video>
 						{:else}
-							<img
-								src={`/assets/covers/${item.cover}`}
+							<Image
+								src={`cover_imgs/${item.cover}`}
 								alt={item.title}
 								class="w-full h-full object-cover"
 							/>

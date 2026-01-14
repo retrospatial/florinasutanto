@@ -11,7 +11,7 @@ export async function GET({ url, fetch }) {
 		method: 'user.gettoptracks',
 		user,
 		period: '7day',
-		limit: '3',
+		limit: '5',
 		api_key: LASTFM_API_KEY,
 		format: 'json'
 	});
@@ -21,7 +21,7 @@ export async function GET({ url, fetch }) {
 
 	const data = await res.json();
 
-	const tracks = (data?.toptracks?.track ?? []).slice(0, 3).map((t: any) => ({
+	const tracks = (data?.toptracks?.track ?? []).slice(0, 5).map((t: any) => ({
 		name: t.name,
 		artist: t.artist?.name ?? t.artist?.['#text'],
 		playcount: Number(t.playcount ?? 0),

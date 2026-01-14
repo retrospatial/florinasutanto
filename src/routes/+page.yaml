@@ -14,3 +14,17 @@ about_short:
 
 about_long:
   title: More About Me
+  text:
+    - title: Favorite Songs This Week
+    - title: Online Reads
+      desc:
+        - title: Clarkesworld Magazine
+          href: https://clarkesworldmagazine.com/
+        - title: Dreamwidth
+          href: https://www.dreamwidth.org/
+        - title: Wyrmhole
+          href: https://thewyrmhole.com/
+        - title: The Rec Center
+          href: https://buttondown.com/the-rec-center
+        - title: The Singles Jukebox
+          href: https://thesinglesjukebox.com/

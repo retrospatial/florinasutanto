@@ -3,6 +3,8 @@
 backend:
   name: github
   repo: retrospatial/website
+  branch: main
+  skip_ci: true
 
 media_folder: /static/blog
 public_folder: /blog
@@ -38,8 +40,28 @@ collections:
         format: YYYY-MM-DD
         time_format: true
 
-      - label: Tags
-        name: tags
-        widget: list
+      - name: tags
+        label: Tags
+        widget: relation
+        multiple: true
+        collection: tags
+        search_fields: [title]
+        display_fields: [title]
+        value_field: '{{slug}}'
+
+  - name: tags
+    label: Tags
+    label_singular: Tag
+    folder: /content/tags
+    fields:
+      - name: title
+        label: Title
+      - name: description
+        label: Description
+        widget: text
+        required: false
+      - name: image
+        label: Image
+        widget: image
         required: false
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Image from '$lib/helpers/Image.svelte';
 	import md from '$lib/utils/md';
 	import { isVideo } from '$lib/utils/video';
 
@@ -30,13 +31,13 @@
 								preload="auto"
 								aria-label="screencapture"
 							>
-								<source src={`/assets/covers/${item.cover}`} type="video/mp4" />
+								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 							</video>
 						{:else}
-							<img
-								src={`/assets/covers/${item.cover}`}
+							<Image
+								src={`cover_imgs/${item.cover}`}
 								alt={item.title}
-								class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+								class="w-full h-full object-cover"
 							/>
 						{/if}
 					</div>
