@@ -50,8 +50,4 @@
 	.blog-date {
 		@apply font-mono text-sm leading-normal uppercase md:text-base;
 	}
-
-	.blog-back-button {
-		@apply font-mono text-base leading-normal;
-	}
 </style>
