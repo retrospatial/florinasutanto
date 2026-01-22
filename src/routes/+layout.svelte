@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '$lib/styles/app.css';
 	import 'iconify-icon';
-	import favicon from '$lib/assets/favicon.png';
+	const favicon = '/assets/images/favicon.png';
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
