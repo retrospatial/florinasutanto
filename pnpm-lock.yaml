@@ -17,6 +17,9 @@ importers:
       bits-ui:
         specifier: ^2.14.4
         version: 2.14.4(@internationalized/date@3.10.0)(@sveltejs/kit@2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.45.8)(vite@7.2.7(@types/node@22.19.2)(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.45.8)(vite@7.2.7(@types/node@22.19.2)(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.45.8)
+      flo4.0:
+        specifier: 'link:'
+        version: 'link:'
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3

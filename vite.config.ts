@@ -5,5 +5,8 @@ import { enhancedImages } from '@sveltejs/enhanced-img';
 import yaml from '@rollup/plugin-yaml';
 
 export default defineConfig({
-	plugins: [enhancedImages(), tailwindcss(), sveltekit(), yaml()]
+	plugins: [enhancedImages(), tailwindcss(), sveltekit(), yaml()],
+	ssr: {
+		external: ['gray-matter']
+	}
 });
