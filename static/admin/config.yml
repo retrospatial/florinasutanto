@@ -15,7 +15,7 @@ collections:
     folder: /content/posts
     create: true
     path: "{{year}}/{{slug}}/index"
-    slug: "{{year}}/{{slug}}"
+    slug: "{{slug}}"
     fields:
       - label: Title
         name: title
