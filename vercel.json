@@ -1,6 +1,5 @@
 {
 	"buildCommand": "pnpm run build",
 	"framework": "sveltekit",
-	"installCommand": "pnpm install",
-	"cacheVersion": "1"
+	"installCommand": "pnpm install"
 }
