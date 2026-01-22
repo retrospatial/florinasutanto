@@ -13,7 +13,7 @@
 </script>
 
 <section class="w-4/5 mx-auto">
-	<h2 class="heading-2 text-accent-pink mb-4 md:mb-8">ideas, thoughts, reflections, etc.</h2>
+	<h2 class="heading-2 text-accent-pink md:mb-4">ideas, thoughts, reflections, etc.</h2>
 	<div class="flex flex-col">
 		{#each posts as post}
 			<article class="text-white group">
@@ -80,7 +80,7 @@
 	}
 
 	.blog-list-tag {
-		@apply font-mono text-xs leading-none uppercase md:text-sm;
+		@apply font-mono text-[10px] leading-none uppercase md:text-xs;
 	}
 
 	.blog-list-date {

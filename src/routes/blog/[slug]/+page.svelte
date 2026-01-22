@@ -44,7 +44,7 @@
 	}
 
 	.blog-tag {
-		@apply font-mono text-sm leading-none uppercase md:text-base;
+		@apply font-mono text-xs leading-none uppercase md:text-sm;
 	}
 
 	.blog-date {
