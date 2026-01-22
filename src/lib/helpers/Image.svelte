@@ -1,6 +1,4 @@
 <script lang="ts" module>
-	import { dev } from '$app/environment';
-
 	const imports = import.meta.glob(
 		[
 			'../assets/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}',
@@ -19,9 +17,9 @@
 		})
 	) as Record<string, string>;
 
-	// Build Vercel image optimization URL
+	const isDev = import.meta.env.DEV;
 	function getOptimizedUrl(src: string, width: number, quality: number): string {
-		if (dev) return src;
+		if (isDev) return src;
 		const params = new URLSearchParams({
 			url: src,
 			w: width.toString(),
