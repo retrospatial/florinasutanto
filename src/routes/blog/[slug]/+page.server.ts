@@ -1,13 +1,15 @@
 import { parseFrontmatter } from '$lib/utils/frontmatter';
 import { error } from '@sveltejs/kit';
 
-export const entries = () => {
+export const entries = async () => {
 	const files = import.meta.glob('/content/posts/**/*.md', {
 		eager: true,
 		query: '?raw',
 		import: 'default'
 	});
-	return Object.keys(files).map((path) => {
+	const filePaths = Object.keys(files);
+
+	return filePaths.map((path) => {
 		const slug = path.replace('/content/posts/', '').replace('/index.md', '').replace('.md', '');
 		return {
 			slug
