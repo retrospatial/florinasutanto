@@ -6,7 +6,6 @@
 			'../assets/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'
 		],
 		{
-			query: { enhanced: true },
 			eager: true,
 			import: 'default'
 		}
@@ -38,7 +37,7 @@
 </script>
 
 {#if imageSrc}
-	<enhanced:img
+	<img
 		bind:this={ref}
 		src={imageSrc}
 		{alt}
