@@ -1,27 +1,16 @@
 <script lang="ts" module>
-	const imports = import.meta.glob(
-		[
-			'../assets/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}',
-			'../assets/**/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}'
-		],
-		{
-			eager: true,
-			import: 'default'
-		}
-	);
-
-	const pictures = Object.fromEntries(
-		Object.entries(imports).map(([key, value]) => {
-			const normalizedKey = key.replace('../assets/', '').replace(/\\/g, '/');
-			return [normalizedKey, value];
-		})
-	) as Record<string, string>;
-
 	const isDev = import.meta.env.DEV;
+
 	function getOptimizedUrl(src: string, width: number, quality: number): string {
-		if (isDev) return src;
+		// Determine base path - cover_imgs is at /assets/cover_imgs, others at /assets/images
+		const basePath = src.startsWith('cover_imgs/') ? '/assets/' : '/assets/images/';
+		const fullPath = `${basePath}${src}`;
+
+		// In dev, serve directly from static
+		if (isDev) return fullPath;
+		// In production, use Vercel image optimization
 		const params = new URLSearchParams({
-			url: src,
+			url: fullPath,
 			w: width.toString(),
 			q: quality.toString()
 		});
@@ -52,12 +41,7 @@
 		quality = 75
 	}: Props = $props();
 
-	const baseSrc = $derived(pictures[src]);
-	const imageSrc = $derived(baseSrc ? getOptimizedUrl(baseSrc, width, quality) : undefined);
+	const imageSrc = $derived(getOptimizedUrl(src, width, quality));
 </script>
 
-{#if imageSrc}
-	<img bind:this={ref} src={imageSrc} {alt} loading={lazy ? 'lazy' : 'eager'} class={classes} />
-{:else}
-	<div class="text-red-500">Image not found: {src}</div>
-{/if}
+<img bind:this={ref} src={imageSrc} {alt} loading={lazy ? 'lazy' : 'eager'} class={classes} />
