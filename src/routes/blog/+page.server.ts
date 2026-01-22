@@ -9,7 +9,7 @@ interface PostFrontmatter {
 }
 
 export const load = async () => {
-	const files = import.meta.glob('/content/posts/*.md', { eager: true, as: 'raw' });
+	const files = import.meta.glob('/content/posts/*.md', { eager: true, query: '?raw', import: 'default' });
 
 	const posts = Object.entries(files)
 		.map(([path, raw]) => {

@@ -2,7 +2,7 @@ import matter from 'gray-matter';
 import { error } from '@sveltejs/kit';
 
 export const entries = () => {
-	const files = import.meta.glob('/content/posts/*.md', { eager: true, as: 'raw' });
+	const files = import.meta.glob('/content/posts/*.md', { eager: true, query: '?raw', import: 'default' });
 	return Object.keys(files).map((path) => ({
 		slug: path.split('/').pop()?.replace('.md', '') ?? ''
 	}));
@@ -11,7 +11,7 @@ export const entries = () => {
 export const load = async ({ params }) => {
 	const path = `/content/posts/${params.slug}.md`;
 
-	const files = import.meta.glob('/content/posts/*.md', { eager: true, as: 'raw' });
+	const files = import.meta.glob('/content/posts/*.md', { eager: true, query: '?raw', import: 'default' });
 	const raw = files[path];
 
 	if (!raw) throw error(404, 'Post not found');
