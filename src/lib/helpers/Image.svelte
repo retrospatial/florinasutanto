@@ -2,7 +2,6 @@
 	const isDev = import.meta.env.DEV;
 
 	function getOptimizedUrl(src: string, width: number, quality: number): string {
-		// Determine base path - cover_imgs is at /assets/cover_imgs, others at /assets/images
 		const basePath = src.startsWith('cover_imgs/') ? '/assets/' : '/assets/images/';
 		const fullPath = `${basePath}${src}`;
 

@@ -6,7 +6,7 @@ import yaml from '@rollup/plugin-yaml';
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit(), yaml()],
 	ssr: {
-		external: ['gray-matter', 'markdown-it', 'markdown-it-attrs', 'markdown-it-bracketed-spans', 'markdown-it-task-lists']
+		external: ['markdown-it', 'markdown-it-attrs', 'markdown-it-bracketed-spans', 'markdown-it-task-lists']
 	},
 	build: {
 		rollupOptions: {
