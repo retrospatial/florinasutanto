@@ -2,7 +2,7 @@
  * Simple frontmatter parser (ESM-compatible replacement for gray-matter)
  */
 export function parseFrontmatter(content: string): { data: Record<string, unknown>; content: string } {
-	const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+	const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
 
 	if (!match) {
 		return { data: {}, content };
@@ -10,16 +10,43 @@ export function parseFrontmatter(content: string): { data: Record<string, unknow
 
 	const [, frontmatterBlock, body] = match;
 	const data: Record<string, unknown> = {};
+	const lines = frontmatterBlock.split('\n');
 
-	// Parse YAML-like frontmatter (simple key: value pairs)
-	for (const line of frontmatterBlock.split('\n')) {
+	let currentKey: string | null = null;
+	let currentArray: string[] | null = null;
+
+	for (const line of lines) {
+		// Check if this is a list item (starts with whitespace + -)
+		const listMatch = line.match(/^\s+-\s+(.*)$/);
+		if (listMatch && currentKey) {
+			if (!currentArray) {
+				currentArray = [];
+			}
+			currentArray.push(listMatch[1].trim().replace(/^['"]|['"]$/g, ''));
+			continue;
+		}
+
+		// If we were building an array, save it
+		if (currentKey && currentArray) {
+			data[currentKey] = currentArray;
+			currentArray = null;
+			currentKey = null;
+		}
+
 		const colonIndex = line.indexOf(':');
 		if (colonIndex === -1) continue;
 
 		const key = line.slice(0, colonIndex).trim();
 		let value: unknown = line.slice(colonIndex + 1).trim();
 
-		// Handle arrays (tags: [a, b, c] or tags: - a format)
+		// Empty value after colon means array follows on next lines
+		if (value === '') {
+			currentKey = key;
+			currentArray = [];
+			continue;
+		}
+
+		// Handle inline arrays (tags: [a, b, c])
 		if (typeof value === 'string' && value.startsWith('[') && value.endsWith(']')) {
 			value = value
 				.slice(1, -1)
@@ -43,7 +70,13 @@ export function parseFrontmatter(content: string): { data: Record<string, unknow
 
 		if (key) {
 			data[key] = value;
+			currentKey = null;
 		}
+	}
+
+	// Don't forget to save any trailing array
+	if (currentKey && currentArray) {
+		data[currentKey] = currentArray;
 	}
 
 	return { data, content: body.trim() };
