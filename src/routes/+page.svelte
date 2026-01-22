@@ -49,7 +49,7 @@
 			<div in:fly={{ y: 40, duration: 600, easing: cubicOut, delay: 200 }}>
 				<div class="text-white">
 					{#if selectedOption === 'short'}
-						<div class="body-lg">
+						<div class="body-lg about-link">
 							{@html md(content.about_short.text)}
 						</div>
 					{:else}

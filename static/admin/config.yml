@@ -4,7 +4,7 @@ backend:
   name: github
   repo: retrospatial/website
   branch: main
-  skip_ci: false
+  skip_ci: true
 
 media_folder: /static/blog
 public_folder: /blog

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Image from '$lib/helpers/Image.svelte';
 	import { page } from '$app/state';
+	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
 
 	let content = page.data.about_long;
 
@@ -12,51 +13,8 @@
 		image: string | null;
 	}
 
-	interface CachedCover {
-		image: string | null;
-		timestamp: number;
-	}
-
 	let tracks = $state<Track[]>([]);
 	let loading = $state(true);
-
-	const CACHE_KEY = 'lastfm-covers-v2';
-	const CACHE_DURATION = 1000 * 60 * 5;
-
-	function getCachedCover(track: string, artist: string): string | null | undefined {
-		try {
-			const cached = localStorage.getItem(CACHE_KEY);
-			if (!cached) return undefined;
-
-			const cache = JSON.parse(cached);
-			const key = `${artist}::${track}`;
-			const entry: CachedCover | undefined = cache[key];
-
-			if (entry && Date.now() - entry.timestamp < CACHE_DURATION) {
-				return entry.image;
-			}
-			return undefined;
-		} catch {
-			return undefined;
-		}
-	}
-
-	function setCachedCover(track: string, artist: string, image: string | null) {
-		try {
-			const cached = localStorage.getItem(CACHE_KEY);
-			const cache = cached ? JSON.parse(cached) : {};
-			const key = `${artist}::${track}`;
-
-			cache[key] = {
-				image,
-				timestamp: Date.now()
-			};
-
-			localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
-		} catch (err) {
-			console.error('Failed to cache cover:', err);
-		}
-	}
 
 	async function loadTracks() {
 		try {

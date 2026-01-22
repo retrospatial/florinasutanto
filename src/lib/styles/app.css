@@ -9,6 +9,10 @@
 		height: 100%;
 	}
 
+	a {
+		@apply cursor-pointer;
+	}
+
 	.body-lg .markdown p {
 		@apply font-exposure mb-4 text-lg leading-normal md:mb-8 md:text-xl;
 	}
@@ -21,12 +25,8 @@
 		@apply font-exposure mb-4 text-sm leading-normal md:mb-8 md:text-base;
 	}
 
-	a {
-		@apply cursor-pointer;
-	}
-
-	a .about-link {
-		@apply text-accent-blue hover:text-accent-cream transition-colors duration-300;
+	.about-link .markdown a {
+		@apply text-accent-blue hover:text-accent-cream no-underline transition-colors duration-300;
 	}
 
 	.background {
@@ -99,5 +99,33 @@
 
 	.markdown .caption {
 		@apply mb-4 block text-center text-base italic md:text-lg;
+	}
+
+	.markdown input[type='checkbox'] {
+		@apply border-accent-pink mr-2 h-4 w-4 cursor-pointer appearance-none rounded-xs border-2 align-middle;
+	}
+
+	.markdown .task-list-item label {
+		@apply flex items-center;
+	}
+
+	.markdown input[type='checkbox']:checked {
+		@apply bg-accent-pink;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+		background-size: 120%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.markdown li:has(input[type='checkbox']) {
+		@apply flex list-none items-center;
+	}
+
+	.markdown ul:has(input[type='checkbox']) {
+		@apply list-none;
+	}
+
+	.markdown a {
+		@apply decoration-accent-pink hover:text-accent-pink underline underline-offset-4 transition-colors duration-300;
 	}
 }

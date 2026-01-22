@@ -1,6 +1,7 @@
 import markdownit from 'markdown-it';
 import markdownItBracketedSpans from 'markdown-it-bracketed-spans';
 import markdownItAttrs from 'markdown-it-attrs';
+import markdownItTaskLists from 'markdown-it-task-lists';
 
 const md = markdownit({
 	// Enable HTML tags in source
@@ -41,6 +42,7 @@ const md = markdownit({
 	.use(markdownItBracketedSpans)
 	.use(markdownItAttrs, {
 		allowedAttributes: ['class', 'id', 'target']
-	});
+	})
+	.use(markdownItTaskLists);
 
 export default (string: string) => `<div class="markdown">${md.render(string)}</div>`;

@@ -1,6 +1,13 @@
 import matter from 'gray-matter';
 import { error } from '@sveltejs/kit';
 
+export const entries = () => {
+	const files = import.meta.glob('/content/posts/*.md', { eager: true, as: 'raw' });
+	return Object.keys(files).map((path) => ({
+		slug: path.split('/').pop()?.replace('.md', '') ?? ''
+	}));
+};
+
 export const load = async ({ params }) => {
 	const path = `/content/posts/${params.slug}.md`;
 
