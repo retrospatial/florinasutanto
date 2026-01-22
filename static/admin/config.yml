@@ -14,18 +14,13 @@ collections:
     label: Posts
     folder: /content/posts
     create: true
-    slug: "{{slug}}"
+    path: "{{year}}/{{slug}}/index"
+    slug: "{{year}}/{{slug}}"
     fields:
       - label: Title
         name: title
         widget: string
         required: true
-
-      - label: Slug
-        name: slug
-        widget: string
-        required: true
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Slug must be lowercase with hyphens only']
 
       - label: Description
         name: desc

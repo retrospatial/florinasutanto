@@ -9,7 +9,11 @@ interface PostFrontmatter {
 }
 
 export const load = async () => {
-	const files = import.meta.glob('/content/posts/*.md', { eager: true, query: '?raw', import: 'default' });
+	const files = import.meta.glob('/content/posts/**/*.md', {
+		eager: true,
+		query: '?raw',
+		import: 'default'
+	});
 
 	const posts = Object.entries(files)
 		.map(([path, raw]) => {
@@ -18,8 +22,10 @@ export const load = async () => {
 
 			const date = frontmatter.date ? new Date(frontmatter.date).toISOString().split('T')[0] : null;
 
+			let slug = path.replace('/content/posts/', '').replace('/index.md', '').replace('.md', '');
+
 			return {
-				slug: path.split('/').pop()?.replace('.md', '') ?? '',
+				slug,
 				title: frontmatter.title ?? '',
 				desc: frontmatter.desc ?? '',
 				cover: frontmatter.cover ?? '',
