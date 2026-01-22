@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import { parseFrontmatter } from '$lib/utils/frontmatter';
 import { error } from '@sveltejs/kit';
 
 export const entries = () => {
@@ -16,13 +16,13 @@ export const load = async ({ params }) => {
 
 	if (!raw) throw error(404, 'Post not found');
 
-	const { data, content } = matter(raw as string);
+	const { data, content } = parseFrontmatter(raw as string);
 
 	return {
 		post: {
 			slug: params.slug,
 			...data,
-			date: data.date ? new Date(data.date).toISOString().split('T')[0] : null,
+			date: data.date ? new Date(data.date as string | number).toISOString().split('T')[0] : null,
 			body: content
 		}
 	};

@@ -1,4 +1,4 @@
-import matter from 'gray-matter';
+import { parseFrontmatter } from '$lib/utils/frontmatter';
 
 interface PostFrontmatter {
 	title?: string;
@@ -13,7 +13,7 @@ export const load = async () => {
 
 	const posts = Object.entries(files)
 		.map(([path, raw]) => {
-			const { data, content } = matter(raw as string);
+			const { data, content } = parseFrontmatter(raw as string);
 			const frontmatter = data as PostFrontmatter;
 
 			const date = frontmatter.date ? new Date(frontmatter.date).toISOString().split('T')[0] : null;
