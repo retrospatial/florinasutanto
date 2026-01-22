@@ -18,9 +18,20 @@
 			return [normalizedKey, value];
 		})
 	) as Record<string, string>;
+
+	// Build Vercel image optimization URL
+	function getVercelImageUrl(src: string, width: number = 1200, quality: number = 75): string {
+		const params = new URLSearchParams({
+			url: src,
+			w: width.toString(),
+			q: quality.toString()
+		});
+		return `/_vercel/image?${params}`;
+	}
 </script>
 
 <script lang="ts">
+	import { dev } from '$app/environment';
 	import type { ClassValue } from 'svelte/elements';
 
 	interface Props {
@@ -29,21 +40,29 @@
 		alt: string;
 		class?: ClassValue;
 		ref?: HTMLElement;
+		width?: number;
+		quality?: number;
 	}
 
-	let { lazy = true, src, alt, class: classes = '', ref = $bindable() }: Props = $props();
+	let {
+		lazy = true,
+		src,
+		alt,
+		class: classes = '',
+		ref = $bindable(),
+		width = 1200,
+		quality = 75
+	}: Props = $props();
 
-	const imageSrc = $derived(pictures[src]);
+	const baseSrc = $derived(pictures[src]);
+	// Use Vercel image optimization in production, direct src in dev
+	const imageSrc = $derived(
+		baseSrc ? (dev ? baseSrc : getVercelImageUrl(baseSrc, width, quality)) : undefined
+	);
 </script>
 
-{#if imageSrc}
-	<img
-		bind:this={ref}
-		src={imageSrc}
-		{alt}
-		loading={lazy ? 'lazy' : 'eager'}
-		class={classes}
-	/>
+{#if baseSrc}
+	<img bind:this={ref} src={imageSrc} {alt} loading={lazy ? 'lazy' : 'eager'} class={classes} />
 {:else}
 	<div class="text-red-500">Image not found: {src}</div>
 {/if}
