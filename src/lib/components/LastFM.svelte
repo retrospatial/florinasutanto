@@ -100,34 +100,43 @@
 	});
 </script>
 
-<div class="tracking-tighter flex items-center justify-center flex-col gap-4 mx-4">
-	<div class="flex items-center justify-center relative">
-		<div class="heading-3 text-black/85 w-full max-w-2/3 flex text-balance text-center">
-			{content.text[0].title}
+<div
+	class="relative w-full max-w-80 overflow-hidden h-full -rotate-2 text-black flex items-center justify-center px-2 py-2 md:py-4"
+>
+	<Image
+		src="receipt.jpg"
+		alt="receipt"
+		class="w-full h-full object-cover scale-225 absolute inset-0"
+	/>
+	<div class="tracking-tighter flex items-center justify-center flex-col mx-4 relative min-h-110">
+		<div class="flex items-center justify-center relative mb-4">
+			<div class="heading-3 text-black/85 w-full max-w-2/3 flex text-balance text-center">
+				{content.text[0].title}
+			</div>
+			<Image
+				src="vinyl.png"
+				alt="vinyl"
+				class="w-full h-auto max-w-8 md:max-w-10 animate-spin-slow absolute -bottom-1 right-7"
+			/>
 		</div>
-		<Image
-			src="vinyl.png"
-			alt="vinyl"
-			class="w-full h-auto max-w-10 animate-spin-slow absolute  right-6"
-		/>
-	</div>
-	<div class="w-full">
-		{#each tracks as t (t.url)}
-			<a class="body-md" href={t.url} target="_blank" rel="noreferrer">
-				<div class="flex flex-row gap-4 items-start justify-start py-2">
-					{#if t.image}
-						<img src={t.image} alt="" class="max-w-12 w-full max-h-12 h-auto" />
-					{:else}
-						<div class="w-full max-w-12 h-12 bg-accent-blue"></div>
-					{/if}
+		<div class="w-full">
+			{#each tracks as t (t.url)}
+				<a class="body-md" href={t.url} target="_blank" rel="noreferrer">
+					<div class="flex flex-row gap-4 items-start justify-start py-2">
+						{#if t.image}
+							<img src={t.image} alt="" class="max-w-12 w-full max-h-12 h-auto" />
+						{:else}
+							<div class="w-full max-w-12 h-12 bg-accent-blue"></div>
+						{/if}
 
-					<div class="flex justify-center flex-col uppercase text-black/80">
-						<div class="body-md mb-0 font-bold font-courier">{t.name}</div>
-						<div class="body-sm mb-0 font-courier">{t.artist}</div>
+						<div class="flex justify-center flex-col uppercase text-black/80">
+							<div class="body-md mb-0 font-bold font-courier leading-tight">{t.name}</div>
+							<div class="body-sm mb-0 font-courier leading-tight">{t.artist}</div>
+						</div>
 					</div>
-				</div>
-			</a>
-		{/each}
+				</a>
+			{/each}
+		</div>
 	</div>
 </div>
 

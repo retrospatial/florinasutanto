@@ -1,7 +1,7 @@
 about_short:
   title: Hi! I'm Flo
   text: >
-    I am an Interactive Engineer at <a href="https://www.citizencodex.com/" target="_blank" rel="noopener noreferrer">[Citizen Codex]{.about-link}</a>, a data innovation studio. My work primarily lies across data journalism, digital humanities, and interaction design. 
+    I am a creative data storyteller and developer. My work primarily lies across data journalism, digital humanities, and interaction design. Currently, I work as an Interactive Engineer at <a href="https://www.citizencodex.com/" target="_blank" rel="noopener noreferrer">[Citizen Codex]{.about-link}</a>, a data innovation studio.
 
 
     I am interested in using incisive storytelling, visual explorations, and novel data to reveal new truths about how we interact with this world and each other. 
@@ -13,7 +13,7 @@ about_short:
     I am originally from Bogor, Indonesia and now based in Cambridge, MA.
 
 about_long:
-  title: More About Me
+  title: Scrapbook
   text:
     - title: Favorite Songs This Week
     - title: Online Reads
@@ -28,3 +28,19 @@ about_long:
           href: https://buttondown.com/the-rec-center
         - title: The Singles Jukebox
           href: https://thesinglesjukebox.com/
+    - title: Sports
+      desc:
+        - title: Parkour
+          src: parkour.jpg
+        - title: Aerials
+          src: aerials.jpg
+        - title: Climbing
+          src: climbing.jpg
+        - title: Scuba Diving
+          src: scuba.jpg
+        - title: Dragon Boating
+          src: rowing.jpg
+        - title: Investigating
+          src: investigating.jpg
+    - title: Piano
+      desc: Play this piano! Press <span class="text-accent-blue font-bold">Z</span> to lower the octave and <span class="text-accent-blue font-bold">X</span> to raise it.

@@ -4,12 +4,15 @@
 	--font-mono: 'Fira Code', monospace;
 	--font-courier: 'Courier Prime', monospace;
 	--font-terminal: 'VT323', monospace;
+	--font-goudy: 'Goudy Bookletter 1911', serif;
+	--font-rock-salt: 'Rock Salt', cursive;
+	--font-technology: 'Technology', sans-serif;
 
-	--color-accent-blue: #5298a0;
+	--color-accent-blue: #66adb5;
 	--color-accent-cream: #f3e3cf;
-	--color-accent-purple: #ab9df2;
+	--color-accent-purple: #b0a0ff;
 	--color-accent-orange: #ca9248;
-	--color-accent-pink: #de748d;
+	--color-accent-pink: #ef6b89;
 	--color-accent-green: #d8f328;
 	--color-dark-gray: #181818;
 

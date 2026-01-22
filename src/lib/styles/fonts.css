@@ -1,4 +1,52 @@
-.vt323-regular {
+/* Technology */
+@font-face {
+	font-family: 'Technology';
+	src: url('/fonts/technology/Technology.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Technology';
+	src: url('/fonts/technology/Technology-Italic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Technology';
+	src: url('/fonts/technology/Technology-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Technology';
+	src: url('/fonts/technology/Technology-BoldItalic.ttf') format('truetype');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* Rock Salt */
+.rock-salt {
+	font-family: 'Rock Salt', cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* Goudy Bookletter 1911 */
+.goudy {
+	font-family: 'Goudy Bookletter 1911', serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* VT323 */
+.vt323 {
 	font-family: 'VT323', monospace;
 	font-weight: 400;
 	font-style: normal;
