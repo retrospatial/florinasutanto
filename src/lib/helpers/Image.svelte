@@ -1,5 +1,6 @@
 <script lang="ts" module>
-	// Match files directly in assets folder and in subdirectories
+	import { dev } from '$app/environment';
+
 	const imports = import.meta.glob(
 		[
 			'../assets/*.{avif,gif,heif,jpeg,jpg,png,tiff,webp}',
@@ -13,14 +14,14 @@
 
 	const pictures = Object.fromEntries(
 		Object.entries(imports).map(([key, value]) => {
-			// Remove '../assets/' prefix and normalize path separators
 			const normalizedKey = key.replace('../assets/', '').replace(/\\/g, '/');
 			return [normalizedKey, value];
 		})
 	) as Record<string, string>;
 
 	// Build Vercel image optimization URL
-	function getVercelImageUrl(src: string, width: number = 1200, quality: number = 75): string {
+	function getOptimizedUrl(src: string, width: number, quality: number): string {
+		if (dev) return src;
 		const params = new URLSearchParams({
 			url: src,
 			w: width.toString(),
@@ -31,7 +32,6 @@
 </script>
 
 <script lang="ts">
-	import { dev } from '$app/environment';
 	import type { ClassValue } from 'svelte/elements';
 
 	interface Props {
@@ -55,13 +55,10 @@
 	}: Props = $props();
 
 	const baseSrc = $derived(pictures[src]);
-	// Use Vercel image optimization in production, direct src in dev
-	const imageSrc = $derived(
-		baseSrc ? (dev ? baseSrc : getVercelImageUrl(baseSrc, width, quality)) : undefined
-	);
+	const imageSrc = $derived(baseSrc ? getOptimizedUrl(baseSrc, width, quality) : undefined);
 </script>
 
-{#if baseSrc}
+{#if imageSrc}
 	<img bind:this={ref} src={imageSrc} {alt} loading={lazy ? 'lazy' : 'eager'} class={classes} />
 {:else}
 	<div class="text-red-500">Image not found: {src}</div>
