@@ -2,7 +2,7 @@
 
 backend:
   name: github
-  repo: retrospatial/website
+  repo: retrospatial/florinasutanto
   branch: main
   skip_ci: true
 

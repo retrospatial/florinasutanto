@@ -14,15 +14,15 @@
 	}
 
 	.body-lg .markdown p {
-		@apply font-exposure mb-4 text-lg leading-normal md:mb-8 md:text-xl;
+		@apply font-exposure mb-4 text-lg leading-relaxed md:mb-8 md:text-xl;
 	}
 
 	.body-md .markdown p {
-		@apply font-exposure mb-4 text-base leading-normal md:mb-8 md:text-lg;
+		@apply font-exposure mb-4 text-base leading-relaxed md:mb-8 md:text-lg;
 	}
 
 	.body-sm .markdown p {
-		@apply font-exposure mb-4 text-sm leading-normal md:mb-8 md:text-base;
+		@apply font-exposure mb-4 text-sm leading-relaxed md:mb-8 md:text-base;
 	}
 
 	.about-link .markdown a {
@@ -54,19 +54,19 @@
 	}
 
 	.markdown h1 {
-		@apply font-exposure mb-2 text-3xl leading-normal md:text-4xl;
+		@apply font-exposure mb-6 text-3xl leading-normal md:text-4xl;
 	}
 
 	.markdown h2 {
-		@apply font-exposure mb-2 text-2xl leading-normal md:text-3xl;
+		@apply font-exposure mb-4 text-2xl leading-normal md:text-3xl;
 	}
 
 	.markdown h3 {
-		@apply font-exposure mb-2 text-xl leading-normal md:text-2xl;
+		@apply font-exposure mb-4 text-xl leading-normal md:text-2xl;
 	}
 
 	.markdown p {
-		@apply font-exposure mb-4 text-base leading-normal md:text-lg;
+		@apply font-exposure mb-6 text-base leading-relaxed md:text-lg;
 	}
 
 	.markdown ul {
@@ -85,10 +85,12 @@
 		@apply border-accent-pink my-8 border-l-4 pl-4 md:pl-6;
 	}
 
+	/* inline code */
 	.markdown :not(pre) > code {
-		@apply rounded-md bg-gray-800 px-1.5 py-0.5 font-mono text-sm leading-normal md:text-base;
+		@apply bg-accent-pink/30 rounded-md px-1.5 py-0.5 font-mono text-sm leading-normal md:text-base;
 	}
 
+	/* code blocks */
 	.markdown pre {
 		@apply bg-dark-gray my-6 overflow-x-auto rounded-md p-4;
 	}
@@ -106,7 +108,7 @@
 	}
 
 	.markdown .task-list-item label {
-		@apply flex items-center;
+		@apply flex items-center text-black;
 	}
 
 	.markdown input[type='checkbox']:checked {
@@ -120,6 +122,10 @@
 	.markdown li:has(input[type='checkbox']) {
 		@apply flex list-none items-center;
 	}
+
+	/* .markdown li:has(input[type='checkbox']:checked) {
+		@apply decoration-accent-pink line-through;
+	} */
 
 	.markdown ul:has(input[type='checkbox']) {
 		@apply list-none;

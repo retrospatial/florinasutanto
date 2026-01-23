@@ -215,6 +215,9 @@
 			</a>
 		{/each}
 
-		<p class="entry-heading lowercase text-white">and more to come!</p>
+		<div class="flex flex-row gap-4 items-center">
+			<p class="entry-heading lowercase text-white">and more to come!</p>
+			<Image src="doodles/scuba.png" alt="scuba" class="w-12 md:w-16" />
+		</div>
 	</div>
 </section>

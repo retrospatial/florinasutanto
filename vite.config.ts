@@ -5,6 +5,11 @@ import yaml from '@rollup/plugin-yaml';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit(), yaml()],
+	server: {
+		fs: {
+			allow: ['content']
+		}
+	},
 	ssr: {
 		external: [
 			'markdown-it',

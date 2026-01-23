@@ -1,6 +1,13 @@
 import adapter from '@sveltejs/adapter-vercel';
+import { mdsvex } from 'mdsvex';
 
 export default {
+	extensions: ['.svelte', '.md'],
+	preprocess: [
+		mdsvex({
+			extensions: ['.md']
+		})
+	],
 	kit: {
 		adapter: adapter({
 			images: {

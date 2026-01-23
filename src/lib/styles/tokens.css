@@ -8,11 +8,12 @@
 	--font-rock-salt: 'Rock Salt', cursive;
 	--font-technology: 'Technology', sans-serif;
 
+	--color-white: #dadada;
 	--color-accent-blue: #66adb5;
 	--color-accent-cream: #f3e3cf;
-	--color-accent-purple: #b0a0ff;
+	--color-accent-purple: #ab9df2;
 	--color-accent-orange: #ca9248;
-	--color-accent-pink: #ef6b89;
+	--color-accent-pink: #e56684;
 	--color-accent-green: #d8f328;
 	--color-dark-gray: #181818;
 
@@ -36,15 +37,15 @@
 }
 
 @utility body-lg {
-	@apply font-exposure mb-4 text-lg leading-normal md:mb-8 md:text-xl;
+	@apply font-exposure mb-4 text-lg leading-relaxed md:mb-8 md:text-xl;
 }
 
 @utility body-md {
-	@apply font-exposure mb-4 text-base leading-normal md:mb-8 md:text-lg;
+	@apply font-exposure mb-4 text-base leading-relaxed md:mb-8 md:text-lg;
 }
 
 @utility body-sm {
-	@apply font-exposure mb-4 text-sm leading-normal md:mb-8 md:text-base;
+	@apply font-exposure mb-4 text-sm leading-relaxed md:mb-8 md:text-base;
 }
 
 @utility button-text {
