@@ -21,7 +21,7 @@ export const entries = async () => {
 	return filePaths.map((path) => {
 		const slug = path.replace('/content/posts/', '').replace('/index.md', '').replace('.md', '');
 		return {
-			slug
+			slug: slug
 		};
 	});
 };
