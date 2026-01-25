@@ -8,7 +8,7 @@ tags:
   - site
 ---
 
-Hello! Welcome to my site. This space is meant to be a catch-all for me to showcase my professional portfolio, practice web design and development, experiment with graphics, post personal projects, and write about things I find interesting. 
+Hello! Welcome to my site. This space is meant to be a catch-all for me to showcase my professional portfolio, practice web design and development, experiment with graphics, post personal projects, and write about things I find interesting.
 
 I imagine that everything here will constantly be in flux as my tastes and interests grow and change, but I'd like to document how I built this site as best as I can, both for my own sake and for whoever might find this useful.
 
@@ -39,6 +39,26 @@ Now that I have components that make dynamic API calls, I can't use GitHub Pages
 The only thing I pay for to get this site on the internet is my domain name, which costs $20/year via Squarespace. It's been fine to use and I honestly barely touch it. I've learned that it's much cheaper (\~$11/year) to buy a domain off Porkbun, which is also highly rated, so when my plan ends this year I might make the switch (hopefully I'll remember).
 
 > **Dev tip:** To open localhost on your phone or tablet (for responsivity testing), run the command `pnpm dev --host`, copy the Network link, and open the link in a mobile browser. Make sure all devices are connected to the same network. It's much easier and more reliable than using an emulator!
+
+# Media
+I use Vercel's built-in [Image Optimizer](https://vercel.com/docs/image-optimization) to compress and cache images, making them load faster on this site. 
+
+I compress videos by running [this ffmpeg CLI command](https://unix.stackexchange.com/questions/531353/how-to-significantly-lower-a-video-file-size-with-ffmpeg-without-quality-loss) in the folder where I store all the clips. This loops through every video in the folder (convenient for when I add multiple videos at once, though it might get too unwieldy at some point), encodes the video with the H.265 codec, and then overwrites the original file so there's only one copy at the end. This is hands down the best solution I've seen for getting 20+ MB videos down to less than 1 MB without compromising on video quality.
+
+Loop through all videos:
+
+```bash
+for f in *.mp4; do
+  ffmpeg -i "$f" -c:v libx265 -vtag hvc1 -c:a copy "${f%.mp4}_temp.mp4"
+  mv "${f%.mp4}_temp.mp4" "$f"
+done
+
+```
+
+By individual video:
+```bash
+ffmpeg -i "input.mp4" -c:v libx265 -vtag hvc1 -c:a copy "input_temp.mp4" mv "input_temp.mp4" "input.mp4"
+```
 
 # APIs and Components
 
