@@ -69,6 +69,11 @@
 		@apply font-exposure mb-6 text-base leading-relaxed md:text-lg;
 	}
 
+	.markdown p strong,
+	.markdown p b {
+		font-weight: 370;
+	}
+
 	.markdown ul {
 		@apply list-inside list-disc text-base leading-normal md:text-lg;
 	}
