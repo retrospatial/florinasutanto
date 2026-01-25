@@ -8,7 +8,7 @@ tags:
   - site
 ---
 
-Hello! Welcome to my site. This space is meant to be a catch-all for me to showcase my professional portfolio, practice web design and development, experiment with graphics, post personal projects, and write about things I find interesting.
+Hello! Welcome to my site. This space is meant to be a catch-all for me to showcase my professional portfolio, practice web design and development, experiment with graphics, post personal projects, and write about things I find interesting. 
 
 I imagine that everything here will constantly be in flux as my tastes and interests grow and change, but I'd like to document how I built this site as best as I can, both for my own sake and for whoever might find this useful.
 
