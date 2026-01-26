@@ -1,6 +1,6 @@
 ---
 title: Colophon
-desc: How I built this site.
+desc: How I built this site!
 cover: ''
 date: 2026-01-25
 tags:
@@ -18,7 +18,7 @@ With personal projects, I normally do a bit of design testing on Figma (basic la
 
 The little doodles on the personal page were drawn using Affinity Designer (which is now [FREE](https://www.canva.com/newsroom/news/affinity-free/)?!) as vectors on my iPad, then exported and edited on Figma. I find it faster to make final touches to SVGs on my laptop rather than my iPad.
 
-Animations were made using the [GSAP library](https://gsap.com/).
+Animations were made using the [GSAP library](https://gsap.com/). I use [Shiki](https://shiki.style/) as a syntax highlighter for code blocks.
 
 # Stack
 
@@ -58,8 +58,7 @@ done
 By individual video:
 
 ```bash
-ffmpeg -i "input.mp4" -c:v libx265 -vtag hvc1 -c:a copy "input_temp.mp4"
-mv "input_temp.mp4" "input.mp4"
+ffmpeg -i "input.mp4" -c:v libx265 -vtag hvc1 -c:a copy "input_temp.mp4" mv "input_temp.mp4" "input.mp4"
 ```
 
 # APIs and Components
