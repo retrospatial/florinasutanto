@@ -44,7 +44,7 @@ The only thing I pay for to get this site on the internet is my domain name, whi
 
 I use Vercel's built-in [Image Optimizer](https://vercel.com/docs/image-optimization) to compress and cache images, making them load faster on this site.
 
-I compress videos by running [this ffmpeg CLI command](https://unix.stackexchange.com/questions/531353/how-to-significantly-lower-a-video-file-size-with-ffmpeg-without-quality-loss) in the folder where I store all the clips. This loops through every video in the folder (convenient for when I add multiple videos at once, though it might get too unwieldy at some point), encodes the video with the H.265 codec, and then overwrites the original file so there's only one copy at the end. This is hands down the best solution I've seen for getting 20+ MB videos down to less than 1 MB without compromising on video quality.
+I compress videos by running [this ffmpeg CLI command](https://unix.stackexchange.com/a/693375) in the folder where I store all the clips. This loops through every video in the folder (convenient for when I add multiple videos at once, though it might get too unwieldy at some point), encodes the video with the H.265 codec, and then overwrites the original file so there's only one copy at the end. This is hands down the best solution I've seen for getting 20+ MB videos down to less than 1 MB without compromising on video quality.
 
 Loop through all videos:
 
