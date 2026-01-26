@@ -41,7 +41,8 @@ The only thing I pay for to get this site on the internet is my domain name, whi
 > **Dev tip:** To open localhost on your phone or tablet (for responsivity testing), run the command `pnpm dev --host`, copy the Network link, and open the link in a mobile browser. Make sure all devices are connected to the same network. It's much easier and more reliable than using an emulator!
 
 # Media
-I use Vercel's built-in [Image Optimizer](https://vercel.com/docs/image-optimization) to compress and cache images, making them load faster on this site. 
+
+I use Vercel's built-in [Image Optimizer](https://vercel.com/docs/image-optimization) to compress and cache images, making them load faster on this site.
 
 I compress videos by running [this ffmpeg CLI command](https://unix.stackexchange.com/questions/531353/how-to-significantly-lower-a-video-file-size-with-ffmpeg-without-quality-loss) in the folder where I store all the clips. This loops through every video in the folder (convenient for when I add multiple videos at once, though it might get too unwieldy at some point), encodes the video with the H.265 codec, and then overwrites the original file so there's only one copy at the end. This is hands down the best solution I've seen for getting 20+ MB videos down to less than 1 MB without compromising on video quality.
 
@@ -52,12 +53,13 @@ for f in *.mp4; do
   ffmpeg -i "$f" -c:v libx265 -vtag hvc1 -c:a copy "${f%.mp4}_temp.mp4"
   mv "${f%.mp4}_temp.mp4" "$f"
 done
-
 ```
 
 By individual video:
+
 ```bash
-ffmpeg -i "input.mp4" -c:v libx265 -vtag hvc1 -c:a copy "input_temp.mp4" mv "input_temp.mp4" "input.mp4"
+ffmpeg -i "input.mp4" -c:v libx265 -vtag hvc1 -c:a copy "input_temp.mp4"
+mv "input_temp.mp4" "input.mp4"
 ```
 
 # APIs and Components
