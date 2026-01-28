@@ -18,8 +18,7 @@
 		mm = gsap.matchMedia();
 
 		setTimeout(() => {
-			// projects
-			mm.add('all', () => {
+			mm.add('(min-width: 1024px)', () => {
 				rowRefs.forEach((el, i) => {
 					if (!el) return;
 
