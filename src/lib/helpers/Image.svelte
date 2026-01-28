@@ -1,13 +1,15 @@
 <script lang="ts" module>
+	import { browser } from '$app/environment';
+
 	const isDev = import.meta.env.DEV;
 
 	function getOptimizedUrl(src: string, width: number, quality: number): string {
 		const basePath = src.startsWith('cover_imgs/') ? '/assets/' : '/assets/images/';
 		const fullPath = `${basePath}${src}`;
 
-		// In dev, serve directly from static
-		if (isDev) return fullPath;
-		// In production, use Vercel image optimization
+		// In dev or during SSR/prerendering, serve directly from static
+		if (isDev || !browser) return fullPath;
+		// In production browser, use Vercel image optimization
 		const params = new URLSearchParams({
 			url: fullPath,
 			w: width.toString(),
