@@ -2,6 +2,7 @@
 
 <script lang="ts">
 	import type { Component } from 'svelte';
+	import { addCopyButtons } from '$lib/components/CopyButton.svelte';
 
 	interface Props {
 		data: {
@@ -40,7 +41,7 @@
 				{/each}
 			</div>
 		{/if}
-		<div class="mt-4 markdown">
+		<div class="mt-4 markdown" use:addCopyButtons>
 			<Content />
 		</div>
 	</article>

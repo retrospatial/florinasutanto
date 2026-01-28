@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '$lib/styles/app.css';
 	import 'iconify-icon';
+	import Image from '$lib/helpers/Image.svelte';
 	const favicon = '/assets/images/favicon.png';
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
@@ -66,39 +67,44 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<section class="background fixed inset-0 -z-10"></section>
+<div class="fixed inset-0 -z-10 bg-dark-gray">
+	<Image
+		src="bg.png"
+		alt=""
+		class="h-full w-full object-cover"
+		lazy={false}
+		width={1920}
+		quality={80}
+	/>
+</div>
 
 <div class="max-w-screen-2xl mx-auto">
-	{#if mounted}
-		<nav class="pt-navbar" in:fly|global={{ y: -40, duration: 600, easing: cubicOut, delay: 400 }}>
-			<div
-				class="w-4/5 mx-auto relative grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row justify-between items-start text-white"
+	<nav class="pt-navbar">
+		<div
+			class="w-4/5 mx-auto relative grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row justify-between items-start text-white"
+		>
+			<a href="/"
+				><p class="nav-title hover:text-accent-blue {about ? 'text-accent-blue italic' : ''}">
+					about
+				</p></a
 			>
-				<a href="/"
-					><p class="nav-title hover:text-accent-blue {about ? 'text-accent-blue italic' : ''}">
-						about
-					</p></a
-				>
-				<a href="/work"
-					><p class="nav-title hover:text-accent-purple {work ? 'text-accent-purple italic' : ''}">
-						work
-					</p></a
-				>
-				<a href="/personal"
-					><p
-						class="nav-title hover:text-accent-green {personal ? 'text-accent-green italic' : ''}"
-					>
-						personal
-					</p></a
-				>
-				<a href="/blog"
-					><p class="nav-title hover:text-accent-pink {blog ? 'text-accent-pink italic' : ''}">
-						blog
-					</p></a
-				>
-			</div>
-		</nav>
-	{/if}
+			<a href="/work"
+				><p class="nav-title hover:text-accent-purple {work ? 'text-accent-purple italic' : ''}">
+					work
+				</p></a
+			>
+			<a href="/personal"
+				><p class="nav-title hover:text-accent-green {personal ? 'text-accent-green italic' : ''}">
+					personal
+				</p></a
+			>
+			<a href="/blog"
+				><p class="nav-title hover:text-accent-pink {blog ? 'text-accent-pink italic' : ''}">
+					blog
+				</p></a
+			>
+		</div>
+	</nav>
 </div>
 
 <main class="relative py-8 md:py-16 max-w-screen-2xl mx-auto">
@@ -110,3 +116,20 @@
 		{/key}
 	{/if}
 </main>
+
+<style>
+	@keyframes nav-fly-in {
+		from {
+			opacity: 0;
+			transform: translateY(-40px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	nav {
+		animation: nav-fly-in 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.4s both;
+	}
+</style>

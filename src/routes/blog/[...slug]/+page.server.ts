@@ -19,21 +19,16 @@ export const entries = async () => {
 	const filePaths = Object.keys(files);
 
 	return filePaths.map((path) => {
-		const slug = path.replace('/content/posts/', '').replace('/index.md', '').replace('.md', '');
-		return {
-			slug: slug
-		};
+		const slug = path.replace('/content/posts/', '').replace('.md', '');
+		return { slug };
 	});
 };
 
 export const load = async ({ params }) => {
-	const indexPath = `/content/posts/${params.slug}/index.md`;
-	const directPath = `/content/posts/${params.slug}.md`;
-
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
 		eager: true
 	});
-	const module = files[indexPath] || files[directPath];
+	const module = files[`/content/posts/${params.slug}.md`];
 
 	if (!module) throw error(404, 'Post not found');
 

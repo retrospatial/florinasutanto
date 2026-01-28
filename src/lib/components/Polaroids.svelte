@@ -33,7 +33,11 @@
 				--base-z: {positions[i % positions.length].z};
 			"
 		>
-			<Image src={item.src} alt={item.title} class="w-full aspect-square  object-cover " />
+			<Image
+				src="polaroids/{item.src}"
+				alt={item.title}
+				class="w-full aspect-square  object-cover "
+			/>
 			<div class="bg-[#E3E3E3] py-4">
 				<p class="text-black text-center font-rock-salt text-sm md:text-lg">
 					{item.title}

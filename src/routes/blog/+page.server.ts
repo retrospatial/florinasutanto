@@ -20,7 +20,7 @@ export const load = async () => {
 		.map(([path, module]) => {
 			const metadata = module.metadata;
 			const date = metadata.date ? new Date(metadata.date).toISOString().split('T')[0] : null;
-			const slug = path.replace('/content/posts/', '').replace('/index.md', '').replace('.md', '');
+			const slug = path.replace('/content/posts/', '').replace('.md', '');
 
 			return {
 				slug,

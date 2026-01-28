@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Image from '$lib/helpers/Image.svelte';
 	import { page } from '$app/state';
+	import { onMount } from 'svelte';
 	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
 
 	let content = page.data.about_long;
@@ -53,7 +54,7 @@
 		}
 	}
 
-	$effect(() => {
+	onMount(() => {
 		loadTracks();
 	});
 </script>

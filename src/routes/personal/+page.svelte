@@ -3,7 +3,6 @@
 	import Image from '$lib/helpers/Image.svelte';
 	import { isVideo } from '$lib/utils/video';
 	import { onMount, onDestroy } from 'svelte';
-	import Doodles from '$lib/components/defunct/Doodles.svelte';
 
 	import gsap from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -20,7 +19,7 @@
 
 		setTimeout(() => {
 			// projects
-			mm.add('(min-width: 769px)', () => {
+			mm.add('all', () => {
 				rowRefs.forEach((el, i) => {
 					if (!el) return;
 
@@ -81,7 +80,7 @@
 						</div>
 
 						<div
-							class="flex flex-col gap-2 p-4 text-white group-hover:text-black transition-colors"
+							class="flex flex-col items-end text-right gap-2 p-4 text-white group-hover:text-black transition-colors"
 						>
 							<h2 class="entry-heading lowercase">{item.title}</h2>
 							<p class="entry-tag">{item.type}</p>

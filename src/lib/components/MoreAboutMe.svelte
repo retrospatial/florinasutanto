@@ -4,7 +4,7 @@
 	import Image from '$lib/helpers/Image.svelte';
 	import LastFM from '$lib/components/LastFM.svelte';
 	import Books from '$lib/components/Books.svelte';
-	import Sports from '$lib/components/Sports.svelte';
+	import Polaroids from '$lib/components/Polaroids.svelte';
 	import md from '$lib/utils/md';
 
 	let content = page.data.about_long;
@@ -55,7 +55,7 @@
 	</div>
 
 	<div class="w-full lg:max-w-3/4 mx-auto mt-10">
-		<Sports />
+		<Polaroids />
 	</div>
 
 	<div

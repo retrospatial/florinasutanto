@@ -29,12 +29,6 @@
 		@apply text-accent-blue hover:text-accent-cream no-underline transition-colors duration-300;
 	}
 
-	.background {
-		background-image: url('/assets/bg.png');
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
 	::-webkit-scrollbar {
 		width: 8px;
 	}
@@ -100,8 +94,21 @@
 		@apply bg-dark-gray my-6 overflow-x-auto rounded-md p-4;
 	}
 
+	.markdown pre::-webkit-scrollbar {
+		height: 4px;
+	}
+
+	.markdown pre::-webkit-scrollbar-track {
+		background: var(--color-dark-gray);
+	}
+
+	.markdown pre::-webkit-scrollbar-thumb {
+		background: var(--color-accent-pink);
+		border-radius: 9999px;
+	}
+
 	.markdown pre code {
-		@apply bg-transparent p-0 font-mono text-sm leading-normal md:text-base;
+		@apply bg-transparent p-0 font-mono text-xs leading-normal md:text-sm;
 	}
 
 	.markdown .caption {
