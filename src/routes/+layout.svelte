@@ -76,8 +76,8 @@
 		width={1920}
 		quality={80}
 	/>
-	<div class="absolute inset-0 bg-red-500/20 mix-blend-overlay"></div>
-	<div class="absolute inset-0 bg-black/50"></div>
+	<div class="absolute inset-0 bg-accent-teal/40 mix-blend-color"></div>
+	<div class="absolute inset-0 bg-black/40"></div>
 </div>
 
 <div class="max-w-screen-2xl mx-auto">
@@ -133,5 +133,15 @@
 
 	nav {
 		animation: nav-fly-in 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.4s both;
+	}
+
+	.dot-pattern {
+		background-image:
+			radial-gradient(circle, rgba(255, 255, 255, 0.15) 0.5px, transparent 0.5px),
+			radial-gradient(circle, rgba(255, 255, 255, 0.15) 0.5px, transparent 0.5px);
+		background-size: 8px 12px;
+		background-position:
+			0 0,
+			4px 6px;
 	}
 </style>
