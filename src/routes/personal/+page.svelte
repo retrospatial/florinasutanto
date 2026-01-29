@@ -54,7 +54,7 @@
 
 <section class="w-4/5 mx-auto body">
 	<!-- mobile layout -->
-	<div class="md:hidden mb-8 relative">
+	<div class="lg:hidden mb-8 relative">
 		<h2 class="heading-2 text-accent-green mb-4">fun & random projects</h2>
 
 		<div class="relative">
@@ -99,7 +99,7 @@
 	</div>
 
 	<!-- desktop layout -->
-	<div class="hidden md:block relative mb-8">
+	<div class="hidden lg:block relative mb-8">
 		<svg
 			viewBox="-28 0 350 320"
 			class="w-full max-w-md overflow-visible"
@@ -174,11 +174,11 @@
 			<a href={item.link ?? undefined} target="_blank" rel="noopener noreferrer" class="group">
 				<div
 					bind:this={rowRefs[i]}
-					class={`flex md:max-h-60 h-full items-center flex-col justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 ${
-						i % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
+					class={`flex lg:max-h-60 h-full items-center flex-col justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 ${
+						i % 2 === 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'
 					}`}
 				>
-					<div class="aspect-video max-w-full w-full md:max-w-xs">
+					<div class="aspect-video max-w-full w-full lg:max-w-xs">
 						{#if isVideo(item.cover)}
 							<video
 								class="w-full h-full object-cover"
@@ -202,15 +202,18 @@
 
 					<div
 						class={`flex flex-col gap-2 my-2 w-full text-white group-hover:text-black transition-colors
-						 md:mx-8 md:px-0 px-4 pb-4 md:pb-0
+						 lg:mx-8 lg:px-0 px-4 pb-4 lg:pb-0
 						${i % 2 === 0 ? 'items-start text-left' : 'items-end text-right'}`}
 					>
 						<h2 class="entry-heading lowercase">{item.title}</h2>
 						<p class="entry-tag">{item.type}</p>
 						<p class="entry-body text-balance">{@html item.desc}</p>
 
+						<!-- detik links array -->
 						{#if item.title === 'DetikCom' && content.detik}
-							<div class="flex flex-row gap-2 mt-2">
+							<div
+								class={`flex flex-wrap gap-2 mt-2 ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+							>
 								{#each content.detik as link, j}
 									<a href={link} target="_blank" rel="noopener noreferrer" class="cursor-pointer">
 										<p
