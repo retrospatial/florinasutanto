@@ -31,3 +31,21 @@ projects:
     type: Data story
     link: https://storymaps.arcgis.com/stories/0067c80743bb419e9a666a253255504b
     cover: japan.jpg
+  - title: DetikCom
+    desc: Articles from when I interned at Detik.com, a major Indonesian news site.
+    type: Journalism
+    cover: detik.jpg
+
+detik:
+  - https://hot.detik.com/movie/d-3951895/transformasi-putri-marino-menjadi-istri-tni
+  - https://hot.detik.com/movie/d-3952631/nasib-para-avengers-di-infinity-war-disebut-bakal-jadi-judul-di-avengers-4
+  - https://hot.detik.com/movie/d-3952562/putri-marino-belajar-bahasa-melayu-untuk-jelita-sejuba
+  - https://hot.detik.com/movie/d-3952239/kisah-haru-di-balik-film-jelita-sejuba
+  - https://hot.detik.com/kpop/d-3958010/hindari-kontroversi-di-korut-seulgi-red-velvet-ubah-koreografi
+  - https://hot.detik.com/kpop/d-3949752/bambam-got7-akan-jalani-wajib-militer-thailand
+  - https://hot.detik.com/celeb/d-3954921/farhat-cari-ribut-terus-angel-lelga-kayaknya-dia-ada-kelainan
+  - https://hot.detik.com/celeb/d-3955181/vicky-prasetyo-ingin-bayi-kembar-angel-lelga-minta-tas-hermes
+  - https://hot.detik.com/kpop/d-3953592/yang-mimpi-jadi-idola-k-pop-siap-siap-ikut-sm-global-audition
+  - https://hot.detik.com/movie/d-3953185/carrie-fisher-meninggal-bagaimana-nasib-leia-organa-di-star-wars-ix
+  - https://hot.detik.com/celeb/d-3954848/baby-margaretha-mau-buru-buru-punya-anak-dari-christian-bradach
+  - https://hot.detik.com/celeb/d-3955557/banyak-teman-ustad-ruben-onsu-tak-masalah-sering-kumpul-sama-waria

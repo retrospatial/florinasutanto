@@ -171,7 +171,7 @@
 
 	<div class="grid grid-cols-1 gap-8">
 		{#each content.projects as item, i}
-			<a href={item.link} target="_blank" rel="noopener noreferrer" class="group">
+			<a href={item.link ?? undefined} target="_blank" rel="noopener noreferrer" class="group">
 				<div
 					bind:this={rowRefs[i]}
 					class={`flex md:max-h-60 h-full items-center flex-col justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 ${
@@ -201,13 +201,27 @@
 					</div>
 
 					<div
-						class={`flex flex-col gap-2 my-2 w-full  text-white group-hover:text-black transition-colors
+						class={`flex flex-col gap-2 my-2 w-full text-white group-hover:text-black transition-colors
 						 md:mx-8 md:px-0 px-4 pb-4 md:pb-0
 						${i % 2 === 0 ? 'items-start text-left' : 'items-end text-right'}`}
 					>
 						<h2 class="entry-heading lowercase">{item.title}</h2>
 						<p class="entry-tag">{item.type}</p>
-						<p class="entry-body text-balance">{item.desc}</p>
+						<p class="entry-body text-balance">{@html item.desc}</p>
+
+						{#if item.title === 'DetikCom' && content.detik}
+							<div class="flex flex-row gap-2 mt-2">
+								{#each content.detik as link, j}
+									<a href={link} target="_blank" rel="noopener noreferrer" class="cursor-pointer">
+										<p
+											class="entry-tag text-black bg-accent-green px-2 py-0.5 rounded group-hover:bg-black group-hover:text-accent-green hover:bg-accent-green hover:text-black"
+										>
+											{j + 1}
+										</p>
+									</a>
+								{/each}
+							</div>
+						{/if}
 					</div>
 				</div>
 			</a>

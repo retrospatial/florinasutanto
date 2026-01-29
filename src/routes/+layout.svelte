@@ -67,15 +67,17 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="fixed inset-0 -z-10 bg-dark-gray">
+<div class="fixed inset-0 -z-10">
 	<Image
-		src="bg.png"
+		src="bg.webp"
 		alt=""
 		class="h-full w-full object-cover"
 		lazy={false}
 		width={1920}
 		quality={80}
 	/>
+	<div class="absolute inset-0 bg-red-500/20 mix-blend-overlay"></div>
+	<div class="absolute inset-0 bg-black/50"></div>
 </div>
 
 <div class="max-w-screen-2xl mx-auto">
