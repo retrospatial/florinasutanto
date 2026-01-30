@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Radio from '$lib/helpers/Radio.svelte';
 	import Image from '$lib/helpers/Image.svelte';
-	import MoreAboutMe from '$lib/components/MoreAboutMe.svelte';
+	import Scrapbook from '$lib/components/Scrapbook.svelte';
 	import MePath from '$lib/components/MePath.svelte';
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
@@ -53,8 +53,8 @@
 							{@html md(content.about_short.text)}
 						</div>
 					{:else}
-						<div class="mt-10">
-							<MoreAboutMe />
+						<div class="mt-10 -mx-[5vw] lg:mx-0">
+							<Scrapbook />
 						</div>
 					{/if}
 				</div>

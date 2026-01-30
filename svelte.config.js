@@ -33,7 +33,7 @@ export default {
 			images: {
 				sizes: [640, 828, 1200, 1920],
 				formats: ['image/avif', 'image/webp'],
-				minimumCacheTTL: 300,
+				minimumCacheTTL: 86400,
 				domains: ['florinasutanto.com']
 			}
 		})

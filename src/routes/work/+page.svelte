@@ -28,7 +28,7 @@
 								loop
 								muted
 								playsinline
-								preload="auto"
+								preload="metadata"
 								aria-label="screencapture"
 							>
 								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
