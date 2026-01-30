@@ -76,8 +76,8 @@
 		width={1920}
 		quality={80}
 	/>
-	<div class="absolute inset-0 bg-accent-teal/40 mix-blend-color"></div>
-	<div class="absolute inset-0 bg-black/40"></div>
+	<div class="absolute inset-0 bg-accent-green/40 mix-blend-color"></div>
+	<div class="absolute inset-0 bg-black/30"></div>
 </div>
 
 <div class="max-w-screen-2xl mx-auto">

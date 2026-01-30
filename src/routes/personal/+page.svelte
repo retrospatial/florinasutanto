@@ -71,7 +71,7 @@
 								loop
 								muted
 								playsinline
-								preload="auto"
+								preload="metadata"
 								aria-label="screencapture"
 							>
 								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
@@ -139,7 +139,7 @@
 							loop
 							muted
 							playsinline
-							preload="auto"
+							preload="metadata"
 							aria-label="screencapture"
 						>
 							<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
@@ -186,7 +186,7 @@
 								loop
 								muted
 								playsinline
-								preload="auto"
+								preload="metadata"
 								aria-label="screencapture"
 							>
 								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
@@ -232,7 +232,19 @@
 
 		<div class="flex flex-row gap-4 items-center">
 			<p class="entry-heading lowercase text-white">and more to come!</p>
-			<Image src="doodles/scuba.png" alt="scuba" class="w-12 md:w-16" />
+			<div class="relative group lg:mt-2">
+				<Image src="doodles/scuba.png" alt="scuba" class="w-12 md:w-16" />
+				<Image
+					src="doodles/scuba_bubble1.png"
+					alt="scuba bubble"
+					class="w-1.5 absolute right-0.5 -top-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+				/>
+				<Image
+					src="doodles/scuba_bubble2.png"
+					alt="scuba bubble"
+					class="w-1.5 absolute right-0.5 -top-5 opacity-0 group-hover:opacity-100 delay-200 transition-opacity duration-300"
+				/>
+			</div>
 		</div>
 	</div>
 </section>

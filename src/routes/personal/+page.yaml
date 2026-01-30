@@ -11,11 +11,6 @@ projects:
     type: Data story
     link: https://retrospatial.github.io/animorphs/
     cover: animorphs.mp4
-  - title: The Search for Animorphs
-    desc: A nostalgic look at libraries, maps, and K. A. Applegate’s seminal children’s series.
-    type: Data story
-    link: https://retrospatial.github.io/animorphs/
-    cover: animorphs.mp4
   - title: Ship and Let Ship
     desc: Charting top Tumblr ships using 10 years of Fandometrics rankings.
     type: Data story
