@@ -212,14 +212,14 @@
 						<!-- detik links array -->
 						{#if item.title === 'DetikCom' && content.detik}
 							<div
-								class={`flex flex-wrap gap-2 mt-2 ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+								class={`flex flex-wrap  gap-2 mt-2 w-full max-w-4/5  ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
 							>
-								{#each content.detik as link, j}
+								{#each content.detik as link, i}
 									<a href={link} target="_blank" rel="noopener noreferrer" class="cursor-pointer">
 										<p
 											class="entry-tag text-black bg-accent-green px-2 py-0.5 rounded group-hover:bg-black group-hover:text-accent-green hover:bg-accent-green hover:text-black"
 										>
-											{j + 1}
+											{i + 1}
 										</p>
 									</a>
 								{/each}
