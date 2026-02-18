@@ -12,6 +12,31 @@ about_short:
 
     I am originally from Bogor, Indonesia and now based in Cambridge, MA.
 
+links_list:
+  socials:
+    title: Socials
+    links:
+      - title: Twitter
+        href: https://twitter.com/flosutanto
+        icon: mdi:twitter
+      - title: LinkedIn
+        href: https://linkedin.com/in/florinasutanto
+        icon: mdi:linkedin
+      - title: GitHub
+        href: https://github.com/retrospatial
+        icon: mdi:github
+      - title: Email
+        href: mailto:florinasutanto@gmail.com
+        icon: ic:round-email
+      - title: Resume
+        href: https://drive.google.com/file/d/1aW5xy3op26oF5P-lFiHu6OLcgDaXxvyN/view?usp=share_link
+        icon: mdi:resume
+  others:
+    title: Links of Interest
+    links:
+      - title: Colophon
+        href: http://florinasutanto.com/blog/2026/colophon
+
 about_long:
   title: Scrapbook
   text:

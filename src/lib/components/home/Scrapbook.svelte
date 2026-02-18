@@ -2,9 +2,9 @@
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import Image from '$lib/helpers/Image.svelte';
-	import LastFM from '$lib/components/LastFM.svelte';
-	import Books from '$lib/components/Books.svelte';
-	import Polaroids from '$lib/components/Polaroids.svelte';
+	import LastFM from '$lib/components/home/LastFM.svelte';
+	import Books from '$lib/components/home/Books.svelte';
+	import Polaroids from '$lib/components/home/Polaroids.svelte';
 	import md from '$lib/utils/md';
 
 	let content = page.data.about_long;

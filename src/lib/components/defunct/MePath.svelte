@@ -1,3 +1,5 @@
+<!-- <MePath {selectedOption} /> -->
+
 <script lang="ts">
 	import { onMount, onDestroy, tick } from 'svelte';
 	import Image from '$lib/helpers/Image.svelte';
