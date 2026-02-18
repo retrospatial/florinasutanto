@@ -2,7 +2,7 @@
 
 <script lang="ts">
 	import type { Component } from 'svelte';
-	import { addCopyButtons } from '$lib/components/CopyButton.svelte';
+	import { addCopyButtons } from '$lib/helpers/CopyButton.svelte';
 
 	interface Props {
 		data: {
