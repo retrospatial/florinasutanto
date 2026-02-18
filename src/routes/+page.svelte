@@ -18,8 +18,12 @@
 	];
 </script>
 
-<section class="w-4/5 mx-auto flex flex-row {selectedOption === 'short' ? 'gap-12' : 'gap-0'}">
-	<div class="{selectedOption === 'short' ? 'basis-full md:basis-3/5' : 'basis-full'} ">
+<section
+	class="w-4/5 mx-auto flex flex-col md:flex-row {selectedOption === 'short'
+		? 'gap-4 md:gap-8'
+		: 'gap-0'}"
+>
+	<div class={selectedOption === 'short' ? 'basis-full md:basis-3/5' : 'basis-full'}>
 		{#key selectedOption}
 			<h1
 				class="heading-1 lowercase leading-tight mb-4 text-accent-blue ease-out transition-all duration-300 delay-200 transform"
@@ -34,29 +38,23 @@
 		</div>
 
 		{#key selectedOption}
-			<div in:fly={{ y: 40, duration: 600, easing: cubicOut, delay: 200 }}>
-				<div class="text-white">
-					{#if selectedOption === 'short'}
-						<div class="body-lg about-link">
-							{@html md(content.about_short.text)}
-						</div>
-					{:else}
-						<div class="mt-10 -mx-[5vw] lg:mx-0">
-							<Scrapbook />
-						</div>
-					{/if}
-				</div>
+			<div in:fly={{ y: 40, duration: 600, easing: cubicOut, delay: 200 }} class="text-white">
+				{#if selectedOption === 'short'}
+					<div class="body-lg about-link">
+						{@html md(content.about_short.text)}
+					</div>
+				{:else}
+					<div class="mt-10 -mx-[5vw] lg:mx-0">
+						<Scrapbook />
+					</div>
+				{/if}
 			</div>
 		{/key}
 	</div>
 
-	<div
-		class="{selectedOption === 'short'
-			? 'md:basis-2/5'
-			: 'basis-0'} hidden md:flex items-center justify-center"
-	>
-		{#if selectedOption === 'short'}
+	{#if selectedOption === 'short'}
+		<div class="basis-full md:basis-2/5 flex items-center justify-center">
 			<List />
-		{/if}
-	</div>
+		</div>
+	{/if}
 </section>

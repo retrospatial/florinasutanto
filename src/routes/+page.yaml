@@ -32,7 +32,7 @@ links_list:
         href: https://drive.google.com/file/d/1aW5xy3op26oF5P-lFiHu6OLcgDaXxvyN/view?usp=share_link
         icon: mdi:resume
   others:
-    title: Links of Interest
+    title: Misc
     links:
       - title: Colophon
         href: http://florinasutanto.com/blog/2026/colophon
