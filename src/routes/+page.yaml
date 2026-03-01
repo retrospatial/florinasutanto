@@ -36,8 +36,8 @@ links_list:
     links:
       - title: Colophon
         href: /blog/2026/colophon
-      - title: RSS Feed 🚧
-        href: #
+      - title: RSS Feed
+        href: /rss.xml
 
 about_long:
   title: Scrapbook

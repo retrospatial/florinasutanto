@@ -50,7 +50,7 @@ export const GET = async () => {
       <title><![CDATA[${post.title}]]></title>
       <link>${SITE_URL}/blog/${post.slug}</link>
       <guid isPermaLink="true">${SITE_URL}/blog/${post.slug}</guid>
-      <description><![CDATA[${post.desc}]]></description>
+      <description><![CDATA[${post.desc}${post.tags.length > 0 ? `<br><br>Tags: ${post.tags.join(', ')}` : ''}<br><br><a href="${SITE_URL}/blog/${post.slug}">Read here.</a>]]></description>
       <pubDate>${post.date!.toUTCString()}</pubDate>
       ${post.tags.map((tag) => `<category>${tag}</category>`).join('\n      ')}
     </item>`
