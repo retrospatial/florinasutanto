@@ -11,10 +11,14 @@ export const load = async ({ params, data }) => {
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
 		eager: true
 	});
-	const module = files[`/content/posts/${params.slug}.md`];
+
+	const entry = Object.entries(files).find(([path, module]) => {
+		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
+		return ((module.metadata.slug as string | undefined) ?? fileSlug) === params.slug;
+	});
 
 	return {
 		...data,
-		Content: module?.default
+		Content: entry?.[1].default
 	};
 };
