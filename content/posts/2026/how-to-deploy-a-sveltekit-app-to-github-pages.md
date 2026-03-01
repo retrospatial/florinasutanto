@@ -8,7 +8,7 @@ tags:
   - tutorial
 ---
 
-This is the process I use to quickly set up a static SvelteKit app and publish it through GitHub Pages. Again, this only works for simple, static sites---anything that requires data to be dynamically generated (for example, real-time API calls) will not work with GH Pages.
+This is the process I use to quickly set up a static SvelteKit app and publish it through GitHub Pages. Again, this only works for simple, static sites—anything that requires data to be dynamically generated (for example, real-time API calls) will not work with GH Pages.
 
 ### 1. Create a new project and set up the dependencies
 
@@ -99,12 +99,14 @@ git commit -m "commit message"
 git push origin main
 ```
 
-- to deploy to the gh-pages branch:
+- To deploy to the gh-pages branch:
 
 ```bash
 pnpm run deploy
 ```
 
 If everything goes correctly, this is what you should see at `username.github.io/YOUR_REPO_NAME`:
+
+![Successful SvelteKit deployment to GitHub Pages](/assets/blog/demo.jpeg)
 
 That's it!
