@@ -78,7 +78,7 @@ Change `public` to `private` if you want the repo to be private.
 
 ### 4. Deploy to the gh-pages branch
 
-```plain
+```bash
  pnpm run deploy
 ```
 
@@ -93,7 +93,7 @@ Change `public` to `private` if you want the repo to be private.
 
 - To push files to the main branch:
 
-```plain
+```bash
 git add .
 git commit -m "commit message"
 git push origin main
@@ -101,12 +101,12 @@ git push origin main
 
 - to deploy to the gh-pages branch:
 
-```plain
+```bash
 pnpm run deploy
 ```
 
-If everything goes correctly, this is what you should see at `username.github.io/YOUR_REPO_NAME`
+If everything goes correctly, this is what you should see at `username.github.io/YOUR_REPO_NAME`:
 
-![Successful SvelteKit deployment to GitHub Pages](demo.jpeg)
+
 
 That's it!
