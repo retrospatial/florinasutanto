@@ -107,6 +107,4 @@ pnpm run deploy
 
 If everything goes correctly, this is what you should see at `username.github.io/YOUR_REPO_NAME`:
 
-
-
 That's it!
