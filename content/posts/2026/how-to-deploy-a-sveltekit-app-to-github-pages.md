@@ -10,7 +10,7 @@ tags:
 
 This is the process I use to quickly set up a static SvelteKit app and publish it through GitHub Pages. Again, this only works for simple, static sites—anything that requires data to be dynamically generated (for example, real-time API calls) will not work with GH Pages.
 
-### 1. Create a new project and set up the dependencies
+## 1. Create a new project and set up the dependencies
 
 ```bash
 npx sv create YOUR_REPO_NAME
@@ -25,7 +25,7 @@ My typical dependencies:
 - Sveltekit-adapter: Which SvelteKit adapter would you like to use? `static`
 - Which package manager do you want to install dependencies with? `pnpm`
 
-### 2. Make the following modifications to your codebase
+## 2. Make the following modifications to your codebase
 
 - Install the gh-pages package
 
@@ -65,7 +65,7 @@ If you're deploying to your root GitHub domain (e.g. username.github.io), remove
 - In `package.json`, under `scripts`, add: `"deploy": "pnpm run build && pnpm dlx gh-pages -d build -t",`
 - In the static folder, create an empty `.nojekyll` file. This is needed to bypass GitHub Pages' default use of Jekyll as the static site generator. If you skip this step, your Pages site will only display the contents of README.md.
 
-### 3. Initialize git and and push to GitHub (from the CLI)
+## 3. Initialize git and and push to GitHub (from the CLI)
 
 ```bash
 git init -b main
@@ -76,20 +76,20 @@ gh repo create YOUR_REPO_NAME --public --source=. --remote=origin --push
 
 Change `public` to `private` if you want the repo to be private.
 
-### 4. Deploy to the gh-pages branch
+## 4. Deploy to the gh-pages branch
 
 ```bash
  pnpm run deploy
 ```
 
-### 5. Set up GitHub Pages
+## 5. Set up GitHub Pages
 
 - Navigate to your repo on GitHub
 - Go to Settings, then Pages on the left panel
 - Make sure source is set to `Deploy from a branch` and branch is set to `gh-pages`, then save
 - Once it's done generating your site, you can find the link at the top of this page
 
-### 6. In the future
+## 6. In the future
 
 - To push files to the main branch:
 
