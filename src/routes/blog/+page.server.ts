@@ -22,7 +22,10 @@ export const load = async () => {
 			const metadata = module.metadata;
 			const date = metadata.date ? new Date(metadata.date).toISOString().split('T')[0] : null;
 			const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-			const slug = metadata.slug ?? fileSlug;
+			const year = metadata.date ? new Date(metadata.date).getFullYear() : null;
+			const slug = metadata.slug
+				? year ? `${year}/${metadata.slug}` : metadata.slug
+				: fileSlug;
 
 			return {
 				slug,
