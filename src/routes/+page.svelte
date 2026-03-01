@@ -42,11 +42,11 @@
 			<div in:fly={{ y: 40, duration: 600, easing: cubicOut, delay: 200 }} class="text-white">
 				{#if selectedOption === 'short'}
 					<div class="flex md:flex-row flex-col gap-4 md:gap-8 md:basis-3/5">
-						<Window>
+						<Window class="text-pretty">
 							{@html md(content.about_short.text)}
 						</Window>
 
-						<div class="flex flex-col md:basis-2/5 gap-4 justify-between">
+						<div class="flex flex-col md:basis-2/5 gap-4 md:gap-0 justify-between">
 							<Window color="bg-[#2e3ebb]" class="h-full">
 								<p class="uppercase text-base md:text-xl font-[375]">
 									{content.links_list.socials.title}
@@ -63,7 +63,7 @@
 												<iconify-icon
 													icon={link.icon}
 													class="text-[#2e3ebb] shrink-0 inline-flex items-center"
-												/>
+												></iconify-icon>
 												{link.title}
 											</a>
 										</li>

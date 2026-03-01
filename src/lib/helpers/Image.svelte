@@ -24,6 +24,7 @@
 
 	interface Props {
 		lazy?: boolean;
+		lightbox?: boolean;
 		src: string;
 		alt: string;
 		class?: ClassValue;
@@ -34,6 +35,7 @@
 
 	let {
 		lazy = true,
+		lightbox = false,
 		src,
 		alt,
 		class: classes = '',
@@ -45,4 +47,4 @@
 	const imageSrc = $derived(getOptimizedUrl(src, width, quality));
 </script>
 
-<img bind:this={ref} src={imageSrc} {alt} loading={lazy ? 'lazy' : 'eager'} class={classes} />
+<img bind:this={ref} src={imageSrc} {alt} loading={lazy ? 'lazy' : 'eager'} class={classes} data-lightbox={lightbox ? '' : undefined} />
