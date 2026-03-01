@@ -6,8 +6,8 @@ backend:
   branch: main
   skip_ci: true
 
-media_folder: /static/assets
-public_folder: /assets
+media_folder: /static/assets/blog
+public_folder: /assets/blog
 
 collections:
   - name: posts
@@ -16,8 +16,8 @@ collections:
     create: true
     path: "{{year}}/{{slug}}"
     slug: "{{slug}}"
-    media_folder: /static/assets/{{year}}
-    public_folder: /assets/{{year}}
+    media_folder: /static/assets/blog/{{year}}
+    public_folder: /assets/blog/{{year}}
     fields:
       - label: Title
         name: title
