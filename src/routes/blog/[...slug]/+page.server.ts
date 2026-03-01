@@ -19,8 +19,12 @@ export const entries = async () => {
 	});
 
 	return Object.entries(files).map(([path, module]) => {
+		const { metadata } = module;
 		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-		const slug = module.metadata.slug ?? fileSlug;
+		const year = metadata.date ? new Date(metadata.date).getFullYear() : null;
+		const slug = metadata.slug
+			? year ? `${year}/${metadata.slug}` : metadata.slug
+			: fileSlug;
 		return { slug };
 	});
 };
@@ -31,8 +35,13 @@ export const load = async ({ params }) => {
 	});
 
 	const entry = Object.entries(files).find(([path, module]) => {
+		const { metadata } = module;
 		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-		return (module.metadata.slug ?? fileSlug) === params.slug;
+		const year = metadata.date ? new Date(metadata.date).getFullYear() : null;
+		const slug = metadata.slug
+			? year ? `${year}/${metadata.slug}` : metadata.slug
+			: fileSlug;
+		return slug === params.slug;
 	});
 
 	if (!entry) throw error(404, 'Post not found');

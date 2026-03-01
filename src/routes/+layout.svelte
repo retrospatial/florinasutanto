@@ -94,6 +94,7 @@
 <svelte:head>
 	<title>{pageTitle()}</title>
 	<link rel="icon" href={favicon} />
+	<link rel="alternate" type="application/rss+xml" title="florina sutanto" href="/rss.xml" />
 </svelte:head>
 
 <div class="fixed inset-0 -z-10">
