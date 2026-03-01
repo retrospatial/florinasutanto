@@ -13,13 +13,13 @@
 </script>
 
 <section class="w-4/5 mx-auto">
-	<h2 class="heading-2 text-accent-pink md:mb-4">ideas, thoughts, reflections, etc.</h2>
-	<div class="flex flex-col">
+	<h2 class="heading-2 text-accent-pink mb-4">ideas, thoughts, reflections, etc.</h2>
+	<div class="flex flex-col gap-4">
 		{#each posts as post}
-			<article class="text-white group">
+			<article class="text-white group post-card relative rounded-sm">
 				<a href="/blog/{post.slug}">
 					<div
-						class="flex flex-col md:flex-row justify-center md:justify-between items-center w-full"
+						class="flex flex-col md:flex-row justify-center md:justify-between items-center w-full pl-4 md:pl-6"
 					>
 						{#if post.cover}
 							<img
@@ -59,9 +59,6 @@
 							/>
 						{/if}
 					</div>
-					<div
-						class="w-1/4 md:w-1/12 h-0.5 bg-accent-pink group-hover:w-full transition-all duration-300"
-					></div>
 				</a>
 			</article>
 		{/each}
@@ -85,5 +82,24 @@
 
 	.blog-list-date {
 		@apply font-mono text-xs leading-normal uppercase md:text-sm;
+	}
+
+	.post-card {
+		border: 2px dotted var(--color-accent-pink);
+	}
+
+	.post-card::before {
+		content: '';
+		position: absolute;
+		inset: -2px;
+		border: 2px solid var(--color-accent-pink);
+		border-radius: inherit;
+		opacity: 0;
+		transition: opacity 300ms ease;
+		pointer-events: none;
+	}
+
+	.post-card:hover::before {
+		opacity: 1;
 	}
 </style>

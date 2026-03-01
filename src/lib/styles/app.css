@@ -9,24 +9,26 @@
 		height: 100%;
 	}
 
+	.body {
+		@apply font-exposure;
+
+		&-lg .markdown p {
+			@apply text-lg leading-relaxed md:mb-8 md:text-xl;
+		}
+		&-md .markdown p {
+			@apply text-base leading-relaxed md:mb-8 md:text-lg;
+		}
+		&-sm .markdown p {
+			@apply text-sm leading-relaxed md:mb-8 md:text-base;
+		}
+	}
+
 	a {
 		@apply cursor-pointer;
 	}
 
-	.body-lg .markdown p {
-		@apply font-exposure mb-4 text-lg leading-relaxed md:mb-8 md:text-xl;
-	}
-
-	.body-md .markdown p {
-		@apply font-exposure mb-4 text-base leading-relaxed md:mb-8 md:text-lg;
-	}
-
-	.body-sm .markdown p {
-		@apply font-exposure mb-4 text-sm leading-relaxed md:mb-8 md:text-base;
-	}
-
 	.about-link .markdown a {
-		@apply text-accent-blue hover:text-accent-cream no-underline transition-colors duration-300;
+		@apply bg-accent-blue/50 hover:bg-accent-blue/80 px-1 no-underline transition-colors duration-300 hover:text-black;
 	}
 
 	::-webkit-scrollbar {

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Radio from '$lib/helpers/Radio.svelte';
 	import Image from '$lib/helpers/Image.svelte';
+	import Window from '$lib/helpers/Window.svelte';
 	import Scrapbook from '$lib/components/home/Scrapbook.svelte';
 	import List from '$lib/components/home/List.svelte';
 	import { page } from '$app/state';
@@ -23,7 +24,7 @@
 		? 'gap-4 md:gap-8'
 		: 'gap-0'}"
 >
-	<div class={selectedOption === 'short' ? 'basis-full md:basis-3/5' : 'basis-full'}>
+	<div class="w-full">
 		{#key selectedOption}
 			<h1
 				class="heading-1 lowercase leading-tight mb-4 text-accent-blue ease-out transition-all duration-300 delay-200 transform"
@@ -40,8 +41,59 @@
 		{#key selectedOption}
 			<div in:fly={{ y: 40, duration: 600, easing: cubicOut, delay: 200 }} class="text-white">
 				{#if selectedOption === 'short'}
-					<div class="body-lg about-link">
-						{@html md(content.about_short.text)}
+					<div class="flex md:flex-row flex-col gap-4 md:gap-8 md:basis-3/5">
+						<Window>
+							{@html md(content.about_short.text)}
+						</Window>
+
+						<div class="flex flex-col md:basis-2/5 gap-4 justify-between">
+							<Window color="bg-[#2e3ebb]" class="h-full">
+								<p class="uppercase text-base md:text-xl font-[375]">
+									{content.links_list.socials.title}
+								</p>
+								<ul class="gap-1 flex flex-col">
+									{#each content.links_list.socials.links as link}
+										<li class="text-sm md:text-base group">
+											<a
+												href={link.href}
+												target="_blank"
+												rel="noopener noreferrer"
+												class="flex items-center gap-3 group-hover:text-[#2e3ebb] transition-colors duration-300"
+											>
+												<iconify-icon
+													icon={link.icon}
+													class="text-[#2e3ebb] shrink-0 inline-flex items-center"
+												/>
+												{link.title}
+											</a>
+										</li>
+									{/each}
+								</ul>
+							</Window>
+
+							<Window color="bg-[#4381cb]" class="h-full">
+								<p class="uppercase text-base md:text-xl font-[375]">
+									{content.links_list.others.title}
+								</p>
+								<div class="flex flex-col gap-2">
+									<ul class="gap-1 flex flex-col">
+										{#each content.links_list.others.links as link}
+											<li class="text-sm md:text-base gap-2 group">
+												<a
+													href={link.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													class="flex items-center group-hover:text-[#4381cb] transition-colors duration-300"
+												>
+													{link.title}
+												</a>
+											</li>
+										{/each}
+										<ul></ul>
+									</ul>
+								</div>
+							</Window>
+						</div>
 					</div>
 				{:else}
 					<div class="mt-10 -mx-[5vw] lg:mx-0">
@@ -51,10 +103,4 @@
 			</div>
 		{/key}
 	</div>
-
-	{#if selectedOption === 'short'}
-		<div class="basis-full md:basis-2/5 flex items-center justify-center">
-			<List />
-		</div>
-	{/if}
 </section>
