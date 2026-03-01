@@ -1,5 +1,6 @@
 about_short:
   title: Hi! I'm Flo
+  desc: About Me
   text: >
     I am a creative data storyteller and developer. My work primarily lies across data journalism, digital humanities, and interaction design. Currently, I work as an Interactive Engineer at <a href="https://www.citizencodex.com/" target="_blank" rel="noopener noreferrer">Citizen Codex</a>, a data innovation studio.
 
@@ -27,7 +28,7 @@ links_list:
         icon: mdi:linkedin
       - title: Resume
         href: https://drive.google.com/file/d/1aW5xy3op26oF5P-lFiHu6OLcgDaXxvyN/view?usp=share_link
-        icon: mdi:resume
+        icon: material-symbols:link
       - title: Email
         href: mailto:florinasutanto@gmail.com
         icon: ic:round-email
@@ -36,8 +37,10 @@ links_list:
     links:
       - title: Colophon
         href: /blog/2026/colophon
+        icon: material-symbols:book
       - title: RSS Feed
         href: /rss.xml
+        icon: mdi:rss
 
 about_long:
   title: Scrapbook
