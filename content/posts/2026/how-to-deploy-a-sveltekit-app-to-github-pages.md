@@ -107,6 +107,6 @@ pnpm run deploy
 
 If everything goes correctly, this is what you should see at `username.github.io/YOUR_REPO_NAME`
 
-![Successful SvelteKit deployment to GitHub Pages](retrospatial_github_io_demo_.jpeg)
+![Successful SvelteKit deployment to GitHub Pages](demo.jpeg)
 
 That's it!
