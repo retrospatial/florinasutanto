@@ -1,5 +1,6 @@
 ---
 title: Colophon
+slug: colophon
 desc: How I built this site!
 cover: ''
 date: 2026-01-25
