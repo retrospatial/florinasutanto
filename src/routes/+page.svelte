@@ -43,14 +43,17 @@
 				{#if selectedOption === 'short'}
 					<div class="flex md:flex-row flex-col gap-4 md:gap-8 md:basis-3/5">
 						<Window class="text-pretty">
+							<h1 class="title">
+								{content.about_short.desc}
+							</h1>
 							{@html md(content.about_short.text)}
 						</Window>
 
 						<div class="flex flex-col md:basis-2/5 gap-4 md:gap-0 justify-between">
 							<Window color="bg-[#2e3ebb]" class="h-full">
-								<p class="uppercase text-base md:text-xl font-[375]">
+								<h1 class="title">
 									{content.links_list.socials.title}
-								</p>
+								</h1>
 								<ul class="gap-1 flex flex-col">
 									{#each content.links_list.socials.links as link}
 										<li class="text-sm md:text-base group">
@@ -72,9 +75,9 @@
 							</Window>
 
 							<Window color="bg-[#4381cb]" class="h-full">
-								<p class="uppercase text-base md:text-xl font-[375]">
+								<h1 class="title">
 									{content.links_list.others.title}
-								</p>
+								</h1>
 								<div class="flex flex-col gap-2">
 									<ul class="gap-1 flex flex-col">
 										{#each content.links_list.others.links as link}
@@ -83,8 +86,12 @@
 													href={link.href}
 													target="_blank"
 													rel="noopener noreferrer"
-													class="flex items-center group-hover:text-[#4381cb] transition-colors duration-300"
+													class="flex items-center gap-3 group-hover:text-[#4381cb] transition-colors duration-300"
 												>
+													<iconify-icon
+														icon={link.icon}
+														class="text-[#4381cb] shrink-0 inline-flex items-center"
+													></iconify-icon>
 													{link.title}
 												</a>
 											</li>
@@ -104,3 +111,11 @@
 		{/key}
 	</div>
 </section>
+
+<style lang="postcss">
+	@reference '$lib/styles/app.css';
+
+	.title {
+		@apply text-lg font-[375] uppercase md:text-xl;
+	}
+</style>

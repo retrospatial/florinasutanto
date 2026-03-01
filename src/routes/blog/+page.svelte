@@ -23,7 +23,8 @@
 
 	const formatDate = (dateString: string | null) => {
 		if (!dateString) return '';
-		return new Date(dateString).toLocaleDateString('en-US', {
+		const [y, m, d] = dateString.split('-').map(Number);
+		return new Date(y, m - 1, d).toLocaleDateString('en-US', {
 			month: 'long',
 			day: 'numeric',
 			year: 'numeric'
@@ -39,7 +40,7 @@
 				<article class="text-white group post-card relative rounded-sm">
 					<a href="/blog/{post.slug}">
 						<div
-							class="flex flex-col md:flex-row justify-center md:justify-between items-center w-full pl-4 md:pl-6"
+							class="flex flex-col md:flex-row justify-center md:justify-between md:gap-4 items-center w-full px-4 md:px-6"
 						>
 							{#if post.cover}
 								<img
@@ -77,7 +78,7 @@
 									src={post.cover}
 									alt={post.title}
 									loading="lazy"
-									class="w-full max-w-[300px] aspect-video object-cover max-h-40 hidden md:block"
+									class="w-full max-w-[300px] aspect-video object-cover hidden md:block"
 								/>
 							{/if}
 						</div>

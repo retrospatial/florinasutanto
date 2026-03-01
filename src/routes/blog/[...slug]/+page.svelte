@@ -25,13 +25,15 @@
 	let { data }: Props = $props();
 	const { post, Content } = data;
 
-	const formattedDate = post.date
-		? new Date(post.date).toLocaleDateString('en-US', {
-				month: 'long',
-				day: 'numeric',
-				year: 'numeric'
-			})
-		: '';
+	const formattedDate = (() => {
+		if (!post.date) return '';
+		const [y, m, d] = post.date.split('-').map(Number);
+		return new Date(y, m - 1, d).toLocaleDateString('en-US', {
+			month: 'long',
+			day: 'numeric',
+			year: 'numeric'
+		});
+	})();
 </script>
 
 <section class="w-4/5 md:w-3/5 mx-auto body text-white">
@@ -45,7 +47,7 @@
 				{/each}
 			</div>
 		{/if}
-		<div class="mt-4 markdown" use:addCopyButtons use:addLightbox>
+		<div class="mt-8 markdown" use:addCopyButtons use:addLightbox>
 			<Content />
 		</div>
 	</article>
