@@ -4,6 +4,7 @@ interface PostMetadata {
 	cover?: string;
 	tags?: string[];
 	date?: string;
+	slug?: string;
 }
 
 interface MdsvexModule {
@@ -20,7 +21,8 @@ export const load = async () => {
 		.map(([path, module]) => {
 			const metadata = module.metadata;
 			const date = metadata.date ? new Date(metadata.date).toISOString().split('T')[0] : null;
-			const slug = path.replace('/content/posts/', '').replace('.md', '');
+			const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
+			const slug = metadata.slug ?? fileSlug;
 
 			return {
 				slug,

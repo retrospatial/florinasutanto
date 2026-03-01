@@ -9,6 +9,7 @@ interface MdsvexModule {
 		cover?: string;
 		tags?: string[];
 		date?: string;
+		slug?: string;
 	};
 }
 
@@ -16,10 +17,10 @@ export const entries = async () => {
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
 		eager: true
 	});
-	const filePaths = Object.keys(files);
 
-	return filePaths.map((path) => {
-		const slug = path.replace('/content/posts/', '').replace('.md', '');
+	return Object.entries(files).map(([path, module]) => {
+		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
+		const slug = module.metadata.slug ?? fileSlug;
 		return { slug };
 	});
 };
@@ -28,10 +29,15 @@ export const load = async ({ params }) => {
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
 		eager: true
 	});
-	const module = files[`/content/posts/${params.slug}.md`];
 
-	if (!module) throw error(404, 'Post not found');
+	const entry = Object.entries(files).find(([path, module]) => {
+		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
+		return (module.metadata.slug ?? fileSlug) === params.slug;
+	});
 
+	if (!entry) throw error(404, 'Post not found');
+
+	const [, module] = entry;
 	const { metadata } = module;
 
 	return {

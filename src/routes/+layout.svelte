@@ -4,7 +4,7 @@
 	import Image from '$lib/helpers/Image.svelte';
 	const favicon = '/assets/images/favicon.png';
 	import { page } from '$app/stores';
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
@@ -26,6 +26,10 @@
 	});
 
 	let mounted = $state(false);
+	let lightboxImages = $state<{ src: string; alt: string }[]>([]);
+	let lightboxIndex = $state(0);
+	const lightboxSrc = $derived(lightboxImages[lightboxIndex]?.src ?? null);
+	const lightboxAlt = $derived(lightboxImages[lightboxIndex]?.alt ?? '');
 
 	async function preloadLastFmCovers() {
 		try {
@@ -59,8 +63,33 @@
 	onMount(() => {
 		mounted = true;
 		preloadLastFmCovers();
+
+		function handleImageClick(e: MouseEvent) {
+			const target = e.target as HTMLElement;
+			if (target.tagName === 'IMG' && target.hasAttribute('data-lightbox')) {
+				e.preventDefault();
+				e.stopPropagation();
+				const clicked = target as HTMLImageElement;
+				const all = [...document.querySelectorAll<HTMLImageElement>('img[data-lightbox]')];
+				lightboxImages = all.map((img) => ({ src: img.src, alt: img.alt }));
+				lightboxIndex = all.indexOf(clicked);
+			}
+		}
+
+		document.addEventListener('click', handleImageClick, true);
+		return () => document.removeEventListener('click', handleImageClick, true);
 	});
 </script>
+
+<svelte:window
+	onkeydown={(e) => {
+		if (!lightboxSrc) return;
+		if (e.key === 'Escape') lightboxImages = [];
+		if (e.key === 'ArrowRight') lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+		if (e.key === 'ArrowLeft')
+			lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+	}}
+/>
 
 <svelte:head>
 	<title>{pageTitle()}</title>
@@ -109,6 +138,47 @@
 	</nav>
 </div>
 
+{#if lightboxSrc}
+	<div
+		data-lightbox-overlay
+		transition:fade={{ duration: 150 }}
+		class="fixed inset-0 z-50 flex cursor-pointer items-center justify-center bg-black/80 backdrop-blur-sm"
+		onclick={() => (lightboxImages = [])}
+		role="dialog"
+		aria-modal="true"
+		aria-label={lightboxAlt}
+	>
+		<img
+			src={lightboxSrc}
+			alt={lightboxAlt}
+			class="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl"
+		/>
+
+		{#if lightboxImages.length > 1}
+			<button
+				class="absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer p-2 text-white/60 transition-colors hover:text-white"
+				onclick={(e) => {
+					e.stopPropagation();
+					lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+				}}
+				aria-label="Previous image"
+			>
+				<iconify-icon icon="lucide:chevron-left" width="32"></iconify-icon>
+			</button>
+			<button
+				class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer p-2 text-white/60 transition-colors hover:text-white"
+				onclick={(e) => {
+					e.stopPropagation();
+					lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+				}}
+				aria-label="Next image"
+			>
+				<iconify-icon icon="lucide:chevron-right" width="32"></iconify-icon>
+			</button>
+		{/if}
+	</div>
+{/if}
+
 <main class="relative py-8 md:py-16 max-w-screen-2xl mx-auto">
 	{#if mounted}
 		{#key pathname}
@@ -133,15 +203,5 @@
 
 	nav {
 		animation: nav-fly-in 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.4s both;
-	}
-
-	.dot-pattern {
-		background-image:
-			radial-gradient(circle, rgba(255, 255, 255, 0.15) 0.5px, transparent 0.5px),
-			radial-gradient(circle, rgba(255, 255, 255, 0.15) 0.5px, transparent 0.5px);
-		background-size: 8px 12px;
-		background-position:
-			0 0,
-			4px 6px;
 	}
 </style>

@@ -1,6 +1,25 @@
 <script lang="ts">
-	export let data;
-	const { posts } = data;
+	let { data } = $props();
+
+	const posts = $derived(data.posts);
+	const allTags = $derived(
+		[...new Set(posts.flatMap((p: { tags: string[] }) => p.tags))].sort() as string[]
+	);
+
+	const tagCounts = $derived(
+		Object.fromEntries(
+			allTags.map((tag) => [
+				tag,
+				posts.filter((p: { tags: string[] }) => p.tags.includes(tag)).length
+			])
+		)
+	);
+
+	let selectedTag = $state<string | null>(null);
+
+	const filteredPosts = $derived(
+		selectedTag ? posts.filter((p: { tags: string[] }) => p.tags.includes(selectedTag!)) : posts
+	);
 
 	const formatDate = (dateString: string | null) => {
 		if (!dateString) return '';
@@ -14,54 +33,74 @@
 
 <section class="w-4/5 mx-auto">
 	<h2 class="heading-2 text-accent-pink mb-4">ideas, thoughts, reflections, etc.</h2>
-	<div class="flex flex-col gap-4">
-		{#each posts as post}
-			<article class="text-white group post-card relative rounded-sm">
-				<a href="/blog/{post.slug}">
-					<div
-						class="flex flex-col md:flex-row justify-center md:justify-between items-center w-full pl-4 md:pl-6"
-					>
-						{#if post.cover}
-							<img
-								src={post.cover}
-								alt={post.title}
-								class="w-full aspect-video object-cover block md:hidden mt-4 max-h-40"
-							/>
-						{/if}
-						<div class="flex flex-col gap-2 md:gap-4 w-full py-4 md:py-6">
-							<h2
-								class="blog-list-title group-hover:text-accent-pink transition-colors duration-300 mb-1"
-							>
-								{post.title}
-							</h2>
-							<p class="blog-list-desc">{post.desc}</p>
-							<div class="flex flex-row items-center gap-2">
-								<span class="blog-list-date">{formatDate(post.date)}</span>
+	<div class="flex flex-col md:flex-row gap-8">
+		<div class="flex flex-col gap-4 flex-1">
+			{#each filteredPosts as post}
+				<article class="text-white group post-card relative rounded-sm">
+					<a href="/blog/{post.slug}">
+						<div
+							class="flex flex-col md:flex-row justify-center md:justify-between items-center w-full pl-4 md:pl-6"
+						>
+							{#if post.cover}
+								<img
+									src={post.cover}
+									alt={post.title}
+									loading="lazy"
+									class="w-full aspect-video object-cover block md:hidden mt-4 max-h-40"
+								/>
+							{/if}
+							<div class="flex flex-col gap-2 md:gap-4 w-full py-4 md:py-6">
+								<h2
+									class="blog-list-title group-hover:text-accent-pink transition-colors duration-300 mb-1"
+								>
+									{post.title}
+								</h2>
+								<p class="blog-list-desc">{post.desc}</p>
+								<div class="flex flex-row items-center gap-2">
+									<span class="blog-list-date">{formatDate(post.date)}</span>
 
-								{#if post.tags}
-									<span class="">•</span>
+									{#if post.tags}
+										<span class="">•</span>
 
-									<div class="blog-list-tags flex flex-row gap-2">
-										{#each post.tags as tag}
-											<span class="blog-list-tag border-[0.5px] border-white rounded-md px-2 py-1"
-												>{tag}</span
-											>
-										{/each}
-									</div>
-								{/if}
+										<div class="blog-list-tags flex flex-row gap-2">
+											{#each post.tags as tag}
+												<span class="blog-list-tag border-[0.5px] border-white rounded-md px-2 py-1"
+													>{tag}</span
+												>
+											{/each}
+										</div>
+									{/if}
+								</div>
 							</div>
+							{#if post.cover}
+								<img
+									src={post.cover}
+									alt={post.title}
+									loading="lazy"
+									class="w-full max-w-[300px] aspect-video object-cover max-h-40 hidden md:block"
+								/>
+							{/if}
 						</div>
-						{#if post.cover}
-							<img
-								src={post.cover}
-								alt={post.title}
-								class="w-full max-w-[300px] aspect-video object-cover max-h-40 hidden md:block"
-							/>
-						{/if}
-					</div>
-				</a>
-			</article>
-		{/each}
+					</a>
+				</article>
+			{/each}
+		</div>
+
+		<aside class="flex flex-col gap-2 min-w-[120px] font-mono">
+			<span class=" text-sm uppercase text-white/80 mb-1 tracking-widest">filter by tag</span>
+			{#each allTags as tag}
+				<button
+					class="flex cursor-pointer gap-2 rounded-md border-[0.5px] px-2 py-1 text-xs uppercase transition-all duration-200 justify-between {selectedTag ===
+					tag
+						? 'border-accent-pink text-accent-pink'
+						: 'border-white/50 text-white/80 hover:border-white/80 hover:text-white'}"
+					onclick={() => (selectedTag = selectedTag === tag ? null : tag)}
+				>
+					<span>{tag}</span>
+					<span class="">{tagCounts[tag]}</span>
+				</button>
+			{/each}
+		</aside>
 	</div>
 </section>
 
@@ -69,7 +108,7 @@
 	@reference '$lib/styles/app.css';
 
 	.blog-list-title {
-		@apply font-exposure text-2xl leading-none font-[375] md:text-3xl;
+		@apply font-exposure -mb-1 text-2xl leading-normal font-[375] md:text-3xl;
 	}
 
 	.blog-list-desc {

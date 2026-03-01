@@ -4,6 +4,10 @@
 	import type { Component } from 'svelte';
 	import { addCopyButtons } from '$lib/helpers/CopyButton.svelte';
 
+	function addLightbox(node: HTMLElement) {
+		node.querySelectorAll('img').forEach((img) => img.setAttribute('data-lightbox', ''));
+	}
+
 	interface Props {
 		data: {
 			post: {
@@ -41,7 +45,7 @@
 				{/each}
 			</div>
 		{/if}
-		<div class="mt-4 markdown" use:addCopyButtons>
+		<div class="mt-4 markdown" use:addCopyButtons use:addLightbox>
 			<Content />
 		</div>
 	</article>
@@ -51,7 +55,7 @@
 	@reference '$lib/styles/app.css';
 
 	.blog-title {
-		@apply font-exposure text-4xl leading-normal font-[375] md:text-6xl;
+		@apply font-exposure text-3xl leading-normal font-[375] md:text-5xl;
 	}
 
 	.blog-tag {

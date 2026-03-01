@@ -24,6 +24,12 @@ collections:
         widget: string
         required: true
 
+      - label: Slug
+        name: slug
+        widget: string
+        required: true
+        default: "{{slug}}"
+
       - label: Description
         name: desc
         widget: string
