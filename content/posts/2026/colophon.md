@@ -3,7 +3,7 @@ title: Colophon
 slug: colophon
 desc: How I built this site!
 cover: ''
-date: 2026-01-25
+date_published: 2026-01-25
 tags:
   - dev
   - site

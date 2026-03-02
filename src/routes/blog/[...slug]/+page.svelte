@@ -16,7 +16,8 @@
 				desc: string;
 				cover: string;
 				tags: string[];
-				date: string | null;
+				date_published: string | null;
+				date_updated: string | null;
 			};
 			Content: Component;
 		};
@@ -26,8 +27,18 @@
 	const { post, Content } = data;
 
 	const formattedDate = (() => {
-		if (!post.date) return '';
-		const [y, m, d] = post.date.split('-').map(Number);
+		if (!post.date_published) return '';
+		const [y, m, d] = post.date_published.split('-').map(Number);
+		return new Date(y, m - 1, d).toLocaleDateString('en-US', {
+			month: 'long',
+			day: 'numeric',
+			year: 'numeric'
+		});
+	})();
+
+	const formattedUpdatedDate = (() => {
+		if (!post.date_updated) return '';
+		const [y, m, d] = post.date_updated.split('-').map(Number);
 		return new Date(y, m - 1, d).toLocaleDateString('en-US', {
 			month: 'long',
 			day: 'numeric',
@@ -39,7 +50,9 @@
 <section class="w-4/5 md:w-3/5 mx-auto body text-white">
 	<article class="flex flex-col gap-4">
 		<h1 class="blog-title">{post.title}</h1>
-		<p class="blog-date">{formattedDate}</p>
+		<p class="blog-date">
+			{formattedDate}{formattedUpdatedDate ? ` • Updated ${formattedUpdatedDate}` : ''}
+		</p>
 		{#if post.tags && post.tags.length > 0}
 			<div class="blog-tags flex flex-row gap-2">
 				{#each post.tags as tag}
