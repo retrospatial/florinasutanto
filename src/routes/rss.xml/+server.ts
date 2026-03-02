@@ -11,7 +11,7 @@ interface PostMetadata {
 	title?: string;
 	desc?: string;
 	tags?: string[];
-	date?: string;
+	date_published?: string;
 	slug?: string;
 }
 
@@ -35,7 +35,7 @@ export const GET = async () => {
 		.map(([path, module]) => {
 			const metadata = module.metadata;
 			const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-			const year = metadata.date ? new Date(metadata.date).getFullYear() : null;
+			const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
 			const slug = metadata.slug ? (year ? `${year}/${metadata.slug}` : metadata.slug) : fileSlug;
 			const { body } = render(module.default);
 			return {
@@ -43,7 +43,9 @@ export const GET = async () => {
 				title: metadata.title ?? '',
 				desc: metadata.desc ?? '',
 				tags: metadata.tags ?? [],
-				date: metadata.date ? new Date(metadata.date) : null,
+				date: metadata.date_published
+					? new Date(new Date(metadata.date_published).toISOString().split('T')[0] + 'T12:00:00Z')
+					: null,
 				html: stripStyling(body)
 			};
 		})

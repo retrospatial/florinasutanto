@@ -3,7 +3,7 @@ interface PostMetadata {
 	desc?: string;
 	cover?: string;
 	tags?: string[];
-	date?: string;
+	date_published?: string;
 	slug?: string;
 }
 
@@ -20,9 +20,9 @@ export const load = async () => {
 	const posts = Object.entries(files)
 		.map(([path, module]) => {
 			const metadata = module.metadata;
-			const date = metadata.date ? new Date(metadata.date).toISOString().split('T')[0] : null;
+			const date = metadata.date_published ? new Date(metadata.date_published).toISOString().split('T')[0] : null;
 			const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-			const year = metadata.date ? new Date(metadata.date).getFullYear() : null;
+			const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
 			const slug = metadata.slug
 				? year ? `${year}/${metadata.slug}` : metadata.slug
 				: fileSlug;

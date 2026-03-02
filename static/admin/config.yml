@@ -45,11 +45,19 @@ collections:
         widget: markdown
         required: true
 
-      - label: Date
-        name: date
+      - label: Date Published
+        name: date_published
         widget: datetime
         format: YYYY-MM-DD
         time_format: true
+        required: true
+
+      - label: Date Updated
+        name: date_updated
+        widget: datetime
+        format: YYYY-MM-DD
+        time_format: true
+        required: false
 
       - name: tags
         label: Tags

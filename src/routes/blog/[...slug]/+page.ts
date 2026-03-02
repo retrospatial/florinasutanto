@@ -13,9 +13,9 @@ export const load = async ({ params, data }) => {
 	});
 
 	const entry = Object.entries(files).find(([path, module]) => {
-		const metadata = module.metadata as { slug?: string; date?: string };
+		const metadata = module.metadata as { slug?: string; date_published?: string };
 		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-		const year = metadata.date ? new Date(metadata.date).getFullYear() : null;
+		const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
 		const slug = metadata.slug
 			? year ? `${year}/${metadata.slug}` : metadata.slug
 			: fileSlug;
