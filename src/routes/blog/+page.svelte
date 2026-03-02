@@ -40,14 +40,14 @@
 				<article class="text-white group post-card relative rounded-sm">
 					<a href="/blog/{post.slug}">
 						<div
-							class="flex flex-col md:flex-row justify-center md:justify-between md:gap-4 items-center w-full px-4 md:px-6"
+							class="flex flex-col lg:flex-row justify-center lg:justify-between lg:gap-4 items-center w-full px-4 lg:px-6"
 						>
 							{#if post.cover}
 								<img
 									src={post.cover}
 									alt={post.title}
 									loading="lazy"
-									class="w-full aspect-video object-cover block md:hidden mt-4 max-h-40"
+									class="w-full aspect-video object-cover block lg:hidden mt-4 max-h-40"
 								/>
 							{/if}
 							<div class="flex flex-col gap-2 md:gap-4 w-full py-4 md:py-6">
@@ -78,7 +78,7 @@
 									src={post.cover}
 									alt={post.title}
 									loading="lazy"
-									class="w-full max-w-[300px] aspect-video object-cover hidden md:block"
+									class="w-full max-w-[300px] aspect-video object-cover hidden lg:block"
 								/>
 							{/if}
 						</div>

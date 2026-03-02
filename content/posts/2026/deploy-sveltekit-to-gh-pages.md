@@ -9,7 +9,7 @@ tags:
   - tutorial
 ---
 
-This is the process I use to quickly set up a static SvelteKit app and publish it through GitHub Pages. Again, this only works for simple, static sites—anything that requires data to be dynamically generated (for example, real-time API calls) will not work with GH Pages.
+This is the process I use to quickly set up a static SvelteKit app and publish it through GitHub Pages. This only works for simple, static sites—anything that requires code to run the server side (e.g. API calls that need to happen at runtime, anything with private keys) will not work with GH Pages.
 
 ## 1. Create a new project and set up the dependencies
 

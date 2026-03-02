@@ -1,3 +1,6 @@
+import { render } from 'svelte/server';
+import type { Component } from 'svelte';
+
 export const prerender = true;
 
 const SITE_URL = 'https://florinasutanto.com';
@@ -13,8 +16,16 @@ interface PostMetadata {
 }
 
 interface MdsvexModule {
-	default: unknown;
+	default: Component;
 	metadata: PostMetadata;
+}
+
+function stripStyling(html: string): string {
+	return html
+		.replace(/\s+class="[^"]*"/g, '')
+		.replace(/\s+style="[^"]*"/g, '')
+		.replace(/\s+data-[\w-]+(?:="[^"]*")?/g, '')
+		.replace(/<\/?span[^>]*>/g, '');
 }
 
 export const GET = async () => {
@@ -26,19 +37,21 @@ export const GET = async () => {
 			const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
 			const year = metadata.date ? new Date(metadata.date).getFullYear() : null;
 			const slug = metadata.slug ? (year ? `${year}/${metadata.slug}` : metadata.slug) : fileSlug;
+			const { body } = render(module.default);
 			return {
 				slug,
 				title: metadata.title ?? '',
 				desc: metadata.desc ?? '',
 				tags: metadata.tags ?? [],
-				date: metadata.date ? new Date(metadata.date) : null
+				date: metadata.date ? new Date(metadata.date) : null,
+				html: stripStyling(body)
 			};
 		})
 		.filter((p) => p.date)
 		.sort((a, b) => b.date!.getTime() - a.date!.getTime());
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>${SITE_TITLE}</title>
     <link>${SITE_URL}/blog</link>
@@ -50,7 +63,8 @@ export const GET = async () => {
       <title><![CDATA[${post.title}]]></title>
       <link>${SITE_URL}/blog/${post.slug}</link>
       <guid isPermaLink="true">${SITE_URL}/blog/${post.slug}</guid>
-      <description><![CDATA[${post.desc}${post.tags.length > 0 ? `<br><br>Tags: ${post.tags.join(', ')}` : ''}<br><br><a href="${SITE_URL}/blog/${post.slug}">Read here.</a>]]></description>
+      <description><![CDATA[${post.desc}]]></description>
+      <content:encoded><![CDATA[${post.html}]]></content:encoded>
       <pubDate>${post.date!.toUTCString()}</pubDate>
       ${post.tags.map((tag) => `<category>${tag}</category>`).join('\n      ')}
     </item>`
