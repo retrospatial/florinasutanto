@@ -37,7 +37,7 @@
 	<div class="flex flex-col md:flex-row gap-8">
 		<div class="flex flex-col gap-4 flex-1">
 			{#each filteredPosts as post}
-				<article class="text-white group post-card relative rounded-sm">
+				<article class="text-white group post-card relative rounded">
 					<a href="/blog/{post.slug}">
 						<div
 							class="flex flex-col lg:flex-row justify-center lg:justify-between lg:gap-4 items-center w-full px-4 lg:px-6"
@@ -65,7 +65,7 @@
 
 										<div class="blog-list-tags flex flex-row gap-2">
 											{#each post.tags as tag}
-												<span class="blog-list-tag border-[0.5px] border-white rounded-md px-2 py-1"
+												<span class="blog-list-tag border-[0.5px] border-white rounded px-2 py-1"
 													>{tag}</span
 												>
 											{/each}
@@ -91,7 +91,7 @@
 			<span class=" text-sm uppercase text-white/80 mb-1 tracking-widest">filter by tag</span>
 			{#each allTags as tag}
 				<button
-					class="flex cursor-pointer gap-2 rounded-md border-[0.5px] px-2 py-1 text-xs uppercase transition-all duration-200 justify-between {selectedTag ===
+					class="flex cursor-pointer gap-2 rounded border-[0.5px] px-2 py-1 text-xs uppercase transition-all duration-200 justify-between {selectedTag ===
 					tag
 						? 'border-accent-pink text-accent-pink'
 						: 'border-white/50 text-white/80 hover:border-white/80 hover:text-white'}"

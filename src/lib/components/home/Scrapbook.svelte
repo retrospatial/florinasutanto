@@ -51,11 +51,11 @@
 					</div>
 					<ol class="flex flex-col px-6 py-4">
 						{#each content.text[1].desc as item}
-							<a href={item.href} target="_blank" rel="noopener noreferrer" class="hover:underline">
-								<li class="font-terminal text-xl lg:text-2xl">
+							<li class="font-terminal text-xl lg:text-2xl">
+								<a href={item.href} target="_blank" rel="noopener noreferrer" class="hover:underline">
 									{item.title}
-								</li>
-							</a>
+								</a>
+							</li>
 						{/each}
 					</ol>
 				</div>

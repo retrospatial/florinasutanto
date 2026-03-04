@@ -53,8 +53,8 @@ export default {
 		}),
 		paths: {
 			base: dev ? '' : '/YOUR_REPO_NAME'
-			}
-		},
+		}
+	},
 	preprocess: [mdsvex()],
 	extensions: ['.svelte', '.svx']
 };
@@ -63,10 +63,10 @@ export default {
 If you're deploying to your root GitHub domain (e.g. username.github.io), remove `/YOUR_REPO_NAME` and leave it as an empty string (`''`).
 
 - In `src/routes`, create a `+layout.ts` file and add: `export const prerender = true;`
-- In `package.json`, under `scripts`, add: `"deploy": "pnpm run build && pnpm dlx gh-pages -d build -t",`
+- In `package.json`, under `scripts`, add: `"deploy": "pnpm run build && gh-pages -d build -t",`
 - In the static folder, create an empty `.nojekyll` file. This is needed to bypass GitHub Pages' default use of Jekyll as the static site generator. If you skip this step, your Pages site will only display the contents of README.md.
 
-## 3. Initialize git and and push to GitHub (from the CLI)
+## 3. Initialize git and push the repo (from the CLI)
 
 ```bash
 git init -b main
@@ -75,12 +75,18 @@ git commit -m "Initial commit"
 gh repo create YOUR_REPO_NAME --public --source=. --remote=origin --push
 ```
 
-Change `public` to `private` if you want the repo to be private.
+Or, if you've created the repo manually on GitHub's site, run these commands after committing:
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git branch -M main
+git push -u origin main
+```
 
 ## 4. Deploy to the gh-pages branch
 
 ```bash
- pnpm run deploy
+pnpm run deploy
 ```
 
 ## 5. Set up GitHub Pages

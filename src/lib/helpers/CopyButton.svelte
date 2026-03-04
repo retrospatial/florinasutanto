@@ -14,8 +14,9 @@
 				<iconify-icon class="icon-solid" icon="icon-park-solid:copy"></iconify-icon>
 			`;
 
-			const feedback = document.createElement('span');
+			const feedback = document.createElement('output');
 			feedback.className = 'copy-feedback';
+			feedback.setAttribute('aria-live', 'polite');
 			feedback.textContent = 'COPIED!';
 
 			button.onclick = async () => {

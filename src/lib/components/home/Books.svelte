@@ -49,9 +49,9 @@
 					</p>
 				</div>
 
-				<div class="w-full grid grid-cols-3 -mb-1">
+				<ul class="w-full grid grid-cols-3 -mb-1">
 					{#each booksData[shelf.listType] as book}
-						<div class="flex flex-col items-center text-center justify-end">
+						<li class="flex flex-col items-center text-center justify-end">
 							{#if book.image}
 								<a href={book.url} target="_blank" rel="noopener noreferrer">
 									<img
@@ -61,9 +61,9 @@
 									/>
 								</a>
 							{/if}
-						</div>
+						</li>
 					{/each}
-				</div>
+				</ul>
 			</div>
 		{/each}
 	</div>

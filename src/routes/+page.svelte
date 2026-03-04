@@ -96,7 +96,6 @@
 												</a>
 											</li>
 										{/each}
-										<ul></ul>
 									</ul>
 								</div>
 							</Window>

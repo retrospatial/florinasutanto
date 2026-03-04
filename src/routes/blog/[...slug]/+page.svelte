@@ -50,15 +50,15 @@
 <section class="w-4/5 md:w-3/5 mx-auto body text-white">
 	<article class="flex flex-col gap-4">
 		<h1 class="blog-title">{post.title}</h1>
-		<p class="blog-date">
+		<time class="blog-date" datetime={post.date_published ?? ''}>
 			{formattedDate}{formattedUpdatedDate ? ` • Updated ${formattedUpdatedDate}` : ''}
-		</p>
+		</time>
 		{#if post.tags && post.tags.length > 0}
-			<div class="blog-tags flex flex-row gap-2">
+			<ul class="blog-tags flex flex-row gap-2">
 				{#each post.tags as tag}
-					<span class="blog-tag border-[0.5px] border-white rounded-md px-2 py-1">{tag}</span>
+					<li class="blog-tag border-[0.5px] border-white rounded px-2 py-1">{tag}</li>
 				{/each}
-			</div>
+			</ul>
 		{/if}
 		<div class="mt-8 markdown" use:addCopyButtons use:addLightbox>
 			<Content />
@@ -77,7 +77,7 @@
 		@apply font-mono text-xs leading-none uppercase md:text-sm;
 	}
 
-	.blog-date {
+	time.blog-date {
 		@apply font-mono text-sm leading-normal uppercase md:text-base;
 	}
 </style>
