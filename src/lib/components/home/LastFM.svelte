@@ -78,8 +78,9 @@
 				class="w-full h-auto max-w-8 md:max-w-10 animate-spin-slow absolute -bottom-1 right-7"
 			/>
 		</div>
-		<div class="w-full">
+		<ul class="w-full">
 			{#each tracks as t (t.url)}
+				<li>
 				<a class="body-md" href={t.url} target="_blank" rel="noreferrer">
 					<div class="flex flex-row gap-4 items-start justify-start py-2">
 						{#if t.image}
@@ -94,8 +95,9 @@
 						</div>
 					</div>
 				</a>
+				</li>
 			{/each}
-		</div>
+		</ul>
 	</div>
 </div>
 

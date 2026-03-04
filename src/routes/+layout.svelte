@@ -4,8 +4,7 @@
 	import Image from '$lib/helpers/Image.svelte';
 	const favicon = '/assets/images/favicon.png';
 	import { page } from '$app/stores';
-	import { fly, fade } from 'svelte/transition';
-	import { cubicOut } from 'svelte/easing';
+	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
 
@@ -25,7 +24,6 @@
 		return 'florina sutanto';
 	});
 
-	let mounted = $state(false);
 	let lightboxImages = $state<{ src: string; alt: string }[]>([]);
 	let lightboxIndex = $state(0);
 	const lightboxSrc = $derived(lightboxImages[lightboxIndex]?.src ?? null);
@@ -61,7 +59,6 @@
 	}
 
 	onMount(() => {
-		mounted = true;
 		preloadLastFmCovers();
 
 		function handleImageClick(e: MouseEvent) {
@@ -181,13 +178,11 @@
 {/if}
 
 <main class="relative py-8 md:py-16 max-w-screen-2xl mx-auto">
-	{#if mounted}
-		{#key pathname}
-			<div in:fly|global={{ y: 40, duration: 600, easing: cubicOut }} class="mb-4">
-				{@render children()}
-			</div>
-		{/key}
-	{/if}
+	{#key pathname}
+		<div class="page-content mb-4">
+			{@render children()}
+		</div>
+	{/key}
 </main>
 
 <style>
@@ -204,5 +199,20 @@
 
 	nav {
 		animation: nav-fly-in 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.4s both;
+	}
+
+	.page-content {
+		animation: page-fly-in 0.6s cubic-bezier(0.33, 1, 0.68, 1) both;
+	}
+
+	@keyframes page-fly-in {
+		from {
+			opacity: 0;
+			transform: translateY(40px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 </style>

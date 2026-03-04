@@ -18,9 +18,9 @@
 
 <!-- use image popover -->
 
-<div class="relative grid grid-cols-2 md:grid-cols-3 gap-2 items-center justify-center">
+<ul class="relative grid grid-cols-2 md:grid-cols-3 gap-2 items-center justify-center">
 	{#each content.desc as item, i}
-		<div
+		<li
 			class="polaroid border-[#E3E3E3] md:border-r-20 md:border-t-20 md:border-l-20 border-r-10 border-t-10 border-l-10 transition-all duration-300 drop-shadow-2xl {i %
 				2 ===
 			0
@@ -44,9 +44,9 @@
 					{item.title}
 				</p>
 			</div>
-		</div>
+		</li>
 	{/each}
-</div>
+</ul>
 
 <style>
 	.polaroid {
