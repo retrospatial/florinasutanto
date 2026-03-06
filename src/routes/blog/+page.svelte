@@ -33,7 +33,7 @@
 </script>
 
 <section class="w-4/5 mx-auto">
-	<h2 class="heading-2 text-accent-pink mb-4">even more words</h2>
+	<h2 class="heading-2 text-accent-pink mb-4">more words</h2>
 	<div class="flex flex-col md:flex-row gap-8">
 		<div class="flex flex-col gap-4 flex-1">
 			{#each filteredPosts as post}
