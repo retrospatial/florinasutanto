@@ -1,16 +1,4 @@
-interface PostMetadata {
-	title?: string;
-	desc?: string;
-	cover?: string;
-	tags?: string[];
-	date_published?: string;
-	slug?: string;
-}
-
-interface MdsvexModule {
-	default: unknown;
-	metadata: PostMetadata;
-}
+import { type MdsvexModule, getPostSlug, toISODate } from '$lib/utils/blog';
 
 export const load = async () => {
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
@@ -20,12 +8,8 @@ export const load = async () => {
 	const posts = Object.entries(files)
 		.map(([path, module]) => {
 			const metadata = module.metadata;
-			const date = metadata.date_published ? new Date(metadata.date_published).toISOString().split('T')[0] : null;
-			const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-			const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
-			const slug = metadata.slug
-				? year ? `${year}/${metadata.slug}` : metadata.slug
-				: fileSlug;
+			const slug = getPostSlug(path, metadata);
+			const date = toISODate(metadata.date_published);
 
 			return {
 				slug,

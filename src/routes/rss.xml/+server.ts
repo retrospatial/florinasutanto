@@ -1,24 +1,11 @@
 import { render } from 'svelte/server';
-import type { Component } from 'svelte';
+import { type MdsvexModule, getPostSlug } from '$lib/utils/blog';
 
 export const prerender = true;
 
 const SITE_URL = 'https://florinasutanto.com';
 const SITE_TITLE = 'florina sutanto';
 const SITE_DESCRIPTION = 'RSS feed for my blog posts';
-
-interface PostMetadata {
-	title?: string;
-	desc?: string;
-	tags?: string[];
-	date_published?: string;
-	slug?: string;
-}
-
-interface MdsvexModule {
-	default: Component;
-	metadata: PostMetadata;
-}
 
 function stripStyling(html: string): string {
 	return html
@@ -34,9 +21,7 @@ export const GET = async () => {
 	const posts = Object.entries(files)
 		.map(([path, module]) => {
 			const metadata = module.metadata;
-			const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-			const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
-			const slug = metadata.slug ? (year ? `${year}/${metadata.slug}` : metadata.slug) : fileSlug;
+			const slug = getPostSlug(path, metadata);
 			const { body } = render(module.default);
 			return {
 				slug,

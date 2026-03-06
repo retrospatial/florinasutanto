@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap');
+
+.reveal {
+	background-color: #181818;
+	font-family: 'Spline Sans', sans-serif;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+	font-family: 'Spline Sans', sans-serif;
+	color: #66adb5;
+}
+
+/* .reveal .slides section {
+	text-align: center;
+}
+
+.reveal ul {
+	display: inline-block;
+	text-align: left;
+}
+ */

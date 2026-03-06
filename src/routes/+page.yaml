@@ -20,6 +20,7 @@ links_list:
       - title: GitHub
         href: https://github.com/retrospatial
         icon: mdi:github
+        rel: me noopener noreferrer
       - title: Twitter
         href: https://twitter.com/flosutanto
         icon: mdi:twitter

@@ -1,23 +1,26 @@
 @theme {
 	--font-exposure: 'Exposure', serif;
-	--font-body: 'Spectral', serif;
+	--font-editorial: 'Editorial New', serif;
+	--font-spectral: 'Spectral', serif;
 	--font-mono: 'Fira Code', monospace;
 	--font-courier: 'Courier Prime', monospace;
 	--font-terminal: 'VT323', monospace;
 	--font-goudy: 'Goudy Bookletter 1911', serif;
+	--font-instrument-serif: 'Instrument Serif', serif;
+	--font-spline: 'Spline Sans', sans-serif;
 	--font-rock-salt: 'Rock Salt', cursive;
 	--font-technology: 'Technology', sans-serif;
 
 	--color-white: #e2e2e2;
+	--color-dark-gray: #181818;
 	--color-accent-blue: #66adb5;
 	--color-accent-cream: #f3e3cf;
 	--color-accent-purple: #ab9df2;
-	/* ab9df2  A8BAFF */
 	--color-accent-teal: #012828;
 	--color-accent-orange: #ca9248;
 	--color-accent-pink: #e56684;
 	--color-accent-green: #d8f328;
-	--color-dark-gray: #181818;
+	--color-accent-yellow: #e8c85b;
 
 	--spacing-navbar: 3rem;
 }
