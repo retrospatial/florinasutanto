@@ -1,6 +1,4 @@
 <script lang="ts" module>
-	import { browser } from '$app/environment';
-
 	const isDev = import.meta.env.DEV;
 
 	function getOptimizedUrl(src: string, width: number, quality: number): string {
@@ -9,7 +7,7 @@
 		const fullPath = `${basePath}${src}`;
 
 		// In dev or during SSR/prerendering, serve directly from static
-		if (isDev || !browser) return fullPath;
+		if (isDev) return fullPath;
 		// In production browser, use Vercel image optimization
 		const params = new URLSearchParams({
 			url: fullPath,
