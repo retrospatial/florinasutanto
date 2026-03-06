@@ -4,11 +4,8 @@
 	const isDev = import.meta.env.DEV;
 
 	function getOptimizedUrl(src: string, width: number, quality: number): string {
-		const basePath = src.startsWith('cover_imgs/')
-			? '/assets/'
-			: src.includes('/')
-				? '/assets/'
-				: '/assets/images/';
+		const basePath =
+			src.startsWith('cover_imgs/') || src.startsWith('blog/') ? '/assets/' : '/assets/images/';
 		const fullPath = `${basePath}${src}`;
 
 		// In dev or during SSR/prerendering, serve directly from static

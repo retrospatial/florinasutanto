@@ -89,10 +89,10 @@
 				</a>
 
 				<div class="absolute z-50 -top-8 -right-6">
-					<Image src="images/doodles/penguin.png" alt="penguin" class="rotate-5  w-16 " />
+					<Image src="doodles/penguin.png" alt="penguin" class="rotate-5  w-16 " />
 				</div>
 				<div class="absolute z-50 -top-10 right-9">
-					<Image src="images/doodles/penguin_hi2.png" alt="penguin" class="w-8 -rotate-5" />
+					<Image src="doodles/penguin_hi2.png" alt="penguin" class="w-8 -rotate-5" />
 				</div>
 			{/if}
 		</div>
