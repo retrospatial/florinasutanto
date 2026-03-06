@@ -27,7 +27,7 @@
 	<div class="w-full">
 		{#key selectedOption}
 			<h1
-				class="heading-1 lowercase leading-tight mb-4 text-accent-blue ease-out transition-all duration-300 delay-200 transform"
+				class="heading-1 lowercase leading-normal mb-4 text-accent-blue ease-out transition-all duration-300 delay-200 transform"
 				in:fly={{ x: -40, duration: 600, easing: cubicOut }}
 			>
 				{selectedOption === 'short' ? content.about_short.title : content.about_long.title}

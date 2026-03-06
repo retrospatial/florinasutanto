@@ -4,6 +4,15 @@
 			const wrapper = document.createElement('div');
 			wrapper.className = 'code-block-wrapper';
 			pre.replaceWith(wrapper);
+
+			const filename = pre.dataset.filename;
+			if (filename) {
+				const header = document.createElement('div');
+				header.className = 'code-block-header';
+				header.textContent = filename;
+				wrapper.append(header);
+			}
+
 			wrapper.append(pre);
 
 			const button = document.createElement('button');
@@ -17,7 +26,7 @@
 			const feedback = document.createElement('output');
 			feedback.className = 'copy-feedback';
 			feedback.setAttribute('aria-live', 'polite');
-			feedback.textContent = 'COPIED!';
+			// feedback.textContent = 'COPIED!';
 
 			button.onclick = async () => {
 				await navigator.clipboard.writeText(pre.textContent || '');
@@ -38,6 +47,21 @@
 <style>
 	:global(.code-block-wrapper) {
 		position: relative;
+	}
+
+	:global(.code-block-header) {
+		background: var(--color-dark-gray);
+		border-bottom: 1px solid var(--color-accent-pink);
+		border-radius: 4px 4px 0 0;
+		padding: 0.75rem 1rem;
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--color-accent-pink);
+	}
+
+	:global(.code-block-header + pre) {
+		border-radius: 0 0 0.375rem 0.375rem !important;
+		margin-top: 0 !important;
 	}
 
 	:global(.copy-btn) {
@@ -95,7 +119,7 @@
 		opacity: 1;
 	}
 
-	:global(.copy-feedback) {
+	/* :global(.copy-feedback) {
 		position: absolute;
 		top: 2.5rem;
 		right: 0.5rem;
@@ -109,5 +133,5 @@
 
 	:global(.copy-feedback.show) {
 		display: block;
-	}
+	} */
 </style>

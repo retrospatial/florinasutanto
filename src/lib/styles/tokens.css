@@ -27,15 +27,15 @@
 }
 
 @utility heading-1 {
-	@apply font-exposure text-5xl leading-normal font-[350] md:text-8xl;
+	@apply font-rock-salt text-5xl font-[350] md:text-8xl;
 }
 
 @utility heading-2 {
-	@apply font-exposure text-4xl leading-normal font-[350] md:text-6xl md:leading-loose;
+	@apply font-rock-salt text-4xl leading-normal font-[350] md:text-6xl md:leading-loose;
 }
 
 @utility heading-3 {
-	@apply font-exposure text-xl leading-normal font-[375] md:text-2xl;
+	@apply font-rock-salt text-xl leading-normal font-[375] md:text-2xl;
 }
 
 @utility body-lg {
@@ -73,4 +73,17 @@
 
 @utility entry-tag {
 	@apply font-mono text-xs leading-normal uppercase md:text-sm;
+}
+
+/* window */
+@utility border-outset {
+	border: 4px outset var(--color-white);
+}
+
+@utility border-inset {
+	border: 4px inset var(--color-white);
+}
+
+@utility border-outset-small {
+	border: 1px outset var(--color-white);
 }

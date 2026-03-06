@@ -35,12 +35,12 @@ links_list:
   others:
     title: Misc
     links:
-      - title: Colophon
-        href: /blog/2026/colophon
-        icon: material-symbols:book
       - title: RSS Feed
         href: /rss.xml
         icon: mdi:rss
+      - title: Colophon
+        href: /blog/2026/colophon
+        icon: material-symbols:book
 
 about_long:
   title: Scrapbook

@@ -13,11 +13,27 @@ export default {
 		mdsvex({
 			extensions: ['.md'],
 			highlight: {
-				highlighter: (code, lang) => {
-					const html = highlighter.codeToHtml(code, {
+				highlighter: (code, lang, meta) => {
+					let filename = meta?.match(/filename:\s*(.+)/)?.[1]?.trim();
+
+					if (!filename) {
+						const firstLine = code.split('\n')[0];
+						const match = firstLine.match(/^filename:\s*(.+)/);
+						if (match) {
+							filename = match[1].trim();
+							code = code.split('\n').slice(1).join('\n');
+						}
+					}
+
+					let html = highlighter.codeToHtml(code, {
 						lang: lang || 'text',
 						theme: 'tokyo-night'
 					});
+
+					if (filename) {
+						html = html.replace('<pre', `<pre data-filename="${filename}"`);
+					}
+
 					const escaped = html
 						.replace(/\\/g, '\\\\')
 						.replace(/`/g, '\\`')

@@ -69,7 +69,9 @@
 	/>
 	<div class="tracking-tighter flex items-center justify-center flex-col mx-4 relative min-h-110">
 		<div class="flex items-center justify-center relative mb-4">
-			<div class="heading-3 text-black/85 w-full max-w-2/3 flex text-balance text-center">
+			<div
+				class="heading-3 font-exposure text-black/85 w-full max-w-2/3 flex text-balance text-center"
+			>
 				{content.text[0].title}
 			</div>
 			<Image
@@ -81,20 +83,20 @@
 		<ul class="w-full">
 			{#each tracks as t (t.url)}
 				<li>
-				<a class="body-md" href={t.url} target="_blank" rel="noreferrer">
-					<div class="flex flex-row gap-4 items-start justify-start py-2">
-						{#if t.image}
-							<img src={t.image} alt="" class="max-w-12 w-full max-h-12 h-auto" />
-						{:else}
-							<div class="w-full max-w-12 h-12 bg-accent-blue"></div>
-						{/if}
+					<a class="body-md" href={t.url} target="_blank" rel="noreferrer">
+						<div class="flex flex-row gap-4 items-start justify-start py-2">
+							{#if t.image}
+								<img src={t.image} alt="" class="max-w-12 w-full max-h-12 h-auto" />
+							{:else}
+								<div class="w-full max-w-12 h-12 bg-accent-blue"></div>
+							{/if}
 
-						<div class="flex justify-center flex-col uppercase text-black/80">
-							<div class="body-md mb-0 font-bold font-courier leading-tight">{t.name}</div>
-							<div class="body-sm mb-0 font-courier leading-tight">{t.artist}</div>
+							<div class="flex justify-center flex-col uppercase text-black/80">
+								<div class="body-md mb-0 font-bold font-courier leading-tight">{t.name}</div>
+								<div class="body-sm mb-0 font-courier leading-tight">{t.artist}</div>
+							</div>
 						</div>
-					</div>
-				</a>
+					</a>
 				</li>
 			{/each}
 		</ul>

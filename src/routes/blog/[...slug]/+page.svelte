@@ -3,6 +3,7 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
 	import { addCopyButtons } from '$lib/helpers/CopyButton.svelte';
+	import CommentBox from '$lib/helpers/CommentBox.svelte';
 
 	function addLightbox(node: HTMLElement) {
 		node.querySelectorAll('img').forEach((img) => img.setAttribute('data-lightbox', ''));
@@ -64,6 +65,8 @@
 			<Content />
 		</div>
 	</article>
+
+	<CommentBox />
 </section>
 
 <style lang="postcss">

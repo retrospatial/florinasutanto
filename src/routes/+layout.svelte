@@ -16,7 +16,10 @@
 	const work = $derived(pathname.startsWith('/work'));
 	const blog = $derived(pathname.startsWith('/blog'));
 
+	const blogPostTitle = $derived($page.data?.post?.title);
+
 	const pageTitle = $derived(() => {
+		if (blogPostTitle) return `florina sutanto | ${blogPostTitle}`;
 		if (about) return 'florina sutanto';
 		if (work) return 'florina sutanto | work';
 		if (personal) return 'florina sutanto | personal';
