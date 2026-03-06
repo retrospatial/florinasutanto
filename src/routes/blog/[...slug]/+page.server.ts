@@ -1,18 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type { Component } from 'svelte';
-
-interface MdsvexModule {
-	default: Component;
-	metadata: {
-		title?: string;
-		desc?: string;
-		cover?: string;
-		tags?: string[];
-		date_published?: string;
-		date_updated?: string;
-		slug?: string;
-	};
-}
+import { type MdsvexModule, getPostSlug, toISODate } from '$lib/utils/blog';
 
 export const entries = async () => {
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
@@ -20,10 +7,7 @@ export const entries = async () => {
 	});
 
 	return Object.entries(files).map(([path, module]) => {
-		const { metadata } = module;
-		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-		const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
-		const slug = metadata.slug ? (year ? `${year}/${metadata.slug}` : metadata.slug) : fileSlug;
+		const slug = getPostSlug(path, module.metadata);
 		return { slug };
 	});
 };
@@ -34,17 +18,12 @@ export const load = async ({ params }) => {
 	});
 
 	const entry = Object.entries(files).find(([path, module]) => {
-		const { metadata } = module;
-		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-		const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
-		const slug = metadata.slug ? (year ? `${year}/${metadata.slug}` : metadata.slug) : fileSlug;
-		return slug === params.slug;
+		return getPostSlug(path, module.metadata) === params.slug;
 	});
 
 	if (!entry) throw error(404, 'Post not found');
 
-	const [, module] = entry;
-	const { metadata } = module;
+	const { metadata } = entry[1];
 
 	return {
 		post: {
@@ -53,12 +32,8 @@ export const load = async ({ params }) => {
 			desc: metadata.desc ?? '',
 			cover: metadata.cover ?? '',
 			tags: metadata.tags ?? [],
-			date_published: metadata.date_published
-				? new Date(metadata.date_published).toISOString().split('T')[0]
-				: null,
-			date_updated: metadata.date_updated
-				? new Date(metadata.date_updated).toISOString().split('T')[0]
-				: null
+			date_published: toISODate(metadata.date_published),
+			date_updated: toISODate(metadata.date_updated)
 		}
 	};
 };

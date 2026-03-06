@@ -1,0 +1,23 @@
+---
+title: "data journalism"
+author: "Florina Sutanto"
+format: 
+    revealjs:
+        theme: night
+        css: custom.css
+        center: true
+---
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Going to sleep
+
+- Get in bed
+- Count sheep
+
+what else is there to say?
+
+## A new slide! yay

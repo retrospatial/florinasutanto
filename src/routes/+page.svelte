@@ -60,7 +60,7 @@
 											<a
 												href={link.href}
 												target="_blank"
-												rel="noopener noreferrer"
+												rel={link.rel ?? 'noopener noreferrer'}
 												class="flex items-center gap-3 group-hover:text-[#2e3ebb] transition-colors duration-300"
 											>
 												<iconify-icon

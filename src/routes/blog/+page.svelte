@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { formatDate } from '$lib/utils/blog';
+	import Image from '$lib/helpers/Image.svelte';
+	import Pagination from '$lib/helpers/Pagination.svelte';
+
 	let { data } = $props();
 
 	const posts = $derived(data.posts);
@@ -16,37 +20,32 @@
 	);
 
 	let selectedTag = $state<string | null>(null);
+	let page = $state(1);
+	const perPage = $state(10);
 
 	const filteredPosts = $derived(
 		selectedTag ? posts.filter((p: { tags: string[] }) => p.tags.includes(selectedTag!)) : posts
 	);
 
-	const formatDate = (dateString: string | null) => {
-		if (!dateString) return '';
-		const [y, m, d] = dateString.split('-').map(Number);
-		return new Date(y, m - 1, d).toLocaleDateString('en-US', {
-			month: 'long',
-			day: 'numeric',
-			year: 'numeric'
-		});
-	};
+	const paginatedPosts = $derived(filteredPosts.slice((page - 1) * perPage, page * perPage));
 </script>
 
 <section class="w-4/5 mx-auto">
 	<h2 class="heading-2 text-accent-pink mb-4">more words</h2>
 	<div class="flex flex-col md:flex-row gap-8">
 		<div class="flex flex-col gap-4 flex-1">
-			{#each filteredPosts as post}
+			{#each paginatedPosts as post}
 				<article class="text-white group post-card relative rounded">
 					<a href="/blog/{post.slug}">
 						<div
 							class="flex flex-col lg:flex-row justify-center lg:justify-between lg:gap-4 items-center w-full px-4 lg:px-6"
 						>
+							<!-- mobile cover -->
 							{#if post.cover}
-								<img
+								<Image
 									src={post.cover}
 									alt={post.title}
-									loading="lazy"
+									lazy={true}
 									class="w-full aspect-video object-cover block lg:hidden mt-4 max-h-40"
 								/>
 							{/if}
@@ -73,12 +72,13 @@
 									{/if}
 								</div>
 							</div>
+							<!-- desktop cover -->
 							{#if post.cover}
-								<img
+								<Image
 									src={post.cover}
 									alt={post.title}
-									loading="lazy"
-									class="w-full max-w-[300px] aspect-video object-cover hidden lg:block"
+									lazy={true}
+									class="w-full max-w-[300px] aspect-video object-cover hidden my-2 lg:block"
 								/>
 							{/if}
 						</div>
@@ -95,7 +95,10 @@
 					tag
 						? 'border-accent-pink text-accent-pink'
 						: 'border-white/50 text-white/80 hover:border-white/80 hover:text-white'}"
-					onclick={() => (selectedTag = selectedTag === tag ? null : tag)}
+					onclick={() => {
+						selectedTag = selectedTag === tag ? null : tag;
+						page = 1;
+					}}
 				>
 					<span>{tag}</span>
 					<span class="">{tagCounts[tag]}</span>
@@ -103,6 +106,8 @@
 			{/each}
 		</aside>
 	</div>
+
+	<Pagination count={filteredPosts.length} {perPage} bind:page />
 </section>
 
 <style lang="postcss">

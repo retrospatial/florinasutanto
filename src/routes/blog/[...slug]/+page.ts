@@ -1,9 +1,4 @@
-import type { Component } from 'svelte';
-
-interface MdsvexModule {
-	default: Component;
-	metadata: Record<string, unknown>;
-}
+import { type MdsvexModule, getPostSlug } from '$lib/utils/blog';
 
 export const prerender = 'auto';
 
@@ -13,13 +8,7 @@ export const load = async ({ params, data }) => {
 	});
 
 	const entry = Object.entries(files).find(([path, module]) => {
-		const metadata = module.metadata as { slug?: string; date_published?: string };
-		const fileSlug = path.replace('/content/posts/', '').replace('.md', '');
-		const year = metadata.date_published ? new Date(metadata.date_published).getFullYear() : null;
-		const slug = metadata.slug
-			? year ? `${year}/${metadata.slug}` : metadata.slug
-			: fileSlug;
-		return slug === params.slug;
+		return getPostSlug(path, module.metadata) === params.slug;
 	});
 
 	return {

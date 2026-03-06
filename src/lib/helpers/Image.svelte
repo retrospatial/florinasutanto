@@ -2,6 +2,7 @@
 	const isDev = import.meta.env.DEV;
 
 	function getFullPath(src: string): string {
+		if (src.startsWith('/')) return src;
 		const basePath =
 			src.startsWith('cover_imgs/') || src.startsWith('blog/') ? '/assets/' : '/assets/images/';
 		return `${basePath}${src}`;

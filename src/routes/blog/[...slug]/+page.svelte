@@ -3,11 +3,9 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
 	import { addCopyButtons } from '$lib/helpers/CopyButton.svelte';
+	import { addLightbox } from '$lib/helpers/Lightbox.svelte';
+	import { formatDate } from '$lib/utils/blog';
 	import CommentBox from '$lib/helpers/CommentBox.svelte';
-
-	function addLightbox(node: HTMLElement) {
-		node.querySelectorAll('img').forEach((img) => img.setAttribute('data-lightbox', ''));
-	}
 
 	interface Props {
 		data: {
@@ -27,25 +25,8 @@
 	let { data }: Props = $props();
 	const { post, Content } = data;
 
-	const formattedDate = (() => {
-		if (!post.date_published) return '';
-		const [y, m, d] = post.date_published.split('-').map(Number);
-		return new Date(y, m - 1, d).toLocaleDateString('en-US', {
-			month: 'long',
-			day: 'numeric',
-			year: 'numeric'
-		});
-	})();
-
-	const formattedUpdatedDate = (() => {
-		if (!post.date_updated) return '';
-		const [y, m, d] = post.date_updated.split('-').map(Number);
-		return new Date(y, m - 1, d).toLocaleDateString('en-US', {
-			month: 'long',
-			day: 'numeric',
-			year: 'numeric'
-		});
-	})();
+	const formattedDate = formatDate(post.date_published);
+	const formattedUpdatedDate = formatDate(post.date_updated);
 </script>
 
 <section class="w-4/5 md:w-3/5 mx-auto body text-white">
