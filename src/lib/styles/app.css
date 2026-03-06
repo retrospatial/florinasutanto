@@ -46,7 +46,7 @@
 
 	/* blog styling */
 	.markdown img {
-		@apply mx-auto my-4 h-auto w-full rounded;
+		@apply mx-auto my-8 h-auto w-full rounded;
 	}
 
 	.markdown h1 {
@@ -114,7 +114,7 @@
 	}
 
 	.markdown .caption {
-		@apply mb-4 block text-center text-base italic md:text-lg;
+		@apply -mt-4 mb-8 block text-center text-base italic md:text-lg;
 	}
 
 	.markdown input[type='checkbox'] {

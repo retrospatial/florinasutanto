@@ -9,6 +9,10 @@ tags:
   - tutorial
 ---
 
+<script>
+  import Image from '$lib/helpers/Image.svelte'
+</script>
+
 This is the process I use to quickly set up a static SvelteKit app and publish it through GitHub Pages. This only works for simple, static sites—anything that requires code to run the server side (e.g. API calls that need to happen at runtime, anything with private keys) will not work with GH Pages.
 
 ## 1. Create a new project and set up the dependencies
@@ -114,6 +118,6 @@ pnpm run deploy
 
 If everything goes correctly, this is what you should see at `username.github.io/YOUR_REPO_NAME`:
 
-![Successful SvelteKit deployment to GitHub Pages](/assets/blog/demo.jpeg)
+<Image src="blog/demo.jpeg" alt="Successful SvelteKit deployment to GitHub Pages" />
 
 That's it!
