@@ -1,14 +1,13 @@
 <script lang="ts" module>
 	const isDev = import.meta.env.DEV;
 
-	function getOptimizedUrl(src: string, width: number, quality: number): string {
+	function getFullPath(src: string): string {
 		const basePath =
 			src.startsWith('cover_imgs/') || src.startsWith('blog/') ? '/assets/' : '/assets/images/';
-		const fullPath = `${basePath}${src}`;
+		return `${basePath}${src}`;
+	}
 
-		// In dev or during SSR/prerendering, serve directly from static
-		if (isDev) return fullPath;
-		// In production browser, use Vercel image optimization
+	function getVercelUrl(fullPath: string, width: number, quality: number): string {
 		const params = new URLSearchParams({
 			url: fullPath,
 			w: width.toString(),
@@ -19,6 +18,7 @@
 </script>
 
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { ClassValue } from 'svelte/elements';
 
 	interface Props {
@@ -43,7 +43,15 @@
 		quality = 75
 	}: Props = $props();
 
-	const imageSrc = $derived(getOptimizedUrl(src, width, quality));
+	let mounted = $state(false);
+	const fullPath = $derived(getFullPath(src));
+	const imageSrc = $derived(
+		!isDev && mounted ? getVercelUrl(fullPath, width, quality) : fullPath
+	);
+
+	onMount(() => {
+		mounted = true;
+	});
 </script>
 
 <img
