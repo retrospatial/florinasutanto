@@ -40,7 +40,7 @@
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: var(--color-accent-cream);
+		background: var(--color-white);
 		border-radius: 9999px;
 	}
 

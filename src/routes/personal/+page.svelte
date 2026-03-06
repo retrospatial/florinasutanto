@@ -101,7 +101,7 @@
 	<!-- desktop layout -->
 	<div class="hidden lg:block relative mb-8">
 		<svg
-			viewBox="-28 0 350 320"
+			viewBox="-10 0 350 320"
 			class="w-full max-w-md overflow-visible"
 			role="img"
 			aria-label="fun & random projects"
@@ -114,13 +114,13 @@
 					M 20 100
 					V 300
 					Q 0 40 200 40
-					H 660
+					H 800
 				"
 				/>
 			</defs>
 
 			<text fill="var(--color-accent-green)" class="heading-2">
-				<textPath href="#corner" startOffset="50%" text-anchor="middle">
+				<textPath href="#corner" startOffset="55%" text-anchor="middle">
 					fun & random projects
 				</textPath>
 			</text>

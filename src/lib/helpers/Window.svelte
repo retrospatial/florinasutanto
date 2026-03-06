@@ -22,13 +22,3 @@
 		{@render children()}
 	</div>
 </div>
-
-<style lang="postcss">
-	.border-outset {
-		border: 4px outset var(--color-white);
-	}
-
-	.border-outset-small {
-		border: 1px outset var(--color-white);
-	}
-</style>

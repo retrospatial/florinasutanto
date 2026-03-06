@@ -36,7 +36,7 @@ pnpm i -D gh-pages
 
 - Replace the contents of `svelte.config.js` with the following:
 
-```typescript
+```typescript filename: svelte.config.js
 import { mdsvex } from 'mdsvex';
 import adapter from '@sveltejs/adapter-static';
 
