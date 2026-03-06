@@ -15,9 +15,9 @@ tags:
   import Image from '$lib/helpers/Image.svelte'
 </script>
 
-My blog now has a comment section. Yay!
+My blog has a comment section now. Yay!
 
-I'm using [HTML Comment Box](https://www.htmlcommentbox.com/), which everybody on Neocities seems to use on their site. While it is framework agnostic (being a simple HTML widget), I haven't seen it on any of the non-Neocities blogs I follow—those typically have a custom or more complicated set up for comments. I don't really need a feature-rich comment section with analytics or user icons, nor do I want to set up a database for it, so HCB seemed like the best solution for my site (for now).
+I'm using [HTML Comment Box](https://www.htmlcommentbox.com/), which everybody on Neocities seems to use on their site. While it is framework agnostic (being a simple HTML widget), I haven't seen it on any of the non-Neocities blogs I follow—those typically have a custom or more complicated set up for comments. I don't really need a feature-rich comment section with analytics or user icons, nor do I want to set up a database for it, so this seemed like the best solution for my site (for now).
 
 HCB pretty much works right out of the box. After logging in with a Google account, click the `+ options` button to customize your widget. The most useful customization for me was 'Show website field', which links the comment author's display name to their website.
 
@@ -31,7 +31,7 @@ By default, the widget comes with an email field that allows visitors to be noti
 
 <Image src="blog/hcb4.png" alt="Comments received in HCB's page" />
 
-The best part of HCB is that you have total control of the styling via CSS! You can read more about it [here](https://www.htmlcommentbox.com/css-guide.html), but essentially all I had to do was open Inspect Element and figure out which tags or classes to target.
+The best part about it is that you have total control of the styling via CSS! You can read more about it [here](https://www.htmlcommentbox.com/css-guide.html), but essentially all I had to do was open Inspect Element and figure out which tags or classes to target.
 
 Here's how other people have customized their widgets:
 
@@ -55,7 +55,7 @@ If you're working on a plain HTML file, you can stop here. All you need to do is
 
 <Image src="blog/hcb8.png" alt="Inspecting element for styling" />
 
-<span class="caption">happy hunting</span>
+<span class="caption">look for the corresponding tags and classes here</span>
 
 If you're using SvelteKit like I am, you need to place the script in an `onMount` hook so that it runs in the browser only after the component has been mounted. Otherwise, SvelteKit may try to render it in the server and cause a runtime error.
 
