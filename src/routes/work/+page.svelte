@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 	import Image from '$lib/helpers/Image.svelte';
 	import md from '$lib/utils/md';
-	import { isVideo } from '$lib/utils/video';
+	import { isVideo, lazyVideo } from '$lib/utils/video';
 	import Section from '$lib/helpers/Section.svelte';
 
 	const content = $derived(page.data);
@@ -24,15 +24,16 @@
 
 						{#if isVideo(item.cover)}
 							<video
+								use:lazyVideo
 								class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
 								autoplay
 								loop
 								muted
 								playsinline
-								preload="metadata"
+								preload="none"
 								aria-label="screencapture"
 							>
-								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
+								<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 							</video>
 						{:else}
 							<Image
