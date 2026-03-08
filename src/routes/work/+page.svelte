@@ -3,11 +3,12 @@
 	import Image from '$lib/helpers/Image.svelte';
 	import md from '$lib/utils/md';
 	import { isVideo } from '$lib/utils/video';
+	import Section from '$lib/helpers/Section.svelte';
 
 	const content = $derived(page.data);
 </script>
 
-<section class="w-4/5 mx-auto body">
+<Section>
 	<h2 class="heading-2 text-accent-purple mb-4 md:mb-8">data stories</h2>
 	<div class="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 md:gap-y-12">
 		{#each [...content.authored, ...content.contributed] as item}
@@ -66,4 +67,4 @@
 			</a>
 		{/each}
 	</div>
-</section>
+</Section>

@@ -2,6 +2,7 @@
 	import { formatDate } from '$lib/utils/blog';
 	import Image from '$lib/helpers/Image.svelte';
 	import Pagination from '$lib/helpers/Pagination.svelte';
+	import Section from '$lib/helpers/Section.svelte';
 
 	let { data } = $props();
 
@@ -30,13 +31,13 @@
 	const paginatedPosts = $derived(filteredPosts.slice((page - 1) * perPage, page * perPage));
 </script>
 
-<section class="w-4/5 mx-auto">
+<Section>
 	<h2 class="heading-2 text-accent-pink mb-4">more words</h2>
 	<div class="flex flex-col md:flex-row gap-8">
-		<div class="flex flex-col gap-4 flex-1">
+		<div class="h-feed flex flex-col gap-4 flex-1">
 			{#each paginatedPosts as post}
-				<article class="text-white group post-card relative rounded">
-					<a href="/blog/{post.slug}">
+				<article class="h-entry text-white group post-card relative rounded">
+					<a class="u-url" href="/blog/{post.slug}">
 						<div
 							class="flex flex-col lg:flex-row justify-center lg:justify-between lg:gap-4 items-center w-full px-4 lg:px-6"
 						>
@@ -51,20 +52,23 @@
 							{/if}
 							<div class="flex flex-col gap-2 md:gap-4 w-full py-4 md:py-6">
 								<h2
-									class="blog-list-title group-hover:text-accent-pink transition-colors duration-300 mb-1"
+									class="p-name blog-list-title group-hover:text-accent-pink transition-colors duration-300 mb-1"
 								>
 									{post.title}
 								</h2>
-								<p class="blog-list-desc">{post.desc}</p>
+								<p class="p-summary blog-list-desc">{post.desc}</p>
 								<div class="flex flex-row items-center gap-2">
-									<span class="blog-list-date">{formatDate(post.date)}</span>
+									<time class="dt-published blog-list-date" datetime={post.date}
+										>{formatDate(post.date)}</time
+									>
 
 									{#if post.tags}
 										<span class="">•</span>
 
 										<div class="blog-list-tags flex flex-row gap-2">
 											{#each post.tags as tag}
-												<span class="blog-list-tag border-[0.5px] border-white rounded px-2 py-1"
+												<span
+													class="p-category blog-list-tag border-[0.5px] border-white rounded px-2 py-1"
 													>{tag}</span
 												>
 											{/each}
@@ -108,7 +112,7 @@
 	</div>
 
 	<Pagination count={filteredPosts.length} {perPage} bind:page />
-</section>
+</Section>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';

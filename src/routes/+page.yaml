@@ -2,13 +2,13 @@ about_short:
   title: hi! i'm flo
   desc: About Me
   text: >
-    I am a creative data storyteller and developer. My work primarily lies across data journalism, digital humanities, and interaction design. Currently, I work as an Interactive Engineer at <a href="https://www.citizencodex.com/" target="_blank" rel="noopener noreferrer">Citizen Codex</a>, a data innovation studio.
+    I am a creative data storyteller and developer. Among other things, I am interested in using incisive storytelling, visual explorations, and novel data to reveal new truths about how we interact with this world and each other. 
 
 
-    I am interested in using incisive storytelling, visual explorations, and novel data to reveal new truths about how we interact with this world and each other. 
+    I create data-driven stories and interactive digital experiences for topics in research, data journalism, and digital humanities. Currently, I work as an Interactive Engineer at <a href="https://www.citizencodex.com/" target="_blank" rel="noopener noreferrer">Citizen Codex</a>, a data innovation studio.
 
 
-    Previously, I studied Economics and East Asian Studies at Wesleyan and attended the <a href="https://ledeprogram.com/" target="_blank" rel="noopener noreferrer">Lede Program for Data Journalism</a> at Columbia, where I got my second start in designing and programming graphics for the web. I got my first tinkering with Tumblr themes when I was 14.
+    This site is a cross between a professional portfolio and one of many personal corners of the internet. It is and will always be under construction—I say that with delight! I love tinkering with little websites and styling them by hand.
 
 
     I am originally from Bogor, Indonesia and now based in Cambridge, MA.
@@ -20,7 +20,6 @@ links_list:
       - title: GitHub
         href: https://github.com/retrospatial
         icon: mdi:github
-        rel: me noopener noreferrer
       - title: Twitter
         href: https://twitter.com/flosutanto
         icon: mdi:twitter
@@ -33,15 +32,32 @@ links_list:
       - title: Email
         href: mailto:florinasutanto@gmail.com
         icon: ic:round-email
-  others:
-    title: Misc
-    links:
       - title: RSS Feed
         href: /rss.xml
         icon: mdi:rss
+  others:
+    title: Misc
+    links:
+      # - title: More About Me
+      #   href: /about
+      #   icon: mdi:hand-wave
+      - title: Now
+        href: /now
+        icon: mdi:calendar
       - title: Colophon
         href: /blog/2026/colophon
         icon: material-symbols:book
+      # - title: Inspo
+      #   href: /blog/2026/colophon
+      #   icon: material-symbols:book
+
+featured:
+  title: Featured
+  features:
+    - cover: /cover_vids/nautical.mp4
+      href: https://nauticalerror.github.io/
+    - cover: https://www.youtube.com/embed/tM60GAPIXTY?si=H7Um3UYBbizpBnxE
+      href: https://www.youtube.com/watch?v=tM60GAPIXTY
 
 about_long:
   title: Scrapbook

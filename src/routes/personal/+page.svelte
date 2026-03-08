@@ -3,6 +3,7 @@
 	import Image from '$lib/helpers/Image.svelte';
 	import { isVideo } from '$lib/utils/video';
 	import { onMount, onDestroy } from 'svelte';
+	import Section from '$lib/helpers/Section.svelte';
 
 	import gsap from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -52,7 +53,7 @@
 	});
 </script>
 
-<section class="w-4/5 mx-auto body">
+<Section>
 	<!-- mobile layout -->
 	<div class="lg:hidden mb-8 relative">
 		<h2 class="heading-2 text-accent-green mb-4">fun & random projects</h2>
@@ -99,7 +100,7 @@
 	</div>
 
 	<!-- desktop layout -->
-	<div class="hidden lg:block relative mb-8">
+	<div class="hidden lg:block relative my-8">
 		<svg
 			viewBox="-10 0 350 320"
 			class="w-full max-w-md overflow-visible"
@@ -249,4 +250,4 @@
 			</div>
 		</div>
 	</div>
-</section>
+</Section>

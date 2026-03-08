@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import md from '$lib/utils/md';
 	import Image from '$lib/helpers/Image.svelte';
-	import { isVideo } from '$lib/utils/video';
+	import Section from '$lib/helpers/Section.svelte';
 	import { onMount, onDestroy } from 'svelte';
 
 	import gsap from 'gsap';
@@ -186,7 +185,7 @@
 	});
 </script>
 
-<section class="w-4/5 mx-auto body">
+<Section>
 	<div class="relative mb-8">
 		<svg
 			viewBox="0 0 360 320"
@@ -233,4 +232,4 @@
 			{/each}
 		</div>
 	</div>
-</section>
+</Section>
