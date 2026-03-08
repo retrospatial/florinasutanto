@@ -34,15 +34,8 @@
 	<link rel="alternate" type="application/rss+xml" title="florina sutanto" href="/rss.xml" />
 </svelte:head>
 
-<div class="fixed inset-0 -z-10">
-	<Image
-		src="bg.webp"
-		alt=""
-		class="h-full w-full object-cover"
-		lazy={false}
-		width={1920}
-		quality={80}
-	/>
+<div class="fixed inset-0 -z-10 background">
+	<Image src="bg.webp" alt="" class="h-full w-full object-cover" lazy={false} width={1920} />
 	<div class="absolute inset-0 bg-accent-green/40 mix-blend-color"></div>
 	<div class="absolute inset-0 bg-black/30"></div>
 </div>
@@ -51,9 +44,9 @@
 
 <Lightbox />
 
-<main class="relative py-8 md:py-16 max-w-screen-2xl mx-auto">
+<main class="relative py-8 md:py-12 max-w-screen-2xl mx-auto">
 	{#key pathname}
-		<div class="page-content mb-4">
+		<div class="page-content">
 			{@render children()}
 		</div>
 	{/key}
@@ -76,4 +69,10 @@
 			transform: translateY(0);
 		}
 	}
+
+	/* @media (prefers-color-scheme: light) {
+		.background {
+			background-color: white;
+		}
+	} */
 </style>

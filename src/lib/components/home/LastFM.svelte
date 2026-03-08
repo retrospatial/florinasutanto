@@ -72,7 +72,14 @@
 			<div
 				class="heading-3 font-exposure text-black/85 w-full max-w-2/3 flex text-balance text-center"
 			>
-				{content.text[0].title}
+				<a
+					href="https://www.last.fm/user/sunmetric"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group"
+				>
+					{content.text[0].title}
+				</a>
 			</div>
 			<Image
 				src="vinyl.png"

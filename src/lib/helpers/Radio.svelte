@@ -10,7 +10,11 @@
 	let { value = $bindable(), options, onValueChange }: Props = $props();
 </script>
 
-<RadioGroup.Root bind:value orientation="horizontal" class="flex gap-4 button-text mb-8">
+<RadioGroup.Root
+	bind:value
+	orientation="horizontal"
+	class="flex gap-4 font-semibold detail-sm mb-8"
+>
 	{#each options as option}
 		<RadioGroup.Item value={option.value}>
 			{#snippet children({ checked })}

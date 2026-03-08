@@ -30,7 +30,7 @@
 }
 
 @utility heading-1 {
-	@apply font-rock-salt text-5xl font-[350] md:text-8xl;
+	@apply font-rock-salt text-5xl leading-loose font-[350] md:text-8xl;
 }
 
 @utility heading-2 {
@@ -53,8 +53,12 @@
 	@apply font-exposure mb-4 text-sm leading-relaxed md:mb-8 md:text-base;
 }
 
-@utility button-text {
-	@apply font-mono text-xs font-semibold md:text-sm;
+@utility detail-md {
+	@apply font-mono text-sm uppercase md:text-base;
+}
+
+@utility detail-sm {
+	@apply font-mono text-xs uppercase md:text-sm;
 }
 
 @utility social-icons {

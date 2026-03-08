@@ -6,6 +6,7 @@
 	import { addLightbox } from '$lib/helpers/Lightbox.svelte';
 	import { formatDate } from '$lib/utils/blog';
 	import CommentBox from '$lib/helpers/CommentBox.svelte';
+	import Section from '$lib/helpers/Section.svelte';
 
 	interface Props {
 		data: {
@@ -29,26 +30,27 @@
 	const formattedUpdatedDate = formatDate(post.date_updated);
 </script>
 
-<section class="w-4/5 md:w-3/5 mx-auto body text-white">
-	<article class="flex flex-col gap-4">
-		<h1 class="blog-title">{post.title}</h1>
-		<time class="blog-date" datetime={post.date_published ?? ''}>
+<Section class="md:w-3/5 mt-6">
+	<article class="h-entry flex flex-col gap-4">
+		<h1 class="p-name blog-title">{post.title}</h1>
+		<time class="dt-published blog-date" datetime={post.date_published ?? ''}>
 			{formattedDate}{formattedUpdatedDate ? ` • Updated ${formattedUpdatedDate}` : ''}
 		</time>
 		{#if post.tags && post.tags.length > 0}
 			<ul class="blog-tags flex flex-row gap-2">
 				{#each post.tags as tag}
-					<li class="blog-tag border-[0.5px] border-white rounded px-2 py-1">{tag}</li>
+					<li class="p-category blog-tag border-[0.5px] border-white rounded px-2 py-1">{tag}</li>
 				{/each}
 			</ul>
 		{/if}
-		<div class="mt-8 markdown" use:addCopyButtons use:addLightbox>
+		<div class="e-content mt-8 markdown" use:addCopyButtons use:addLightbox>
 			<Content />
 		</div>
+		<span class="p-author h-card" hidden>Florina Sutanto</span>
 	</article>
 
 	<CommentBox />
-</section>
+</Section>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
