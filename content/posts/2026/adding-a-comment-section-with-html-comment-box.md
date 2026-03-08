@@ -1,5 +1,5 @@
 ---
-title: Adding a Comment Section with HTML Comment Box
+title: Adding a comment section with HTML Comment Box
 slug: html-comment-box
 desc: With some SvelteKit modifications.
 cover: /assets/blog/hcb.png

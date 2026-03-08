@@ -54,7 +54,9 @@
 					<!-- tags -->
 					<div class="flex flex-wrap items-center gap-2">
 						<span
-							class="entry-role {item.role === 'Author' ? 'bg-accent-green' : ' bg-accent-blue'}"
+							class="entry-role text-black {item.role === 'Author'
+								? 'bg-accent-green'
+								: ' bg-accent-blue'}"
 						>
 							{item.role}
 						</span>

@@ -1,5 +1,5 @@
 ---
-title: My RSS Feed Is Up!
+title: My RSS feed is up!
 slug: rss-feed
 desc: RSS continues to be my favorite method of curating what I read on the internet.
 cover: /assets/blog/rss.jpeg
