@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import Image from '$lib/helpers/Image.svelte';
-	import { isVideo } from '$lib/utils/video';
+	import { isVideo, lazyVideo } from '$lib/utils/video';
 	import { onMount, onDestroy } from 'svelte';
 	import Section from '$lib/helpers/Section.svelte';
 
@@ -67,15 +67,16 @@
 					>
 						<div class="w-full overflow-hidden">
 							<video
+								use:lazyVideo
 								class="w-full h-auto object-cover"
 								autoplay
 								loop
 								muted
 								playsinline
-								preload="metadata"
+								preload="none"
 								aria-label="screencapture"
 							>
-								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
+								<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 							</video>
 						</div>
 
@@ -135,15 +136,16 @@
 				>
 					<div class="w-full max-w-md h-full overflow-hidden rounded-tl-[157px]">
 						<video
+							use:lazyVideo
 							class="w-auto h-full object-cover"
 							autoplay
 							loop
 							muted
 							playsinline
-							preload="metadata"
+							preload="none"
 							aria-label="screencapture"
 						>
-							<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
+							<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 						</video>
 					</div>
 
@@ -182,15 +184,16 @@
 					<div class="aspect-video max-w-full w-full lg:max-w-xs">
 						{#if isVideo(item.cover)}
 							<video
+								use:lazyVideo
 								class="w-full h-full object-cover"
 								autoplay
 								loop
 								muted
 								playsinline
-								preload="metadata"
+								preload="none"
 								aria-label="screencapture"
 							>
-								<source src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
+								<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 							</video>
 						{:else}
 							<Image
