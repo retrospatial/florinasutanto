@@ -1,5 +1,5 @@
 ---
-date: '2026-03-07'
+date: '2026-03-08'
 ---
 
 # on the computer
@@ -13,7 +13,7 @@ date: '2026-03-07'
 
 - going to [parkour classes](https://pkgenboston.com/) 2-3x a week
 - no [aerials](https://www.eshcircusarts.com/) for now because i missed sign-ups for this session :(
-- bouldering occassionally
+- bouldering occasionally
 - hanging out and eating with friends
 
 # writing

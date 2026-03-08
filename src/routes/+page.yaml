@@ -26,9 +26,9 @@ links_list:
       - title: LinkedIn
         href: https://linkedin.com/in/florinasutanto
         icon: mdi:linkedin
-      - title: Resume
-        href: https://drive.google.com/file/d/1aW5xy3op26oF5P-lFiHu6OLcgDaXxvyN/view?usp=share_link
-        icon: material-symbols:link
+      # - title: Resume
+      #   href: https://drive.google.com/file/d/1aW5xy3op26oF5P-lFiHu6OLcgDaXxvyN/view?usp=share_link
+      #   icon: material-symbols:link
       - title: Email
         href: mailto:florinasutanto@gmail.com
         icon: ic:round-email

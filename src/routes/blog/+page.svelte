@@ -39,52 +39,36 @@
 				<article class="h-entry text-white group post-card relative rounded">
 					<a class="u-url" href="/blog/{post.slug}">
 						<div
-							class="flex flex-col lg:flex-row justify-center lg:justify-between lg:gap-4 items-center w-full px-4 lg:px-6"
+							class="flex flex-col md:flex-row justify-center md:justify-between gap-4 items-center w-full p-4"
 						>
-							<!-- mobile cover -->
-							{#if post.cover}
-								<Image
-									src={post.cover}
-									alt={post.title}
-									lazy={true}
-									class="w-full aspect-video object-cover block lg:hidden mt-4 max-h-40"
-								/>
-							{/if}
-							<div class="flex flex-col gap-2 md:gap-4 w-full py-4 md:py-6">
-								<h2
-									class="p-name blog-list-title group-hover:text-accent-pink transition-colors duration-300 mb-1"
-								>
-									{post.title}
-								</h2>
-								<p class="p-summary blog-list-desc">{post.desc}</p>
-								<div class="flex flex-row items-center gap-2">
-									<time class="dt-published blog-list-date" datetime={post.date}
-										>{formatDate(post.date)}</time
+							<div
+								class="flex flex-col gap-2 md:gap-4 md:flex-row justify-between w-full items-start"
+							>
+								<div class="flex flex-col gap-4 w-full">
+									<h2
+										class="p-name blog-list-title group-hover:text-accent-pink transition-colors duration-300"
 									>
+										{post.title}
+									</h2>
 
-									{#if post.tags}
-										<span class="">•</span>
-
-										<div class="blog-list-tags flex flex-row gap-2">
-											{#each post.tags as tag}
-												<span
-													class="p-category blog-list-tag border-[0.5px] border-white rounded px-2 py-1"
-													>{tag}</span
-												>
-											{/each}
-										</div>
-									{/if}
+									<div class="flex flex-row items-center gap-2">
+										{#if post.tags}
+											<div class="blog-list-tags flex flex-row gap-2">
+												{#each post.tags as tag}
+													<span
+														class="p-category blog-list-tag border-[0.5px] border-white rounded px-2 py-1 text-white/80"
+														>{tag}</span
+													>
+												{/each}
+											</div>
+										{/if}
+									</div>
 								</div>
+								<time
+									class="dt-published blog-list-date w-fit whitespace-nowrap md:mt-1"
+									datetime={post.date}>{formatDate(post.date)}</time
+								>
 							</div>
-							<!-- desktop cover -->
-							{#if post.cover}
-								<Image
-									src={post.cover}
-									alt={post.title}
-									lazy={true}
-									class="w-full max-w-[300px] aspect-video object-cover hidden my-2 lg:block"
-								/>
-							{/if}
 						</div>
 					</a>
 				</article>
@@ -118,7 +102,7 @@
 	@reference '$lib/styles/app.css';
 
 	.blog-list-title {
-		@apply font-exposure -mb-1 text-2xl leading-normal font-[375] md:text-3xl;
+		@apply font-exposure -mb-1 text-xl leading-normal font-[375] md:text-2xl;
 	}
 
 	.blog-list-desc {

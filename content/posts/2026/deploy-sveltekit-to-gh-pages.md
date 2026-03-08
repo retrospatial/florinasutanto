@@ -1,5 +1,5 @@
 ---
-title: How to Deploy a SvelteKit App to GitHub Pages
+title: How to deploy a SvelteKit app to GitHub Pages
 slug: deploy-sveltekit-to-gh-pages
 desc: What it says on the tin.
 cover: ''
