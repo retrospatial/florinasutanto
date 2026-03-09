@@ -47,13 +47,27 @@ export default {
 	kit: {
 		prerender: {
 			handleHttpError({ path }) {
-				if (['/animorphs/', '/tumblr-fandometrics/', '/buffy-podcasts/'].includes(path)) {
+				if (
+					path.startsWith('/animorphs') ||
+					path.startsWith('/tumblr-fandometrics') ||
+					path.startsWith('/buffy-podcasts')
+				)
 					return;
-				}
 				throw new Error(`404: ${path}`);
 			}
 		},
 		adapter: adapter({
+			routes: {
+				include: ['/*'],
+				exclude: [
+					'/animorphs',
+					'/animorphs/**',
+					'/tumblr-fandometrics',
+					'/tumblr-fandometrics/**',
+					'/buffy-podcasts',
+					'/buffy-podcasts/**'
+				]
+			},
 			images: {
 				sizes: [640, 828, 1200, 1920],
 				formats: ['image/avif', 'image/webp'],

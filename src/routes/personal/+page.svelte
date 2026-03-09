@@ -130,7 +130,7 @@
 
 		{#if content.featured}
 			{@const item = content.featured}
-			<a href={item.link} target="_blank" rel="noopener noreferrer" class="group">
+			<a href={item.link} target="_blank" rel="noopener noreferrer external" class="group">
 				<div
 					class="flex h-full max-h-74 rounded-tl-[160px] items-center flex-row justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 absolute left-25 right-0 bottom-4"
 				>
@@ -174,7 +174,12 @@
 
 	<div class="grid grid-cols-1 gap-8">
 		{#each content.projects as item, i}
-			<a href={item.link ?? undefined} target="_blank" rel="noopener noreferrer" class="group">
+			<a
+				href={item.link ?? undefined}
+				target="_blank"
+				rel="noopener noreferrer external"
+				class="group"
+			>
 				<div
 					bind:this={rowRefs[i]}
 					class={`flex lg:max-h-60 h-full items-center flex-col justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 ${
