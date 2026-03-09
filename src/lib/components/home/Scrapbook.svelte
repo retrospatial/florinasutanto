@@ -34,7 +34,7 @@
 			<div class="flex flex-col gap-20 items-center justify-center">
 				<!-- red line -->
 				<Image
-					src="redline.png"
+					src="redline.webp"
 					alt="redline"
 					class="w-full max-w-sm h-auto  hover:scale-103 hover:-rotate-2 transition-all duration-300"
 				/>
@@ -52,7 +52,12 @@
 					<ol class="flex flex-col px-6 py-4">
 						{#each content.text[1].desc as item}
 							<li class="font-terminal text-xl lg:text-2xl">
-								<a href={item.href} target="_blank" rel="noopener noreferrer" class="hover:underline">
+								<a
+									href={item.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="hover:underline"
+								>
 									{item.title}
 								</a>
 							</li>

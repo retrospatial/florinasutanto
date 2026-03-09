@@ -1,7 +1,6 @@
 @theme {
 	--font-exposure: 'Exposure', serif;
-	--font-editorial: 'Editorial New', serif;
-	--font-spectral: 'Spectral', serif;
+	--font-neue-montreal: 'Neue Montreal', sans-serif;
 	--font-mono: 'Fira Code', monospace;
 	--font-courier: 'Courier Prime', monospace;
 	--font-terminal: 'VT323', monospace;

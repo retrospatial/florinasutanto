@@ -1,3 +1,52 @@
+/* Neue Montreal */
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/neue_montreal/PPNeueMontreal-Thin.otf') format('opentype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/neue_montreal/PPNeueMontreal-Book.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/neue_montreal/PPNeueMontreal-Medium.otf') format('opentype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/neue_montreal/PPNeueMontreal-Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/neue_montreal/PPNeueMontreal-Italic.otf') format('opentype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/neue_montreal/PPNeueMontreal-SemiBolditalic.otf') format('opentype');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
 /* Technology */
 @font-face {
 	font-family: 'Technology';
@@ -95,55 +144,6 @@
 	font-family: 'Courier Prime', monospace;
 	font-weight: 700;
 	font-style: italic;
-}
-
-/* Editorial */
-@font-face {
-	font-family: 'Editorial New';
-	src: url('/fonts/editorial/PPEditorialNew-Regular.otf') format('opentype');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Editorial New';
-	src: url('/fonts/editorial/PPEditorialNew-Italic.otf') format('opentype');
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Editorial New';
-	src: url('/fonts/editorial/PPEditorialNew-Ultralight.otf') format('opentype');
-	font-weight: 200;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Editorial New';
-	src: url('/fonts/editorial/PPEditorialNew-UltralightItalic.otf') format('opentype');
-	font-weight: 200;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Editorial New';
-	src: url('/fonts/editorial/PPEditorialNew-Ultrabold.otf') format('opentype');
-	font-weight: 800;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Editorial New';
-	src: url('/fonts/editorial/PPEditorialNew-UltraboldItalic.otf') format('opentype');
-	font-weight: 800;
-	font-style: italic;
-	font-display: swap;
 }
 
 /* Exposure - Regular */

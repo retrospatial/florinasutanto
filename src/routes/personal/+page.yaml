@@ -9,32 +9,32 @@ projects:
   - title: The Search for Animorphs
     desc: A nostalgic look at libraries, maps, and K. A. Applegate’s seminal children’s series.
     type: Data story
-    link: https://retrospatial.github.io/animorphs/
+    link: /animorphs/
     cover: animorphs.mp4
   - title: Ship and Let Ship
     desc: Charting top Tumblr ships using 10 years of Fandometrics rankings.
     type: Data story
-    link: https://retrospatial.github.io/tumblr-fandometrics/
-    cover: tumblr.jpg
+    link: /tumblr-fandometrics/
+    cover: tumblr.webp
   - title: Are People Still Talking About Buffy?
     desc: Let's look at Spotify podcast data to find out.
     type: Data story
-    link: https://retrospatial.github.io/buffy-podcasts/
-    cover: buffy.jpg
+    link: /buffy-podcasts/
+    cover: buffy.webp
   - title: Race and Space in F1
     desc: Visualizing the demographic and geographic evolution of Formula 1.
     type: Data viz
     link: https://docs.google.com/presentation/d/e/2PACX-1vTAn2VUiI2uvltCXlSdlECaAN6ih3sG520B_xDbToZhJPNj363qWPTmyDSvqsgP4dX-nat7wmiUjsU5/pub?start=false&loop=false&delayms=10000&slide=id.p
-    cover: car.jpg
+    cover: car.webp
   - title: Japan and the West
     desc: Tracing the history of Japanese loanwords in the English language.
     type: Data story
     link: https://storymaps.arcgis.com/stories/0067c80743bb419e9a666a253255504b
-    cover: japan.jpg
+    cover: japan.webp
   - title: DetikCom
     desc: Articles from when I interned at Detik.com, a major Indonesian news site.
     type: Journalism
-    cover: detik.jpg
+    cover: detik.webp
 
 detik:
   - https://hot.detik.com/movie/d-3951895/transformasi-putri-marino-menjadi-istri-tni

@@ -63,7 +63,7 @@
 	class="relative w-full max-w-80 overflow-hidden h-full -rotate-2 text-black flex items-center justify-center px-2 py-2 md:py-4"
 >
 	<Image
-		src="receipt.jpg"
+		src="receipt.webp"
 		alt="receipt"
 		class="w-full h-full object-cover scale-225 absolute inset-0"
 	/>
