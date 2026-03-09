@@ -1,32 +1,5 @@
 {
-	"buildCommand": "pnpm run build",
+	"buildCommand": "pnpm run build && node scripts/patch-vercel-config.js",
 	"framework": "sveltekit",
-	"installCommand": "pnpm install",
-
-	"rewrites": [
-		{
-			"source": "/animorphs",
-			"destination": "https://retrospatial.github.io/animorphs"
-		},
-		{
-			"source": "/animorphs/:path*",
-			"destination": "https://retrospatial.github.io/animorphs/:path*"
-		},
-		{
-			"source": "/tumblr-fandometrics",
-			"destination": "https://retrospatial.github.io/tumblr-fandometrics"
-		},
-		{
-			"source": "/tumblr-fandometrics/:path*",
-			"destination": "https://retrospatial.github.io/tumblr-fandometrics/:path*"
-		},
-		{
-			"source": "/buffy-podcasts",
-			"destination": "https://retrospatial.github.io/buffy-podcasts"
-		},
-		{
-			"source": "/buffy-podcasts/:path*",
-			"destination": "https://retrospatial.github.io/buffy-podcasts/:path*"
-		}
-	]
+	"installCommand": "pnpm install"
 }
