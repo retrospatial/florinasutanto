@@ -2,7 +2,7 @@
 title: Adding a comment section with HTML Comment Box
 slug: html-comment-box
 desc: With some SvelteKit modifications.
-cover: /assets/blog/hcb.png
+cover: /assets/blog/hcb.webp
 date_published: 2026-03-05
 date_updated: ''
 tags:
@@ -21,25 +21,25 @@ I'm using [HTML Comment Box](https://www.htmlcommentbox.com/), which everybody o
 
 HCB pretty much works right out of the box. After logging in with a Google account, click the `+ options` button to customize your widget. The most useful customization for me was 'Show website field', which links the comment author's display name to their website.
 
-<Image src="blog/hcb1.png" alt="Screenshot of HTML Comment Box's home page" />
+<Image src="blog/hcb1.webp" alt="Screenshot of HTML Comment Box's home page" />
 
-<Image src="blog/hcb2.png" alt="Screenshot of HTML Comment Box's home page" />
+<Image src="blog/hcb2.webp" alt="Screenshot of HTML Comment Box's home page" />
 
 By default, the widget comes with an email field that allows visitors to be notified if anyone replies to their comment, but I've never liked the idea of submitting my personal email to random people's blogs, so I decided to get rid of it on mine. Besides, if you have an HCB account and are logged in in your browser, it'll automatically track every comment you receive or post on other HCB-powered comment sections.
 
-<Image src="blog/hcb3.png" alt="Testing my comment section" />
+<Image src="blog/hcb3.webp" alt="Testing my comment section" />
 
-<Image src="blog/hcb4.png" alt="Comments received in HCB's page" />
+<Image src="blog/hcb4.webp" alt="Comments received in HCB's page" />
 
 The best part about it is that you have total control of the styling via CSS! You can read more about it [here](https://www.htmlcommentbox.com/css-guide.html), but essentially all I had to do was open Inspect Element and figure out which tags or classes to target.
 
 Here's how other people have customized their widgets:
 
-<a href="https://ribo.zone/"><Image src="blog/hcb5.png" alt="ribo.zone's comment section" /></a>
+<a href="https://ribo.zone/"><Image src="blog/hcb5.webp" alt="ribo.zone's comment section" /></a>
 
 <span class="caption">from <a href="https://ribo.zone">ribo.zone</a></span>
 
-<a href="https://kayleerowena.com/"><Image src="blog/hcb6.png" alt="Kaylee Rowena's comment section" /></a>
+<a href="https://kayleerowena.com/"><Image src="blog/hcb6.webp" alt="Kaylee Rowena's comment section" /></a>
 
 <span class="caption">from <a href="https://kayleerowena.com/">Kaylee Rowena</a></span>
 
@@ -47,13 +47,13 @@ Here's how other people have customized their widgets:
 
 Immediately after logging in, HCB will give you code that you can copy and paste straight into your file. This is what it looks like by default.
 
-<Image src="blog/hcb7.png" alt="Default HCB styling" />
+<Image src="blog/hcb7.webp" alt="Default HCB styling" />
 
 <span class="caption">kinda ugly...</span>
 
 If you're working on a plain HTML file, you can stop here. All you need to do is style the elements accordingly.
 
-<Image src="blog/hcb8.png" alt="Inspecting element for styling" />
+<Image src="blog/hcb8.webp" alt="Inspecting element for styling" />
 
 <span class="caption">look for the corresponding tags and classes here</span>
 

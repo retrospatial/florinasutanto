@@ -118,6 +118,6 @@ pnpm run deploy
 
 If everything goes correctly, this is what you should see at `username.github.io/YOUR_REPO_NAME`:
 
-<Image src="blog/demo.jpeg" alt="Successful SvelteKit deployment to GitHub Pages" />
+<Image src="blog/demo.webp" alt="Successful SvelteKit deployment to GitHub Pages" />
 
 That's it!

@@ -78,16 +78,16 @@ about_long:
     - title: Sports
       desc:
         - title: Parkour
-          src: parkour.jpg
+          src: parkour.webp
         - title: Aerials
-          src: aerials.jpg
+          src: aerials.webp
         - title: Climbing
-          src: climbing.jpg
+          src: climbing.webp
         - title: Scuba Diving
-          src: scuba.jpg
+          src: scuba.webp
         - title: Dragon Boating
-          src: rowing.jpg
+          src: rowing.webp
         - title: Investigating
-          src: investigating.jpg
+          src: investigating.webp
     - title: Piano
       desc: Play this piano! Press <span class="text-accent-blue font-bold">Z</span> to lower the octave and <span class="text-accent-blue font-bold">X</span> to raise it.

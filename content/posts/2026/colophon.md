@@ -4,6 +4,7 @@ slug: colophon
 desc: How I built this site!
 cover: ''
 date_published: 2026-01-25
+date_updated: 2026-03-08
 tags:
   - dev
   - site
@@ -43,24 +44,40 @@ The only thing I pay for to get this site on the internet is my domain name, whi
 
 # Media
 
-I use Vercel's built-in [Image Optimizer](https://vercel.com/docs/image-optimization) to compress and cache images, making them load faster on this site.
+To compress images, I run the following ImageMagick command to resize them to a max width of 1200 pixels and convert them to `.webp` files.
 
-I compress videos by running [this ffmpeg CLI command](https://unix.stackexchange.com/a/693375) in the folder where I store all the clips. This loops through every video in the folder (convenient for when I add multiple videos at once, though it might get too unwieldy at some point), encodes the video with the H.265 codec, and then overwrites the original file so there's only one copy at the end. This is hands down the best solution I've seen for getting 20+ MB videos down to less than 1 MB without compromising on video quality.
+**Loop through all images:**
 
-Loop through all videos:
+```bash
+for f in *.{jpg,png,jpeg}(N); do magick "$f" -auto-orient -resize 1200x -quality 100 "${f%.*}.webp"; done
+```
+
+**By individual image:**
+
+```bash
+magick "image.jpg" -auto-orient -resize 1200x -quality 100 "image.webp"
+```
+
+I then apply Vercel's built-in [Image Optimizer](https://vercel.com/docs/image-optimization) to compress and cache the images at serve time, making them load faster on this site.
+
+I compress videos by running [this ffmpeg command](https://unix.stackexchange.com/a/693375): it resizes the video to a max width of 1200 pixels, encodes it with the H.265 codec, and then overwrites the original file so there's only one copy at the end. This is hands down the best solution I've seen for getting 20+ MB videos down to less than 1 MB without compromising video quality.
+
+**Loop through all videos:**
 
 ```bash
 for f in *.mp4; do
-  ffmpeg -i "$f" -c:v libx265 -vtag hvc1 -c:a copy "${f%.mp4}_temp.mp4"
+  ffmpeg -i "$f" -vf "scale='trunc(min(1200,iw)/2)*2:-2'" -c:v libx265 -vtag hvc1 -c:a copy "${f%.mp4}_temp.mp4"
   mv "${f%.mp4}_temp.mp4" "$f"
 done
 ```
 
-By individual video:
+**By individual video:**
 
 ```bash
-ffmpeg -i "input.mp4" -c:v libx265 -vtag hvc1 -c:a copy "input_temp.mp4" mv "input_temp.mp4" "input.mp4"
+ffmpeg -i "input.mp4" -vf "scale='trunc(min(1200,iw)/2)*2:-2'" -c:v libx265 -vtag hvc1 -c:a copy "input_temp.mp4" && mv "input_temp.mp4" "input.mp4"
 ```
+
+I'm not sure if these are the best ways to deal with media optimization, to be honest. I want this process to be as frictionless as possible, and right now it involves a lot of manual manipulation to check if I'm striking the right balance between quality and size for each image. Compressing project covers is fine, since I'll likely only have to it once in a while, but frequently dealing with blog images—especially ones with lots of text—might get tricky down the line. I'll keep looking for better ways to deal with this issue.
 
 # APIs and Components
 
