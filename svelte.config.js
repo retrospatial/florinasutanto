@@ -57,17 +57,6 @@ export default {
 			}
 		},
 		adapter: adapter({
-			routes: {
-				include: ['/*'],
-				exclude: [
-					'/animorphs',
-					'/animorphs/**',
-					'/tumblr-fandometrics',
-					'/tumblr-fandometrics/**',
-					'/buffy-podcasts',
-					'/buffy-podcasts/**'
-				]
-			},
 			images: {
 				sizes: [640, 828, 1200, 1920],
 				formats: ['image/avif', 'image/webp'],
