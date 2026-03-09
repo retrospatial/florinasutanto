@@ -5,12 +5,24 @@
 
 	"rewrites": [
 		{
+			"source": "/animorphs",
+			"destination": "https://retrospatial.github.io/animorphs"
+		},
+		{
 			"source": "/animorphs/:path*",
 			"destination": "https://retrospatial.github.io/animorphs/:path*"
 		},
 		{
+			"source": "/tumblr-fandometrics",
+			"destination": "https://retrospatial.github.io/tumblr-fandometrics"
+		},
+		{
 			"source": "/tumblr-fandometrics/:path*",
 			"destination": "https://retrospatial.github.io/tumblr-fandometrics/:path*"
+		},
+		{
+			"source": "/buffy-podcasts",
+			"destination": "https://retrospatial.github.io/buffy-podcasts"
 		},
 		{
 			"source": "/buffy-podcasts/:path*",
