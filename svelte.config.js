@@ -45,6 +45,14 @@ export default {
 		})
 	],
 	kit: {
+		prerender: {
+			handleHttpError({ path }) {
+				if (['/animorphs/', '/tumblr-fandometrics/', '/buffy-podcasts/'].includes(path)) {
+					return;
+				}
+				throw new Error(`404: ${path}`);
+			}
+		},
 		adapter: adapter({
 			images: {
 				sizes: [640, 828, 1200, 1920],
