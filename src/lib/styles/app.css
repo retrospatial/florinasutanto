@@ -27,10 +27,6 @@
 		@apply cursor-pointer;
 	}
 
-	.about-link .markdown a {
-		@apply bg-accent-blue/50 hover:bg-accent-blue/80 px-1 no-underline transition-colors duration-300 hover:text-black;
-	}
-
 	::-webkit-scrollbar {
 		width: 8px;
 	}
@@ -41,7 +37,7 @@
 
 	::-webkit-scrollbar-thumb {
 		background: var(--color-white);
-		border-radius: 9999px;
+		/* border-radius: 9999px; */
 	}
 
 	/* blog styling */
@@ -62,7 +58,11 @@
 	}
 
 	.markdown p {
-		@apply font-exposure mb-6 text-base leading-relaxed md:text-lg;
+		@apply font-exposure text-base leading-relaxed md:text-lg;
+
+		&:not(:last-child) {
+			@apply mb-6;
+		}
 	}
 
 	.markdown p strong,

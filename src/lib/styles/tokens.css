@@ -22,10 +22,11 @@
 	--color-accent-yellow: #e8c85b;
 
 	--spacing-navbar: 3rem;
+	--spacing-section: 2rem;
 }
 
 @utility nav-title {
-	@apply font-exposure text-2xl font-[350] transition-colors duration-300 md:text-4xl;
+	@apply font-exposure text-2xl font-[350] text-white transition-colors duration-300 md:text-4xl;
 }
 
 @utility heading-1 {

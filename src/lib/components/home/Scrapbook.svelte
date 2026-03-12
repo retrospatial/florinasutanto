@@ -7,7 +7,7 @@
 	import Polaroids from '$lib/components/home/Polaroids.svelte';
 	import md from '$lib/utils/md';
 
-	let content = page.data.about_long;
+	let content = page.data.scrapbook;
 	let Piano: typeof import('svelte-piano').Piano | null = $state(null);
 
 	onMount(async () => {
@@ -34,7 +34,7 @@
 			<div class="flex flex-col gap-20 items-center justify-center">
 				<!-- red line -->
 				<Image
-					src="redline.webp"
+					src="misc/redline.webp"
 					alt="redline"
 					class="w-full max-w-sm h-auto  hover:scale-103 hover:-rotate-2 transition-all duration-300"
 				/>
@@ -96,7 +96,7 @@
 
 <style>
 	.cork-bg {
-		background-image: url('/assets/images/cork.webp');
+		background-image: url('/assets/images/misc/cork.webp');
 		background-repeat: repeat;
 	}
 </style>

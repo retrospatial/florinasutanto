@@ -13,7 +13,7 @@ async function getCoverArt(track: string, artist: string, fetch: typeof global.f
 			secret: DISCOGS_CONSUMER_SECRET
 		});
 
-		console.log(`Searching Discogs for: ${artist} - ${track}`);
+		// console.log(`Searching Discogs for: ${artist} - ${track}`);
 
 		const searchRes = await fetch(`${DISCOGS_BASE}/database/search?${searchParams}`, {
 			headers: {
@@ -22,7 +22,7 @@ async function getCoverArt(track: string, artist: string, fetch: typeof global.f
 		});
 
 		if (!searchRes.ok) {
-			console.log(`Discogs search failed: ${searchRes.status}`);
+			// console.log(`Discogs search failed: ${searchRes.status}`);
 			return null;
 		}
 

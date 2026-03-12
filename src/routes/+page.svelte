@@ -5,16 +5,26 @@
 	import Scrapbook from '$lib/components/home/Scrapbook.svelte';
 	import List from '$lib/components/home/List.svelte';
 	import Section from '$lib/helpers/Section.svelte';
+	import IntroCard from '$lib/components/home/IntroCard.svelte';
 
 	import { isVideo } from '$lib/utils/video';
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { onMount, tick } from 'svelte';
 
 	let content = page.data;
 
 	let selectedOption: 'short' | 'long' = $state('short');
+
+	let contentHeight = $state(0);
+
+	onMount(() => {
+		if (window.location.hash === '#scrapbook') {
+			selectedOption = 'long';
+		}
+	});
 
 	const options = [
 		{ value: 'short', label: 'Intro' },
@@ -23,7 +33,7 @@
 </script>
 
 <Section
-	class="h-card flex flex-col md:flex-row {selectedOption === 'short' ? 'gap-4 md:gap-8' : 'gap-0'}"
+	class="h-card flex flex-col lg:flex-row {selectedOption === 'short' ? 'gap-4 lg:gap-8' : 'gap-0'}"
 >
 	<a class="u-url" href="https://florinasutanto.com" hidden>Florina Sutanto</a>
 	<div class="w-full">
@@ -33,7 +43,7 @@
 				in:fly={{ x: -40, duration: 600, easing: cubicOut }}
 			>
 				<span class="p-name"
-					>{selectedOption === 'short' ? content.about_short.title : content.about_long.title}</span
+					>{selectedOption === 'short' ? content.intro.title : content.scrapbook.title}</span
 				>
 			</h1>
 		{/key}
@@ -45,69 +55,94 @@
 		{#key selectedOption}
 			<div in:fly={{ y: 40, duration: 600, easing: cubicOut, delay: 200 }} class="text-white">
 				{#if selectedOption === 'short'}
-					<div class="flex flex-col -mb-4">
-						<div class="flex md:flex-row flex-col gap-4 md:gap-8 md:basis-3/5">
-							<!-- about me -->
-							<Window class="text-pretty">
+					<div class="flex flex-col lg:grid lg:grid-cols-[auto_1fr_225px] gap-6">
+						<!-- first column -->
+						<div
+							class="flex flex-col gap-6 lg:max-w-xs self-start"
+							bind:clientHeight={contentHeight}
+						>
+							<IntroCard />
+
+							<!-- badges -->
+							<Window color="bg-[#862400]" class="">
+								<div class="grid grid-cols-3 gap-y-2 gap-x-4 self-center">
+									{#each content.badges as badge}
+										<a href={badge.href} target="_blank" rel="noopener noreferrer">
+											<Image
+												src={`/assets/images/badges/${badge.src}`}
+												alt={badge.alt}
+												class="w-20 h-full max-h-[31px]"
+											/>
+										</a>
+									{/each}
+								</div>
+							</Window>
+						</div>
+
+						<!-- intro -->
+						<Window
+							class="text-pretty overflow-hidden"
+							style="max-height: {contentHeight}px;"
+							scrollbarThumb="var(--color-accent-blue)"
+						>
+							<h1 class="title">
+								{content.intro.desc}
+							</h1>
+							<div class="p-note about-link">{@html md(content.intro.text)}</div>
+						</Window>
+
+						<div class="flex flex-col gap-6 justify-between w-full">
+							<!-- social links -->
+							<Window color="bg-[#458876]" class="h-fit">
 								<h1 class="title">
-									{content.about_short.desc}
+									{content.links_list.socials.title}
 								</h1>
-								<div class="p-note">{@html md(content.about_short.text)}</div>
+								<ul class="gap-1 flex flex-col">
+									{#each content.links_list.socials.links as link}
+										<li class="text-sm lg:text-base group">
+											<a
+												href={link.href}
+												target="_blank"
+												rel="me noopener noreferrer"
+												class="flex items-center gap-3 group-hover:text-[#458876] transition-colors duration-300"
+											>
+												<iconify-icon
+													icon={link.icon}
+													class="text-[#458876] shrink-0 inline-flex items-center"
+												></iconify-icon>
+												{link.title}
+											</a>
+										</li>
+									{/each}
+								</ul>
 							</Window>
 
-							<div class="flex flex-col md:basis-2/5 gap-4 md:gap-0 justify-between">
-								<!-- social links -->
-								<Window color="bg-[#2e3ebb]" class="h-full">
-									<h1 class="title">
-										{content.links_list.socials.title}
-									</h1>
+							<!-- misc links -->
+							<Window color="bg-[#4057ba]" class="h-full">
+								<h1 class="title">
+									{content.links_list.others.title}
+								</h1>
+								<div class="flex flex-col gap-2">
 									<ul class="gap-1 flex flex-col">
-										{#each content.links_list.socials.links as link}
-											<li class="text-sm md:text-base group">
+										{#each content.links_list.others.links as link}
+											<li class="text-sm lg:text-base gap-2 group">
 												<a
 													href={link.href}
-													target="_blank"
-													rel="me noopener noreferrer"
-													class="flex items-center gap-3 group-hover:text-[#2e3ebb] transition-colors duration-300"
+													target="_self"
+													rel="noopener noreferrer"
+													class="flex items-center gap-3 group-hover:text-[#4057ba] transition-colors duration-300"
 												>
 													<iconify-icon
 														icon={link.icon}
-														class="text-[#2e3ebb] shrink-0 inline-flex items-center"
+														class="text-[#4057ba] shrink-0 inline-flex items-center"
 													></iconify-icon>
 													{link.title}
 												</a>
 											</li>
 										{/each}
 									</ul>
-								</Window>
-
-								<!-- misc links -->
-								<Window color="bg-[#4381cb]" class="h-full">
-									<h1 class="title">
-										{content.links_list.others.title}
-									</h1>
-									<div class="flex flex-col gap-2">
-										<ul class="gap-1 flex flex-col">
-											{#each content.links_list.others.links as link}
-												<li class="text-sm md:text-base gap-2 group">
-													<a
-														href={link.href}
-														target="_self"
-														rel="noopener noreferrer"
-														class="flex items-center gap-3 group-hover:text-[#4381cb] transition-colors duration-300"
-													>
-														<iconify-icon
-															icon={link.icon}
-															class="text-[#4381cb] shrink-0 inline-flex items-center"
-														></iconify-icon>
-														{link.title}
-													</a>
-												</li>
-											{/each}
-										</ul>
-									</div>
-								</Window>
-							</div>
+								</div>
+							</Window>
 						</div>
 
 						<!-- featured
@@ -161,7 +196,7 @@
 						> -->
 					</div>
 				{:else}
-					<div class="mt-10 -mx-[5vw] lg:mx-0">
+					<div class="mt-10 -mx-[5vw] lg:mx-0" id="scrapbook">
 						<Scrapbook />
 					</div>
 				{/if}
@@ -174,6 +209,10 @@
 	@reference '$lib/styles/app.css';
 
 	.title {
-		@apply text-lg font-[375] uppercase md:text-xl;
+		@apply text-lg font-[375] uppercase lg:text-xl;
+	}
+
+	.about-link :global(.markdown a) {
+		@apply bg-accent-blue/50 hover:bg-accent-blue/80 px-1 no-underline transition-colors duration-300 hover:text-black;
 	}
 </style>
