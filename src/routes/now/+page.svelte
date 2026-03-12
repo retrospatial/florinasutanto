@@ -7,21 +7,23 @@
 
 <Section class="flex flex-col md:flex-row md:gap-8 gap-2">
 	<div class="flex flex-col gap-4 flex-2 md:sticky md:top-8 md:self-start">
-		<h1 class="heading-2 lowercase text-accent-yellow text-balance">what i'm up to right now</h1>
+		<h1 class="heading-2 lowercase text-accent-yellow text-balance md:max-w-sm">
+			what i'm up to right now
+		</h1>
 
 		<a
 			href="https://nownownow.com"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="detail-md hover:bg-accent-yellow hover:text-black transition-colors duration-300 w-fit md:px-1"
+			class="detail-md hover:bg-accent-yellow hover:text-black transition-colors duration-300 w-fit px-1"
 			>nownownow.com</a
 		>
 	</div>
 
-	<div class="flex-3 mt-8 flex flex-col gap-8">
+	<div class="flex-3 mt-section flex flex-col gap-8">
 		<div class="flex flex-col gap-2">
 			<time class="detail-md" datetime={data.date}>
-				{formatDate(data.date)}
+				Last Updated {formatDate(data.date)}
 			</time>
 			<div class="markdown">
 				<data.component />

@@ -11,7 +11,7 @@
 <div class="max-w-screen-2xl mx-auto">
 	<nav class="pt-navbar">
 		<div
-			class="w-4/5 mx-auto relative grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row justify-between items-start text-white"
+			class="w-4/5 mx-auto relative grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row justify-between items-start"
 		>
 			<a href="/"
 				><p class="nav-title hover:text-accent-blue {home ? 'text-accent-blue italic' : ''}">

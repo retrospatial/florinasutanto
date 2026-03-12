@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
 
-	let content = page.data.about_long;
+	let content = page.data.scrapbook;
 
 	interface Track {
 		name: string;
@@ -63,7 +63,7 @@
 	class="relative w-full max-w-80 overflow-hidden h-full -rotate-2 text-black flex items-center justify-center px-2 py-2 md:py-4"
 >
 	<Image
-		src="receipt.webp"
+		src="misc/receipt.webp"
 		alt="receipt"
 		class="w-full h-full object-cover scale-225 absolute inset-0"
 	/>
@@ -82,7 +82,7 @@
 				</a>
 			</div>
 			<Image
-				src="vinyl.png"
+				src="misc/vinyl.png"
 				alt="vinyl"
 				class="w-full h-auto max-w-8 md:max-w-10 animate-spin-slow absolute -bottom-1 right-7"
 			/>

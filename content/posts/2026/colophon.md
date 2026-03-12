@@ -44,12 +44,12 @@ The only thing I pay for to get this site on the internet is my domain name, whi
 
 # Media
 
-To compress images, I run the following ImageMagick command to resize them to a max width of 1200 pixels and convert them to `.webp` files.
+To compress images, I run the following ImageMagick command to resize them to a max width of 800-1200 pixels (so they look good in the image lightbox) and convert them to `.webp` files.
 
 **Loop through all images:**
 
 ```bash
-for f in *.{jpg,png,jpeg}(N); do magick "$f" -auto-orient -resize 1200x -quality 100 "${f%.*}.webp"; done
+for f in *.{jpg,png,jpeg,heic,JPG,PNG,JPEG,HEIC}(N); do magick "$f" -auto-orient -resize 1200x -quality 90 "${f%.*}.webp"; done
 ```
 
 **By individual image:**

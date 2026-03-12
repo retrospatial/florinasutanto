@@ -4,7 +4,7 @@
 	import { page } from '$app/state';
 	import Image from '$lib/helpers/Image.svelte';
 
-	let content = page.data.about_long.text[2];
+	let content = page.data.scrapbook.text[2];
 
 	const positions = [
 		{ rotate: -4, x: 0, y: 0, z: 1 },
