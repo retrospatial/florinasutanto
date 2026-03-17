@@ -29,7 +29,7 @@ async function getCoverArt(track: string, artist: string, fetch: typeof global.f
 		const searchData = await searchRes.json();
 		const results = searchData?.results ?? [];
 
-		console.log(`Found ${results.length} results on Discogs`);
+		// console.log(`Found ${results.length} results on Discogs`);
 
 		for (const result of results) {
 			if (result.cover_image && result.cover_image !== '') {
@@ -43,10 +43,10 @@ async function getCoverArt(track: string, artist: string, fetch: typeof global.f
 			}
 		}
 
-		console.log(`❌ No cover art found for "${artist} - ${track}"`);
+		// console.log(`❌ No cover art found for "${artist} - ${track}"`);
 		return null;
 	} catch (err) {
-		console.error(`Cover art error for ${artist} - ${track}:`, err);
+		// console.error(`Cover art error for ${artist} - ${track}:`, err);
 		return null;
 	}
 }

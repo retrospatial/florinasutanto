@@ -37,7 +37,7 @@
 	});
 </script>
 
-<div class="w-full max-w-sm mt-20 flex flex-col">
+<div class="w-full max-w-sm flex flex-col">
 	<div class="w-full border-5 border-[#3a2ee6] border-b-15 rounded-md">
 		{#each shelves as shelf}
 			<div
@@ -51,7 +51,7 @@
 
 				<ul class="w-full grid grid-cols-3 -mb-1">
 					{#each booksData[shelf.listType] as book}
-						<li class="flex flex-col items-center text-center justify-end">
+						<li class="flex flex-col items-center text-center justify-end mx-2">
 							{#if book.image}
 								<a href={book.url} target="_blank" rel="noopener noreferrer">
 									<img

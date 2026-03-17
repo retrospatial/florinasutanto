@@ -40,7 +40,7 @@
 				lightbox={true}
 			/>
 			<div class="bg-[#E3E3E3] py-4">
-				<p class="text-black text-center font-rock-salt text-sm md:text-lg">
+				<p class="text-black text-center font-rock-salt text-sm md:text-lg text-wrap wrap-break-word">
 					{item.title}
 				</p>
 			</div>
