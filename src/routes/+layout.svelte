@@ -7,6 +7,10 @@
 	import Footer from '$lib/components/shared/Footer.svelte';
 	const favicon = '/assets/images/favicon.png';
 	import { page } from '$app/state';
+	import { dev } from '$app/environment';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 
 	let { children } = $props();
 
