@@ -60,17 +60,17 @@
 </script>
 
 <div
-	class="relative w-full max-w-80 overflow-hidden h-full -rotate-2 text-black flex items-center justify-center px-2 py-2 md:py-4"
+	class="relative w-full max-w-80 overflow-hidden h-fit -rotate-2 text-black flex items-center justify-center px-2 py-2 md:py-4"
 >
 	<Image
-		src="misc/receipt.webp"
+		src="scrapbook/receipt.webp"
 		alt="receipt"
 		class="w-full h-full object-cover scale-225 absolute inset-0"
 	/>
 	<div class="tracking-tighter flex items-center justify-center flex-col mx-4 relative min-h-110">
 		<div class="flex items-center justify-center relative mb-4">
 			<div
-				class="heading-3 font-exposure text-black/85 w-full max-w-2/3 flex text-balance text-center"
+				class="text-xl leading-normal font-[375] xl:text-2xl font-exposure text-black/85 w-full max-w-2/3 flex text-balance text-center"
 			>
 				<a
 					href="https://www.last.fm/user/sunmetric"
@@ -82,9 +82,9 @@
 				</a>
 			</div>
 			<Image
-				src="misc/vinyl.png"
+				src="scrapbook/vinyl.png"
 				alt="vinyl"
-				class="w-full h-auto max-w-8 md:max-w-10 animate-spin-slow absolute -bottom-1 right-7"
+				class="w-full h-auto max-w-8 xl:max-w-10 animate-spin-slow absolute -bottom-1 xl:right-7 right-5"
 			/>
 		</div>
 		<ul class="w-full">

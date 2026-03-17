@@ -10,21 +10,41 @@
 	let content = page.data.scrapbook;
 	let Piano: typeof import('svelte-piano').Piano | null = $state(null);
 
+	let imgFolder = '/assets/images/scrapbook/';
+
 	onMount(async () => {
 		const module = await import('svelte-piano');
 		Piano = module.Piano;
 	});
 </script>
 
-<div class="relative">
-	<div class="-z-10">
-		<div class="cork-bg absolute inset-0"></div>
-		<div class="bg-black/10 absolute inset-0"></div>
-	</div>
+<svelte:head>
+	<style>
+		nav,
+		footer {
+			display: none !important;
+		}
 
-	<div
-		class="flex flex-col gap-10 relative py-16 px-4 border-5 lg:border-15 border-y-[#975f20] border-x-[#c77b1e]"
-	>
+		main {
+			padding: 0 !important;
+			margin: 0 !important;
+			max-width: none !important;
+		}
+
+		html,
+		body {
+			overflow: hidden !important;
+			height: 100vh !important;
+		}
+	</style>
+</svelte:head>
+
+<section
+	class="scrapbook-scroll m-10 relative overflow-y-auto border-5 lg:border-15 border-y-[#975f20] border-x-[#c77b1e]"
+	style="height: calc(100vh - 5rem)"
+>
+	<div class="cork-bg flex flex-col gap-10 relative py-16 px-4">
+		<Image src="{imgFolder}wes.png" alt="washi" class="w-full max-w-150 -rotate-10 self-center" />
 		<div
 			class="flex lg:flex-row flex-col gap-20 lg:gap-32 w-full items-center justify-center relative lg:max-w-3/4 mx-auto"
 		>
@@ -34,7 +54,7 @@
 			<div class="flex flex-col gap-20 items-center justify-center">
 				<!-- red line -->
 				<Image
-					src="misc/redline.webp"
+					src="{imgFolder}redline.webp"
 					alt="redline"
 					class="w-full max-w-sm h-auto  hover:scale-103 hover:-rotate-2 transition-all duration-300"
 				/>
@@ -92,11 +112,21 @@
 			{/if}
 		</div>
 	</div>
-</div>
+</section>
 
 <style>
+	.scrapbook-scroll {
+		scrollbar-width: none;
+	}
+
+	.scrapbook-scroll::-webkit-scrollbar {
+		display: none;
+	}
+
 	.cork-bg {
-		background-image: url('/assets/images/misc/cork.webp');
+		background-image:
+			linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+			url('/assets/images/scrapbook/cork.webp');
 		background-repeat: repeat;
 	}
 </style>

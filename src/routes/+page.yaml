@@ -8,7 +8,7 @@ intro:
     I work as an Interactive Engineer at <a href="https://www.citizencodex.com/" target="_blank" rel="noopener noreferrer">Citizen Codex</a>, where I create interactive data stories for topics in research, data journalism, and digital humanities.
 
 
-    I enjoy writing, drinking fruit juices, searching for clues, being airborne, and drifting underwater. When allowed, I will bug you about doing parkour, watching Buffy, and trying out niche sports.
+    I enjoy writing, drinking fruit juices, searching for clues, being airborne, and noodling underwater. When allowed, I will bug you about doing parkour, watching Buffy, and trying out niche sports.
 
 
     Many pages are still under construction! In the meantime, I hope you have fun perambulating the various corners of this site.
@@ -77,6 +77,9 @@ links_list:
       - title: Colophon
         href: /blog/2026/colophon
         icon: material-symbols:book
+      - title: Scrapbook
+        href: /scrapbook
+        icon: clarity:picture-solid
       # - title: About Me 🚧
       #   href: /about
       #   icon: ph:lego-smiley-duotone

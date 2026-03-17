@@ -28,6 +28,7 @@
 		src: string;
 		alt: string;
 		class?: ClassValue;
+		style?: string;
 		ref?: HTMLElement;
 		width?: number;
 		quality?: number;
@@ -39,6 +40,7 @@
 		src,
 		alt,
 		class: classes = '',
+		style = '',
 		ref = $bindable(),
 		width = 1200,
 		quality = 75
@@ -61,5 +63,6 @@
 	{alt}
 	loading={lazy ? 'lazy' : 'eager'}
 	class={classes}
+	{style}
 	data-lightbox={lightbox ? '' : undefined}
 />
