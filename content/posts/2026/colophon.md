@@ -49,7 +49,7 @@ To compress images, I run the following ImageMagick command to resize them to a 
 **Loop through all images:**
 
 ```bash
-for f in *.{jpg,png,jpeg,heic,JPG,PNG,JPEG,HEIC}(N); do magick "$f" -auto-orient -resize 1200x -quality 90 "${f%.*}.webp"; done
+for f in *.{jpg,png,jpeg,heic,JPG,PNG,JPEG,HEIC}(N); do magick "$f" -auto-orient -resize 900x -quality 90 "${f%.*}.webp"; done
 ```
 
 **By individual image:**
