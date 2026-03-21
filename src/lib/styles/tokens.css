@@ -11,11 +11,16 @@
 	--font-technology: 'Technology', sans-serif;
 
 	--color-white: #e2e2e2;
+	--color-bone: #d7d3c7;
 	--color-dark-gray: #181818;
+	--color-blue: #3883aa;
+	--color-red: #c54546;
+	--color-yellow: #d79e57;
+	--color-green: #259972;
+
 	--color-accent-blue: #66adb5;
 	--color-accent-cream: #f3e3cf;
 	--color-accent-purple: #ab9df2;
-	--color-accent-teal: #012828;
 	--color-accent-orange: #ca9248;
 	--color-accent-pink: #e56684;
 	--color-accent-green: #d8f328;

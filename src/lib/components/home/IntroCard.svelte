@@ -7,7 +7,7 @@
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
 
-	let content = page.data;
+	const content = page.data;
 
 	let currentIndex = $state(0);
 	let condition = $state('');

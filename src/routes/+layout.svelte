@@ -16,26 +16,30 @@
 
 	let { children } = $props();
 
+	const site = $derived(page.data?.site);
 	const pathname = $derived(page.url.pathname);
-	const about = $derived(pathname === '/');
-	const personal = $derived(pathname.startsWith('/personal'));
-	const work = $derived(pathname.startsWith('/work'));
-	const blog = $derived(pathname.startsWith('/blog'));
-
-	const blogPostTitle = $derived(page.data?.post?.title);
 
 	const pageTitle = $derived(() => {
-		if (blogPostTitle) return `florina sutanto | ${blogPostTitle}`;
-		if (about) return 'florina sutanto';
-		if (work) return 'florina sutanto | work';
-		if (personal) return 'florina sutanto | personal';
-		if (blog) return 'florina sutanto | blog';
-		return 'florina sutanto';
+		const postTitle = page.data?.post?.title;
+		if (postTitle) return `florina sutanto | ${postTitle}`;
+		if (pathname === '/') return 'florina sutanto';
+		const segment = pathname.split('/').filter(Boolean)[0];
+		return `florina sutanto | ${segment}`;
 	});
 </script>
 
 <svelte:head>
 	<title>{pageTitle()}</title>
+	<meta name="description" content={site?.description} />
+	<meta name="author" content={site?.author} />
+	<meta name="keywords" content={site?.keywords} />
+	<meta property="og:title" content={site?.title} />
+	<meta property="og:description" content={site?.description} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={site?.url} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={site?.title} />
+	<meta name="twitter:description" content={site?.description} />
 	<link rel="icon" href={favicon} />
 	<link rel="alternate" type="application/rss+xml" title="florina sutanto" href="/rss.xml" />
 </svelte:head>

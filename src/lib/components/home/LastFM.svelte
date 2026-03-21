@@ -1,10 +1,9 @@
 <script lang="ts">
 	import Image from '$lib/helpers/Image.svelte';
-	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
 
-	let content = page.data.scrapbook;
+	const title = 'Favorite Songs This Week';
 
 	interface Track {
 		name: string;
@@ -60,7 +59,7 @@
 </script>
 
 <div
-	class="relative w-full max-w-80 overflow-hidden h-fit -rotate-2 text-black flex items-center justify-center px-2 py-2 md:py-4"
+	class="relative w-full max-w-80 overflow-hidden h-fit text-black flex items-center justify-center px-2 py-2 md:py-4"
 >
 	<Image
 		src="scrapbook/receipt.webp"
@@ -78,7 +77,7 @@
 					rel="noopener noreferrer"
 					class="group"
 				>
-					{content.text[0].title}
+					{title}
 				</a>
 			</div>
 			<Image

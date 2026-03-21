@@ -2,7 +2,7 @@
 	import Image from '$lib/helpers/Image.svelte';
 	import { page } from '$app/state';
 
-	let content = page.data.links_list;
+	const content = page.data.links_list;
 </script>
 
 <div class="flex flex-col w-full items-center justify-center">
