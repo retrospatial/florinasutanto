@@ -7,7 +7,7 @@
 	import Polaroids from '$lib/components/home/Polaroids.svelte';
 	import md from '$lib/utils/md';
 
-	let content = page.data.scrapbook;
+	const content = page.data.scrapbook;
 	let Piano: typeof import('svelte-piano').Piano | null = $state(null);
 
 	let imgFolder = '/assets/images/scrapbook/';

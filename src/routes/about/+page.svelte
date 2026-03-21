@@ -1,154 +1,90 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import { onMount } from 'svelte';
-	import md from '$lib/utils/md';
 	import Section from '$lib/helpers/Section.svelte';
+	import Image from '$lib/helpers/Image.svelte';
+	import LastFM from '$lib/components/home/LastFM.svelte';
+	import Polaroids from '$lib/components/home/Polaroids.svelte';
+	import { page } from '$app/state';
+	import md from '$lib/utils/md';
 
-	let content = page.data;
+	const content = page.data;
 
-	let tvHovered = $state(false);
-
-	const imgFolder = '/assets/images/room/';
+	let imgFolder = '/assets/images/scrapbook/';
 </script>
 
-<svelte:head>
-	<style>
-		.background {
-			display: none !important;
-		}
+<Section class="relative">
+	<div class="absolute top-[10%] left-0 scale-80 -rotate-4">
+		<LastFM />
+	</div>
 
-		body {
-			background:
-				radial-gradient(
-						ellipse 100% 100% at 50% 55%,
-						rgba(255, 255, 255, 1) 0%,
-						rgba(255, 255, 255, 0.75) 45%,
-						rgba(255, 255, 255, 0) 75%
-					)
-					fixed,
-				url('/assets/images/room/tilebg.jpg') repeat;
-		}
+	<!-- <Image
+					src="{imgFolder}redline.webp"
+					alt="redline"
+					class="max-w-40 w-full ml-4 mb-4 -rotate-4 hover:rotate-0 transition-all duration-300"
+				/> -->
+	<h1 class="heading-2 lowercase text-accent-yellow text-center mb-8">
+		{content.title}
+	</h1>
 
-		.nav-title {
-			color: var(--color-dark-gray);
-		}
+	<section class="max-w-lg mx-auto">
+		<p class="about-text">{@html md(content.intro)}</p>
 
-		nav {
-			display: none !important;
-		}
+		<div class="relative">
+			<div class="float-right relative ml-4">
+				<Image src="{imgFolder}wes.png" alt="redline" class="max-w-20 flag" />
+				<Image
+					src="{imgFolder}pin.png"
+					alt="pin"
+					class="absolute top-0 left-1/4 translate-x-2 z-10 w-6"
+				/>
+			</div>
+			<p class="about-text">{@html md(content.wes)}</p>
+		</div>
 
-		footer {
-			display: none !important;
-		}
+		<p class="about-text">{@html md(content.work)}</p>
 
-		html,
-		body {
-			overflow: hidden !important;
-			height: 100vh !important;
-		}
-	</style>
-</svelte:head>
+		<p class="about-text">{@html md(content.camb)}</p>
 
-<Section class="relative h-screen">
-	<svg width="0" height="0" aria-hidden="true">
-		<filter id="halftone" color-interpolation-filters="sRGB">
-			<feTurbulence type="turbulence" baseFrequency="4" numOctaves="1" result="dots" seed="2" />
-			<feComponentTransfer in="dots" result="dotmask">
-				<feFuncR type="discrete" tableValues="0.2 1" />
-				<feFuncG type="discrete" tableValues="0.2 1" />
-				<feFuncB type="discrete" tableValues="0.2 1" />
-			</feComponentTransfer>
-			<feComponentTransfer in="SourceGraphic" result="posterized">
-				<feFuncR type="discrete" tableValues="0 0.25 0.5 0.75 1" />
-				<feFuncG type="discrete" tableValues="0 0.25 0.5 0.75 1" />
-				<feFuncB type="discrete" tableValues="0 0.25 0.5 0.75 1" />
-			</feComponentTransfer>
-			<feBlend in="posterized" in2="dotmask" mode="multiply" result="halftoned" />
-			<feComposite in="halftoned" in2="SourceGraphic" operator="in" />
-		</filter>
-	</svg>
-	<svg
-		viewBox="0 5 100 82"
-		class="absolute inset-0 w-full h-full"
-		preserveAspectRatio="xMidYMid meet"
-	>
-		<a href={content.links[0].href} aria-label="clock">
-			<image
-				href="{imgFolder}clock.webp"
-				x="0"
-				y="15"
-				preserveAspectRatio="none"
-				width="10"
-				class="halftone hover:-rotate-10 cursor-pointer"
-				style="transform-origin: 5px 20px;"
-			/></a
-		>
-
-		<g transform="translate(-10, 0)">
-			<rect x="25" y="64" width="30" height="12" fill="#4D260D" class="halftone" />
-			<image href="{imgFolder}stand2.webp" x="5" y="55" width="70" class="halftone" />
-			<image
-				href="{imgFolder}tv.webp"
-				x="20"
-				y="27"
-				width="40"
-				class="halftone tv-image cursor-pointer"
-				style="transform-origin: 40px 60px; transform: {tvHovered
-					? 'skewY(2deg) scaleX(0.96)'
-					: 'skewY(0) scaleX(1)'}; "
-				onmouseenter={() => (tvHovered = true)}
-				onmouseleave={() => (tvHovered = false)}
-				aria-label="click to open"
-			/>
-
-			<image
-				href="{imgFolder}books.webp"
-				x="27"
-				y="65.5"
-				width="27"
-				preserveAspectRatio="none"
-				class="halftone hover:scale-102 hover:-translate-y-[0.5px] hover:-translate-x-[1.5px] cursor-pointer"
-			/>
-			<image
-				href="{imgFolder}mug.webp"
-				x="60"
-				y="54"
-				preserveAspectRatio="none"
-				width="10"
-				class="halftone hover:-translate-y-px cursor-pointer"
-			/>
-			<image
-				href="{imgFolder}notes.webp"
-				x="10"
-				y="56"
-				preserveAspectRatio="none"
-				width="12"
-				class="halftone hover:-translate-y-px cursor-pointer rotate-20"
-				style="transform-origin: 10px 58px;"
-			/>
-			<image
-				href="{imgFolder}sticky.webp"
-				x="82"
-				y="40"
-				preserveAspectRatio="none"
-				width="7"
-				class="halftone hover:-translate-x-px cursor-pointer rotate-20"
-			/>
-		</g>
-		<!-- <image
-			href="{imgFolder}shelf2.webp"
-			x="58"
-			y="19"
-			height="70"
-			preserveAspectRatio="none"
-			width="60"
-			class="halftone"
-		/> -->
-	</svg>
+		<div class="-mx-20">
+			<Polaroids />
+		</div>
+	</section>
 </Section>
 
-<style>
-	:global(.halftone) {
-		filter: url(#halftone);
+<ul class="text-white">
+	<li>last fm</li>
+	<li>reads</li>
+	<li>red line</li>
+	<li>piano</li>
+</ul>
+
+<style lang="postcss">
+	@reference '$lib/styles/app.css';
+
+	.about-text :global(p) {
+		@apply mx-auto mb-6 max-w-md text-justify;
+	}
+
+	.about-text :global(a) {
+		@apply text-accent-yellow underline decoration-transparent underline-offset-4 transition-colors duration-300;
+
+		&:hover {
+			@apply decoration-accent-yellow;
+		}
+	}
+
+	:global(.flag) {
+		transform-origin: top center;
+		animation: sway var(--sway-duration, 4s) ease-in-out infinite;
+		animation-delay: var(--sway-delay, 0s);
+	}
+
+	@keyframes sway {
+		0%,
+		100% {
+			rotate: 3deg;
+		}
+		50% {
+			rotate: -3deg;
+		}
 	}
 </style>

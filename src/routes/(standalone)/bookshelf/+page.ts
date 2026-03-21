@@ -1,7 +1,9 @@
-import site from './+site.yaml';
+import page from './+page.yaml';
 
 export const prerender = true;
 
 export const load = () => {
-	return { site };
+	return {
+		...page
+	};
 };

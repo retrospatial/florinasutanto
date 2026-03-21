@@ -13,9 +13,10 @@
 	import { cubicOut } from 'svelte/easing';
 	import { onMount, tick } from 'svelte';
 
-	let content = page.data;
+	const content = page.data;
 
 	let contentHeight = $state(0);
+	let emailCopied = $state(false);
 </script>
 
 <Section class="h-card flex flex-col lg:flex-row gap-4 lg:gap-8">
@@ -60,32 +61,46 @@
 
 			<div class="flex flex-col gap-6 justify-between w-full">
 				<!-- social links -->
-				<Window color="bg-[#458876]" class="h-fit">
+				<Window color="bg-[var(--color-home-green)]" class="h-fit">
 					<h1 class="title">
 						{content.links_list.socials.title}
 					</h1>
 					<ul class="gap-1 flex flex-col">
 						{#each content.links_list.socials.links as link}
 							<li class="text-sm lg:text-base group">
-								<a
-									href={link.href}
-									target="_blank"
-									rel="me noopener noreferrer"
-									class="flex items-center gap-3 group-hover:text-[#458876] transition-colors duration-300"
-								>
-									<iconify-icon
-										icon={link.icon}
-										class="text-[#458876] shrink-0 inline-flex items-center"
-									></iconify-icon>
-									{link.title}
-								</a>
+								{#if link.title.includes('Email')}
+									{@const email = link.href}
+									<button
+										onclick={async () => {
+											await navigator.clipboard.writeText(email);
+											emailCopied = true;
+											setTimeout(() => (emailCopied = false), 2000);
+										}}
+										class="group-hover:text-[var(--color-home-green)] links"
+									>
+										<iconify-icon icon={link.icon} class="text-[var(--color-home-green)] links-icon"
+										></iconify-icon>
+										{emailCopied ? 'Email copied!' : link.title}
+									</button>
+								{:else}
+									<a
+										href={link.href}
+										target="_blank"
+										rel="me noopener noreferrer"
+										class="group-hover:text-[var(--color-home-green)] links"
+									>
+										<iconify-icon icon={link.icon} class="text-[var(--color-home-green)] links-icon"
+										></iconify-icon>
+										{link.title}
+									</a>
+								{/if}
 							</li>
 						{/each}
 					</ul>
 				</Window>
 
 				<!-- misc links -->
-				<Window color="bg-[#4057ba]" class="h-full">
+				<Window color="bg-[var(--color-home-blue)]" class="h-full">
 					<h1 class="title">
 						{content.links_list.others.title}
 					</h1>
@@ -97,11 +112,9 @@
 										href={link.href}
 										target="_self"
 										rel="noopener noreferrer"
-										class="flex items-center gap-3 group-hover:text-[#4057ba] transition-colors duration-300"
+										class="group-hover:text-[var(--color-home-blue)] links"
 									>
-										<iconify-icon
-											icon={link.icon}
-											class="text-[#4057ba] shrink-0 inline-flex items-center"
+										<iconify-icon icon={link.icon} class="text-[var(--color-home-blue)] links-icon"
 										></iconify-icon>
 										{link.title}
 									</a>
@@ -168,8 +181,9 @@
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
 
-	.title {
-		@apply text-lg font-[375] uppercase lg:text-xl;
+	:global(:root) {
+		--color-home-green: #458876;
+		--color-home-blue: #4057ba;
 	}
 
 	:global(.intro-window) {
@@ -178,7 +192,19 @@
 		}
 	}
 
+	.title {
+		@apply text-lg font-[375] uppercase lg:text-xl;
+	}
+
 	.about-link :global(.markdown a) {
 		@apply bg-accent-blue/50 hover:bg-accent-blue/80 px-1 no-underline transition-colors duration-300 hover:text-black;
+	}
+
+	.links {
+		@apply flex cursor-pointer items-center gap-3 transition-colors duration-300;
+	}
+
+	.links-icon {
+		@apply inline-flex shrink-0 items-center;
 	}
 </style>

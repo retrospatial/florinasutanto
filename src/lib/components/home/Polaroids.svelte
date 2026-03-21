@@ -1,10 +1,14 @@
-<!-- SPORTS: parkour, aerials, climbing, scuba diving, swimming -->
-
 <script lang="ts">
-	import { page } from '$app/state';
 	import Image from '$lib/helpers/Image.svelte';
 
-	let content = page.data.scrapbook.text[2];
+	const images = [
+		{ src: `polaroids/parkour.webp`, title: 'Parkour' },
+		{ src: `polaroids/aerials.webp`, title: 'Aerials' },
+		{ src: `polaroids/climbing.webp`, title: 'Climbing' },
+		{ src: `polaroids/scuba.webp`, title: 'Scuba Diving' },
+		{ src: `polaroids/rowing.webp`, title: 'Dragon Boating' },
+		{ src: `polaroids/investigating.webp`, title: 'Investigating' }
+	];
 
 	const positions = [
 		{ rotate: -4, x: 0, y: 0, z: 1 },
@@ -19,9 +23,9 @@
 <!-- use image popover -->
 
 <ul class="relative grid grid-cols-2 md:grid-cols-3 gap-2 items-center justify-center">
-	{#each content.desc as item, i}
+	{#each images as image, i}
 		<li
-			class="polaroid border-[#E3E3E3] md:border-r-20 md:border-t-20 md:border-l-20 border-r-10 border-t-10 border-l-10 transition-all duration-300 drop-shadow-2xl {i %
+			class="polaroid border-[#E3E3E3] md:border-r-15 md:border-t-15 md:border-l-15 border-r-10 border-t-10 border-l-10 transition-all duration-300 drop-shadow-2xl {i %
 				2 ===
 			0
 				? 'hover:rotate-2'
@@ -34,14 +38,16 @@
 			"
 		>
 			<Image
-				src="polaroids/{item.src}"
-				alt={item.title}
+				src={image.src}
+				alt={image.title}
 				class="w-full aspect-square object-cover"
 				lightbox={true}
 			/>
-			<div class="bg-[#E3E3E3] py-4">
-				<p class="text-black text-center font-rock-salt text-sm md:text-lg text-wrap wrap-break-word">
-					{item.title}
+			<div class="bg-[#E3E3E3] py-4 flex items-center justify-center">
+				<p
+					class="text-black text-center font-rock-salt text-sm md:text-lg text-wrap wrap-break-word self-center"
+				>
+					{image.title}
 				</p>
 			</div>
 		</li>

@@ -51,7 +51,7 @@
 										{post.title}
 									</h2>
 
-									<div class="flex flex-row items-center gap-2">
+									<!-- <div class="flex flex-row items-center gap-2">
 										{#if post.tags}
 											<div class="blog-list-tags flex flex-row gap-2">
 												{#each post.tags as tag}
@@ -62,7 +62,7 @@
 												{/each}
 											</div>
 										{/if}
-									</div>
+									</div> -->
 								</div>
 								<time
 									class="dt-published blog-list-date w-fit whitespace-nowrap md:mt-1"
