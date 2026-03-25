@@ -1,89 +1,58 @@
 @theme {
-	--font-exposure: 'Exposure', serif;
-	--font-neue-montreal: 'Neue Montreal', sans-serif;
+	/* Semantic font tokens — change these to restyle the whole app */
+	--font-heading: 'Gaya Regular', sans-serif;
+	--font-body: 'Neue Montreal', sans-serif;
 	--font-mono: 'Fira Code', monospace;
-	--font-courier: 'Courier Prime', monospace;
+
+	/* Decorative / one-off fonts */
+	/* --font-courier: 'Courier Prime', monospace;
 	--font-terminal: 'VT323', monospace;
 	--font-goudy: 'Goudy Bookletter 1911', serif;
 	--font-instrument-serif: 'Instrument Serif', serif;
 	--font-spline: 'Spline Sans', sans-serif;
 	--font-rock-salt: 'Rock Salt', cursive;
-	--font-technology: 'Technology', sans-serif;
+	--font-technology: 'Technology', sans-serif; */
 
 	--color-white: #e2e2e2;
 	--color-bone: #d7d3c7;
 	--color-dark-gray: #181818;
-	--color-blue: #3883aa;
-	--color-red: #c54546;
-	--color-yellow: #d79e57;
-	--color-green: #259972;
+	--color-blue: #428eab;
+	--color-teal: #74d5d7;
+	--color-orange: #fa753f;
+	--color-lime: #d8f328;
 
-	--color-accent-blue: #66adb5;
-	--color-accent-cream: #f3e3cf;
-	--color-accent-purple: #ab9df2;
-	--color-accent-orange: #ca9248;
-	--color-accent-pink: #e56684;
-	--color-accent-green: #d8f328;
-	--color-accent-yellow: #e8c85b;
-
-	--spacing-navbar: 3rem;
 	--spacing-section: 2rem;
 }
 
-@utility nav-title {
-	@apply font-exposure text-2xl font-[350] text-white transition-colors duration-300 md:text-4xl;
+@utility heading-lg {
+	@apply font-heading text-bone mt-0 mb-8 text-center text-4xl leading-normal uppercase md:text-6xl lg:text-8xl;
 }
 
-@utility heading-1 {
-	@apply font-rock-salt text-5xl leading-loose font-[350] md:text-8xl;
+@utility heading-md {
+	@apply font-heading text-bone mb-8 text-center text-3xl leading-normal uppercase md:text-5xl;
 }
 
-@utility heading-2 {
-	@apply font-rock-salt text-4xl leading-normal font-[350] md:text-6xl md:leading-loose;
-}
-
-@utility heading-3 {
-	@apply font-rock-salt text-xl leading-normal font-[375] md:text-2xl;
+@utility heading-sm {
+	@apply font-heading text-bone mb-4 text-center text-2xl leading-normal md:text-4xl;
 }
 
 @utility body-lg {
-	@apply font-exposure mb-4 text-lg leading-relaxed md:mb-8 md:text-xl;
+	@apply text-lg leading-normal md:text-xl;
 }
 
 @utility body-md {
-	@apply font-exposure mb-4 text-base leading-relaxed md:mb-8 md:text-lg;
+	@apply text-base leading-normal md:text-lg;
 }
 
 @utility body-sm {
-	@apply font-exposure mb-4 text-sm leading-relaxed md:mb-8 md:text-base;
+	@apply text-sm leading-normal md:text-base;
 }
 
 @utility detail-md {
-	@apply font-mono text-sm uppercase md:text-base;
+	@apply font-mono text-sm leading-normal uppercase md:text-base;
 }
 
 @utility detail-sm {
-	@apply font-mono text-xs uppercase md:text-sm;
-}
-
-@utility social-icons {
-	@apply hover:text-accent-cream text-accent-blue cursor-pointer text-4xl transition-colors duration-300;
-}
-
-/* entries */
-@utility entry-heading {
-	@apply font-exposure text-xl leading-normal font-[375] text-balance md:text-2xl md:text-wrap;
-}
-
-@utility entry-body {
-	@apply font-exposure text-base leading-normal md:text-lg;
-}
-
-@utility entry-role {
-	@apply px-1.5 font-mono text-xs leading-normal uppercase md:text-sm;
-}
-
-@utility entry-tag {
 	@apply font-mono text-xs leading-normal uppercase md:text-sm;
 }
 

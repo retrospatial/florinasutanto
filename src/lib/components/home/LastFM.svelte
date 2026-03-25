@@ -69,7 +69,7 @@
 	<div class="tracking-tighter flex items-center justify-center flex-col mx-4 relative min-h-110">
 		<div class="flex items-center justify-center relative mb-4">
 			<div
-				class="text-xl leading-normal font-[375] xl:text-2xl font-exposure text-black/85 w-full max-w-2/3 flex text-balance text-center"
+				class="text-xl leading-normal font-[375] xl:text-2xl font-heading text-black/85 w-full max-w-2/3 flex text-balance text-center"
 			>
 				<a
 					href="https://www.last.fm/user/sunmetric"

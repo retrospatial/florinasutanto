@@ -27,7 +27,7 @@
 	});
 </script>
 
-<Window color="bg-[#326289]" class="flex flex-col gap-4">
+<Window color="bg-blue" class="flex flex-col gap-4">
 	<div class="flex flex-col gap-2">
 		<ImageCarousel
 			{images}
@@ -47,7 +47,7 @@
 	</div>
 	<ul class="list-none">
 		{#each content.about as item}
-			<li class="uppercase font-mono text-sm lg:text-base flex flex-row gap-2">
+			<li class="uppercase font-mono text-sm lg:text-base flex flex-row gap-2 mb-0">
 				<span class="font-semibold w-25">{item.title}</span>
 				<span class="text-end w-full"
 					>{item.title === 'Time'

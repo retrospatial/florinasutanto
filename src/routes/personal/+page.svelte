@@ -2,191 +2,40 @@
 	import { page } from '$app/state';
 	import Image from '$lib/helpers/Image.svelte';
 	import { isVideo, lazyVideo } from '$lib/utils/video';
-	import { onMount, onDestroy } from 'svelte';
 	import Section from '$lib/helpers/Section.svelte';
 
-	import gsap from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 	const content = $derived(page.data);
-
-	let rowRefs = $state<(HTMLElement | null)[]>([]);
-	let mm = $state<any | undefined>(undefined);
-
-	onMount(() => {
-		gsap.registerPlugin(ScrollTrigger);
-
-		mm = gsap.matchMedia();
-
-		setTimeout(() => {
-			mm.add('(min-width: 1024px)', () => {
-				rowRefs.forEach((el, i) => {
-					if (!el) return;
-
-					const fromX = i % 2 === 0 ? -85 : 85;
-
-					gsap.fromTo(
-						el,
-						{ opacity: 0, x: fromX },
-						{
-							opacity: 1,
-							x: 0,
-							ease: 'power2.out',
-							scrollTrigger: {
-								trigger: el,
-								start: 'top 90%',
-								end: 'top 55%',
-								scrub: 0.6
-							}
-						}
-					);
-				});
-
-				ScrollTrigger.refresh();
-			});
-		}, 100);
-	});
-
-	onDestroy(() => {
-		mm?.revert();
-		ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-	});
 </script>
 
-<Section>
-	<!-- mobile layout -->
-	<div class="lg:hidden mb-8 relative">
-		<h2 class="heading-2 text-accent-green mb-4">fun & random projects</h2>
-
-		<div class="relative">
-			{#if content.featured}
-				{@const item = content.featured}
-				<a href={item.link} target="_blank" rel="noopener noreferrer" class="group">
-					<div
-						class="flex flex-col border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300"
-					>
-						<div class="w-full overflow-hidden">
-							<video
-								use:lazyVideo
-								class="w-full h-auto object-cover"
-								autoplay
-								loop
-								muted
-								playsinline
-								preload="none"
-								aria-label="screencapture"
-							>
-								<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
-							</video>
-						</div>
-
-						<div
-							class="flex flex-col items-end text-right gap-2 p-4 text-white group-hover:text-black transition-colors"
-						>
-							<h2 class="entry-heading lowercase">{item.title}</h2>
-							<p class="entry-tag">{item.type}</p>
-							<p class="entry-body text-balance">{item.desc}</p>
-						</div>
-					</div>
-				</a>
-
-				<div class="absolute z-50 -top-8 -right-6">
-					<Image src="doodles/penguin.png" alt="penguin" class="rotate-5  w-16 " />
-				</div>
-				<div class="absolute z-50 -top-10 right-9">
-					<Image src="doodles/penguin_hi2.png" alt="penguin" class="w-8 -rotate-5" />
-				</div>
-			{/if}
+<Section class="flex flex-col">
+	<div class="w-fit mx-auto mb-8">
+		<div class="flex flex-row justify-center items-center gap-2 md:gap-4">
+			<h1 class="heading-lg mb-0 max-w-[200px] md:max-w-none">
+				<span class="relative inline-block">
+					<Image
+						src="random/hat.png"
+						alt="hat"
+						class="absolute md:-left-6 md:top-0 lg:-left-8 lg:top-1 z-10 -rotate-30 md:w-[70px] lg:w-[100px] w-[50px] -left-4 -top-1 h-auto max-w-none"
+					/>
+					p
+				</span>ersonal projects
+			</h1>
+			<Image src="random/point.png" alt="point" class="h-auto w-16 md:w-27 self-center"></Image>
 		</div>
 	</div>
 
-	<!-- desktop layout -->
-	<div class="hidden lg:block relative my-8">
-		<svg
-			viewBox="-10 0 350 320"
-			class="w-full max-w-md overflow-visible"
-			role="img"
-			aria-label="fun & random projects"
-			preserveAspectRatio="xMinYMin meet"
-		>
-			<defs>
-				<path
-					id="corner"
-					d="
-					M 20 100
-					V 300
-					Q 0 40 200 40
-					H 800
-				"
-				/>
-			</defs>
-
-			<text fill="var(--color-accent-green)" class="heading-2">
-				<textPath href="#corner" startOffset="55%" text-anchor="middle">
-					fun & random projects
-				</textPath>
-			</text>
-		</svg>
-
-		{#if content.featured}
-			{@const item = content.featured}
-			<a href={item.link} target="_blank" rel="noopener noreferrer external" class="group">
-				<div
-					class="flex h-full max-h-74 rounded-tl-[160px] items-center flex-row justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 absolute left-25 right-0 bottom-4"
-				>
-					<div class="w-full max-w-md h-full overflow-hidden rounded-tl-[157px]">
-						<video
-							use:lazyVideo
-							class="w-auto h-full object-cover"
-							autoplay
-							loop
-							muted
-							playsinline
-							preload="none"
-							aria-label="screencapture"
-						>
-							<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
-						</video>
-					</div>
-
-					<div
-						class="flex flex-col gap-2 my-2 w-full text-white group-hover:text-black transition-colors mx-8 items-end text-right"
-					>
-						<h2 class="entry-heading lowercase">{item.title}</h2>
-						<p class="entry-tag">{item.type}</p>
-						<p class="entry-body text-balance">{item.desc}</p>
-					</div>
-				</div>
-			</a>
-
-			<div class="group">
-				<div class="absolute z-50 top-14 -right-8">
-					<Image src="doodles/penguin.png" alt="penguin" class="rotate-5  w-20 " />
-				</div>
-				<div
-					class="absolute z-50 top-12 -right-14 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-				>
-					<Image src="doodles/penguin_hi.png" alt="penguin" class="w-10" />
-				</div>
-			</div>
-		{/if}
-	</div>
-
-	<div class="grid grid-cols-1 gap-8">
+	<div class="gallery flex flex-row gap-8 overflow-x-auto items-center pb-4">
 		{#each content.projects as item, i}
 			<a
 				href={item.link ?? undefined}
 				target="_blank"
 				rel="noopener noreferrer external"
-				class="group"
+				class="group w-80 md:w-100 shrink-0"
 			>
 				<div
-					bind:this={rowRefs[i]}
-					class={`flex lg:max-h-60 h-full items-center flex-col justify-between border-3 border-accent-green group-hover:bg-accent-green transition-colors duration-300 gap-4 ${
-						i % 2 === 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'
-					}`}
+					class="flex flex-col md:h-120 h-100 bg-white border-white border-x-16 border-t-24 overflow-hidden"
 				>
-					<div class="aspect-video max-w-full w-full lg:max-w-xs">
+					<div class="flex-1 min-h-0 w-full">
 						{#if isVideo(item.cover)}
 							<video
 								use:lazyVideo
@@ -209,53 +58,38 @@
 						{/if}
 					</div>
 
-					<div
-						class={`flex flex-col gap-2 my-2 w-full text-white group-hover:text-black transition-colors
-						 lg:mx-8 lg:px-0 px-4 pb-4 lg:pb-0
-						${i % 2 === 0 ? 'items-start text-left' : 'items-end text-right'}`}
-					>
-						<h2 class="entry-heading lowercase">{item.title}</h2>
-						<p class="entry-tag">{item.type}</p>
-						<p class="entry-body text-balance">{@html item.desc}</p>
-
-						<!-- detik links array -->
-						{#if item.title === 'DetikCom' && content.detik}
-							<ul
-								class={`flex flex-wrap  gap-2 mt-2 w-full max-w-4/5  ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
-							>
-								{#each content.detik as link, i}
-									<li>
-										<a href={link} target="_blank" rel="noopener noreferrer" class="cursor-pointer">
-											<p
-												class="entry-tag text-black bg-accent-green px-2 py-0.5 rounded group-hover:bg-black group-hover:text-accent-green hover:bg-accent-green hover:text-black"
-											>
-												{i + 1}
-											</p>
-										</a>
-									</li>
-								{/each}
-							</ul>
-						{/if}
+					<div class="shrink-0 bg-white text-black text-center px-2 py-4 flex flex-col gap-1">
+						<h2 class="font-heading text-xl md:text-2xl uppercase text-balance">
+							{item.title}
+						</h2>
+						<div class="font-mono uppercase text-sm md:text-base">{item.type}</div>
+						<div
+							class="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300"
+						>
+							<div class="overflow-hidden">
+								<p class="text-balance body-md pb-2">
+									{@html item.desc}
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</a>
 		{/each}
-
-		<div class="flex flex-row gap-4 items-center">
-			<p class="entry-heading lowercase text-white">and more to come!</p>
-			<div class="relative group lg:mt-2">
-				<Image src="doodles/scuba.png" alt="scuba" class="w-12 md:w-16" />
-				<Image
-					src="doodles/scuba_bubble1.png"
-					alt="scuba bubble"
-					class="w-1.5 absolute right-0.5 -top-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-				/>
-				<Image
-					src="doodles/scuba_bubble2.png"
-					alt="scuba bubble"
-					class="w-1.5 absolute right-0.5 -top-5 opacity-0 group-hover:opacity-100 delay-200 transition-opacity duration-300"
-				/>
-			</div>
-		</div>
 	</div>
 </Section>
+
+<style>
+	.gallery::-webkit-scrollbar {
+		display: block;
+		height: 10px;
+	}
+
+	.gallery::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+
+	.gallery::-webkit-scrollbar-thumb {
+		background-color: var(--color-orange);
+	}
+</style>

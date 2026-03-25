@@ -1,52 +1,93 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Dropdown from '$lib/helpers/Dropdown.svelte';
 
 	const routes = [
-		{ href: '/', title: 'home', color: 'text-accent-blue' },
-		{ href: '/work', title: 'work', color: 'text-accent-purple' },
-		{ href: '/personal', title: 'personal', color: 'text-accent-green' },
-		{ href: '/blog', title: 'blog', color: 'text-accent-pink' }
+		{ href: '/', title: 'home' },
+		{ href: '/work', title: 'work' },
+		{ href: '/personal', title: 'personal' },
+		{ href: '/blog', title: 'blog' }
 	];
+
+	const links = [
+		// { href: '/about', title: 'about' },
+		{ href: '/now', title: 'now' }
+		// { href: '/bookshelf', title: 'books' },
+		// { href: '/blogroll', title: 'blogroll' }
+	];
+
+	const allLinks = [...routes, ...links];
 
 	const pathname = $derived(page.url.pathname);
 	const activeRoute = $derived(routes.find((route) => route.href === pathname));
+	const activeLink = $derived(links.find((link) => link.href === pathname));
+	const activeAny = $derived(allLinks.find((l) => l.href === pathname));
 </script>
 
-<div class="max-w-screen-2xl mx-auto">
-	<nav class="pt-navbar">
-		<div
-			class="w-4/5 mx-auto relative grid grid-cols-2 justify-items-center gap-4 md:flex md:flex-row justify-between items-start"
-		>
-			{#each routes as route}
-				<a href={route.href}
-					><p
-						class="nav-title hover:{route.color} {activeRoute?.href === route.href
-							? `${route.color} italic`
-							: ''}"
-					>
-						{route.title}
-					</p></a
+<nav
+	class="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between items-center py-4 px-8 animation-fly-down"
+	style="--delay: 0.4s;"
+>
+	<a href="/" target="_self" rel="noopener noreferrer" class="shrink-0">
+		<p class="text-2xl text-lime nav-icon">✧</p>
+	</a>
+	<div class="w-full h-0.5 bg-bone mx-4 nav-line transition-colors duration-300"></div>
+
+	<!-- mobile dropdown -->
+	<div class="md:hidden shrink-0">
+		<Dropdown
+			text="menu"
+			items={allLinks}
+			activeHref={pathname}
+			triggerClass="hover:text-lime transition-colors duration-300 font-heading text-xl md:text-2xl cursor-pointer {activeAny
+				? 'italic text-lime'
+				: 'text-bone'}"
+			itemClass="hover:text-lime text-center transition-colors duration-300 font-heading text-xl md:text-2xl whitespace-nowrap"
+			activeClass="italic text-lime"
+			dividerAfter={routes.length - 1}
+		/>
+	</div>
+
+	<!-- desktop nav -->
+	<div class="hidden md:flex flex-row gap-8 shrink-0">
+		{#each routes as route}
+			<a href={route.href}
+				><p
+					class="hover:text-lime transition-colors duration-300 font-heading text-2xl {activeRoute?.href ===
+					route.href
+						? 'italic text-lime'
+						: 'text-bone'}"
 				>
-			{/each}
-		</div>
-	</nav>
-</div>
+					{route.title}
+				</p></a
+			>
+		{/each}
+
+		<Dropdown
+			text="more"
+			items={links}
+			activeHref={pathname}
+			triggerClass="hover:text-lime transition-colors duration-300 font-heading text-2xl cursor-pointer {activeLink
+				? 'italic text-lime'
+				: 'text-bone'}"
+			itemClass="hover:text-lime transition-colors duration-300 font-heading text-2xl whitespace-nowrap"
+			activeClass="italic text-lime"
+		/>
+	</div>
+</nav>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
 
-	@keyframes nav-fly-in {
-		from {
-			opacity: 0;
-			transform: translateY(-40px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
+	.nav-icon {
+		transition: transform 1s ease;
 	}
 
-	nav {
-		animation: nav-fly-in 0.6s cubic-bezier(0.33, 1, 0.68, 1) 0.4s both;
+	nav:hover .nav-icon {
+		transform: rotate(180deg);
+	}
+
+	nav:hover .nav-line {
+		background-color: var(--color-lime);
 	}
 </style>

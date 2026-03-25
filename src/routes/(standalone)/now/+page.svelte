@@ -1,49 +1,52 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils/blog';
 	import Section from '$lib/helpers/Section.svelte';
+	import { page } from '$app/state';
+	import md from '$lib/utils/md';
 
-	let { data } = $props();
+	const content = page.data;
 </script>
 
-<Section class="flex flex-col md:flex-row md:gap-8 gap-2">
-	<div class="flex flex-col gap-4 flex-2 md:sticky md:top-8 md:self-start">
-		<h1 class="heading-2 lowercase text-accent-yellow text-balance md:max-w-sm">
-			what i'm up to right now
-		</h1>
-
+<Section small class="">
+	<h1 class="heading-md mb-4">what i'm up to right now</h1>
+	<div class="flex flex-col gap-4 items-center detail-md">
 		<a
-			href="https://nownownow.com"
+			href="https://nownownow.com/about"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="detail-md hover:bg-accent-yellow hover:text-black transition-colors duration-300 w-fit px-1"
+			class="hover:bg-teal text-bone hover:text-black transition-colors duration-300 w-fit px-1"
 			>nownownow.com</a
 		>
+		<time class="detail-md" datetime={content.date}>
+			Last Updated: {formatDate(content.date)}
+		</time>
 	</div>
 
-	<div class="flex-3 mt-section flex flex-col gap-8">
-		<div class="flex flex-col gap-2">
-			<time class="detail-md" datetime={data.date}>
-				Last Updated {formatDate(data.date)}
-			</time>
-			<div class="markdown">
-				<data.component />
+	<div class="mt-section columns-1 md:columns-2 gap-4">
+		{#each content.sections as section}
+			<div class="w-full mb-4 break-inside-avoid bg-linear-to-b from-bone to-[#c9c4b5] text-black">
+				<div class="relative flex items-center justify-center w-full h-12">
+					<div class="absolute inset-0 bg-[#c9c4b5]"></div>
+					<p class="font-heading text-2xl relative z-10 lowercase">
+						{section.title}
+					</p>
+				</div>
+				<ul class="pt-4 pb-1 px-6">
+					{#each section.items as item}
+						<li class="body-md">
+							{@html item}
+						</li>
+					{/each}
+				</ul>
 			</div>
-		</div>
+		{/each}
 	</div>
 </Section>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
 
-	.markdown :global(h1) {
-		@apply bg-accent-yellow body-md mt-2 mb-2 w-fit px-1 font-mono leading-normal text-black;
-	}
-
-	.markdown :global(a) {
-		@apply text-accent-yellow underline decoration-transparent underline-offset-4 transition-colors duration-300;
-
-		&:hover {
-			@apply decoration-accent-yellow;
-		}
+	li :global(a) {
+		@apply cursor-pointer underline decoration-2 underline-offset-2;
 	}
 </style>

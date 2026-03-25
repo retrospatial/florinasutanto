@@ -97,9 +97,9 @@
 	/>
 </svelte:head>
 
-<div class="w-full mt-16 border-t-2 border-dotted border-accent-pink"></div>
+<div class="w-full mt-16 border-t-2 border-dotted border-orange"></div>
 
-<div id="HCB_comment_box" class="mt-8">Loading comments...</div>
+<div id="HCB_comment_box" class="mt-8 h-auto!">Loading comments...</div>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
@@ -116,8 +116,8 @@
 				--hcb-font-size-sm: 0.8rem;
 			}
 
-			font-family: 'Exposure', sans-serif !important;
-			color: white !important;
+			font-family: 'Neue Montreal', sans-serif !important;
+			color: bone !important;
 			font-size: var(--hcb-font-size) !important;
 
 			* {
@@ -126,7 +126,7 @@
 
 			/* links */
 			a {
-				color: var(--color-accent-pink) !important;
+				color: var(--color-teal) !important;
 				&:hover {
 					text-decoration: underline;
 				}
@@ -134,13 +134,14 @@
 
 			/* comment metadata */
 			.author {
+				font-family: var(--font-heading) !important;
 				font-style: normal !important;
 				font-weight: 300 !important;
 				font-size: var(--hcb-font-size-lg) !important;
 			}
 
 			.date {
-				color: var(--color-white) !important;
+				color: var(--color-bone) !important;
 				font-family: 'Fira Code', monospace !important;
 				text-transform: uppercase !important;
 			}
@@ -163,13 +164,13 @@
 			textarea {
 				background-color: var(--color-dark-gray);
 				border: 0.5px solid white;
-				border-radius: 4px;
+				border-radius: 0 !important;
 				padding: 8px;
 				outline: none !important;
 
 				&:focus {
-					border-color: var(--color-accent-pink) !important;
-					box-shadow: 0 0 0 2px rgb(229 102 132 / 0.3) !important;
+					border-color: var(--color-teal) !important;
+					box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-teal) 20%, transparent) !important;
 				}
 				width: 100% !important;
 				box-sizing: border-box;
@@ -199,8 +200,8 @@
 			/* buttons */
 			.btn {
 				background-color: var(--color-dark-gray) !important;
-				border: 0.5px solid var(--color-accent-pink) !important;
-				border-radius: 4px;
+				border: 0.5px solid var(--color-teal) !important;
+				border-radius: 0 !important;
 				padding: 4px 8px;
 				font: inherit !important;
 				font-size: inherit !important;
@@ -211,7 +212,7 @@
 				transition: background-color 0.3s ease-in-out !important;
 
 				&:hover {
-					background-color: rgb(229 102 132 / 0.3) !important;
+					background-color: color-mix(in srgb, var(--color-teal) 20%, transparent) !important;
 				}
 			}
 
@@ -219,7 +220,7 @@
 			.hcb-reply,
 			.hcb-flag,
 			.del {
-				color: var(--color-accent-pink) !important;
+				color: var(--color-teal) !important;
 				font-weight: 400 !important;
 				opacity: 0.8 !important;
 				font-family: 'Fira Code', monospace !important;
@@ -251,9 +252,9 @@
 
 			/* comment card */
 			.comment {
-				border: 2px dotted var(--color-accent-pink) !important;
+				border: 2px dotted var(--color-teal) !important;
 				background-color: var(--color-dark-gray) !important;
-				border-radius: 4px;
+				border-radius: 0 !important;
 				padding: 12px 16px;
 				margin-bottom: 2rem !important;
 				margin-left: 0 !important;
@@ -289,7 +290,7 @@
 			}
 
 			input[type='checkbox'] {
-				accent-color: var(--color-accent-pink) !important;
+				accent-color: var(--color-teal) !important;
 			}
 
 			/* hidden elements */
