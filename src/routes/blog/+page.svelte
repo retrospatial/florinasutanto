@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils/blog';
 	import Image from '$lib/helpers/Image.svelte';
-	import Pagination from '$lib/helpers/Pagination.svelte';
+
 	import Section from '$lib/helpers/Section.svelte';
 
 	let { data } = $props();
@@ -21,118 +21,65 @@
 	);
 
 	let selectedTag = $state<string | null>(null);
-	let page = $state(1);
-	const perPage = $state(10);
-
 	const filteredPosts = $derived(
 		selectedTag ? posts.filter((p: { tags: string[] }) => p.tags.includes(selectedTag!)) : posts
 	);
-
-	const paginatedPosts = $derived(filteredPosts.slice((page - 1) * perPage, page * perPage));
 </script>
 
-<Section>
-	<h2 class="heading-2 text-accent-pink mb-4">more words</h2>
-	<div class="flex flex-col md:flex-row gap-8">
-		<div class="h-feed flex flex-col gap-4 flex-1">
-			{#each paginatedPosts as post}
-				<article class="h-entry text-white group post-card relative rounded">
-					<a class="u-url" href="/blog/{post.slug}">
-						<div
-							class="flex flex-col md:flex-row justify-center md:justify-between gap-4 items-center w-full p-4"
-						>
-							<div
-								class="flex flex-col gap-2 md:gap-4 md:flex-row justify-between w-full items-start"
-							>
-								<div class="flex flex-col gap-4 w-full">
-									<h2
-										class="p-name blog-list-title group-hover:text-accent-pink transition-colors duration-300"
-									>
-										{post.title}
-									</h2>
+<Section small class="justify-start ">
+	<h1 class="heading-lg text-center w-full mb-6">more words</h1>
 
-									<!-- <div class="flex flex-row items-center gap-2">
-										{#if post.tags}
-											<div class="blog-list-tags flex flex-row gap-2">
-												{#each post.tags as tag}
-													<span
-														class="p-category blog-list-tag border-[0.5px] border-white rounded px-2 py-1 text-white/80"
-														>{tag}</span
-													>
-												{/each}
-											</div>
-										{/if}
-									</div> -->
-								</div>
-								<time
-									class="dt-published blog-list-date w-fit whitespace-nowrap md:mt-1"
-									datetime={post.date}>{formatDate(post.date)}</time
-								>
-							</div>
-						</div>
-					</a>
-				</article>
-			{/each}
-		</div>
-
-		<aside class="flex flex-col gap-2 min-w-[120px] font-mono">
-			<span class=" text-sm uppercase text-white/80 mb-1 tracking-widest">filter by tag</span>
-			{#each allTags as tag}
+	<div class="flex flex-col mx-auto">
+		<!-- tags -->
+		<aside
+			class="flex flex-row flex-wrap gap-2 mb-6 font-mono text-xs md:text-sm font-semibold justify-center w-full"
+		>
+			{#each ['all', ...allTags] as tag}
+				{@const isActive = tag === 'all' ? selectedTag === null : selectedTag === tag}
 				<button
-					class="flex cursor-pointer gap-2 rounded border-[0.5px] px-2 py-1 text-xs uppercase transition-all duration-200 justify-between {selectedTag ===
-					tag
-						? 'border-accent-pink text-accent-pink'
-						: 'border-white/50 text-white/80 hover:border-white/80 hover:text-white'}"
+					class="cursor-pointer border-[0.5px] px-2 py-1 uppercase transition-all duration-300 {isActive
+						? 'bg-bone text-black'
+						: 'border-bone/80 text-bone/80 hover:border-bone hover:text-bone'}"
 					onclick={() => {
-						selectedTag = selectedTag === tag ? null : tag;
-						page = 1;
+						selectedTag = tag === 'all' || selectedTag === tag ? null : tag;
 					}}
 				>
-					<span>{tag}</span>
-					<span class="">{tagCounts[tag]}</span>
+					{tag}
+					{tag === 'all' ? posts.length : tagCounts[tag]}
 				</button>
 			{/each}
 		</aside>
-	</div>
 
-	<Pagination count={filteredPosts.length} {perPage} bind:page />
+		<!-- posts -->
+		{#each filteredPosts as post}
+			<article class="hover:bg-bone group transition-colors duration-300 p-4">
+				<a href="/blog/{post.slug}">
+					<div class="flex flex-col md:flex-row justify-between md:gap-4 gap-2">
+						<div class="flex flex-col gap-1 order-2 md:order-0">
+							<h2
+								class="font-heading text-xl md:text-2xl group-hover:text-black transition-colors duration-300"
+							>
+								{post.title}
+							</h2>
+							<p
+								class="body-lg text-bone/80 group-hover:text-black/80 transition-colors duration-300"
+							>
+								{post.desc}
+							</p>
+						</div>
+
+						<time
+							class="detail-sm order-1 md:order-0 shrink-0 w-28 text-left md:text-right group-hover:text-black transition-colors duration-300"
+						>
+							{formatDate(post.date)}</time
+						>
+					</div>
+				</a>
+			</article>
+		{/each}
+	</div>
 </Section>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
-
-	.blog-list-title {
-		@apply font-exposure -mb-1 text-xl leading-normal font-[375] md:text-2xl;
-	}
-
-	.blog-list-desc {
-		@apply font-exposure text-base leading-normal md:text-lg;
-	}
-
-	.blog-list-tag {
-		@apply font-mono text-[10px] leading-none uppercase md:text-xs;
-	}
-
-	.blog-list-date {
-		@apply font-mono text-xs leading-normal uppercase md:text-sm;
-	}
-
-	.post-card {
-		border: 2px dotted var(--color-accent-pink);
-	}
-
-	.post-card::before {
-		content: '';
-		position: absolute;
-		inset: -2px;
-		border: 2px solid var(--color-accent-pink);
-		border-radius: inherit;
-		opacity: 0;
-		transition: opacity 300ms ease;
-		pointer-events: none;
-	}
-
-	.post-card:hover::before {
-		opacity: 1;
-	}
 </style>

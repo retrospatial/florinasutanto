@@ -1,11 +1,9 @@
-featured:
-  title: nautical error
-  desc: An ongoing wacky web playground where I experiment with garish designs and talk about my interests.
-  type: Website
-  link: https://nauticalerror.github.io/
-  cover: nautical.mp4
-
 projects:
+  - title: nautical error
+    desc: An ongoing wacky web playground where I experiment with garish designs and talk about my interests.
+    type: Website
+    link: https://nauticalerror.github.io/
+    cover: nautical.mp4
   - title: The Search for Animorphs
     desc: A nostalgic look at libraries, maps, and K. A. Applegate’s seminal children’s series.
     type: Data story
@@ -31,10 +29,10 @@ projects:
     type: Data story
     link: https://storymaps.arcgis.com/stories/0067c80743bb419e9a666a253255504b
     cover: japan.webp
-  - title: DetikCom
-    desc: Articles from when I interned at Detik.com, a major Indonesian news site.
-    type: Journalism
-    cover: detik.webp
+  # - title: DetikCom
+  #   desc: Articles from when I interned at Detik.com, a major Indonesian news site.
+  #   type: Journalism
+  #   cover: detik.webp
 
 detik:
   - https://hot.detik.com/movie/d-3951895/transformasi-putri-marino-menjadi-istri-tni

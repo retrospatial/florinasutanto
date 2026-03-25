@@ -45,7 +45,7 @@
 	<div
 		data-lightbox-overlay
 		transition:fade={{ duration: 150 }}
-		class="fixed inset-0 z-50 flex cursor-pointer items-center justify-center bg-black/80 backdrop-blur-sm"
+		class="fixed inset-0 z-60 flex cursor-pointer items-center justify-center bg-black/80 backdrop-blur-sm"
 		onclick={() => (lightboxImages = [])}
 		role="dialog"
 		aria-modal="true"

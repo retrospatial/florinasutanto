@@ -46,43 +46,24 @@
 
 <div class="fixed inset-0 -z-10 background">
 	<Image src="bg.webp" alt="" class="h-full w-full object-cover" lazy={false} width={1920} />
-	<div class="absolute inset-0 bg-accent-green/40 mix-blend-color"></div>
+	<div class="absolute inset-0 bg-lime/40 mix-blend-color"></div>
 	<div class="absolute inset-0 bg-black/30"></div>
 </div>
 
-<Nav />
-
 <Lightbox />
 
-<main class="relative py-8 md:py-12 max-w-screen-2xl mx-auto">
-	{#key pathname}
-		<div class="page-content">
-			{@render children()}
-		</div>
-	{/key}
-</main>
+<div class="h-screen flex flex-col overflow-hidden">
+	<Nav />
 
-<Footer />
+	<div class="flex-1 overflow-y-auto mt-20 flex flex-col">
+		<main class="grow flex flex-col">
+			{#key pathname}
+				<div class="animation-fly-up grow flex flex-col">
+					{@render children()}
+				</div>
+			{/key}
+		</main>
 
-<style>
-	.page-content {
-		animation: page-fly-in 0.6s cubic-bezier(0.33, 1, 0.68, 1) both;
-	}
-
-	@keyframes page-fly-in {
-		from {
-			opacity: 0;
-			transform: translateY(40px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	/* @media (prefers-color-scheme: light) {
-		.background {
-			background-color: white;
-		}
-	} */
-</style>
+		<Footer />
+	</div>
+</div>

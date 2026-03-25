@@ -1,22 +1,16 @@
 intro:
-  title: hi! i'm flo
-  desc: Intro
+  title: data x graphics x stories
   text: >
-    Welcome to my site! Here you'll find a cross between my work portfolio and a collection of my personal projects, hobbies, and interests.
+    I am an interactive engineer making stories and graphics with data. I enjoy writing for topics in media, research, data journalism, and digital humanities.
 
 
-    As an interactive engineer, I create data-driven visual stories for topics in research, data journalism, and digital humanities.
+    Here you'll find a cross between my work portfolio and a collection of my personal projects, hobbies, and interests. 
 
 
-    I enjoy writing, drinking fruit juices, searching for clues, being airborne, and noodling underwater. When allowed, I will bug you about doing parkour, watching Buffy, and trying out niche sports. 
-
-
-    This site is perpetually under construction and things might change or disappear all the time. In the meantime, I hope you have fun perambulating its various corners!
+    You can always catch me thinking about: parkour, Buffy, scuba diving, fruit juices, bodies of water, and the Wiskayok HS girls' soccer team.
 
 
     I am originally from Bogor, Indonesia and now based in Cambridge, MA.
-
-#     Among other things, I am interested in using incisive storytelling, visual explorations, and novel data to reveal new truths about how we interact with this world and each other.
 
 about:
   - title: Location
@@ -69,7 +63,7 @@ links_list:
         href: /rss.xml
         icon: mdi:rss
   others:
-    title: Misc
+    title: More
     links:
       - title: About Me
         href: /about
@@ -80,15 +74,12 @@ links_list:
       - title: Colophon
         href: /blog/2026/colophon
         icon: material-symbols:book
-      # - title: Scrapbook
-      #   href: /scrapbook
-      #   icon: clarity:picture-solid
       - title: Bookshelf
         href: /bookshelf
         icon: icon-park-twotone:bookshelf
-      # - title: Blogroll
-      #   href: /blogroll
-      #   icon: mingcute:follow-fill
+      - title: Blogroll
+        href: /blogroll
+        icon: mingcute:follow-fill
 
 featured:
   title: Featured

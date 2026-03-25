@@ -29,9 +29,9 @@ export function toISODate(dateString?: string): string | null {
 export function formatDate(dateString: string | null): string {
 	if (!dateString) return '';
 	const [y, m, d] = dateString.split('-').map(Number);
-	return new Date(y, m - 1, d).toLocaleDateString('en-US', {
-		month: 'long',
+	return new Date(y, m - 1, d).toLocaleDateString('en-GB', {
 		day: 'numeric',
+		month: 'short',
 		year: 'numeric'
 	});
 }

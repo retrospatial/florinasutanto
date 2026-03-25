@@ -22,9 +22,9 @@
 
 <!-- use image popover -->
 
-<ul class="relative grid grid-cols-2 md:grid-cols-3 gap-2 items-center justify-center">
+<div class="relative grid grid-cols-2 md:grid-cols-3 gap-2 items-center justify-center">
 	{#each images as image, i}
-		<li
+		<div
 			class="polaroid border-[#E3E3E3] md:border-r-15 md:border-t-15 md:border-l-15 border-r-10 border-t-10 border-l-10 transition-all duration-300 drop-shadow-2xl {i %
 				2 ===
 			0
@@ -45,14 +45,14 @@
 			/>
 			<div class="bg-[#E3E3E3] py-4 flex items-center justify-center">
 				<p
-					class="text-black text-center font-rock-salt text-sm md:text-lg text-wrap wrap-break-word self-center"
+					class="text-black text-center font-heading uppercase text-sm md:text-lg text-wrap wrap-break-word self-center"
 				>
 					{image.title}
 				</p>
 			</div>
-		</li>
+		</div>
 	{/each}
-</ul>
+</div>
 
 <style>
 	.polaroid {

@@ -8,24 +8,24 @@
 	const content = $derived(page.data);
 </script>
 
-<Section>
-	<h2 class="heading-2 text-accent-purple mb-4 md:mb-8">data stories</h2>
-	<div class="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 md:gap-y-12">
-		{#each [...content.authored, ...content.contributed] as item}
-			<a href={item.link} target="_blank" rel="noopener noreferrer" class="group">
-				<div class="flex flex-col gap-4">
-					<!-- cover -->
-					<div class="relative w-full aspect-video overflow-hidden">
-						<!-- overlay -->
-						<div
-							class="absolute inset-0 bg-accent-purple opacity-100 mix-blend-overlay
-							 group-hover:opacity-0 transition-opacity duration-300 z-10 pointer-events-none"
-						></div>
+<Section class="">
+	<h1 class="heading-lg relative z-10">˙✧˖ data stories</h1>
 
+	<div class="lg:gap-8 gap-16 flex flex-col">
+		{#each content.work as item}
+			<a href={item.link} target="_blank" rel="noopener noreferrer" class="group w-full">
+				<div
+					class="flex w-full gap-4 flex-col lg:flex-row items-center transition-colors duration-300 {item.role ===
+					'Author'
+						? 'group-hover:bg-lime '
+						: 'group-hover:bg-teal '}"
+				>
+					<!-- cover -->
+					<div class="lg:w-50 shrink-0 lg:mr-10">
 						{#if isVideo(item.cover)}
 							<video
 								use:lazyVideo
-								class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+								class="cover"
 								autoplay
 								loop
 								muted
@@ -36,38 +36,57 @@
 								<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 							</video>
 						{:else}
-							<Image
-								src={`cover_imgs/${item.cover}`}
-								alt={item.title}
-								class="w-full h-full object-cover"
-							/>
+							<Image src={`cover_imgs/${item.cover}`} alt={item.title} class="cover" />
 						{/if}
 					</div>
 
-					<!-- title -->
-					<h2
-						class="entry-heading lowercase text-white group-hover:text-accent-purple transition-colors duration-300 -mb-2"
+					<div
+						class="flex flex-1 min-w-0 flex-col gap-2 transition-colors duration-300 text-center lg:text-left"
 					>
-						{item.title}
-					</h2>
-					<!-- description -->
-					<p class="entry-body text-white">{item.desc}</p>
-					<!-- tags -->
-					<div class="flex flex-wrap items-center gap-2">
-						<span
-							class="entry-role text-black {item.role === 'Author'
-								? 'bg-accent-green'
-								: ' bg-accent-blue'}"
+						<!-- title -->
+						<h2 class="font-heading text-xl lg:text-3xl uppercase group-hover:text-black">
+							{item.title}
+						</h2>
+						<!-- description -->
+						<p class="body-lg text-bone text-balance group-hover:text-black">
+							{item.desc}
+						</p>
+					</div>
+
+					<!-- tag group -->
+					<div class="flex flex-col font-mono text-xs lg:text-sm w-60 lg:ml-8">
+						<div
+							class="flex items-center font-mono justify-center text-black uppercase shrink-0 self-stretch px-2 {item.role ===
+							'Author'
+								? 'bg-lime'
+								: 'bg-teal'}"
 						>
 							{item.role}
-						</span>
+						</div>
 
-						{#each item.tags as tag}
-							<span class="entry-tag text-white">[{tag}]</span>
-						{/each}
+						<div class="flex flex-row">
+							{#each item.tags as tag, i}
+								<span
+									class="flex-1 flex items-center justify-center text-black uppercase px-1"
+									style="background-color: color-mix(in oklch, {item.role === 'Author'
+										? 'var(--color-lime)'
+										: 'var(--color-teal)'} {90 - i * 5}%, black)"
+								>
+									{tag}
+								</span>
+							{/each}
+						</div>
 					</div>
-				</div>
-			</a>
+				</div></a
+			>
 		{/each}
 	</div>
 </Section>
+
+<style lang="postcss">
+	@reference '$lib/styles/app.css';
+
+	:global(.cover) {
+		@apply aspect-video w-full object-cover;
+	}
+</style>

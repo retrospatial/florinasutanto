@@ -205,7 +205,7 @@
 				/>
 			</defs>
 
-			<text fill="var(--color-accent-green)" class="heading-2">
+			<text fill="var(--color-lime)" class="heading-md">
 				<textPath href="#corner" startOffset="50%" text-anchor="middle">
 					fun & random projects
 				</textPath>

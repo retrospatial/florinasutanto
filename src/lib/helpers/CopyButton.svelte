@@ -51,12 +51,12 @@
 
 	:global(.code-block-header) {
 		background: var(--color-dark-gray);
-		border-bottom: 1px solid var(--color-accent-pink);
+		border-bottom: 1px solid var(--color-orange);
 		border-radius: 4px 4px 0 0;
 		padding: 0.75rem 1rem;
 		font-family: var(--font-mono);
 		font-size: 0.8rem;
-		color: var(--color-accent-pink);
+		color: var(--color-orange);
 	}
 
 	:global(.code-block-header + pre) {
@@ -72,7 +72,7 @@
 		font-size: 1.25rem;
 		line-height: 1;
 		background: transparent;
-		color: var(--color-accent-pink);
+		color: var(--color-orange);
 		border: none;
 		cursor: pointer;
 		opacity: 0;
@@ -126,7 +126,7 @@
 		font-family: var(--font-mono);
 		font-size: 0.75rem;
 		font-weight: 600;
-		color: var(--color-accent-pink);
+		color: var(--color-orange);
 		text-align: center;
 		display: none;
 	}
