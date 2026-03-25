@@ -45,7 +45,7 @@
 	<DropdownMenu.Content class="z-50" align="end" sideOffset={4} forceMount>
 		{#if open}
 			<div
-				class="flex flex-col gap-2 mt-2 bg-dark-gray p-4 border border-lime border-dashed"
+				class="flex flex-col gap-2 mt-2 md:mt-4 bg-dark-gray p-4 border border-lime border-dashed"
 				transition:fly={{ y: -8, duration: 300 }}
 			>
 				{#each items as item, i}
