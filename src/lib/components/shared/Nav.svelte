@@ -11,8 +11,8 @@
 
 	const links = [
 		// { href: '/about', title: 'about' },
-		{ href: '/now', title: 'now' }
-		// { href: '/bookshelf', title: 'books' },
+		{ href: '/now', title: 'now' },
+		{ href: '/bookshelf', title: 'books' }
 		// { href: '/blogroll', title: 'blogroll' }
 	];
 
@@ -25,7 +25,7 @@
 </script>
 
 <nav
-	class="fixed top-0 left-0 right-0 z-50 flex flex-row justify-between items-center py-4 px-8 animation-fly-down"
+	class="nav-bg sticky top-0 z-50 flex flex-row justify-between items-center py-2 md:py-4 px-6 md:px-8 animation-fly-down bg-dark-gray"
 	style="--delay: 0.4s;"
 >
 	<a href="/" target="_self" rel="noopener noreferrer" class="shrink-0">

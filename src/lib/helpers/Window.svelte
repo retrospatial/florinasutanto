@@ -1,7 +1,7 @@
 <script lang="ts">
 	let {
 		children,
-		color = 'bg-accent-blue',
+		color = 'bg-blue',
 		scrollbarTrack = 'var(--color-white)',
 		scrollbarThumb = 'var(--color-dark-gray)',
 		class: classes = '',

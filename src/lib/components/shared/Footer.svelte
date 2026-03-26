@@ -22,7 +22,18 @@
 	let emailCopied = $state(false);
 
 	async function copyEmail(email: string) {
-		await navigator.clipboard.writeText(email);
+		try {
+			await navigator.clipboard.writeText(email);
+		} catch {
+			const el = document.createElement('textarea');
+			el.value = email;
+			el.style.position = 'fixed';
+			el.style.opacity = '0';
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
+		}
 		emailCopied = true;
 		setTimeout(() => (emailCopied = false), 2000);
 	}
@@ -45,7 +56,7 @@
 			{#if link.title.toLowerCase().includes('email')}
 				<button
 					onclick={() => copyEmail(link.href)}
-					class="group"
+					class="group mt-1 md:mt-0"
 					title={emailCopied ? 'Copied!' : link.title}
 				>
 					<span

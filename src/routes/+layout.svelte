@@ -52,18 +52,16 @@
 
 <Lightbox />
 
-<div class="h-screen flex flex-col overflow-hidden">
+<div class="min-h-dvh flex flex-col">
 	<Nav />
 
-	<div class="flex-1 overflow-y-auto mt-20 flex flex-col">
-		<main class="grow flex flex-col">
-			{#key pathname}
-				<div class="animation-fly-up grow flex flex-col">
-					{@render children()}
-				</div>
-			{/key}
-		</main>
+	<main class="grow flex flex-col">
+		{#key pathname}
+			<div class="animation-fly-up grow flex flex-col">
+				{@render children()}
+			</div>
+		{/key}
+	</main>
 
-		<Footer />
-	</div>
+	<Footer />
 </div>

@@ -19,7 +19,7 @@
 <Section class="flex flex-col mx-auto items-center justify-center max-w-5xl grow ">
 	<div class="flex flex-col items-center md:block">
 		<!-- intro card -->
-		<div class="md:float-left max-w-xs md:mr-12 mb-4 lg:mb-0 order-2 md:order-0 self-center">
+		<div class="md:float-left sm:max-w-xs md:mr-12 mb-4 lg:mb-0 order-2 md:order-0 self-center">
 			<IntroCard />
 		</div>
 
@@ -36,7 +36,7 @@
 				>{' '}
 			{/each}
 		</p>
-		<p class="text-pretty body-lg order-3 md:order-0 mt-4 md:mt-0">
+		<p class="md:text-pretty body-lg order-3 md:order-0 mt-4 md:mt-0">
 			{@html md(content.intro.text)}
 		</p>
 	</div>
