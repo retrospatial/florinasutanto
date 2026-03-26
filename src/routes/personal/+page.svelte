@@ -33,7 +33,7 @@
 				class="group w-80 md:w-100 shrink-0"
 			>
 				<div
-					class="flex flex-col md:h-120 h-100 bg-white border-white border-x-16 border-t-24 overflow-hidden"
+					class="flex flex-col 2xl:h-140 md:h-120 h-100 bg-white border-white border-x-16 border-t-24 overflow-hidden"
 				>
 					<div class="flex-1 min-h-0 w-full">
 						{#if isVideo(item.cover)}
@@ -67,7 +67,7 @@
 							class="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300"
 						>
 							<div class="overflow-hidden">
-								<p class="text-balance body-md pb-2">
+								<p class=" body-lg pb-2">
 									{@html item.desc}
 								</p>
 							</div>

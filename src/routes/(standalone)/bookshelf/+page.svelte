@@ -46,171 +46,101 @@
 	});
 </script>
 
-<Section class="mt-8">
-	<section
-		class="notebook-page text-black! relative bg-white rounded-br-2xl rounded-tr-2xl py-8 pl-12 pr-4 lg:pr-12 lg:pl-24"
-	>
-		<div class="absolute top-0 left-6 lg:left-14 bottom-0 w-0.5 bg-[#ED7064]"></div>
+<Section small class="flex flex-col gap-8">
+	<h1 class="heading-md mb-0">my bookshelf</h1>
 
-		<p class="note-content mt-4 text-base lg:text-lg leading-8">
-			{@html md(content.note)}
-		</p>
+	<div class="body-md mx-auto">{@html md(content.note)}</div>
 
-		<div class="flex flex-col gap-12 lg:gap-16">
-			{#each shelves.slice(0, 2) as shelf}
-				<div class="shelf">
-					<div class="shelf-title">{shelf.title}</div>
-					<ul class="book-list">
-						{#each booksData[shelf.listType] as book}
-							<li>
-								{#if book.image}
-									<a href={book.url} target="_blank" rel="noopener noreferrer">
-										<img src={book.image} alt={book.title} class="book-cover" /></a
-									>
-								{/if}
-							</li>
-						{/each}
-					</ul>
-				</div>
-			{/each}
-
-			<!-- read section -->
-			<div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-				<!-- read books -->
-				<div class="shelf shrink-0 w-fit">
-					<div class="shelf-title">{shelves[2].title}</div>
-					<ul class="list-none grid grid-cols-3 gap-4 w-fit">
-						{#each booksData[shelves[2].listType] as book}
-							<li>
-								{#if book.image}
-									<button
-										class="all-unset cursor-pointer"
-										onclick={() => {
-											selectedBook = selectedBook === book ? null : book;
-											if (selectedBook) {
-												document
-													.getElementById('review-section')
-													?.scrollIntoView({ behavior: 'smooth' });
-											}
-										}}
-									>
-										<img
-											src={book.image}
-											alt={book.title}
-											class="book-cover"
-											class:selected={selectedBook === book}
-										/>
-									</button>
-								{/if}
-							</li>
-						{/each}
-					</ul>
-				</div>
-
-				<!-- review -->
-				<div id="review-section" class="w-full scroll-mt-4 lg:scroll-mt-8">
-					<div class="shelf-title">
-						Review: <a
-							href={selectedBook?.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="underline">{selectedBook?.title}</a
-						>
-					</div>
-					{#if selectedBook?.review}
-						<div class="review-content text-sm lg:text-base leading-8 mt-4 lg:mt-5.5">
-							{@html selectedBook.review}
-
-							<p class="italic">
-								read in {selectedBook?.last_read_date
-									? new Date(selectedBook.last_read_date).getFullYear()
-									: ''}
-							</p>
-						</div>
-					{/if}
-				</div>
-			</div>
+	<!-- read shelf -->
+	<div class="flex flex-col">
+		<!-- read books -->
+		<div class="flex flex-col gap-4 shrink-0 w-fit mb-6">
+			<ul class="list-none grid grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-4">
+				{#each booksData[shelves[2].listType] as book}
+					<li>
+						{#if book.image}
+							<button
+								class="cursor-pointer bg-transparent p-0 border-2 border-transparent hover:border-lime transition-all duration-300"
+								onclick={() => {
+									selectedBook = selectedBook === book ? null : book;
+									if (selectedBook) {
+										document
+											.getElementById('review-section')
+											?.scrollIntoView({ behavior: 'smooth' });
+									}
+								}}
+							>
+								<img
+									src={book.image}
+									alt={book.title}
+									class=""
+									class:selected={selectedBook === book}
+								/>
+							</button>
+						{/if}
+					</li>
+				{/each}
+			</ul>
 		</div>
-	</section>
+
+		<!-- review -->
+		<div id="review-section" class="w-full scroll-mt-14 lg:scroll-mt-18">
+			<section
+				class="notebook-page text-black! relative bg-white rounded-br-2xl rounded-tr-2xl py-8 pl-10 pr-4 lg:pr-10 lg:pl-16"
+			>
+				<div class="absolute top-0 left-6 lg:left-8 bottom-0 w-0.5 bg-[#ED7064]"></div>
+
+				<div class="lg:text-3xl text-xl uppercase lg:leading-8 leading-6 font-heading mt-1 lg:mt-0">
+					Review: <a
+						href={selectedBook?.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="underline">{selectedBook?.title}</a
+					>
+				</div>
+				{#if selectedBook?.review}
+					<div class="review-content leading-6 lg:leading-8 mt-6 lg:mt-4">
+						{@html selectedBook.review}
+
+						<p class="italic">
+							read in {selectedBook?.last_read_date
+								? new Date(selectedBook.last_read_date).getFullYear()
+								: ''}
+						</p>
+					</div>
+				{/if}
+			</section>
+		</div>
+	</div>
 </Section>
 
 <style>
 	:global(.notebook-page) {
 		background-image: repeating-linear-gradient(
 			transparent,
-			transparent calc(2rem - 1px),
-			#85c2e9 calc(2rem - 1px),
-			#85c2e9 2rem
+			transparent calc(1.5rem - 1px),
+			#85c2e9 calc(1.5rem - 1px),
+			#85c2e9 1.5rem
 		);
-		background-size: 100% 2rem;
-		background-position: 0 1rem;
-	}
-
-	.shelf {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-
-	.shelf-title {
-		font-size: 1.5rem;
-		font-family: 'Rock Salt', cursive;
-	}
-
-	.book-list {
-		list-style: none;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 1rem;
-		padding: 0;
-		margin: 0;
-	}
-
-	.book-cover {
-		height: 6rem;
-		width: auto;
-		object-fit: cover;
-		box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.5);
-		flex-shrink: 0;
-		transition:
-			transform 0.3s ease-in-out,
-			outline 0.2s ease;
-		cursor: pointer;
-
-		&:hover {
-			transform: translateY(-8px);
-		}
-
-		&.selected {
-			transform: translateY(-8px);
-		}
-	}
-
-	.all-unset {
-		all: unset;
-	}
-
-	.note-content :global(p) {
-		line-height: 2rem;
-		margin-bottom: 2rem;
-	}
-
-	.note-content :global(a) {
-		text-decoration: underline;
+		background-size: 100% 1.5rem;
+		background-position: 0 0.75rem;
 	}
 
 	.review-content :global(p) {
-		margin-bottom: 2rem;
+		font-size: 0.875rem !important;
+		margin-bottom: 1.5rem;
+		line-height: 1.5rem;
 	}
 
 	.review-content :global(blockquote) {
 		border-left: none;
-		padding-left: 1.5rem;
-		margin: 0 0 2rem 0;
+		padding-left: 1rem;
+		margin: 0 0 1.5rem 0;
 		opacity: 0.85;
 		font-style: italic;
 		position: relative;
+		font-size: 0.75rem;
+		line-height: 1.5rem;
 	}
 
 	.review-content :global(blockquote)::before {
@@ -227,7 +157,8 @@
 	.review-content :global(ul),
 	.review-content :global(ol) {
 		padding-left: 1.5rem;
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
+		line-height: 1.5rem;
 	}
 
 	.review-content :global(a) {
@@ -236,12 +167,34 @@
 	}
 
 	@media (min-width: 1024px) {
-		.shelf-title {
-			font-size: 2.25rem;
+		:global(.notebook-page) {
+			background-image: repeating-linear-gradient(
+				transparent,
+				transparent calc(2rem - 1px),
+				#85c2e9 calc(2rem - 1px),
+				#85c2e9 2rem
+			);
+			background-size: 100% 2rem;
+			background-position: 0 1rem;
 		}
 
-		.book-cover {
-			height: 10.5rem;
+		.review-content :global(p) {
+			font-size: 1.125rem !important;
+			margin-bottom: 2rem;
+			line-height: 2rem;
+		}
+
+		.review-content :global(blockquote) {
+			margin: 0 0 2rem 0;
+			font-size: 1rem;
+			line-height: 2rem;
+			padding-left: 1.25rem;
+		}
+
+		.review-content :global(ul),
+		.review-content :global(ol) {
+			margin-bottom: 2rem;
+			line-height: 2rem;
 		}
 	}
 </style>

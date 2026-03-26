@@ -37,14 +37,10 @@
 }
 
 @utility body-lg {
-	@apply text-lg leading-normal md:text-xl;
+	@apply text-base leading-normal md:text-xl;
 }
 
 @utility body-md {
-	@apply text-base leading-normal md:text-lg;
-}
-
-@utility body-sm {
 	@apply text-sm leading-normal md:text-base;
 }
 
