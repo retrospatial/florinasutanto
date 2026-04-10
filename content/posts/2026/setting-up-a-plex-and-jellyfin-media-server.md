@@ -7,6 +7,7 @@ date_published: 2026-04-10
 date_updated: ''
 tags:
   - hobby
+  - server
 ---
 
 <script>
