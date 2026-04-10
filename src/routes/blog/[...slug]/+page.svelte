@@ -7,7 +7,6 @@
 	import { formatDate } from '$lib/utils/blog';
 	import CommentBox from '$lib/helpers/CommentBox.svelte';
 	import Section from '$lib/helpers/Section.svelte';
-
 	interface Props {
 		data: {
 			post: {
@@ -28,6 +27,13 @@
 
 	const formattedDate = formatDate(post.date_published);
 	const formattedUpdatedDate = formatDate(post.date_updated);
+
+	function externalLinks(node: HTMLElement) {
+		node.querySelectorAll('a[href^="http"]').forEach((link) => {
+			link.setAttribute('target', '_blank');
+			link.setAttribute('rel', 'noopener noreferrer');
+		});
+	}
 </script>
 
 <Section small>
@@ -37,7 +43,7 @@
 			{formattedDate}{formattedUpdatedDate ? ` • Updated ${formattedUpdatedDate}` : ''}
 		</time>
 
-		<div class="e-content mt-4 blog" use:addCopyButtons use:addLightbox>
+		<div class="e-content mt-4 blog" use:addCopyButtons use:addLightbox use:externalLinks>
 			<Content />
 		</div>
 		<span class="p-author h-card" hidden>Florina Sutanto</span>
