@@ -53,24 +53,24 @@
 		<!-- posts -->
 		<div class="group/posts">
 			{#each filteredPosts as post}
-				<article
-					class=" group transition-all duration-300 p-4 group-hover/posts:opacity-50 hover:opacity-100!"
-				>
+				<article class=" group transition-all duration-300 p-4 hover:bg-bone">
 					<a href="/blog/{post.slug}">
 						<div class="flex flex-col md:flex-row justify-between md:gap-4 gap-2">
 							<div class="flex flex-col gap-1 order-2 md:order-0">
 								<h2
-									class="font-heading text-xl md:text-2xl group-hover:text-bone transition-colors duration-300"
+									class="font-heading text-xl md:text-2xl group-hover:text-black transition-colors duration-300"
 								>
 									{post.title}
 								</h2>
-								<p class="body-lg text-bone/80 transition-colors duration-300">
+								<p
+									class="body-lg text-bone/80 group-hover:text-black/80 transition-colors duration-300"
+								>
 									{post.desc}
 								</p>
 							</div>
 
 							<time
-								class="detail-sm order-1 md:order-0 shrink-0 w-28 text-left md:text-right group-hover:text-bone transition-colors duration-300"
+								class="detail-sm order-1 md:order-0 shrink-0 w-28 text-left md:text-right group-hover:text-black transition-colors duration-300"
 							>
 								{formatDate(post.date)}</time
 							>

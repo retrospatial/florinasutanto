@@ -47,7 +47,7 @@
 </script>
 
 <Section small class="flex flex-col gap-8">
-	<h1 class="heading-md mb-0">my bookshelf</h1>
+	<h1 class="heading-md mb-0">{content.title}</h1>
 
 	<div class="body-md mx-auto">{@html md(content.note)}</div>
 
