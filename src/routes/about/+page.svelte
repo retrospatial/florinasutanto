@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Section from '$lib/helpers/section.svelte';
-	import image from '$lib/helpers/image.svelte';
-	import lastfm from '$lib/components/home/lastfm.svelte';
+	import Section from '$lib/helpers/Section.svelte';
+	import image from '$lib/helpers/Image.svelte';
+	import lastfm from '$lib/components/home/LastFM.svelte';
 	import Polaroids from '$lib/components/home/Polaroids.svelte';
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
