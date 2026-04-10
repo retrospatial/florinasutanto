@@ -43,6 +43,10 @@
 
 	::-webkit-scrollbar-thumb {
 		background: var(--color-bone);
-		/* border-radius: 9999px; */
+	}
+
+	::selection {
+		background: var(--color-bone);
+		color: var(--color-black);
 	}
 }

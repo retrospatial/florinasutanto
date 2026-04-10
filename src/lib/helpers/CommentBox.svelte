@@ -26,7 +26,7 @@
 			website_label: 'Website (optional)',
 			email_label: 'Email',
 			anonymous: 'Anonymous',
-			mod_label: '(mod)',
+			mod_label: '',
 			subscribe: 'Email Me Replies',
 			add_image: 'Add Image',
 			are_you_sure: 'Do you want to flag this comment as inappropriate?',

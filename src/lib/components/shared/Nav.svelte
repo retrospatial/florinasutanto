@@ -12,7 +12,7 @@
 	const links = [
 		// { href: '/about', title: 'about' },
 		{ href: '/now', title: 'now' },
-		{ href: '/bookshelf', title: 'books' }
+		{ href: '/bookshelf', title: 'books' },
 		// { href: '/blogroll', title: 'blogroll' }
 	];
 

@@ -8,7 +8,7 @@
 </script>
 
 <Section small class="">
-	<h1 class="heading-md mb-4">what i'm up to right now</h1>
+	<h1 class="heading-md mb-4">{content.title}</h1>
 	<div class="flex flex-col gap-4 items-center detail-md">
 		<a
 			href="https://nownownow.com/about"

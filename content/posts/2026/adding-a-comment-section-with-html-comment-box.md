@@ -6,7 +6,7 @@ cover: /assets/blog/hcb.webp
 date_published: 2026-03-05
 date_updated: ''
 tags:
-  - dev
+  - code
   - tutorial
   - site
 ---
@@ -63,7 +63,7 @@ Replace this:
 
 ```javascript
 <script type="text/javascript" id="hcb">
-	/*<!--*/ if (!window.hcb_user) {
+ /*<!--*/ if (!window.hcb_user) {
 		hcb_user = {};
 	}
 	(function () {

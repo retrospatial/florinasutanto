@@ -4,15 +4,24 @@ intro: >
   Hi! I'm Flo. I write and make things (code, graphics, stories) for the web.
 
 
+  <h2 class="font-heading text-2xl mb-4 md:text-3xl  uppercase">Short ver.</h2> 
+
+
+  testestset
+
+
+  <h2 class="font-heading text-2xl mb-4 md:text-3xl  uppercase">Short ver.</h2> 
+
+
   I grew up in Indonesia (physically) and on the internet (intellectually, spiritually?). I first learned to make stuff appear on the web using Dreamweaver, then graduated to customizing themes on Tumblr, where I spent years and years writing about and making graphics (gifs, manips, fanvids) for my favorite media. These days, I enjoy writing fanfiction (yes, still) and various fandom meta on Dreamwidth, a LiveJournal spinoff that's still so old web you can only style your HTML with inline CSS (there's a charm to it, I swear...).
 
-wes: >
+
   In 2021, I moved to the U.S. to study Economics and East Asian Studies at Wesleyan University, which I attended through the Freeman Asian Scholarship. My econ degree gave me quantitative training in data analysis, statistics, programming, and econometrics. For my East Asian Studies major, I did my concentration in literature and culture and took four years of Chinese, spent a semester abroad in Taiwan, and wrote my senior capstone on Godzilla.
 
-work: >
+
   Suffice to say, my path to data journalism and interactive engineering was kind of a roundabout one. After taking a data viz class my junior spring, I came across the <a href="https://ledeprogram.com/" target="_blank" rel="noopener noreferrer">Lede Program for Data Journalism</a>
 
-camb: >
+
   After spending summers interning in and exploring Connecticut, New York, and the Boston area, I moved back to Somerville & Cambridge upon graduating
 
 dream_jobs:

@@ -15,7 +15,10 @@
 		{#each content.work as item}
 			<a href={item.link} target="_blank" rel="noopener noreferrer" class="group w-full">
 				<div
-					class="flex w-full gap-4 flex-col lg:flex-row lg:items-center transition-colors duration-300"
+					class="flex w-full gap-4 flex-col lg:flex-row lg:items-center transition-colors {item.role ===
+					'Author'
+						? 'group-hover:bg-lime '
+						: 'group-hover:bg-teal '} duration-300"
 				>
 					<!-- cover -->
 					<div class="lg:w-50 shrink-0 lg:mr-10">
@@ -40,15 +43,12 @@
 					<div class="flex flex-1 min-w-0 flex-col gap-2 transition-colors duration-300 text-left">
 						<!-- title -->
 						<h2
-							class="font-heading text-xl lg:text-3xl uppercase transition-colors duration-300 {item.role ===
-							'Author'
-								? 'group-hover:text-lime '
-								: 'group-hover:text-teal '}"
+							class="font-heading text-xl lg:text-3xl uppercase transition-colors duration-300 group-hover:text-black"
 						>
 							{item.title}
 						</h2>
 						<!-- description -->
-						<p class="body-lg text-bone">
+						<p class="body-lg text-bone group-hover:text-black transition-colors duration-300">
 							{item.desc}
 						</p>
 					</div>

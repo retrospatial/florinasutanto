@@ -5,7 +5,7 @@ desc: RSS continues to be my favorite method of curating what I read on the inte
 cover: /assets/blog/rss.webp
 date_published: 2026-03-01
 tags:
-  - dev
+  - code
   - site
 ---
 
