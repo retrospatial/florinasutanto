@@ -10,8 +10,13 @@
 		/* background-color: var(--color-dark-gray); */
 	}
 
-	.text-link a {
-		@apply text-teal hover:text-orange transition-colors duration-300;
+	a {
+		@apply text-teal hover:text-lime no-underline transition-colors duration-300;
+	}
+
+	.no-link-decor,
+	.no-link-decor a {
+		@apply text-bone no-underline;
 	}
 
 	p {

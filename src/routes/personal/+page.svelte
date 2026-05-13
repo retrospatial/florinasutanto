@@ -30,7 +30,7 @@
 				href={item.link ?? undefined}
 				target="_blank"
 				rel="noopener noreferrer external"
-				class="group w-80 md:w-100 shrink-0"
+				class="group w-80 md:w-100 shrink-0 no-link-decor"
 			>
 				<div
 					class="flex flex-col 2xl:h-140 md:h-120 h-100 bg-white border-white border-x-16 border-t-24 overflow-hidden"

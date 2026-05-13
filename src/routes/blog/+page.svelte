@@ -54,7 +54,7 @@
 		<div class="group/posts">
 			{#each filteredPosts as post}
 				<article class=" group transition-all duration-300 p-4 hover:bg-bone">
-					<a href="/blog/{post.slug}">
+					<a href="/blog/{post.slug}" class="no-link-decor">
 						<div class="flex flex-col md:flex-row justify-between md:gap-4 gap-2">
 							<div class="flex flex-col gap-1 order-2 md:order-0">
 								<h2

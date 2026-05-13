@@ -8,7 +8,7 @@
 </script>
 
 <Section small class="">
-	<h1 class="heading-md mb-4">{content.title}</h1>
+	<h1 class="heading-md mb-4 text-balance">{content.title}</h1>
 	<div class="flex flex-col gap-4 items-center detail-md">
 		<a
 			href="https://nownownow.com/about"
@@ -33,7 +33,7 @@
 				</div>
 				<ul class="pt-4 pb-1 px-6">
 					{#each section.items as item}
-						<li class="body-md">
+						<li class="body-md now-content">
 							{@html item}
 						</li>
 					{/each}
@@ -46,7 +46,7 @@
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
 
-	li :global(a) {
-		@apply cursor-pointer underline decoration-2 underline-offset-2;
+	.now-content :global(a) {
+		@apply cursor-pointer text-black underline decoration-2 underline-offset-2;
 	}
 </style>

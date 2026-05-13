@@ -95,7 +95,7 @@
 						href={selectedBook?.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="underline">{selectedBook?.title}</a
+						class="underline text-black">{selectedBook?.title}</a
 					>
 				</div>
 				{#if selectedBook?.review}

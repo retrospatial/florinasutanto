@@ -11,12 +11,12 @@
 	];
 
 	const positions = [
-		{ rotate: -4, x: 0, y: 0, z: 1 },
-		{ rotate: 6, x: 0, y: 0, z: 2 },
-		{ rotate: -2, x: 0, y: 10, z: 4 },
-		{ rotate: -2, x: 0, y: -5, z: 3 },
-		{ rotate: 2, x: 0, y: 10, z: 6 },
-		{ rotate: -4, x: 0, y: 0, z: 5 }
+		{ rotate: -2, x: 0, y: 0, z: 1 },
+		{ rotate: 3, x: 0, y: 0, z: 2 },
+		{ rotate: -1, x: 0, y: 10, z: 4 },
+		{ rotate: -1, x: 0, y: -5, z: 3 },
+		{ rotate: 1, x: 0, y: 10, z: 6 },
+		{ rotate: -2, x: 0, y: 0, z: 5 }
 	];
 </script>
 
@@ -45,7 +45,7 @@
 			/>
 			<div class="bg-[#E3E3E3] py-4 flex items-center justify-center">
 				<p
-					class="text-black text-center font-heading uppercase text-sm md:text-lg text-wrap wrap-break-word self-center"
+					class="text-black text-center font-rock-salt lowercase body-lg text-wrap wrap-break-word self-center"
 				>
 					{image.title}
 				</p>

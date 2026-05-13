@@ -56,7 +56,7 @@
 			{#if link.title.toLowerCase().includes('email')}
 				<button
 					onclick={() => copyEmail(link.href)}
-					class="group mt-1 md:mt-0"
+					class="group mt-1 md:mt-0 cursor-pointer"
 					title={emailCopied ? 'Copied!' : link.title}
 				>
 					<span
@@ -71,7 +71,13 @@
 					</span>
 				</button>
 			{:else}
-				<a href={link.href} target="_blank" rel="noopener noreferrer" class="" title={link.title}>
+				<a
+					href={link.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="cursor-pointer no-link-decor"
+					title={link.title}
+				>
 					<span class="detail-md icon">{link.title}</span>
 				</a>
 			{/if}

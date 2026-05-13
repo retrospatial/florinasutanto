@@ -176,6 +176,10 @@ export const GET: RequestHandler = async ({ url }) => {
 			books = result.data.lists[0].list_books.map((item: any) => mapBookData(item, false));
 		} else if (result.data?.user_books) {
 			books = result.data.user_books.map((item: any) => mapBookData(item, true));
+			books.sort(
+				(a: any, b: any) =>
+					new Date(b.last_read_date).getTime() - new Date(a.last_read_date).getTime()
+			);
 		}
 
 		return json({ books });

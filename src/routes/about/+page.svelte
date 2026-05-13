@@ -19,25 +19,18 @@
 	<section class="">
 		<p class="">{@html md(content.intro)}</p>
 
-		<div class="">
+		<div class="mt-12">
 			<Polaroids />
 		</div>
 	</section>
 </Section>
 
-<ul class="text-white">
-	<li>last fm</li>
-	<li>reads</li>
-	<li>red line</li>
-	<li>piano</li>
-</ul>
-
 <style lang="postcss">
-	@reference '';
+	@reference '$lib/styles/app.css';
 
 	/* :global(.flag) {
 		transform-origin: top center;
-		animation: sway var(--sway-duration, 4s) ease-in-out infinite;
+		animation: sway var(--sway-duration, s4) ease-in-out infinite;
 		animation-delay: var(--sway-delay, 0s);
 	} */
 </style>

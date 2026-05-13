@@ -13,7 +13,12 @@
 
 	<div class="lg:gap-8 gap-12 flex flex-col">
 		{#each content.work as item}
-			<a href={item.link} target="_blank" rel="noopener noreferrer" class="group w-full">
+			<a
+				href={item.link}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group w-full no-link-decor"
+			>
 				<div
 					class="flex w-full gap-4 flex-col lg:flex-row lg:items-center transition-colors {item.role ===
 					'Author'

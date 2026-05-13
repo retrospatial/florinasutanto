@@ -34,6 +34,13 @@ work:
     role: Contributor
     tags: [Story, Data, Dev]
     cover: vital.mp4
+  - title: The Cost of Fragmentation
+    desc: A comparison of state affordable housing finance governance systems.
+    link: https://housinggovernance.ternercenter.app/
+    source: Terner Center for Housing Innovation
+    role: Contributor
+    tags: [Story, Dev]
+    cover: terner.mp4
   - title: Magical Girls Vs. Fighting Boys
     desc: What 2000 hours of Anime tell us about gendered narratives.
     link: https://animelandscape.citizencodex.com/

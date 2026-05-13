@@ -131,9 +131,9 @@
 			ul:has(input[type='checkbox']) {
 				@apply list-none;
 			}
-			a {
-				@apply text-teal hover:text-orange transition-colors duration-300;
-			}
+			/* a {
+				@apply text-teal hover:text-orange no-underline transition-colors duration-300;
+			} */
 		}
 	}
 </style>
