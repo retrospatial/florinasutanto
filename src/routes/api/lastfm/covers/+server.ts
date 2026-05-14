@@ -7,7 +7,7 @@ async function getCoverArt(track: string, artist: string, fetch: typeof global.f
 	try {
 		const searchParams = new URLSearchParams({
 			q: `${artist} ${track}`,
-			type: 'release',
+			type: 'master',
 			per_page: '5',
 			key: DISCOGS_CONSUMER_KEY,
 			secret: DISCOGS_CONSUMER_SECRET

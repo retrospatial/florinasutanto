@@ -13,8 +13,8 @@
 		{ href: '/about', title: 'about' },
 		{ href: '/now', title: 'now' },
 		{ href: '/bookshelf', title: 'books' },
-		// { href: '/blogroll', title: 'blogroll' },
-		{ href: '/music', title: 'music' }
+		{ href: '/music', title: 'music' },
+		{ href: '/blogroll', title: 'blogroll' }
 	];
 
 	const allLinks = [...routes, ...links];

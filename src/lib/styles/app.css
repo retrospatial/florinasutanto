@@ -6,8 +6,38 @@
 @layer base {
 	html,
 	body {
-		height: 100%;
-		/* background-color: var(--color-dark-gray); */
+		min-height: 100%;
+	}
+
+	body {
+		position: relative;
+	}
+
+	body::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -2;
+		pointer-events: none;
+		background-image:
+			linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/bg.webp');
+		background-size:
+			auto,
+			auto 100vh;
+		background-repeat: repeat, repeat-y;
+		background-position:
+			top center,
+			top center;
+	}
+
+	body::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background-color: rgb(216 243 40 / 0.4);
+		mix-blend-mode: color;
 	}
 
 	a {

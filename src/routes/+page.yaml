@@ -81,14 +81,6 @@ links_list:
         href: /blogroll
         icon: mingcute:follow-fill
 
-featured:
-  title: Featured
-  features:
-    - cover: /cover_vids/nautical.mp4
-      href: https://nauticalerror.github.io/
-    - cover: https://www.youtube.com/embed/tM60GAPIXTY?si=H7Um3UYBbizpBnxE
-      href: https://www.youtube.com/watch?v=tM60GAPIXTY
-
 scrapbook:
   title: Scrapbook
   text:

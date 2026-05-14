@@ -20,7 +20,7 @@ export async function GET({ url, fetch }) {
 	if (!res.ok) throw error(res.status, 'Last.fm request failed');
 
 	const data = await res.json();
-	const tracks = (data?.toptracks?.track ?? []).slice(0, 30).map((t: any) => ({
+	const tracks = (data?.toptracks?.track ?? []).map((t: any) => ({
 		name: t.name,
 		artist: t.artist?.name ?? t.artist?.['#text'],
 		playcount: Number(t.playcount ?? 0),

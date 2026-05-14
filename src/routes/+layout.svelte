@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '$lib/styles/app.css';
 	import 'iconify-icon';
-	import Image from '$lib/helpers/Image.svelte';
 	import Lightbox from '$lib/helpers/Lightbox.svelte';
 	import Nav from '$lib/components/shared/Nav.svelte';
 	import Footer from '$lib/components/shared/Footer.svelte';
@@ -44,15 +43,9 @@
 	<link rel="alternate" type="application/rss+xml" title="florina sutanto" href="/rss.xml" />
 </svelte:head>
 
-<div class="fixed inset-0 -z-10 background">
-	<Image src="bg.webp" alt="" class="h-full w-full object-cover" lazy={false} width={1920} />
-	<div class="absolute inset-0 bg-lime/40 mix-blend-color"></div>
-	<div class="absolute inset-0 bg-black/30"></div>
-</div>
-
 <Lightbox />
 
-<div class="min-h-dvh flex flex-col">
+<div class="min-h-screen flex flex-col">
 	<Nav />
 
 	<main class="grow flex flex-col">
