@@ -3,3 +3,14 @@ description: 'I make data graphics and stories for the web. Welcome to my site!'
 url: https://florinasutanto.com
 author: florina sutanto
 keywords: 'florina sutanto, personal site, data journalism, data graphics, digital humanities, interaction design'
+thumbnail: /assets/images/thumbnail.png
+
+descriptions:
+  home: 'I make data graphics and stories for the web. Welcome to my site!'
+  work: "Portfolio of data stories and data viz projects I've made."
+  personal: 'Web dev, personal projects, and other experiments.'
+  blog: 'Blog posts and articles.'
+  about: 'About me.'
+  now: "What I'm up to right now."
+  music: "Music I've been listening to."
+  blogroll: 'People and sites I follow.'

@@ -70,8 +70,8 @@
 	{/if}
 
 	<div class="relative z-10 flex h-full flex-col gap-3 p-6">
-		<div class="bg-[#ede4cc] px-4 py-2 body-md w-fit -rotate-1 font-rock-salt lowercase my-1">
-			recent tunes
+		<div class="bg-[#ede4cc] px-4 py-2 body-lg w-fit -rotate-1 font-rock-salt capitalize my-1">
+			let's jam!
 		</div>
 
 		<!-- casette -->
@@ -154,11 +154,7 @@
 			{#if props.onShuffle}
 				{@render ctrlBtn(props.onShuffle, 'Play another song', 'mdi:shuffle')}
 			{/if}
-			{@render linkBtn(
-				'https://www.last.fm/user/sunmetric/library/tracks?date_preset=LAST_90_DAYS&page=1',
-				'Open last.fm',
-				'fa7-brands:lastfm'
-			)}
+			{@render linkBtn('https://www.last.fm/user/sunmetric/', 'Open last.fm', 'fa7-brands:lastfm')}
 		</div>
 	</div>
 

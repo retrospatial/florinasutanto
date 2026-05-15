@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
 	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
 	import Casette from '$lib/components/home/Casette.svelte';
+	import Section from '$lib/helpers/Section.svelte';
+
+	const content = page.data;
 
 	interface QueueEntry {
 		name: string;
@@ -95,6 +99,10 @@
 	});
 </script>
 
+<!-- <Section small class="flex flex-col justify-between">
+	<h1 class="heading-md">{content.title}</h1>
+</Section> -->
+
 <div class="flex flex-1 items-center justify-center">
 	{#if track}
 		<Casette
@@ -107,5 +115,3 @@
 		/>
 	{/if}
 </div>
-
-<!-- <div class="body-sm mx-auto text-center italic ">{@html md(content.note)}</div> -->

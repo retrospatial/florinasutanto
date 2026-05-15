@@ -25,20 +25,30 @@
 		const segment = pathname.split('/').filter(Boolean)[0];
 		return `florina sutanto | ${segment}`;
 	});
+
+	const pageDescription = $derived(() => {
+		const postDesc = page.data?.post?.description;
+		if (postDesc) return postDesc;
+		const segment = pathname === '/' ? 'home' : pathname.split('/').filter(Boolean)[0];
+		return site?.descriptions?.[segment] ?? site?.description;
+	});
 </script>
 
 <svelte:head>
 	<title>{pageTitle()}</title>
-	<meta name="description" content={site?.description} />
+	<meta name="description" content={pageDescription()} />
 	<meta name="author" content={site?.author} />
 	<meta name="keywords" content={site?.keywords} />
-	<meta property="og:title" content={site?.title} />
-	<meta property="og:description" content={site?.description} />
+	<meta property="og:title" content={pageTitle()} />
+	<meta property="og:description" content={pageDescription()} />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={site?.title} />
 	<meta property="og:url" content={site?.url} />
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content={site?.title} />
-	<meta name="twitter:description" content={site?.description} />
+	<meta property="og:image" content="https://florinasutanto.com{site?.thumbnail}" />
+	<meta name="twitter:card" content={site?.thumbnail ? 'summary_large_image' : 'summary'} />
+	<meta name="twitter:title" content={pageTitle()} />
+	<meta name="twitter:description" content={pageDescription()} />
+	<meta name="twitter:image" content="https://florinasutanto.com{site?.thumbnail}" />
 	<link rel="icon" href={favicon} />
 	<link rel="alternate" type="application/rss+xml" title="florina sutanto" href="/rss.xml" />
 </svelte:head>
