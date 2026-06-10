@@ -11,12 +11,12 @@
 			icon: 'mdi:linkedin',
 			title: 'LinkedIn'
 		},
+		{ href: '/rss.xml', icon: 'mdi:rss', title: 'RSS' },
 		{
 			href: 'florinasutanto@gmail.com',
 			icon: 'mdi:email',
 			title: 'Email'
-		},
-		{ href: '/rss.xml', icon: 'mdi:rss', title: 'RSS' }
+		}
 	];
 
 	let emailCopied = $state(false);
@@ -63,6 +63,7 @@
 						class="detail-md group-hover:text-orange transition-colors duration-300 flex gap-1 items-center"
 						>{link.title}
 						<iconify-icon
+							observer="false"
 							icon={emailCopied ? 'icon-park-solid:copy' : 'icon-park-outline:copy'}
 							class="text-xs transition-colors duration-300 {emailCopied
 								? 'text-orange'

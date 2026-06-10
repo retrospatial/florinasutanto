@@ -1,15 +1,23 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Image from '$lib/helpers/Image.svelte';
+	import { getCachedCover, setCachedCover } from '$lib/utils/lastfm-cache';
 
-	const props = $props<{
-		src: string;
-		image?: string | null;
-		name?: string;
-		artist?: string;
-		url?: string;
-		onShuffle?: () => void;
-	}>();
+	interface QueueEntry {
+		name: string;
+		artist: string;
+		playcount: number;
+		url: string;
+	}
 
+	interface Track extends QueueEntry {
+		image: string | null;
+		previewUrl: string | null;
+	}
+
+	const QUEUE_KEY = 'lastfm-queue-v1';
+
+	let track = $state<Track | null>(null);
 	let audioEl = $state<HTMLAudioElement | null>(null);
 	let playing = $state(false);
 	let currentTime = $state(0);
@@ -19,16 +27,77 @@
 	let leftScale = $derived(1 - pct * 0.38);
 	let rightScale = $derived(0.62 + pct * 0.38);
 
-	$effect(() => {
-		const nextSrc = props.src;
-		if (!audioEl) return;
+	function shuffle<T>(arr: T[]): T[] {
+		const a = [...arr];
+		for (let i = a.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[a[i], a[j]] = [a[j], a[i]];
+		}
+		return a;
+	}
+
+	async function getNextEntry(): Promise<QueueEntry | null> {
+		let queue: { entries: QueueEntry[]; index: number } | null = null;
+		try {
+			queue = JSON.parse(localStorage.getItem(QUEUE_KEY) ?? 'null');
+		} catch {}
+
+		if (!queue || queue.index >= queue.entries.length) {
+			const res = await fetch('/api/lastfm');
+			if (!res.ok) return null;
+			const entries: QueueEntry[] = (await res.json()).tracks ?? [];
+			if (!entries.length) return null;
+			queue = { entries: shuffle(entries), index: 0 };
+		}
+
+		const entry = queue.entries[queue.index++];
+		try {
+			localStorage.setItem(QUEUE_KEY, JSON.stringify(queue));
+		} catch {}
+		return entry;
+	}
+
+	async function fetchApi(path: string, entry: QueueEntry) {
+		const res = await fetch(
+			`/api/lastfm/${path}?track=${encodeURIComponent(entry.name)}&artist=${encodeURIComponent(entry.artist)}`
+		);
+		return res.json();
+	}
+
+	async function getCover(entry: QueueEntry): Promise<string | null> {
+		const cached = getCachedCover(entry.name, entry.artist);
+		if (cached !== undefined) return cached;
+		const { image } = await fetchApi('covers', entry);
+		if (image !== null) setCachedCover(entry.name, entry.artist, image);
+		return image;
+	}
+
+	async function loadTrack() {
+		audioEl?.pause();
 		playing = false;
 		currentTime = 0;
 		duration = 0;
-		audioEl.pause();
-		audioEl.src = nextSrc || '';
-		audioEl.load();
-	});
+
+		try {
+			const entry = await getNextEntry();
+			if (!entry) return;
+
+			track = { ...entry, image: null, previewUrl: null };
+
+			// Fetch cover and preview in parallel
+			const [image, previewUrl] = await Promise.all([
+				getCover(entry).catch(() => null),
+				fetchApi('preview', entry)
+					.then((d) => d.previewUrl)
+					.catch(() => null)
+			]);
+			track = { ...entry, image, previewUrl };
+		} catch (err) {
+			console.error('Failed to load track:', err);
+		}
+	}
+
+	onMount(loadTrack);
 
 	function toggle() {
 		if (!audioEl) return;
@@ -37,8 +106,7 @@
 
 	function seek(e: MouseEvent) {
 		if (!audioEl || !duration) return;
-		const el = e.currentTarget as HTMLElement;
-		const rect = el.getBoundingClientRect();
+		const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
 		audioEl.currentTime = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)) * duration;
 	}
 
@@ -48,6 +116,7 @@
 	}
 </script>
 
+{#if track}
 <div
 	class="relative w-full max-w-140 h-fit bg-blue rounded-lg overflow-hidden font-mono mx-4 md:mx-0"
 >
@@ -57,10 +126,10 @@
 		alt=""
 	/>
 
-	{#if props.src}
+	{#if track.previewUrl}
 		<audio
 			bind:this={audioEl}
-			src={props.src}
+			src={track.previewUrl}
 			onplay={() => (playing = true)}
 			onpause={() => (playing = false)}
 			onended={() => (playing = false)}
@@ -80,14 +149,14 @@
 		>
 			<!-- label -->
 			<a
-				href={props.url || undefined}
+				href={track.url || undefined}
 				target="_blank"
 				rel="noreferrer"
 				class="flex flex-1 items-center gap-3 bg-[#ede4cc] px-4 py-3 text-[#2a1a08] transition-colors hover:bg-[#e0d4b4]"
 			>
-				{#if props.image}
+				{#if track.image}
 					<img
-						src={props.image}
+						src={track.image}
 						alt=""
 						class="size-20 md:size-30 shrink-0 border border-[#b09050]/40 object-cover"
 					/>
@@ -101,10 +170,10 @@
 						{/each}
 					</div>
 					<span class="font-rock-salt text-wrap body-lg relative font-bold leading-relaxed"
-						>{props.name ?? ''}</span
+						>{track.name}</span
 					>
 					<span class="detail-sm relative truncate uppercase text-[#2a1a08]/60"
-						>{props.artist ?? ''}</span
+						>{track.artist}</span
 					>
 				</div>
 			</a>
@@ -151,9 +220,7 @@
 			<!-- <span class="shrink-0 detail-sm text-bone">{fmt(duration)}</span> -->
 
 			{@render ctrlBtn(toggle, playing ? 'Pause' : 'Play', playing ? 'mdi:pause' : 'mdi:play')}
-			{#if props.onShuffle}
-				{@render ctrlBtn(props.onShuffle, 'Play another song', 'mdi:shuffle')}
-			{/if}
+			{@render ctrlBtn(loadTrack, 'Play another song', 'mdi:shuffle')}
 			{@render linkBtn('https://www.last.fm/user/sunmetric/', 'Open last.fm', 'fa7-brands:lastfm')}
 		</div>
 	</div>
@@ -199,6 +266,7 @@
 	{@render screw('bottom-[7px] left-[7px]')}
 	{@render screw('bottom-[7px] right-[7px]')}
 </div>
+{/if}
 
 <style>
 	.screw::after {

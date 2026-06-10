@@ -74,9 +74,9 @@ links_list:
       - title: Colophon
         href: /blog/2026/colophon
         icon: material-symbols:book
-      - title: Bookshelf
-        href: /bookshelf
-        icon: icon-park-twotone:bookshelf
+      # - title: Bookshelf  # disabled: route at src/routes/(standalone)/_bookshelf
+      #   href: /bookshelf
+      #   icon: icon-park-twotone:bookshelf
       - title: Blogroll
         href: /blogroll
         icon: mingcute:follow-fill
