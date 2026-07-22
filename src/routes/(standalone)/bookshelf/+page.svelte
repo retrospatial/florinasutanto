@@ -32,6 +32,10 @@
 
 	let selectedBook = $state<Book | null>(null);
 
+	function hasReview(book: Book): boolean {
+		return !!book.review && book.review.replace(/<[^>]*>/g, '').trim().length > 0;
+	}
+
 	async function fetchBooks(listType: 'recent' | 'favorite' | 'currently-reading') {
 		const response = await fetch(`/api/books?list=${listType}`);
 		const result = await response.json();
@@ -56,7 +60,7 @@
 		<!-- read books -->
 		<div class="flex flex-col gap-4 shrink-0 w-fit mb-6">
 			<ul class="list-none grid grid-cols-4 lg:grid-cols-6 gap-2 lg:gap-4">
-				{#each booksData[shelves[2].listType] as book}
+				{#each booksData[shelves[2].listType].filter(hasReview) as book}
 					<li>
 						{#if book.image}
 							<button

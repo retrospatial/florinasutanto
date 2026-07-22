@@ -12,7 +12,7 @@
 	const links = [
 		{ href: '/about', title: 'about' },
 		{ href: '/now', title: 'now' },
-		// { href: '/bookshelf', title: 'books' }, // disabled: route at src/routes/(standalone)/_bookshelf
+		{ href: '/bookshelf', title: 'books' },
 		{ href: '/music', title: 'music' },
 		{ href: '/blogroll', title: 'blogroll' }
 	];
