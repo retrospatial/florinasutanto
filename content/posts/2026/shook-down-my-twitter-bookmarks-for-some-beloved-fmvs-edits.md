@@ -4,7 +4,7 @@ slug: twitter-fmvs
 desc: ''
 cover: ''
 date_published: 2026-07-21
-date_updated: 2026-07-21
+date_updated: ''
 tags:
   - personal
 ---
