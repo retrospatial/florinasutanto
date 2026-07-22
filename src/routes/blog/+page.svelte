@@ -31,7 +31,7 @@
 
 	<div class="flex flex-col mx-auto">
 		<!-- tags -->
-		<aside
+		<!-- <aside
 			class="flex flex-row flex-wrap gap-2 mb-6 font-mono text-xs md:text-sm font-semibold justify-center w-full"
 		>
 			{#each ['all', ...allTags] as tag}
@@ -48,7 +48,7 @@
 					{tag === 'all' ? posts.length : tagCounts[tag]}
 				</button>
 			{/each}
-		</aside>
+		</aside> -->
 
 		<!-- posts -->
 		<div class="group/posts">
@@ -62,11 +62,11 @@
 								>
 									{post.title}
 								</h2>
-								<p
+								<!-- <p
 									class="body-lg text-bone/80 group-hover:text-black/80 transition-colors duration-300"
 								>
 									{post.desc}
-								</p>
+								</p> -->
 							</div>
 
 							<time
