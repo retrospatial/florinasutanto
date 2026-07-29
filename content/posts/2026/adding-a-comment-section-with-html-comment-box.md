@@ -4,7 +4,7 @@ slug: html-comment-box
 desc: With some SvelteKit modifications.
 cover: /assets/blog/hcb.webp
 date_published: 2026-03-05
-date_updated: ''
+date_updated: 2026-07-29
 tags:
   - code
   - tutorial
@@ -13,7 +13,16 @@ tags:
 
 <script>
   import Image from '$lib/helpers/Image.svelte'
+  import Callout from '$lib/helpers/Callout.svelte'
 </script>
+
+<Callout>
+
+If you want to see this directly in action, I've set up a demo site [here](https://florinasutanto.com/html-comment-box-demo) and you can check out the stylesheet in this repo [here](https://github.com/retrospatial/html-comment-box-demo).
+
+Their [CSS guide](https://www.htmlcommentbox.com/css-guide.html) and [FAQ page](https://www.htmlcommentbox.com/help.html) are also good places to get started with styling.
+
+</Callout>
 
 My blog has a comment section now. Yay!
 
