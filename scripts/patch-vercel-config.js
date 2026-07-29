@@ -12,7 +12,15 @@ const rewrites = [
 		dest: 'https://retrospatial.github.io/tumblr-fandometrics/$1'
 	},
 	{ src: '^/buffy-podcasts$', dest: 'https://retrospatial.github.io/buffy-podcasts/' },
-	{ src: '^/buffy-podcasts/(.*)$', dest: 'https://retrospatial.github.io/buffy-podcasts/$1' }
+	{ src: '^/buffy-podcasts/(.*)$', dest: 'https://retrospatial.github.io/buffy-podcasts/$1' },
+	{
+		src: '^/html-comment-box-demo$',
+		dest: 'https://retrospatial.github.io/html-comment-box-demo/'
+	},
+	{
+		src: '^/html-comment-box-demo/(.*)$',
+		dest: 'https://retrospatial.github.io/html-comment-box-demo/$1'
+	}
 ];
 
 // Insert rewrites just before the catch-all route ("/.*")

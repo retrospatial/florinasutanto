@@ -50,7 +50,8 @@ export default {
 				if (
 					path.startsWith('/animorphs') ||
 					path.startsWith('/tumblr-fandometrics') ||
-					path.startsWith('/buffy-podcasts')
+					path.startsWith('/buffy-podcasts') ||
+					path.startsWith('/html-comment-box-demo')
 				)
 					return;
 				throw new Error(`404: ${path}`);
