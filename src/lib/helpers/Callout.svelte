@@ -8,7 +8,7 @@
 	let { children }: Props = $props();
 </script>
 
-<div class="callout bg-lime mb-6 p-2 text-black md:p-4">
+<div class="callout bg-lime mb-6 p-2 text-black border-2 border-dark-gray border-dashed md:p-4">
 	{@render children()}
 </div>
 

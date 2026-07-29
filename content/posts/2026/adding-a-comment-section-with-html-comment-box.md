@@ -20,8 +20,6 @@ tags:
 
 If you want to see this directly in action, I've set up a demo site [here](https://florinasutanto.com/html-comment-box-demo) and you can check out the stylesheet in this repo [here](https://github.com/retrospatial/html-comment-box-demo).
 
-Their [CSS guide](https://www.htmlcommentbox.com/css-guide.html) and [FAQ page](https://www.htmlcommentbox.com/help.html) are also good places to get started with styling.
-
 </Callout>
 
 My blog has a comment section now. Yay!

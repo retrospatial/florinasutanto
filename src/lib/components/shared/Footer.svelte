@@ -76,20 +76,13 @@
 					href={link.href}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="cursor-pointer no-link-decor"
+					class="cursor-pointer no-link-decor hover:text-orange transition-colors duration-300"
 					title={link.title}
 				>
-					<span class="detail-md icon">{link.title}</span>
+					<span class="detail-md">{link.title}</span>
 				</a>
 			{/if}
 		{/each}
 	</div>
 </footer>
 
-<style lang="postcss">
-	@reference '$lib/styles/app.css';
-
-	.icon {
-		@apply hover:text-orange transition-colors duration-300;
-	}
-</style>
