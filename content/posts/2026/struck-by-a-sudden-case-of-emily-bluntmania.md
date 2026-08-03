@@ -9,7 +9,7 @@ tags:
   - personal
 ---
 
-hi guys. halfway through the year; same soup reheated baby. i've been running on way too little sleep lately, waffling late into the night about all the things i want to write, watch, plan for, and do, now that summer is ticking down and i'm entering my third year out of college. which is insane to think about, btw. without a structure to the year, without externalized goals, it's easy for me to feel like an engine revving perpetually with nowhere to go, hoovered into my computer screen night after night without a single deadline to kick my ass into gear. i'm not going to run a marathon and i probably won't be visiting japan soon, so maybe grad school apps are what's in the cards for me [#muchtothinkabout](#muchtothinkabout). or maybe the answer is to get back into doing fic fests again.
+hi guys. halfway through the year; same soup reheated baby. i've been running on way too little sleep lately, waffling late into the night about all the things i want to write, watch, plan for, and do, now that summer is ticking down and i'm entering my third year out of college. which is insane to think about, btw. without a structure to the year, without externalized goals, it's easy for me to feel like an engine revving perpetually with nowhere to go, hoovered into my computer screen night after night without a single deadline to kick my ass into gear. i'm not going to run a marathon and i probably won't be visiting japan soon, so maybe grad school apps are what's in the cards for me #muchtothinkabout. or maybe the answer is to get back into doing fic fests again.
 
 # **life**
 
