@@ -73,14 +73,14 @@
 				}
 			}
 			ul {
-				@apply mb-4 list-inside list-disc text-base leading-normal md:text-lg;
+				@apply mb-4 list-inside list-disc;
 			}
 			ol {
-				@apply mb-4 list-inside list-decimal text-base leading-normal md:text-lg;
+				@apply mb-4 list-inside list-decimal;
 			}
-			li {
-				@apply mb-2 text-base leading-normal md:text-lg;
-			}
+			/* li {
+				@apply mb-2;
+			} */
 			blockquote {
 				@apply border-orange my-8 border-l-4 pl-4 md:pl-6;
 			}
