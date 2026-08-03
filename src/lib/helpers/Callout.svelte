@@ -2,21 +2,32 @@
 	import type { Snippet } from 'svelte';
 
 	interface Props {
+		title: string;
 		children: Snippet;
 	}
 
-	let { children }: Props = $props();
+	let { title, children }: Props = $props();
 </script>
 
-<div class="callout bg-lime mb-6 p-2 text-black border-2 border-dark-gray border-dashed md:p-4">
-	{@render children()}
+<div class="border-2 border-lime mb-6">
+	<div
+		class="bg-lime detail-md text-dark-gray font-bold uppercase border-lime border-b-2 md:px-4 md:py-2 px-2 py-1"
+	>
+		{#if title}
+			{title}
+		{/if}
+	</div>
+
+	<div class="callout bg-[#1A1B26] p-2 text-bone md:p-4">
+		{@render children()}
+	</div>
 </div>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
 
 	.callout :global(a) {
-		@apply text-black underline;
+		@apply text-lime;
 	}
 
 	.callout :global(p:last-child) {

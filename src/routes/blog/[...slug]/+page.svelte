@@ -72,10 +72,6 @@
 					@apply mb-6;
 				}
 			}
-			p strong,
-			p b {
-				font-weight: 400;
-			}
 			ul {
 				@apply mb-4 list-inside list-disc text-base leading-normal md:text-lg;
 			}

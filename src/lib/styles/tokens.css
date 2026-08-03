@@ -1,18 +1,8 @@
 @theme {
-	/* Semantic font tokens — change these to restyle the whole app */
 	--font-heading: 'Gaya Regular', sans-serif;
 	--font-body: 'Neue Montreal', sans-serif;
 	--font-mono: 'Fira Code', monospace;
 	--font-rock-salt: 'Rock Salt', cursive;
-
-	/* Decorative / one-off fonts */
-	/* --font-courier: 'Courier Prime', monospace;
-	--font-terminal: 'VT323', monospace;
-	--font-goudy: 'Goudy Bookletter 1911', serif;
-	--font-instrument-serif: 'Instrument Serif', serif;
-	--font-spline: 'Spline Sans', sans-serif;
-	--font-rock-salt: 'Rock Salt', cursive;
-	--font-technology: 'Technology', sans-serif; */
 
 	--color-white: #e2e2e2;
 	--color-bone: #d7d3c7;

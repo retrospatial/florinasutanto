@@ -16,7 +16,7 @@ tags:
   import Callout from '$lib/helpers/Callout.svelte'
 </script>
 
-<Callout>
+<Callout title="Update">
 
 If you want to see this directly in action, I've set up a demo site [here](https://florinasutanto.com/html-comment-box-demo) and you can check out the stylesheet in this repo [here](https://github.com/retrospatial/html-comment-box-demo).
 
