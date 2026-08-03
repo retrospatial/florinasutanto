@@ -1,6 +1,5 @@
 ---
 title: struck by a sudden case of emily bluntmania
-slug: '{{slug}}'
 desc: ''
 cover: ''
 date_published: 2026-08-02

@@ -27,8 +27,8 @@ collections:
       - label: Slug
         name: slug
         widget: string
-        required: true
-        default: "{{slug}}"
+        required: false
+        hint: leave blank to use title
 
       - label: Description
         name: desc
