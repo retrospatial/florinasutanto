@@ -2,8 +2,20 @@
 @import './fonts.css';
 @import './tokens.css';
 @import './animation.css';
+@import './prose.css';
 
 @layer base {
+	html {
+		@apply font-body;
+		scroll-behavior: smooth;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
 	html,
 	body {
 		min-height: 100%;
@@ -11,7 +23,7 @@
 
 	body {
 		position: relative;
-		background-color: var(--color-dark-gray);
+		background-color: var(--color-night);
 	}
 
 	body::before,
@@ -68,12 +80,17 @@
 		@apply mb-6;
 	}
 
+	/* inline code from any markdown, not just blog posts (`pre code` is excluded) */
+	:not(pre) > code {
+		@apply bg-blue/30 px-1 font-mono text-sm leading-normal md:text-base;
+	}
+
 	::-webkit-scrollbar {
 		width: 8px;
 	}
 
 	::-webkit-scrollbar-track {
-		background: var(--color-dark-gray);
+		background: var(--color-night);
 	}
 
 	::-webkit-scrollbar-thumb {

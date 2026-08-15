@@ -24,8 +24,8 @@
 		</div>
 
 		<!-- desc -->
-		<p
-			class="font-heading text-4xl md:text-5xl text-center md:text-left text-teal order-1 md:order-0"
+		<h1
+			class="font-heading text-4xl md:text-5xl text-center md:text-left text-teal order-1 md:order-0 mb-6"
 		>
 			{#each words as word, wi}
 				<span class="inline-block whitespace-nowrap"
@@ -35,7 +35,7 @@
 						>{/each}</span
 				>{' '}
 			{/each}
-		</p>
+		</h1>
 		<p class="md:text-pretty body-lg order-3 md:order-0 mt-4 md:mt-0">
 			{@html md(content.intro.text)}
 		</p>

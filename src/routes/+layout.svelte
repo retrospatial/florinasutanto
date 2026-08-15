@@ -6,6 +6,7 @@
 	import Footer from '$lib/components/shared/Footer.svelte';
 	const favicon = '/assets/images/favicon.png';
 	import { page } from '$app/state';
+	import { afterNavigate } from '$app/navigation';
 	import { dev } from '$app/environment';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
@@ -15,11 +16,26 @@
 
 	let { children } = $props();
 
+	afterNavigate(({ to }) => {
+		const hash = to?.url.hash;
+		if (!hash) return;
+
+		document.fonts?.ready.then(() =>
+			requestAnimationFrame(() => {
+				try {
+					document.querySelector(hash)?.scrollIntoView({ behavior: 'instant' });
+				} catch {
+					// hash isn't a usable selector
+				}
+			})
+		);
+	});
+
 	const site = $derived(page.data?.site);
 	const pathname = $derived(page.url.pathname);
 
 	const pageTitle = $derived(() => {
-		const postTitle = page.data?.post?.title;
+		const postTitle = page.data?.post?.title ?? page.data?.book?.title;
 		if (postTitle) return `florina sutanto | ${postTitle}`;
 		if (pathname === '/') return 'florina sutanto';
 		const segment = pathname.split('/').filter(Boolean)[0];

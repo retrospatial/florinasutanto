@@ -1,4 +1,4 @@
-import { type MdsvexModule, getPostSlug, toISODate } from '$lib/utils/blog';
+import { type MdsvexModule, getPostSlug, toISODate, resolvePostAsset } from '$lib/utils/blog';
 
 export const load = async () => {
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
@@ -15,7 +15,7 @@ export const load = async () => {
 				slug,
 				title: metadata.title ?? '',
 				desc: metadata.desc ?? '',
-				cover: metadata.cover ?? '',
+				cover: resolvePostAsset(path, metadata.cover),
 				tags: metadata.tags ?? [],
 				date
 			};

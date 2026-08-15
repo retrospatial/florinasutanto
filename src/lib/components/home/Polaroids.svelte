@@ -45,7 +45,7 @@
 			/>
 			<div class="bg-[#E3E3E3] py-4 flex items-center justify-center">
 				<p
-					class="text-black text-center font-rock-salt lowercase body-lg text-wrap wrap-break-word self-center"
+					class="text-black text-center font-handwriting lowercase body-lg text-wrap wrap-break-word self-center"
 				>
 					{image.title}
 				</p>

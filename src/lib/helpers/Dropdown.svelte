@@ -36,6 +36,8 @@
 		{text}
 		<iconify-icon
 			icon="mingcute:down-fill"
+			width="1em"
+			height="1em"
 			class="mt-1 text-lg"
 			style="display: inline-block; transition: transform 0.3s; transform: rotate({open
 				? '180'
@@ -45,7 +47,7 @@
 	<DropdownMenu.Content class="z-50" align="end" sideOffset={4} forceMount>
 		{#if open}
 			<div
-				class="flex flex-col gap-2 mt-2 md:mt-4 bg-dark-gray p-4 border border-lime border-dashed"
+				class="flex flex-col gap-2 mt-2 md:mt-4 bg-night p-4 border border-lime border-dashed"
 				transition:fly={{ y: -8, duration: 300 }}
 			>
 				{#each items as item, i}

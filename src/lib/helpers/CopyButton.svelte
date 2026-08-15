@@ -18,9 +18,9 @@
 			const button = document.createElement('button');
 			button.className = 'copy-btn';
 			button.innerHTML = `
-				<iconify-icon class="icon-outline" icon="icon-park-outline:copy"></iconify-icon>
-				<iconify-icon class="icon-hover" icon="icon-park-twotone:copy"></iconify-icon>
-				<iconify-icon class="icon-solid" icon="icon-park-solid:copy"></iconify-icon>
+				<iconify-icon class="icon-outline" icon="icon-park-outline:copy" width="1em" height="1em"></iconify-icon>
+				<iconify-icon class="icon-hover" icon="icon-park-twotone:copy" width="1em" height="1em"></iconify-icon>
+				<iconify-icon class="icon-solid" icon="icon-park-solid:copy" width="1em" height="1em"></iconify-icon>
 			`;
 
 			const feedback = document.createElement('output');
@@ -50,7 +50,7 @@
 	}
 
 	:global(.code-block-header) {
-		background: var(--color-dark-gray);
+		background: var(--color-night);
 		border-bottom: 1px solid var(--color-orange);
 		border-radius: 4px 4px 0 0;
 		padding: 0.75rem 1rem;

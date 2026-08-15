@@ -19,7 +19,6 @@
 </script>
 
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { ClassValue } from 'svelte/elements';
 
 	interface Props {
@@ -46,15 +45,9 @@
 		quality = 75
 	}: Props = $props();
 
-	let mounted = $state(false);
 	const fullPath = $derived(getFullPath(src));
-	const imageSrc = $derived(
-		!isDev && mounted ? getVercelUrl(fullPath, width, quality) : fullPath
-	);
 
-	onMount(() => {
-		mounted = true;
-	});
+	const imageSrc = $derived(isDev ? fullPath : getVercelUrl(fullPath, width, quality));
 </script>
 
 <img

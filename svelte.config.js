@@ -1,17 +1,16 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { mdsvex } from 'mdsvex';
-import { createHighlighter } from 'shiki';
-
-const highlighter = await createHighlighter({
-	themes: ['github-dark', 'gruvbox-dark-hard', 'tokyo-night', 'dark-plus'],
-	langs: ['javascript', 'typescript', 'bash', 'svelte', 'css', 'html', 'json', 'markdown', 'yaml']
-});
+import { colocatedAssets } from './scripts/colocated-assets.js';
+import { highlight } from './scripts/shiki.js';
+import { rehypeHeadingIds } from './scripts/rehype-heading-ids.js';
 
 export default {
 	extensions: ['.svelte', '.md'],
 	preprocess: [
+		colocatedAssets(),
 		mdsvex({
 			extensions: ['.md'],
+			rehypePlugins: [rehypeHeadingIds],
 			highlight: {
 				highlighter: (code, lang, meta) => {
 					let filename = meta?.match(/filename:\s*(.+)/)?.[1]?.trim();
@@ -25,10 +24,7 @@ export default {
 						}
 					}
 
-					let html = highlighter.codeToHtml(code, {
-						lang: lang || 'text',
-						theme: 'tokyo-night'
-					});
+					let html = highlight(code, lang);
 
 					if (filename) {
 						html = html.replace('<pre', `<pre data-filename="${filename}"`);
@@ -45,8 +41,13 @@ export default {
 		})
 	],
 	kit: {
+		alias: {
+			$scripts: 'scripts'
+		},
 		prerender: {
 			handleHttpError({ path }) {
+				// vercel's image optimizer only exists at runtime, not during prerender
+				if (path.startsWith('/_vercel/image')) return;
 				if (
 					path.startsWith('/animorphs') ||
 					path.startsWith('/tumblr-fandometrics') ||

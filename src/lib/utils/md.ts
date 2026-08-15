@@ -46,3 +46,5 @@ const md = markdownit({
 	.use(markdownItTaskLists);
 
 export default (string: string) => `<div class="markdown">${md.render(string)}</div>`;
+
+export const mdInline = (string: string) => md.renderInline(string);

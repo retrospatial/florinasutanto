@@ -11,14 +11,14 @@
 
 <div class="border-2 border-lime mb-6">
 	<div
-		class="bg-lime detail-md text-dark-gray font-bold uppercase border-lime border-b-2 md:px-4 md:py-2 px-2 py-1"
+		class="bg-lime detail-sm text-black font-bold uppercase border-lime border-b-2 md:px-4 md:py-2 px-2 py-1"
 	>
 		{#if title}
 			{title}
 		{/if}
 	</div>
 
-	<div class="callout bg-[#1A1B26] p-2 text-bone md:p-4">
+	<div class="callout bg-night p-2 text-bone md:p-4">
 		{@render children()}
 	</div>
 </div>

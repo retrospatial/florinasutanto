@@ -7,10 +7,10 @@ intro:
     Here you'll find a cross between my work portfolio and a collection of my personal projects, hobbies, and interests. 
 
 
-    You can always catch me thinking about: parkour, Buffy, scuba diving, fruit juices, bodies of water, and the Wiskayok HS girls' soccer team.
+    You can always catch me thinking about: the internet, parkour, Buffy, fruit juices, bodies of water, and the Wiskayok HS girls' soccer team.
 
 
-    I am originally from Bogor, Indonesia and now based in Cambridge, MA. Learn more about me <a href="/about" target="_self">here</a>.
+    I am originally from Bogor, Indonesia and now based in Cambridge, MA. Learn more about me <a href="/about" target="_self">here</a> and about this site <a href="/colophon" target="_self">here</a>.
 
 about:
   - title: Location
@@ -57,7 +57,7 @@ links_list:
       #   href: https://drive.google.com/file/d/1aW5xy3op26oF5P-lFiHu6OLcgDaXxvyN/view?usp=share_link
       #   icon: material-symbols:link
       - title: Email
-        href: florinasutanto@gmail.com
+        href: hello@florinasutanto.com
         icon: ic:round-email
       - title: RSS Feed
         href: /rss.xml
@@ -72,7 +72,7 @@ links_list:
         href: /now
         icon: mdi:calendar
       - title: Colophon
-        href: /blog/2026/colophon
+        href: /colophon
         icon: material-symbols:book
       # - title: Bookshelf  # disabled: route at src/routes/(standalone)/_bookshelf
       #   href: /bookshelf

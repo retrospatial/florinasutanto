@@ -1,0 +1,48 @@
+title: Sitemap
+
+desc: A list of the major sections of this site. Granular subpages (such as individual blog posts) are not included here.
+
+map:
+  - category: Main
+    pages:
+      - title: Home
+        url: /
+      - title: Work
+        url: /work
+      - title: Personal projects
+        url: /personal
+      - title: Blog
+        url: /blog
+  - category: Me
+    pages:
+      - title: About
+        url: /about
+      - title: Now
+        url: /now
+      - title: Blogroll
+        url: /blogroll
+      - title: Media
+        url: '#'
+        subpages:
+          - title: Music
+            url: /music
+          - title: Bookshelf
+            url: /bookshelf
+          # - title: Concerts
+          #   url: /concerts
+  - category: Site
+    pages:
+      - title: Colophon
+        url: /colophon
+      - title: Sitemap
+        url: /sitemap
+      - title: Changelog
+        url: /changelog
+      - title: Cheatsheet
+        url: /cheatsheet
+      - title: Style guide
+        url: /style
+      # - title: Site archive
+      #   url: /archive
+      - title: RSS feed
+        url: /rss.xml

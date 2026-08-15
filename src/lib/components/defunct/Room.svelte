@@ -77,7 +77,7 @@
 		}
 
 		.nav-title {
-			color: var(--color-dark-gray);
+			color: var(--color-night);
 		}
 
 		nav {

@@ -17,7 +17,7 @@ async function getCoverArt(track: string, artist: string, fetch: typeof global.f
 
 		const searchRes = await fetch(`${DISCOGS_BASE}/database/search?${searchParams}`, {
 			headers: {
-				'User-Agent': 'personal-site/1.0 (florinasutanto@gmail.com)'
+				'User-Agent': 'personal-site/1.0 (hello@florinasutanto.com)'
 			}
 		});
 

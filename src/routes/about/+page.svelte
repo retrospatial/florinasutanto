@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Section from '$lib/helpers/Section.svelte';
+	import Heading from '$lib/helpers/Heading.svelte';
 	import Polaroids from '$lib/components/home/Polaroids.svelte';
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
@@ -8,9 +9,7 @@
 </script>
 
 <Section small class="relative">
-	<h1 class="heading-md text-center">
-		{content.title}
-	</h1>
+	<Heading hed={content.title} />
 
 	<section class="">
 		<p class="">{@html md(content.intro)}</p>

@@ -1,35 +1,43 @@
+/* Gaya — display */
 @font-face {
-	font-family: 'Gaya Regular';
+	font-family: 'Gaya';
 	src: url('/fonts/gaya/gayatrial-regular.otf') format('opentype');
 	font-weight: 400;
+	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Gaya Italic';
+	font-family: 'Gaya';
 	src: url('/fonts/gaya/gayatrial-italic.otf') format('opentype');
 	font-weight: 400;
+	font-style: italic;
 }
 
+/* Neue Montreal — body */
 @font-face {
 	font-family: 'Neue Montreal';
 	src: url('/fonts/neue_montreal/PPNeueMontreal-Medium.otf') format('opentype');
 	font-weight: 400;
+	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Neue Montreal Italic';
+	font-family: 'Neue Montreal';
 	src: url('/fonts/neue_montreal/PPNeueMontreal-Italic.otf') format('opentype');
 	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Neue Montreal';
+	src: url('/fonts/neue_montreal/PPNeueMontreal-SemiBolditalic.otf') format('opentype');
+	font-weight: 600;
+	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Neue Montreal';
 	src: url('/fonts/neue_montreal/PPNeueMontreal-Bold.otf') format('opentype');
 	font-weight: 700;
-}
-
-@font-face {
-	font-family: 'Neue Montreal SemiBold Italic';
-	src: url('/fonts/neue_montreal/PPNeueMontreal-SemiBolditalic.otf') format('opentype');
-	font-weight: 600;
+	font-style: normal;
 }

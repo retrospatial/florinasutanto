@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { type MdsvexModule, getPostSlug, toISODate } from '$lib/utils/blog';
+import { type MdsvexModule, getPostSlug, toISODate, resolvePostAsset } from '$lib/utils/blog';
 
 export const entries = async () => {
 	const files = import.meta.glob<MdsvexModule>('/content/posts/**/*.md', {
@@ -30,7 +30,7 @@ export const load = async ({ params }) => {
 			slug: params.slug,
 			title: metadata.title ?? '',
 			desc: metadata.desc ?? '',
-			cover: metadata.cover ?? '',
+			cover: resolvePostAsset(entry[0], metadata.cover),
 			tags: metadata.tags ?? [],
 			date_published: toISODate(metadata.date_published),
 			date_updated: toISODate(metadata.date_updated)

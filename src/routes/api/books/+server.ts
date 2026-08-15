@@ -68,6 +68,7 @@ function mapBookData(item: any, hasRating: boolean = true) {
 
 	return {
 		title: item.book.title,
+		slug: item.book.slug ?? null,
 		pages: item.book.pages,
 		release_date: item.book.release_date,
 		last_read_date: item.user_book_reads?.[0]?.finished_at || item.date_added,
@@ -81,10 +82,35 @@ function mapBookData(item: any, hasRating: boolean = true) {
 
 export const GET: RequestHandler = async ({ url }) => {
 	const listType = url.searchParams.get('list') || 'recent';
+	const slug = url.searchParams.get('slug');
 
 	let books_query;
 
-	if (listType === 'favorite') {
+	if (slug) {
+		// single read book looked up by its hardcover slug — powers /bookshelf/[slug]
+		books_query = `
+			{
+				user_books(
+					where: {
+						user_id: {_eq: 67914},
+						book: {slug: {_eq: ${JSON.stringify(slug)}}}
+					},
+					limit: 1
+				) {
+					rating
+					review_slate
+					date_added
+					last_read_date
+					user_book_reads(order_by: {finished_at: desc}, limit: 1) {
+						finished_at
+					}
+					book {
+						${book_fields}
+					}
+				}
+			}
+		`;
+	} else if (listType === 'favorite') {
 		// query for site-favorite list
 		books_query = `
 			{
@@ -182,7 +208,9 @@ export const GET: RequestHandler = async ({ url }) => {
 			);
 		}
 
-		return json({ books });
+		// the bookshelf page calls this on every visit — cache a day so Hardcover
+		// sees roughly one request regardless of traffic
+		return json({ books }, { headers: { 'cache-control': 'public, max-age=0, s-maxage=86400' } });
 	} catch (error) {
 		return json({ error: 'Failed to fetch books' }, { status: 500 });
 	}

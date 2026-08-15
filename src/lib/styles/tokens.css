@@ -1,12 +1,12 @@
 @theme {
-	--font-heading: 'Gaya Regular', sans-serif;
+	--font-heading: 'Gaya', serif;
 	--font-body: 'Neue Montreal', sans-serif;
-	--font-mono: 'Fira Code', monospace;
-	--font-rock-salt: 'Rock Salt', cursive;
+	--font-mono: 'Google Sans Code', monospace;
+	--font-handwriting: 'Rock Salt', cursive;
 
+	--color-night: #181818;
 	--color-white: #e2e2e2;
 	--color-bone: #d7d3c7;
-	--color-dark-gray: #181818;
 	--color-blue: #428eab;
 	--color-teal: #74d5d7;
 	--color-orange: #fa753f;
@@ -16,30 +16,46 @@
 }
 
 @utility heading-lg {
-	@apply font-heading text-bone mt-0 mb-8 text-center text-4xl leading-normal uppercase md:text-6xl lg:text-8xl;
+	@apply font-heading text-bone mt-0 mb-8 text-center text-4xl leading-tight uppercase md:text-6xl lg:text-8xl;
 }
 
 @utility heading-md {
-	@apply font-heading text-bone mb-8 text-center text-3xl leading-normal uppercase md:text-5xl;
+	@apply font-heading text-bone mb-6 text-center text-3xl leading-tight uppercase md:text-5xl;
 }
 
 @utility heading-sm {
-	@apply font-heading text-bone mb-4 text-center text-2xl leading-normal md:text-4xl;
+	@apply font-heading text-bone mb-4 text-center text-2xl leading-tight md:text-4xl;
+}
+
+@utility body-xl {
+	@apply text-xl leading-normal md:text-2xl;
 }
 
 @utility body-lg {
-	@apply text-base leading-normal md:text-xl;
+	@apply text-lg leading-normal md:text-xl;
 }
 
 @utility body-md {
+	@apply text-base leading-normal md:text-lg;
+}
+
+@utility body-sm {
 	@apply text-sm leading-normal md:text-base;
 }
 
+@utility detail-lg {
+	@apply font-mono text-lg leading-normal uppercase md:text-xl;
+}
+
 @utility detail-md {
-	@apply font-mono text-sm leading-normal uppercase md:text-base;
+	@apply font-mono text-base leading-normal uppercase md:text-lg;
 }
 
 @utility detail-sm {
+	@apply font-mono text-sm leading-normal uppercase md:text-base;
+}
+
+@utility detail-xs {
 	@apply font-mono text-xs leading-normal uppercase md:text-sm;
 }
 

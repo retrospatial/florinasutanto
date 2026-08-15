@@ -66,7 +66,7 @@
 				}}
 				aria-label="Previous image"
 			>
-				<iconify-icon icon="lucide:chevron-left" width="32"></iconify-icon>
+				<iconify-icon icon="lucide:chevron-left" width="32" height="32"></iconify-icon>
 			</button>
 			<button
 				class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer p-2 text-white/60 transition-colors hover:text-white"
@@ -76,7 +76,7 @@
 				}}
 				aria-label="Next image"
 			>
-				<iconify-icon icon="lucide:chevron-right" width="32"></iconify-icon>
+				<iconify-icon icon="lucide:chevron-right" width="32" height="32"></iconify-icon>
 			</button>
 		{/if}
 	</div>

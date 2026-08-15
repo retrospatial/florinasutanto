@@ -97,7 +97,7 @@
 	/>
 </svelte:head>
 
-<div class="w-full mt-16 border-t-2 border-dotted border-orange"></div>
+<hr class="w-full mt-16 border-t-2 border-dotted border-orange" />
 
 <div id="HCB_comment_box" class="mt-8 h-auto!">Loading comments...</div>
 
@@ -116,7 +116,7 @@
 				--hcb-font-size-sm: 0.8rem;
 			}
 
-			font-family: 'Neue Montreal', sans-serif !important;
+			font-family: var(--font-body) !important;
 			color: bone !important;
 			font-size: var(--hcb-font-size) !important;
 
@@ -142,7 +142,7 @@
 
 			.date {
 				color: var(--color-bone) !important;
-				font-family: 'Fira Code', monospace !important;
+				font-family: var(--font-mono) !important;
 				text-transform: uppercase !important;
 			}
 
@@ -162,7 +162,7 @@
 			#hcb_form_name,
 			#hcb_form_website,
 			textarea {
-				background-color: var(--color-dark-gray);
+				background-color: var(--color-night);
 				border: 0.5px solid white;
 				border-radius: 0 !important;
 				padding: 8px;
@@ -199,13 +199,13 @@
 
 			/* buttons */
 			.btn {
-				background-color: var(--color-dark-gray) !important;
+				background-color: var(--color-night) !important;
 				border: 0.5px solid var(--color-teal) !important;
 				border-radius: 0 !important;
 				padding: 4px 8px;
 				font: inherit !important;
 				font-size: inherit !important;
-				font-family: 'Fira Code', monospace !important;
+				font-family: var(--font-mono) !important;
 				text-transform: uppercase !important;
 				color: var(--color-white) !important;
 				cursor: pointer;
@@ -223,7 +223,7 @@
 				color: var(--color-teal) !important;
 				font-weight: 400 !important;
 				opacity: 0.8 !important;
-				font-family: 'Fira Code', monospace !important;
+				font-family: var(--font-mono) !important;
 				text-transform: uppercase !important;
 
 				&:hover {
@@ -253,7 +253,7 @@
 			/* comment card */
 			.comment {
 				border: 2px dotted var(--color-teal) !important;
-				background-color: var(--color-dark-gray) !important;
+				background-color: var(--color-night) !important;
 				border-radius: 0 !important;
 				padding: 12px 16px;
 				margin-bottom: 2rem !important;
@@ -275,7 +275,7 @@
 				display: inline-flex !important;
 				align-items: center !important;
 				gap: 4px !important;
-				font-family: 'Fira Code', monospace !important;
+				font-family: var(--font-mono) !important;
 				text-transform: uppercase !important;
 				font-size: var(--hcb-font-size-sm) !important;
 				font-weight: 400 !important;
@@ -287,6 +287,45 @@
 				display: inline-block !important;
 				width: 0.8rem !important;
 				height: 0.8rem !important;
+			}
+
+			/* pagination */
+			p:has(> .hcb-link) {
+				align-items: center;
+				font-family: var(--font-mono) !important;
+				text-transform: uppercase !important;
+				font-size: var(--hcb-font-size) !important;
+
+				> .hcb-link {
+					display: inline-flex !important;
+					align-items: center;
+					cursor: pointer;
+					margin-left: 0.3rem !important;
+
+					&:hover::before {
+						background-color: var(--color-lime);
+					}
+
+					img.hcb-icon {
+						display: none !important;
+					}
+
+					&::before {
+						content: '';
+						display: block;
+						width: 1.2rem;
+						height: 1.2rem;
+						background-color: var(--color-teal);
+						transition: background-color 0.3s ease-in-out;
+						-webkit-mask: var(--hcb-arrow) no-repeat center / contain;
+						mask: var(--hcb-arrow) no-repeat center / contain;
+						--hcb-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8H13.5M9 4L13.5 8L9 12' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+					}
+
+					&:has(img[alt='[prev]'])::before {
+						--hcb-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M14 8H2.5M7 4L2.5 8L7 12' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+					}
+				}
 			}
 
 			input[type='checkbox'] {

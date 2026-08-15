@@ -6,14 +6,9 @@
 			icon: 'mdi:twitter',
 			title: 'Twitter'
 		},
-		{
-			href: 'https://linkedin.com/in/florinasutanto',
-			icon: 'mdi:linkedin',
-			title: 'LinkedIn'
-		},
 		{ href: '/rss.xml', icon: 'mdi:rss', title: 'RSS' },
 		{
-			href: 'florinasutanto@gmail.com',
+			href: 'hello@florinasutanto.com',
 			icon: 'mdi:email',
 			title: 'Email'
 		}
@@ -60,15 +55,30 @@
 					title={emailCopied ? 'Copied!' : link.title}
 				>
 					<span
-						class="detail-md group-hover:text-orange transition-colors duration-300 flex gap-1 items-center"
+						class="detail-sm transition-colors duration-300 flex gap-1 items-center {emailCopied
+							? 'text-orange'
+							: 'group-hover:text-orange'}"
 						>{link.title}
-						<iconify-icon
-							observer="false"
-							icon={emailCopied ? 'icon-park-solid:copy' : 'icon-park-outline:copy'}
-							class="text-xs transition-colors duration-300 {emailCopied
-								? 'text-orange'
-								: 'text-bone group-hover:text-orange'}"
-						></iconify-icon>
+						<!-- inlined icon-park copy: iconify-icon reserves no space until its
+						     data loads, which shifted this row when the footer scrolled in -->
+						<svg
+							width="1em"
+							height="1em"
+							viewBox="0 0 48 48"
+							aria-hidden="true"
+							class="shrink-0 text-xs"
+						>
+							<g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
+								<path
+									stroke-linecap="round"
+									d="M13 12.432v-4.62A2.813 2.813 0 0 1 15.813 5h24.374A2.813 2.813 0 0 1 43 7.813v24.375A2.813 2.813 0 0 1 40.188 35h-4.672"
+								/>
+								<path
+									fill={emailCopied ? 'currentColor' : 'none'}
+									d="M32.188 13H7.811A2.813 2.813 0 0 0 5 15.813v24.374A2.813 2.813 0 0 0 7.813 43h24.375A2.813 2.813 0 0 0 35 40.188V15.811A2.813 2.813 0 0 0 32.188 13Z"
+								/>
+							</g>
+						</svg>
 					</span>
 				</button>
 			{:else}
@@ -79,10 +89,9 @@
 					class="cursor-pointer no-link-decor hover:text-orange transition-colors duration-300"
 					title={link.title}
 				>
-					<span class="detail-md">{link.title}</span>
+					<span class="detail-sm">{link.title}</span>
 				</a>
 			{/if}
 		{/each}
 	</div>
 </footer>
-

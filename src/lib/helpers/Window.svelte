@@ -3,7 +3,7 @@
 		children,
 		color = 'bg-blue',
 		scrollbarTrack = 'var(--color-white)',
-		scrollbarThumb = 'var(--color-dark-gray)',
+		scrollbarThumb = 'var(--color-night)',
 		class: classes = '',
 		style = ''
 	}: Props = $props();

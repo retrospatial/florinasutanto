@@ -1,0 +1,28 @@
+title: Style Guide
+
+color_notes:
+  title: 'Colorway inspo:'
+  list:
+    - '[Perry the Platypus](https://en.wikipedia.org/wiki/Perry_the_Platypus)'
+    - '[My Cotopaxi backpack](https://res.cloudinary.com/cotopaxi/image/upload/v1755724668/shopify_products/walk_in_videos/x0b4dz8oadg0zyifmsfe.png)'
+
+font_notes:
+  heading: For page titles, section headers, nav menu, and anything fancy.
+  body: Main body font. Here's what it looks like in **bold**, _italics_, and <u>underlined</u>.
+  mono: For dates, labels, details, `codes`, and such. My go-to monospace font.
+  handwriting: For a casual, handwritten look. Prefer to use this in all lowercase; uppercase looks too messy/dramatic.
+
+highlighter_note: I use [Shiki's](https://shiki.style/) `tokyo-night` as a syntax highlighter for code blocks.
+
+snippet:
+  lang: svelte
+  code: |
+    <script>
+      const text = "it's me";
+    </script>
+
+    <h1>Hey hi how are you {text}</h1>
+
+reminders:
+  list:
+    - 'Markdown files should have `<h2>` as the highest heading level, as the post title already uses `<h1>`'

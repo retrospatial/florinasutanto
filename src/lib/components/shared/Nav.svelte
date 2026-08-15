@@ -26,7 +26,7 @@
 </script>
 
 <nav
-	class="nav-bg sticky top-0 z-50 flex flex-row justify-between items-center py-2 md:py-4 px-6 md:px-8 animation-fly-down bg-dark-gray"
+	class="nav-bg sticky top-0 z-50 flex flex-row justify-between items-center py-2 md:py-4 px-6 md:px-8 animation-fly-down bg-night"
 	style="--delay: 0.4s;"
 >
 	<a href="/" target="_self" rel="noopener noreferrer" class="shrink-0">

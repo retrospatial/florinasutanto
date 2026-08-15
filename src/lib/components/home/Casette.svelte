@@ -117,155 +117,161 @@
 </script>
 
 {#if track}
-<div
-	class="relative w-full max-w-140 h-fit bg-blue rounded-lg overflow-hidden font-mono mx-4 md:mx-0"
->
-	<Image
-		src="textures/plastic.png"
-		class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80 pointer-events-none"
-		alt=""
-	/>
+	<div
+		class="relative w-full max-w-140 h-fit bg-blue rounded-lg overflow-hidden font-mono mx-4 md:mx-0"
+	>
+		<Image
+			src="textures/plastic.png"
+			class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80 pointer-events-none"
+			alt=""
+		/>
 
-	{#if track.previewUrl}
-		<audio
-			bind:this={audioEl}
-			src={track.previewUrl}
-			onplay={() => (playing = true)}
-			onpause={() => (playing = false)}
-			onended={() => (playing = false)}
-			ontimeupdate={() => audioEl && (currentTime = audioEl.currentTime)}
-			onloadedmetadata={() => audioEl && (duration = audioEl.duration)}
-		></audio>
-	{/if}
+		{#if track.previewUrl}
+			<audio
+				bind:this={audioEl}
+				src={track.previewUrl}
+				onplay={() => (playing = true)}
+				onpause={() => (playing = false)}
+				onended={() => (playing = false)}
+				ontimeupdate={() => audioEl && (currentTime = audioEl.currentTime)}
+				onloadedmetadata={() => audioEl && (duration = audioEl.duration)}
+			></audio>
+		{/if}
 
-	<div class="relative z-10 flex h-full flex-col gap-3 p-6">
-		<div class="bg-[#ede4cc] px-4 py-2 body-lg w-fit -rotate-1 font-rock-salt capitalize my-1">
-			let's jam!
-		</div>
+		<div class="relative z-10 flex h-full flex-col gap-3 p-6">
+			<div class="bg-[#ede4cc] px-4 py-2 body-lg w-fit -rotate-1 font-handwriting capitalize my-1">
+				let's jam!
+			</div>
 
-		<!-- casette -->
-		<div
-			class="flex flex-1 flex-col overflow-hidden rounded-sm border border-black/40 shadow-[inset_0_2px_8px_rgba(0,0,0,0.4)]"
-		>
-			<!-- label -->
-			<a
-				href={track.url || undefined}
-				target="_blank"
-				rel="noreferrer"
-				class="flex flex-1 items-center gap-3 bg-[#ede4cc] px-4 py-3 text-[#2a1a08] transition-colors hover:bg-[#e0d4b4]"
-			>
-				{#if track.image}
-					<img
-						src={track.image}
-						alt=""
-						class="size-20 md:size-30 shrink-0 border border-[#b09050]/40 object-cover"
-					/>
-				{:else}
-					<div class="size-20 md:size-30 shrink-0 border border-[#b09050]/40 bg-[#d0c4a4]"></div>
-				{/if}
-				<div class="relative flex min-w-0 flex-1 flex-col justify-center gap-0.5 self-stretch py-2">
-					<div class="pointer-events-none absolute inset-0 flex flex-col justify-around">
-						{#each Array(5) as _, i (i)}
-							<div class="h-px bg-[#b09050]/40"></div>
-						{/each}
-					</div>
-					<span class="font-rock-salt text-wrap body-lg relative font-bold leading-relaxed"
-						>{track.name}</span
-					>
-					<span class="detail-sm relative truncate uppercase text-[#2a1a08]/60"
-						>{track.artist}</span
-					>
-				</div>
-			</a>
-
-			<!-- band -->
+			<!-- casette -->
 			<div
-				class="flex items-center gap-3 px-5 py-3"
-				style="background: linear-gradient(to bottom, #b02020 0%, #b02020 33.3%, #cc5010 33.3%, #cc5010 66.6%, #e88010 66.6%);"
+				class="flex flex-1 flex-col overflow-hidden rounded-sm border border-black/40 shadow-[inset_0_2px_8px_rgba(0,0,0,0.4)]"
 			>
-				{@render reel(leftScale, true)}
-
-				<div
-					class="relative h-12 flex-1 overflow-hidden rounded-sm bg-[#161616] shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]"
+				<!-- label -->
+				<a
+					href={track.url || undefined}
+					target="_blank"
+					rel="noreferrer"
+					class="flex flex-1 items-center gap-3 bg-[#ede4cc] px-4 py-3 text-[#2a1a08] transition-colors hover:bg-[#e0d4b4]"
 				>
-					<div class="absolute bottom-1 left-2 top-1 w-1 rounded-full bg-[#c0b49a]"></div>
-					<div class="absolute bottom-1 right-2 top-1 w-1 rounded-full bg-[#c0b49a]"></div>
-					<div class="absolute left-3 right-3 top-1/2 h-3 -translate-y-1/2 bg-[#3a2812]"></div>
+					{#if track.image}
+						<img
+							src={track.image}
+							alt=""
+							class="size-20 md:size-30 shrink-0 border border-[#b09050]/40 object-cover"
+						/>
+					{:else}
+						<div class="size-20 md:size-30 shrink-0 border border-[#b09050]/40 bg-[#d0c4a4]"></div>
+					{/if}
+					<div
+						class="relative flex min-w-0 flex-1 flex-col justify-center gap-0.5 self-stretch py-2"
+					>
+						<div class="pointer-events-none absolute inset-0 flex flex-col justify-around">
+							{#each Array(5) as _, i (i)}
+								<div class="h-px bg-[#b09050]/40"></div>
+							{/each}
+						</div>
+						<span class="font-handwriting text-wrap body-lg relative font-bold leading-relaxed"
+							>{track.name}</span
+						>
+						<span class="detail-xs relative truncate uppercase text-[#2a1a08]/60"
+							>{track.artist}</span
+						>
+					</div>
+				</a>
+
+				<!-- band -->
+				<div
+					class="flex items-center gap-3 px-5 py-3"
+					style="background: linear-gradient(to bottom, #b02020 0%, #b02020 33.3%, #cc5010 33.3%, #cc5010 66.6%, #e88010 66.6%);"
+				>
+					{@render reel(leftScale, true)}
+
+					<div
+						class="relative h-12 flex-1 overflow-hidden rounded-sm bg-[#161616] shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)]"
+					>
+						<div class="absolute bottom-1 left-2 top-1 w-1 rounded-full bg-[#c0b49a]"></div>
+						<div class="absolute bottom-1 right-2 top-1 w-1 rounded-full bg-[#c0b49a]"></div>
+						<div class="absolute left-3 right-3 top-1/2 h-3 -translate-y-1/2 bg-[#3a2812]"></div>
+					</div>
+
+					{@render reel(rightScale, false)}
+				</div>
+			</div>
+
+			<!-- controls -->
+			<div class="flex items-center gap-2">
+				<span class="shrink-0 detail-xs text-bone">{fmt(currentTime)}</span>
+
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<div
+					class="slot-3d relative h-[6px] flex-1 cursor-pointer rounded-full bg-black/40"
+					role="slider"
+					aria-valuemin={0}
+					aria-valuemax={duration || 1}
+					aria-valuenow={currentTime}
+					tabindex="0"
+					onclick={seek}
+				>
+					<div
+						class="h-full rounded-full bg-lime shadow-[0_0_4px_rgba(216,243,40,0.6)]"
+						style="width:{pct * 100}%"
+					></div>
 				</div>
 
-				{@render reel(rightScale, false)}
+				<!-- <span class="shrink-0 detail-xs text-bone">{fmt(duration)}</span> -->
+
+				{@render ctrlBtn(toggle, playing ? 'Pause' : 'Play', playing ? 'mdi:pause' : 'mdi:play')}
+				{@render ctrlBtn(loadTrack, 'Play another song', 'mdi:shuffle')}
+				{@render linkBtn(
+					'https://www.last.fm/user/sunmetric/',
+					'Open last.fm',
+					'fa7-brands:lastfm'
+				)}
 			</div>
 		</div>
 
-		<!-- controls -->
-		<div class="flex items-center gap-2">
-			<span class="shrink-0 detail-sm text-bone">{fmt(currentTime)}</span>
-
-			<!-- svelte-ignore a11y_click_events_have_key_events -->
-			<div
-				class="slot-3d relative h-[6px] flex-1 cursor-pointer rounded-full bg-black/40"
-				role="slider"
-				aria-valuemin={0}
-				aria-valuemax={duration || 1}
-				aria-valuenow={currentTime}
-				tabindex="0"
-				onclick={seek}
-			>
+		{#snippet screw(position: string)}
+			<div class="absolute {position}">
 				<div
-					class="h-full rounded-full bg-lime shadow-[0_0_4px_rgba(216,243,40,0.6)]"
-					style="width:{pct * 100}%"
+					class="screw relative size-3 rounded-full bg-[#4a4a4a] shadow-[inset_1px_1px_0_#777,inset_-1px_-1px_0_#222]"
 				></div>
 			</div>
+		{/snippet}
 
-			<!-- <span class="shrink-0 detail-sm text-bone">{fmt(duration)}</span> -->
+		{#snippet reel(scale: number, isLeft: boolean)}
+			<div class="shrink-0 [transition:transform_2s_ease]" style="transform: scale({scale})">
+				<div class="reel" class:reel-l={isLeft} class:spin={playing}></div>
+			</div>
+		{/snippet}
 
-			{@render ctrlBtn(toggle, playing ? 'Pause' : 'Play', playing ? 'mdi:pause' : 'mdi:play')}
-			{@render ctrlBtn(loadTrack, 'Play another song', 'mdi:shuffle')}
-			{@render linkBtn('https://www.last.fm/user/sunmetric/', 'Open last.fm', 'fa7-brands:lastfm')}
-		</div>
+		{#snippet ctrlBtn(handler: () => void, label: string, icon: string)}
+			<button
+				onclick={handler}
+				aria-label={label}
+				class="btn-3d flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-lime hover:bg-lime hover:text-black"
+			>
+				<iconify-icon {icon} width="20" height="20"></iconify-icon>
+			</button>
+		{/snippet}
+
+		{#snippet linkBtn(href: string, label: string, icon: string)}
+			<a
+				{href}
+				target="_blank"
+				rel="noreferrer"
+				aria-label={label}
+				class="btn-3d flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-lime hover:bg-lime hover:text-black"
+			>
+				<iconify-icon {icon} width="20" height="20"></iconify-icon>
+			</a>
+		{/snippet}
+
+		{@render screw('top-[7px] left-[7px]')}
+		{@render screw('top-[7px] right-[7px]')}
+		{@render screw('bottom-[7px] left-[7px]')}
+		{@render screw('bottom-[7px] right-[7px]')}
 	</div>
-
-	{#snippet screw(position: string)}
-		<div class="absolute {position}">
-			<div
-				class="screw relative size-3 rounded-full bg-[#4a4a4a] shadow-[inset_1px_1px_0_#777,inset_-1px_-1px_0_#222]"
-			></div>
-		</div>
-	{/snippet}
-
-	{#snippet reel(scale: number, isLeft: boolean)}
-		<div class="shrink-0 [transition:transform_2s_ease]" style="transform: scale({scale})">
-			<div class="reel" class:reel-l={isLeft} class:spin={playing}></div>
-		</div>
-	{/snippet}
-
-	{#snippet ctrlBtn(handler: () => void, label: string, icon: string)}
-		<button
-			onclick={handler}
-			aria-label={label}
-			class="btn-3d flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-lime hover:bg-lime hover:text-black"
-		>
-			<iconify-icon {icon} width="20" height="20"></iconify-icon>
-		</button>
-	{/snippet}
-
-	{#snippet linkBtn(href: string, label: string, icon: string)}
-		<a
-			{href}
-			target="_blank"
-			rel="noreferrer"
-			aria-label={label}
-			class="btn-3d flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/20 bg-black/30 text-lime hover:bg-lime hover:text-black"
-		>
-			<iconify-icon {icon} width="20" height="20"></iconify-icon>
-		</a>
-	{/snippet}
-
-	{@render screw('top-[7px] left-[7px]')}
-	{@render screw('top-[7px] right-[7px]')}
-	{@render screw('bottom-[7px] left-[7px]')}
-	{@render screw('bottom-[7px] right-[7px]')}
-</div>
 {/if}
 
 <style>
