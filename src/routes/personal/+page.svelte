@@ -67,7 +67,7 @@
 							class="grid grid-rows-[1fr] md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300"
 						>
 							<div class="overflow-hidden">
-								<p class=" body-lg pb-2">
+								<p class=" body-md text-balance pb-2">
 									{@html item.desc}
 								</p>
 							</div>

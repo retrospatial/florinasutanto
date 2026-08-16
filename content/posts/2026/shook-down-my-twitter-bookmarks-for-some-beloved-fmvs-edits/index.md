@@ -15,7 +15,7 @@ biblical, it's literally mostly just clips of buffy running but all the little n
 
 <a href="https://www.youtube.com/watch?v=Qku4jTSGlnM">buffy and faith | the last time</a>
 
-goated fuffy fmv the storytelling is seriously so masterful, op needs to get an editing job like that one heated rivalry fanvidder. using the dialogue between faith and robin and &quot;i think you need to brush up on your buffy and faith history&quot; to frame their relationship going back to the beginning....that fragile, tenuous stretch when buffy was making so much effort with her and faith kept fucking it all up.....the 2 seconds of fuffy happy moments leading up to the watershed fallout.....their equal capacity for violence against each other......buffy giving faith another chance again and again until she snaps and faith tries to atone for her sins all too late.....all leading up to the insane sequence of &quot;there's only supposed to be one&quot; &quot;into every generation, a slayer is born. one girl in all the world....&quot; to &quot;we're slayers girlfriend, the chosen two!&quot; &quot;no one else can feel it but us&quot; literallyyyyy the most nauseating heartbreaking romantic same-coin motif of all time WE'RE THE CHOSEN TWO! i love the song choice paralleling the themes of grace and second chances and forgiveness for someone who has hurt you and yet you can't help but love anyway. 
+goated fuffy fmv the storytelling is seriously so masterful, op needs to get an editing job like that one heated rivalry fanvidder. using the dialogue between faith and robin and &quot;i think you need to brush up on your buffy and faith history&quot; to frame their relationship going back to the beginning....that fragile, tenuous stretch when buffy was making so much effort with her and faith kept fucking it all up.....the 2 seconds of fuffy happy moments leading up to the watershed fallout.....their equal capacity for violence against each other......buffy giving faith another chance again and again until she snaps and faith tries to atone for her sins all too late.....all leading up to the insane sequence of &quot;there's only supposed to be one&quot; &quot;into every generation, a slayer is born. one girl in all the world....&quot; to &quot;we're slayers girlfriend, the chosen two!&quot; &quot;no one else can feel it but us&quot; literallyyyyy the most nauseating heartbreaking romantic same-coin motif of all time WE'RE THE CHOSEN TWO! i love the song choice paralleling the themes of grace and second chances and forgiveness for someone who has hurt you and yet you can't help but love anyway.
 
 <a href="https://www.tiktok.com/@buffering577/video/7603140720010038550">buffy | white winter hymnal</a>
 
@@ -39,7 +39,7 @@ classic ribs edit guaranteed to snipe me in the brain with the chorus alone. it'
 
 <a href="https://x.com/sappy_sappho1/status/2039430219417747473">yellowjackets jackieshauna | guess x super graphic ultra modern girl</a>
 
-this is just funnn i love the song mashup and the juxtaposition between the violent and happy moments 
+this is just funnn i love the song mashup and the juxtaposition between the violent and happy moments
 
 <a href="https://x.com/1918friends/status/1645471531898634241">yellowjackets | black skinhead</a>
 

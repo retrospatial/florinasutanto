@@ -1,0 +1,1 @@
+now the SWEAT TOUR…some guy on reddit had an extra nosebleed ticket so i snatched it up last minute. the thrill of IT’SOKAYTOADMITTHATYOU’REJEALOUSOFME…the icona pop club banger…girl so confusing…VROOM VROOM. as you can tell i did not gaf about troye’s music that much but i enjoyed his dancing.

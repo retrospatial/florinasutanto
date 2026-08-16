@@ -24,6 +24,18 @@
 	let { data }: Props = $props();
 	const { post, Content, toc } = data;
 
+	function smoothJump(event: MouseEvent, slug: string) {
+		const target = document.getElementById(slug);
+		if (!target) return;
+
+		event.preventDefault();
+		target.scrollIntoView({
+			behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+			block: 'start'
+		});
+		history.replaceState(history.state, '', `#${slug}`);
+	}
+
 	function externalLinks(node: HTMLElement) {
 		node.querySelectorAll('a[href^="http"]').forEach((link) => {
 			link.setAttribute('target', '_blank');
@@ -43,12 +55,7 @@
 		</Window>
 	{/if}
 
-	<article
-		class="e-content blog cheatsheet"
-		use:addCopyButtons
-		use:addLightbox
-		use:externalLinks
-	>
+	<article class="e-content blog cheatsheet" use:addCopyButtons use:addLightbox use:externalLinks>
 		<Content />
 	</article>
 	<span class="p-author h-card" hidden>Florina Sutanto</span>
@@ -65,7 +72,11 @@
 		{#each items as item}
 			<li>
 				{#if depth === 0}
-					<a class="detail-md flex gap-2 font-bold" href="#{item.slug}">
+					<a
+						class="detail-md flex gap-2 font-bold"
+						href="#{item.slug}"
+						onclick={(e) => smoothJump(e, item.slug)}
+					>
 						<span
 							class="text-blue w-4 shrink-0 -translate-y-[0.08em] text-center"
 							aria-hidden="true">✧</span
@@ -73,7 +84,11 @@
 						{item.title}
 					</a>
 				{:else}
-					<a class="detail-sm {depth > 1 ? 'normal-case' : ''}" href="#{item.slug}">{item.title}</a>
+					<a
+						class="detail-sm {depth > 1 ? 'normal-case' : ''}"
+						href="#{item.slug}"
+						onclick={(e) => smoothJump(e, item.slug)}>{item.title}</a
+					>
 				{/if}
 
 				{#if item.children.length}

@@ -2,12 +2,10 @@
 title: Changelog
 ---
 
-<script>
-  import Aside from '$lib/helpers/Aside.svelte'
-</script>
+<!-- ## 2026-08-16
 
-<!-- - Added a [concerts](/concerts) page
-- Nested the [bookshelf](/bookshelf), [music page](/music), and concerts under [media](/media) -->
+- Nested the [bookshelf](/bookshelf), [music page](/music), and concerts under [media](/media)
+- Added an [archive](/archive) page for previous site designs -->
 
 ## 2026-08-15
 
@@ -16,7 +14,8 @@ Created this changelog page, so...let's fast forward the past 8 months.
 Many major updates (in a single commit, no less...):
 
 - Moved the [colophon](/colophon) from a blog post to its own route
-- Created a [sitemap](/sitemap), [style guide](/style), [cheatsheet](/cheatsheet), and [archive](/archive) for previous site designs
+- Created a [sitemap](/sitemap), [style guide](/style), and [cheatsheet](/cheatsheet)
+- Added a [concerts](/concerts) page
 - Added an aside component
 - Added each bookshelf post to the RSS
 - Realized that I had never actually applied Neue Montreal as the body font and had just been reading in Apple's default SF Pro the entire time until now 🙃

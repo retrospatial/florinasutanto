@@ -1,75 +1,100 @@
 <script lang="ts">
 	import Section from '$lib/helpers/Section.svelte';
 	import Heading from '$lib/helpers/Heading.svelte';
-	import { onMount } from 'svelte';
+	import Image from '$lib/helpers/Image.svelte';
 	import { page } from '$app/state';
-	import md from '$lib/utils/md';
+	import { formatDate } from '$lib/utils/blog';
+	import { slugify } from '$lib/utils/slug.js';
 
 	const content = page.data;
 
-	interface Book {
-		title: string;
-		slug?: string | null;
-		pages?: number;
-		release_date?: string;
-		last_read_date?: string;
-		authors?: string;
-		rating?: number;
-		review?: string;
-		image?: string;
-		url?: string;
+	interface Show {
+		artist: string;
+		date?: string | null;
+		venue?: string | null;
+		city?: string | null;
+		support?: string[];
+		poster?: string | null;
 	}
 
-	const shelves = [
-		{ title: 'Favorites', listType: 'favorite' as const },
-		{ title: 'Reading', listType: 'currently-reading' as const },
-		{ title: 'Read', listType: 'recent' as const }
-	];
-
-	let booksData = $state<{ [key: string]: Book[] }>({
-		favorite: [],
-		'currently-reading': [],
-		recent: []
-	});
-
-	function hasReview(book: Book): boolean {
-		return !!book.review && book.review.replace(/<[^>]*>/g, '').trim().length > 0;
+	interface Year {
+		year: number;
+		shows?: Show[] | null;
 	}
 
-	async function fetchBooks(listType: 'recent' | 'favorite' | 'currently-reading') {
-		const response = await fetch(`/api/books?list=${listType}`);
-		const result = await response.json();
+	const place = (show: Show) => [show.venue, show.city].filter(Boolean).join(', ');
 
-		if (result.books && result.books.length > 0) {
-			booksData[listType] = result.books;
-		}
-	}
+	const written: string[] = content.written ?? [];
+	const linkTo = (year: number, show: Show) => {
+		const path = `${year}/${slugify(show.artist)}`;
+		return written.includes(path) ? `/concerts/${path}` : null;
+	};
 
-	onMount(() => {
-		shelves.forEach((shelf) => fetchBooks(shelf.listType));
-	});
+	const years = ((content.concerts ?? []) as Year[]).filter((y) => y.shows?.length);
 </script>
 
-<Section small>
-	<Heading hed={content.title} dek={md(content.note)} />
+<Section medium class="">
+	<Heading hed={content.title} />
 
-	<main class="flex flex-col gap-8">
-		<!-- read shelf — each reviewed book links to its own /bookshelf/[slug] page -->
-		<div class="mb-6 w-fit shrink-0">
-			<ul class="grid list-none grid-cols-4 gap-2 md:grid-cols-6 md:gap-4">
-				{#each booksData[shelves[2].listType].filter((book) => hasReview(book) && book.slug) as book}
-					<li>
-						{#if book.image}
-							<a
-								href="/bookshelf/{book.slug}"
-								class="hover:border-lime block border-2 border-transparent transition-all duration-300"
-							>
-								<img src={book.image} alt={book.title} />
+	{#each years as { year, shows }}
+		<section class="mb-10">
+			<h2 class="bg-bone detail-lg text-night mb-4 w-fit px-2">{year}</h2>
+
+			<ul class="columns-2 list-none gap-4 md:columns-4 md:gap-6">
+				{#each shows ?? [] as show}
+					<li class="mb-6 break-inside-avoid">
+						{#if linkTo(year, show)}
+							<a href={linkTo(year, show)} class="card no-link-decor flex flex-col gap-2">
+								{@render details(year, show)}
 							</a>
+						{:else}
+							<div class="flex flex-col gap-2">
+								{@render details(year, show)}
+							</div>
 						{/if}
 					</li>
 				{/each}
 			</ul>
-		</div>
-	</main>
+		</section>
+	{/each}
 </Section>
+
+{#snippet details(year: number, show: Show)}
+	<Image
+		src="concerts/{year}/{show.poster}"
+		alt="Concert poster for {show.artist}"
+		class="border-outset w-full"
+	/>
+
+	<div class="flex flex-col gap-0.5">
+		<p class="artist body-lg font-heading mb-0 font-bold uppercase">{show.artist}</p>
+
+		{#if show.date}
+			<time class="detail-sm text-bone/70" datetime={show.date}>{formatDate(show.date)}</time>
+		{/if}
+
+		{#if place(show)}
+			<p class="detail-sm text-bone mb-0 uppercase">{place(show)}</p>
+		{/if}
+
+		{#if show.support?.length}
+			<p class="body-md text-bone mb-0">+ {show.support.join(', ')}</p>
+		{/if}
+	</div>
+{/snippet}
+
+<style lang="postcss">
+	@reference '$lib/styles/app.css';
+
+	.card :global(.artist) {
+		@apply text-orange;
+	}
+
+	.card :global(img) {
+		@apply transition-colors duration-300;
+	}
+
+	.card:hover :global(img) {
+		border-color: var(--color-orange);
+	}
+</style>

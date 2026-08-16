@@ -22,14 +22,14 @@ map:
       - title: Blogroll
         url: /blogroll
       - title: Media
-        url: '#'
+        url: /media
         subpages:
           - title: Music
             url: /music
           - title: Bookshelf
             url: /bookshelf
-          # - title: Concerts
-          #   url: /concerts
+          - title: Concerts
+            url: /concerts
   - category: Site
     pages:
       - title: Colophon

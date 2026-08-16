@@ -1,0 +1,1 @@
+they were cute! i didn't know them before the show but i saw that they were performing at the sinclair for $30 so i was like why not, i love live music. two of their songs ended up in my rotation: in camera and cowboy without a clue. i haven't had much of an appetite for slow moody alt pop lately but it's pleasant easy listening.

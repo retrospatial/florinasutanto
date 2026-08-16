@@ -35,6 +35,12 @@ blogroll:
         link: https://ladybusiness.dreamwidth.org/
       - title: The Singles Jukebox
         link: https://thesinglesjukebox.com/
+  - title: Other cool things
+    links:
+      - title: Floor796
+        link: https://floor796.com/
+      - title: Making Software
+        link: https://www.makingsoftware.com/
   - title: People on the Internet
     links:
       - title: Emma Goto
@@ -54,11 +60,13 @@ blogroll:
       - title: sweetfish
         link: https://sweetfish.site/
       - title: Everest Pipkin
-        link: https://everest-pipkin.com/#
+        link: https://everest-pipkin.com/
       - title: Ian Martin
         link: https://blog.ianmartin.rocks/
       - title: anhvn
         link: https://anhvn.com/
+      - title: Pablo Helguera
+        link: https://pablohelguera.substack.com/
   - title: Tech
     links:
       - title: Ben Borgers
@@ -73,13 +81,3 @@ blogroll:
         link: https://32bit.cafe/
       - title: The HTML Review
         link: https://thehtml.review/about
-  - title: Other cool things
-    links:
-      - title: Floor796
-        link: https://floor796.com/
-      - title: Making Software
-        link: https://www.makingsoftware.com/
-      - title: Sudden Death
-        link: https://dominoclub.itch.io/sudden-death
-      - title: Space Exploration Logo Archive
-        link: https://spaceexplorationlogoarchive.webflow.io/

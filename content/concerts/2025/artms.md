@@ -1,0 +1,1 @@
+i had fun seeing artms! a big part of it was definitely my loona nostalgia though, i liked the rock/edgier orchestration and they were great performers but i haven’t kept up with them or the broader group at all since their implosion, so i mostly saw them for old times’ sake.

@@ -2,7 +2,7 @@
 	import Section from '$lib/helpers/Section.svelte';
 	import Heading from '$lib/helpers/Heading.svelte';
 	import { page } from '$app/state';
-	import md from '$lib/utils/md';
+	import { mdInline } from '$lib/utils/md';
 
 	const content = page.data;
 </script>
@@ -11,10 +11,16 @@
 	<Heading hed={content.title} />
 
 	<section class="">
-		<p class="">{@html md(content.text[0])}</p>
+		<p class="title">{@html mdInline(content.text[0])}</p>
+		<p class="title">{@html mdInline(content.text[1])}</p>
+		<p class="title">{@html mdInline(content.text[2])}</p>
 	</section>
 </Section>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';
+
+	.title {
+		@apply font-handwriting text-2xl md:text-4xl;
+	}
 </style>

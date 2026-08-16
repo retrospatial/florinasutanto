@@ -45,8 +45,14 @@
 	li {
 		@apply relative pl-2 md:pl-4;
 	}
+	hr {
+		@apply border-teal my-8 border-t-2 border-dotted;
+	}
 	blockquote {
-		@apply border-orange my-8 border-l-4 pl-4 md:pl-6;
+		@apply border-orange body-md bg-orange/10 my-8 border-l-4 border-dotted p-4 pl-4 md:pl-6;
+		p {
+			font-size: inherit;
+		}
 	}
 	pre {
 		@apply bg-night my-6 overflow-x-auto p-4;

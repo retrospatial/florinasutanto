@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { mdsvex } from 'mdsvex';
 import { colocatedAssets } from './scripts/colocated-assets.js';
+import { escapeAngles } from './scripts/escape-angles.js';
 import { highlight } from './scripts/shiki.js';
 import { rehypeHeadingIds } from './scripts/rehype-heading-ids.js';
 
@@ -8,6 +9,7 @@ export default {
 	extensions: ['.svelte', '.md'],
 	preprocess: [
 		colocatedAssets(),
+		escapeAngles(),
 		mdsvex({
 			extensions: ['.md'],
 			rehypePlugins: [rehypeHeadingIds],

@@ -7,13 +7,6 @@
 @layer base {
 	html {
 		@apply font-body;
-		scroll-behavior: smooth;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		html {
-			scroll-behavior: auto;
-		}
 	}
 
 	html,

@@ -3,7 +3,11 @@ import { json } from '@sveltejs/kit';
 const ITUNES_BASE = 'https://itunes.apple.com';
 
 const clean = (s: string) =>
-	s.replace(/[^\w\s]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+	s
+		.replace(/[^\w\s]/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim()
+		.toLowerCase();
 
 function trackNameMatches(itunesName: string, nameLower: string, originalName: string): boolean {
 	const rt = clean(itunesName);
@@ -28,7 +32,9 @@ function trackNameMatches(itunesName: string, nameLower: string, originalName: s
 }
 
 function bestMatch(results: any[], nameLower: string, originalName: string): any | null {
-	const matches = results.filter((r) => trackNameMatches(r.trackName ?? '', nameLower, originalName));
+	const matches = results.filter((r) =>
+		trackNameMatches(r.trackName ?? '', nameLower, originalName)
+	);
 	if (!matches.length) return null;
 	// Prefer exact match, then shortest name (avoids "(iTunes Originals Version)" etc.)
 	matches.sort((a, b) => {

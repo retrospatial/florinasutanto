@@ -1,7 +1,130 @@
-title: my bookshelf
+title: Concerts
 
-note: >
-  The book reviews below are not so much 'reviews' as unserious garble pulled from my fandom blog. I tend to love louche and unsavory characters so you'll see me harping on about them a lot here. Keep in mind that the themes I like in fiction might not necessarily align with my beliefs in real life!
+concerts:
+  - year: 2026
+    shows:
+      - artist: twice
+        date: '2026-04-04'
+        venue: td garden
+        city: boston
+        poster: twice.webp
+      - artist: the last dinner party
+        date: '2026-04-18'
+        venue: roadrunner
+        city: boston
+        poster: tldp.jpg
+        support:
+          - florence road
+      - artist: lcd soundsystem
+        date: '2026-05-01'
+        venue: roadrunner
+        city: boston
+        poster: lcd.jpg
+        support:
+          - exek
+      - artist: yumi zouma
+        date: '2026-05-04'
+        venue: the sinclair
+        city: cambridge
+        poster: yumi.jpeg
+        support:
+          - ducks ltd
+      - artist: underscores
+        date: '2026-06-14'
+        venue: royale
+        city: boston
+        poster: underscores.jpeg
+        support:
+          - umru
+      - artist: metric
+        date: '2026-07-27'
+        venue: mgm music hall
+        city: boston
+        poster: metric.webp
+        support:
+          - broken social scene
+          - stars
+      - artist: slayyyter
+        date: '2026-09-26'
+        venue: roadrunner
+        city: boston
+        poster: slayyyter.webp
+        support:
+      - artist: olivia rodrigo
+        date: '2026-12-07'
+        venue: climate pledge arena
+        city: seattle
+        poster: olivia.jpg
+        support:
 
+  - year: 2025
+    shows:
+      - artist: aespa
+        date: '2025-02-12'
+        venue: prudential center
+        city: new jersey
+        poster: aespa.webp
+      - artist: michelle
+        date: '2025-02-18'
+        venue: the sinclair
+        city: cambridge
+        poster: michelle.jpeg
+      - artist: sleigh bells
+        date: '2025-06-06'
+        venue: paradise rock club
+        city: boston
+        poster: sleigh.jpg
+        support:
+          - atomic life
+          - sophie hunter
+      - artist: lorde
+        date: '2025-09-26'
+        venue: td garden
+        city: boston
+        poster: lorde.webp
+        support:
+          - japanese house
+          - blood orange
+      - artist: el alfa
+        date: '2025-10-12'
+        venue: mgm music hall
+        city: boston
+        poster: alfa.jpg
+      - artist: artms
+        date: '2025-11-08'
+        venue: chevalier theater
+        city: medford
+        poster: artms.webp
 
-  Blanket warning for spoilers and NSFW themes. And chronically online language.
+  - year: 2024
+    shows:
+      - artist: twenty one pilots
+        date: '2024-09-20'
+        venue: td garden
+        city: boston
+        poster: top.webp
+        support:
+          - balu brigada
+      - artist: charli xcx & troye sivan
+        date: '2024-09-28'
+        venue: td garden
+        city: boston
+        poster: sweat.jpg
+        support:
+          - shygirl
+
+  - year: 2023
+    shows:
+      - artist: twice
+        date: '2023-07-06'
+        venue: metlife stadium
+        city: new jersey
+        poster: twice.jpg
+
+  - year: 2022
+    shows:
+      - artist: loona
+        date: '2022-08-19'
+        venue: palladium times square
+        city: new york
+        poster: loona.jpeg

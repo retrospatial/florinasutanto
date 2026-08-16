@@ -60,7 +60,7 @@
 							{#if hasReview(book) && book.slug}
 								<a
 									href="/bookshelf/{book.slug}"
-									class="border-lime border-dotted md:border-dashed block border-2 hover:-translate-y-2 transition-all duration-300"
+									class="border-lime block border-2 hover:-translate-y-2 transition-all duration-300"
 								>
 									<img src={book.image} alt={book.title} />
 								</a>

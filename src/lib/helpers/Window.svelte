@@ -2,6 +2,7 @@
 	let {
 		children,
 		color = 'bg-blue',
+		width = 'w-full',
 		scrollbarTrack = 'var(--color-white)',
 		scrollbarThumb = 'var(--color-night)',
 		class: classes = '',
@@ -11,6 +12,8 @@
 	interface Props {
 		class?: string;
 		color?: string;
+		/** override when the window should hug its content, e.g. "w-fit" */
+		width?: string;
 		scrollbarTrack?: string;
 		scrollbarThumb?: string;
 		style?: string;
@@ -18,7 +21,7 @@
 	}
 </script>
 
-<div class="bg-white border-outset w-full flex flex-col {classes}" {style}>
+<div class="bg-white border-outset {width} flex flex-col {classes}" {style}>
 	<div class="relative w-full">
 		<header class="{color} top-0 h-6 w-full">
 			<div
