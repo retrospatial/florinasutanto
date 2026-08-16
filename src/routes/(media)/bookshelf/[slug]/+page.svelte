@@ -23,7 +23,13 @@
 </script>
 
 <Section small>
-	<Heading hed={content.title} href="/bookshelf" />
+	<a
+		href="/bookshelf"
+		class="group detail-xs text-night mb-6 inline-flex w-fit -rotate-1 items-center gap-2 border-l-2 border-[#ED7064] bg-white py-1 pr-3 pl-2 shadow-[2px_2px_0_rgb(0_0_0/0.35)] transition duration-300 hover:rotate-0 hover:text-[#3a2ee6] hover:underline motion-reduce:rotate-none"
+	>
+		<span class="inline-block transition-transform duration-300 group-hover:-translate-x-1">←</span>
+		all books
+	</a>
 
 	<section
 		class="notebook-page relative rounded-tr-2xl rounded-br-2xl bg-white py-8 pr-4 pl-10 text-black! lg:pr-10 lg:pl-16"
@@ -36,8 +42,6 @@
 
 		<div class="review-content mt-6 leading-6 lg:mt-4 lg:leading-8">
 			{@html book.review}
-
-			<p class="italic">read in {readYear}</p>
 		</div>
 	</section>
 </Section>

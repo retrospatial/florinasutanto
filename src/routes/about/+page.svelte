@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Section from '$lib/helpers/Section.svelte';
 	import Heading from '$lib/helpers/Heading.svelte';
-	import Polaroids from '$lib/components/home/Polaroids.svelte';
+	import Polaroids from '$lib/components/about/Polaroids.svelte';
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
 

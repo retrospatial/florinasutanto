@@ -37,8 +37,6 @@
 		return [...groups.entries()].sort(([a], [b]) => b.localeCompare(a));
 	});
 
-	// fetched here rather than in +page.ts: that load is prerendered, which would
-	// freeze the shelf at build time
 	onMount(async () => {
 		const res = await fetch('/api/books?list=recent');
 		if (!res.ok) return;
@@ -60,9 +58,22 @@
 							{#if hasReview(book) && book.slug}
 								<a
 									href="/bookshelf/{book.slug}"
-									class="border-lime block border-2 hover:-translate-y-2 transition-all duration-300"
+									class="border-lime group relative block border-2 transition-transform duration-300 hover:-translate-y-2"
 								>
 									<img src={book.image} alt={book.title} />
+
+									<span
+										class="bg-lime text-night absolute top-0 right-0 flex size-4 items-center justify-center text-[0.6rem] leading-none md:size-5 md:text-xs"
+										aria-hidden="true">✧</span
+									>
+
+									<div
+										class="bg-night/75 absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+									>
+										<span class="detail-sm text-lime px-1 text-center leading-tight"
+											>read review</span
+										>
+									</div>
 								</a>
 							{:else}
 								<img src={book.image} alt={book.title} class="block border-2 border-transparent" />

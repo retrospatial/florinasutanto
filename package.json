@@ -11,7 +11,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"dither": "node scripts/dither-posters.js"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
@@ -21,7 +22,6 @@
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/vite": "^4.1.17",
 		"@types/node": "^22",
-		"@types/three": "^0.184.0",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.0",
@@ -31,7 +31,6 @@
 		"prettier-plugin-tailwindcss": "^0.7.1",
 		"svelte": "^5.43.8",
 		"svelte-check": "^4.3.4",
-		"svelte-piano": "^0.1.1",
 		"tailwindcss": "^4.1.17",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.47.0",
@@ -44,8 +43,6 @@
 	},
 	"dependencies": {
 		"@rollup/plugin-yaml": "^4.1.2",
-		"@threlte/core": "^8.5.11",
-		"@threlte/extras": "^9.15.1",
 		"@vercel/analytics": "^2.0.1",
 		"@vercel/speed-insights": "^2.0.0",
 		"bits-ui": "^2.14.4",
@@ -56,7 +53,6 @@
 		"markdown-it-bracketed-spans": "^1.0.1",
 		"markdown-it-task-lists": "^2.1.1",
 		"mdsvex": "^0.12.6",
-		"shiki": "^3.21.0",
-		"three": "^0.184.0"
+		"shiki": "^3.21.0"
 	}
 }
