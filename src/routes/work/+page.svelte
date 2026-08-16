@@ -41,7 +41,7 @@
 								<source data-src={`/assets/cover_vids/${item.cover}`} type="video/mp4" />
 							</video>
 						{:else}
-							<Image src={`cover_imgs/${item.cover}`} alt={item.title} class="cover" />
+							<Image src={`cover_imgs/${item.cover}`} alt={item.title} class="cover" lightbox={false} />
 						{/if}
 					</div>
 

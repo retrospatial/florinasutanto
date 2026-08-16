@@ -41,7 +41,6 @@
 				src={image.src}
 				alt={image.title}
 				class="w-full aspect-square object-cover"
-				lightbox={true}
 			/>
 			<div class="bg-[#E3E3E3] py-4 flex items-center justify-center">
 				<p

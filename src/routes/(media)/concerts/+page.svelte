@@ -62,6 +62,7 @@
 {#snippet details(year: number, show: Show)}
 	<Image
 		src="concerts/{year}/{show.poster}"
+						lightbox={false}
 		alt="Concert poster for {show.artist}"
 		class="border-outset w-full"
 	/>

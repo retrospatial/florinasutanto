@@ -125,6 +125,7 @@
 			<div class="h-full w-full shrink-0">
 				<Image
 					src={img.src}
+						lightbox={false}
 					alt={img.alt}
 					class="pointer-events-none h-full w-full object-cover object-[center_30%]"
 					lazy={i > 1}

@@ -52,6 +52,7 @@
 						{:else}
 							<Image
 								src={`cover_imgs/${item.cover}`}
+						lightbox={false}
 								alt={item.title}
 								class="w-full h-full object-cover"
 							/>

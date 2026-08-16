@@ -1,10 +1,14 @@
+<script>
+  import Image from '$lib/helpers/Image.svelte'
+</script>
+
 unfinished account of aespacon that's been toiling in my drafts for months
 
-![Aespa on stage](/assets/images/concerts/misc/aespa_1.jpeg)
+<Image src="concerts/misc/aespa_1.webp" alt="Aespa on stage" />
 
 i'd been anticipating seeing aespa since summer 24 when my tl was flooded with fancams from their asia leg and was pretty sure they were going to tour the US too. when it was announced i knew ticketing was going to be a bloodbath though and went back and forth about buying a weverse membership for the presale code, only to miss the deadline (plus i couldn't actually figure out what the steps were...). luckily valinors graciously offered their code and i was able to snag a really good seat within my budget!! the $25 membership is more than worth it for presale imo. this view for $180 was a total steal.
 
-![View from my seat](/assets/images/concerts/misc/aespa_2.jpeg)
+<Image src="concerts/misc/aespa_2.webp" alt="View from my seat" />
 
 i feel like i’m getting too old/tired to travel to new jersey for concerts though [guy who is 23], it's just really stressful....i’ve only gone alone so there’s no one to share/mitigate the travel logistics with, the trip requires so many connections (esp because i have to drop my stuff off first at my friend's place and can’t head straight to the concert venue), and the concerts i’ve been to have always been on a work day! i took time off for the second half of the day but still had to attend a work meeting on the amtrak and it was the WORST. i completely missed that i was in the quiet car which was my bad (i still spoke quietly because that’s my default on public transportation) but then this starbucks drinking white woman sat next to me and immediately narced on me to the train conductor while i was mid speech not even realizing what was going on. i apologized and tried to communicate with my coworkers that i needed to mute for the rest of the meeting but she kept yapping in my ear!!! and then we continued being seatmates until new york because i didn't want to test my luck finding a seat elsewhere. picture me seething for 3 hours with the setlist blaring on loop through my airpods.
 
@@ -42,4 +46,4 @@ i think it was you who said that wtmw sounds like a jurassic park theme?? which 
 
 i'm glad you enjoyed the show!! i think mine had more casual fans so you could really tell the difference in the crowd reaction during main tts vs bsides or even the solos. i looked thru my gallery to reminisce while writing this post and was sniped by miss minjeong again < 3
 
-![View of Winter on stage](/assets/images/concerts/misc/aespa_3.jpg)
+<Image src="concerts/misc/aespa_3.webp" alt="View of Winter on stage" />

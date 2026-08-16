@@ -38,7 +38,6 @@
 							src="archive/{img}"
 							alt="{item.title} design, screenshot {i + 1}"
 							class="md:border-outset border-outset-small"
-							lightbox={true}
 						/>
 					{/each}
 				</div>

@@ -122,6 +122,7 @@
 	>
 		<Image
 			src="textures/plastic.png"
+						lightbox={false}
 			class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-80 pointer-events-none"
 			alt=""
 		/>

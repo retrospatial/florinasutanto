@@ -25,7 +25,6 @@
 			src="random/italy.png"
 			alt="Dithered image of a view in Italy"
 			class="absolute top-1/2 left-1/2 w-full max-w-none -translate-x-1/2 -translate-y-[80%] lg:inset-0 lg:h-full lg:w-full lg:translate-none lg:object-cover"
-			lightbox={true}
 		/>
 	</div>
 

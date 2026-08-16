@@ -2,6 +2,15 @@
 	const isDev = import.meta.env.DEV;
 
 	function getFullPath(src: string): string {
+		// vite compiles a colocated asset import to `new URL(…, import.meta.url).href`,
+		// which is absolute on the client but a plain path during SSR. without this the
+		// hydrated src becomes /assets/images/https://… and 404s.
+		if (/^https?:\/\//.test(src)) {
+			const url = new URL(src);
+			const sameOrigin = typeof location !== 'undefined' && url.origin === location.origin;
+			return sameOrigin ? url.pathname : src;
+		}
+
 		if (src.startsWith('/')) return src;
 		const basePath =
 			src.startsWith('cover_imgs/') || src.startsWith('blog/') ? '/assets/' : '/assets/images/';
@@ -35,7 +44,7 @@
 
 	let {
 		lazy = true,
-		lightbox = false,
+		lightbox = true,
 		src,
 		alt,
 		class: classes = '',

@@ -42,7 +42,6 @@
 						src="concerts/{year}/{show.poster}"
 						alt="Concert poster for {show.artist}"
 						class="border-outset-small w-full shrink-0 sm:w-80"
-						lightbox={true}
 					/>
 				{/if}
 

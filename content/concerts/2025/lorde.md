@@ -1,3 +1,7 @@
+<script>
+  import Image from '$lib/helpers/Image.svelte'
+</script>
+
 my lorde lore is that i had tickets to her solar power tour back in 2022 (vaguely remember being on shift at the campus library during the presale war....) but then she cancelled the night before the show due to illness and i couldn't make the rescheduled date (day after i landed in taiwan for my study abroad semester). so when this tour was announced i immediately booked myself in and camped out during presale....well i should've expected it but the ticketing war was INSANE. i was planning to get 4 tickets but all the other lordeheads in the queue with me were working overtime to snatch the seats that i wanted, and then it bled over to a meeting that i was supposed to lead, so while my coworkers were making small talk i just blindly rapid fired at ticketmaster from the corner of my eye and came out with 2 seats that i didn't even have time to look at until my meeting was over.
 
 and THEN virgin came out.....to be honest it kind of flopped for me at first listen and lorde herself had a weird pr crisis during the rollout so my hype for it deflated a little. i mean pure heroine and melodrama are objectively perfect platinum all-kill albums in my house so i had veeeeeery high expectations, i didn't dislike solar power but i definitely don't listen to it as much as the other two so i was hoping that L4 would be a return to form. i appreciate it NOW post-concert having experienced it live but i definitely found the songs underwhelming at first.....loved the i'm probably non binary but i'm an international pop star so idc about that right now visuals though.
@@ -12,7 +16,7 @@ favs from the setlist: broken glass, my favorite off virgin; buzzcut season (i w
 
 my sister saw her the next day in montreal and left this note for her there :')
 
-![A note my sister left for Lorde at her Montreal show](/assets/images/concerts/misc/lorde.jpg)
+<Image src="concerts/misc/lorde.webp" alt="A note my sister left for Lorde at her Montreal show" />
 
 <hr>
 
