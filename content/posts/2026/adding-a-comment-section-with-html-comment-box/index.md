@@ -1,7 +1,7 @@
 ---
 title: Adding a comment section with HTML Comment Box
 slug: html-comment-box
-desc: With some SvelteKit modifications.
+desc: with some sveltekit modifications
 cover: hcb.webp
 date_published: 2026-03-05
 date_updated: 2026-07-29

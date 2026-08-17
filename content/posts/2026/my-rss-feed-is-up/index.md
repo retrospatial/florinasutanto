@@ -1,8 +1,8 @@
 ---
 title: My RSS feed is up!
 slug: rss-feed
-desc: RSS continues to be my favorite method of curating what I read on the internet.
-cover: rss.webp
+desc: ''
+cover:
 date_published: 2026-03-01
 tags:
   - code

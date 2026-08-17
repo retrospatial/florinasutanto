@@ -1,7 +1,7 @@
 ---
 title: Rubber ducking (Buffy ducking?)
 slug: rubber-ducking
-desc: 'I have a Buffy tabletop figurine that I use for rubber duck debugging.'
+desc: 'buffy everywhere, all the time'
 cover: ''
 date_published: 2026-03-17
 date_updated: ''

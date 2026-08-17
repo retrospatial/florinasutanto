@@ -1,6 +1,6 @@
 ---
 title: struck by a sudden case of emily bluntmania
-desc: ''
+desc: 'longish midyear update'
 cover: ''
 date_published: 2026-08-02
 date_updated: ''

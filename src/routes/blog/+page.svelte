@@ -62,11 +62,11 @@
 								>
 									{post.title}
 								</h2>
-								<!-- <p
+								<p
 									class="body-lg text-bone/80 group-hover:text-black/80 transition-colors duration-300"
 								>
 									{post.desc}
-								</p> -->
+								</p>
 							</div>
 
 							<time

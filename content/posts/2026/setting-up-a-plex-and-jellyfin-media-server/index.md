@@ -1,7 +1,7 @@
 ---
 title: Setting up a Plex (and Jellyfin) media server
 slug: plex-jellyfin-setup
-desc: I moved my media collection to a newly acquired PC server.
+desc: we should all own our media
 cover: ''
 date_published: 2026-04-10
 date_updated: ''

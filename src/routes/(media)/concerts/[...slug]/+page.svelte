@@ -84,7 +84,7 @@
 					{/if}
 
 					{#if show.support?.length}
-						<p class="font-handwriting text-teal mb-0 text-[1.2rem] leading-[1.4]">
+						<p class="font-handwriting text-teal mb-0 text-base md:text-lg leading-[1.4]">
 							with {show.support.join(' & ')}
 						</p>
 					{/if}

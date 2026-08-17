@@ -1,13 +1,9 @@
-# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
-
 backend:
   name: github
   repo: retrospatial/florinasutanto
   branch: main
   skip_ci: true
 
-media_folder: /static/assets/blog
-public_folder: /assets/blog
 
 collections:
   - name: posts
@@ -16,8 +12,6 @@ collections:
     create: true
     path: "{{year}}/{{slug}}/index"
     slug: "{{slug}}"
-    media_folder: ""
-    public_folder: ""
     fields:
       - label: Title
         name: title
@@ -33,11 +27,6 @@ collections:
       - label: Description
         name: desc
         widget: string
-        required: false
-
-      - label: Cover
-        name: cover
-        widget: image
         required: false
 
       - label: Body
