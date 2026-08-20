@@ -12,8 +12,7 @@
 	const links = [
 		{ href: '/about', title: 'about' },
 		{ href: '/now', title: 'now' },
-		{ href: '/bookshelf', title: 'books' },
-		{ href: '/music', title: 'music' },
+		{ href: '/media', title: 'media' },
 		{ href: '/blogroll', title: 'blogroll' }
 	];
 

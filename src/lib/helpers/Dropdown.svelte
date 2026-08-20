@@ -44,7 +44,9 @@
 				: '0'}deg);"
 		></iconify-icon>
 	</DropdownMenu.Trigger>
-	<DropdownMenu.Content class="z-50" align="end" sideOffset={4} forceMount>
+	<!-- preventScroll={false}: bits-ui locks body scroll while the menu is open, and the
+	     vanishing scrollbar reflows the page. a nav menu doesn't need the lock. -->
+	<DropdownMenu.Content class="z-50" align="end" sideOffset={4} forceMount preventScroll={false}>
 		{#if open}
 			<div
 				class="flex flex-col gap-2 mt-2 md:mt-4 bg-night p-4 border border-lime border-dashed"

@@ -40,8 +40,8 @@ map:
         url: /changelog
       - title: Cheatsheet
         url: /cheatsheet
-      - title: Style guide
-        url: /style
+      # - title: Style guide
+      #   url: /style
       # - title: Site archive
       #   url: /archive
       - title: RSS feed

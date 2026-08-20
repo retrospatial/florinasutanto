@@ -1,4 +1,4 @@
-/* Gaya — display */
+/* Gaya */
 @font-face {
 	font-family: 'Gaya';
 	src: url('/fonts/gaya/gayatrial-regular.otf') format('opentype');
@@ -13,7 +13,7 @@
 	font-style: italic;
 }
 
-/* Neue Montreal — body */
+/* Neue Montreal */
 @font-face {
 	font-family: 'Neue Montreal';
 	src: url('/fonts/neue_montreal/PPNeueMontreal-Medium.otf') format('opentype');
@@ -39,5 +39,13 @@
 	font-family: 'Neue Montreal';
 	src: url('/fonts/neue_montreal/PPNeueMontreal-Bold.otf') format('opentype');
 	font-weight: 700;
+	font-style: normal;
+}
+
+/* Peich */
+@font-face {
+	font-family: 'Peich';
+	src: url('/fonts/peich/peich.ttf') format('opentype');
+	font-weight: 400;
 	font-style: normal;
 }

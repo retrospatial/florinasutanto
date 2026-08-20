@@ -49,9 +49,24 @@
 		@apply border-teal my-8 border-t-2 border-dotted;
 	}
 	blockquote {
-		@apply border-orange body-md bg-orange/10 my-8 border-l-4 border-dotted p-4 pl-4 md:pl-6;
+		@apply border-outset body-md relative my-8 bg-white px-5 pt-10 pb-4 text-black;
+
+		&::before {
+			@apply bg-orange absolute top-0 left-0 h-6 w-full;
+			content: '';
+		}
+
+		&::after {
+			@apply border-outset-small absolute top-3 right-2 flex h-3 w-3 -translate-y-1/2 items-center justify-center bg-white font-mono text-sm text-black;
+			content: 'x';
+		}
+
 		p {
 			font-size: inherit;
+		}
+
+		a {
+			@apply text-black underline underline-offset-2;
 		}
 	}
 	pre {

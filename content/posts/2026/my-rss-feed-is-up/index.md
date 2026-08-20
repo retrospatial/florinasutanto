@@ -1,7 +1,7 @@
 ---
 title: My RSS feed is up!
 slug: rss-feed
-desc: ''
+desc: 'reading, scanning, smiling'
 cover:
 date_published: 2026-03-01
 tags:

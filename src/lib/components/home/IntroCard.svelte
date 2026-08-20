@@ -49,11 +49,11 @@
 		{#each content.about as item}
 			<li class="uppercase font-mono text-sm lg:text-base flex flex-row gap-2 mb-0">
 				<span class="font-semibold w-25">{item.title}</span>
-				<span class="text-end w-full"
+				<span class="text-end w-full text-balance"
 					>{item.title === 'Time'
 						? getTime()
 						: item.title === 'Weather'
-							? condition + ' / ' + temp + '°C'
+							? condition + ' (' + temp + '°C)'
 							: item.text}</span
 				>
 			</li>

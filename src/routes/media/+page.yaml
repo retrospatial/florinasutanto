@@ -1,7 +1,20 @@
-title: Media
-
-text:
-  - I read books
-  - Listen to music
-  - And go to concerts
-  - (among other things)
+pages:
+  - title: Reading
+    img: read.png
+    alt: Linocut of Knigi reading
+    link: /bookshelf
+    class: 'group-hover:-rotate-3'
+  - title: Music
+    img: music.png
+    alt: Linocut of a cat with a guitar
+    link: /music
+    class: 'group-hover:-rotate-3'
+  - title: TBA
+    img: bomb.png
+    alt: Linocut of Bob-omb
+    link: '#'
+    class: 'group-hover:-rotate-3'
+  - title: Concerts
+    img: concert.png
+    alt: Linocut of a crowd
+    link: /concerts

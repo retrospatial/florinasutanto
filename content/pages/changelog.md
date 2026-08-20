@@ -2,10 +2,13 @@
 title: Changelog
 ---
 
-<!-- ## 2026-08-16
+<!-- - Added an [archive](/archive) page for previous site designs
+ -->
 
-- Nested the [bookshelf](/bookshelf), [music page](/music), and concerts under [media](/media)
-- Added an [archive](/archive) page for previous site designs -->
+## 2026-08-19
+
+- Nested the bookshelf, music, and concert pages under [media](/media)
+- Removed style guide
 
 ## 2026-08-15
 
@@ -14,7 +17,7 @@ Created this changelog page, so...let's fast forward the past 8 months.
 Many major updates (in a single commit, no less...):
 
 - Moved the [colophon](/colophon) from a blog post to its own route
-- Created a [sitemap](/sitemap), [style guide](/style), and [cheatsheet](/cheatsheet)
+- Created a [sitemap](/sitemap), style guide, and [cheatsheet](/cheatsheet)
 - Added a [concerts](/concerts) page
 - Added an aside component
 - Added each bookshelf post to the RSS

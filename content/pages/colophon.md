@@ -11,7 +11,6 @@ I imagine that everything here will constantly be in flux as my tastes and inter
 
 - [Sitemap](/sitemap)
 - [Changelog](/changelog)
-- [Style guide](/style)
 
 ## Stack
 
@@ -44,3 +43,10 @@ My [music page](/music) shuffles through a list of my recent favorite songs and 
 ### Bookshelf
 
 I use [Hardcover](https://hardcover.app/) to track my [reading](/bookshelf), both because I like the UI and because it's the only book-tracking platform I know that offers an API. One of Hardcover's developers has [a great tutorial](https://www.emgoto.com/hardcover-book-api/) on how to get started with it.
+
+## Image Credits
+
+[Media](/media) page:
+
+- [Knigi](https://www.rile.space/books/knigi) by Benjamin Sommerhalder
+- [Kolędnicy](https://www.instagram.com/p/DEcruhPu_h1/?img_index=1) by Zuza Kamińska

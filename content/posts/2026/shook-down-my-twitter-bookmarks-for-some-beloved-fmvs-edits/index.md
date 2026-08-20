@@ -1,7 +1,7 @@
 ---
 title: shook down my twitter bookmarks for some beloved fmvs/edits
 slug: twitter-fmvs
-desc: 'a lot of buffy, as usual'
+desc: 'buffy, yellowjackets, etc you know the drill'
 cover: ''
 date_published: 2026-07-21
 date_updated: ''

@@ -3,19 +3,19 @@ title: Archive
 desc: Snapshots of my current and previous site designs. Seems like I have a habit of redoing it every year. Sometimes you gotta keep renovating the house!
 
 archive:
-  - title: The Workhorse
+  - title: First legit version
     date: 2026-01
     desc: This is the most comprehensive build by far. I switched from deplyoing on gh pages to vercel using secret env variables. the first one styled primarily with tailwind instead of vanilla CSS. game changer.
     imgs:
       - site4_1.webp
       - site4_2.webp
       - site4_3.webp
-  - title: The Placeholder
+  - title: Placeholder
     date: 2025-01
     desc: test
     imgs:
       - site3.webp
-  - title: The Experiment
+  - title: Somewhat better portfolio
     date: 2024-04
     desc: test
     imgs:
@@ -24,7 +24,7 @@ archive:
       - site2_3.webp
       - site2_4.webp
       - site2_5.webp
-  - title: The OG
+  - title: Original portfolio
     date: 2023-11
     desc: >
       I built this by reskinning <a href="https://patdryburgh.github.io/hitchens/">this Jekyll theme</a>. In retrospect, I have no idea why I did that — I'd never written Ruby or Liquid before and distinctly remember having a miserable time trying to wrap my head around the architecture of the template. It was such an overengineered approach for what could've easily been two `html` files and one `css` file. I probably saw a tutorial for deploying a Jekyll site on Github Pages and thought I'd at least learn something new by being elbows deep in it.

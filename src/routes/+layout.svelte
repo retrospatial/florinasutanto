@@ -71,7 +71,7 @@
 
 <Lightbox />
 
-<div class="min-h-screen flex flex-col">
+<div class="app-shell min-h-screen flex flex-col">
 	<Nav />
 
 	<main class="grow flex flex-col">

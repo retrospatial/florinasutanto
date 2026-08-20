@@ -60,7 +60,7 @@
 									href="/bookshelf/{book.slug}"
 									class="border-lime group relative block border-2 transition-transform duration-300 hover:-translate-y-2"
 								>
-									<img src={book.image} alt={book.title} />
+									<img src={book.image} alt={book.title} class="aspect-2/3 w-full object-cover" />
 
 									<span
 										class="bg-lime text-night absolute top-0 right-0 flex size-4 items-center justify-center text-[0.6rem] leading-none md:size-5 md:text-xs"
@@ -76,7 +76,11 @@
 									</div>
 								</a>
 							{:else}
-								<img src={book.image} alt={book.title} class="block border-2 border-transparent" />
+								<img
+									src={book.image}
+									alt={book.title}
+									class="block aspect-[2/3] w-full border-2 border-transparent object-cover"
+								/>
 							{/if}
 						{/if}
 					</li>
