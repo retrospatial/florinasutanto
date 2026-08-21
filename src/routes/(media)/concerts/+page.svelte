@@ -36,8 +36,8 @@
 	const years = ((content.concerts ?? []) as Year[]).filter((y) => y.shows?.length);
 </script>
 
-<Section medium class="-ml-2 md:mx-auto">
-	<Heading hed={content.title} class="mb-12" />
+<Section medium class="-ml-2 md:mx-auto pt-8 md:pt-12">
+	<!-- <Heading hed={content.title} class="mb-12" /> -->
 
 	{#each years as { year, shows }}
 		<section class="mb-14 grid grid-cols-[1.75rem_1fr] gap-3 md:grid-cols-[5rem_1fr] md:gap-6">

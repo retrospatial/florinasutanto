@@ -2,6 +2,9 @@ import { HARDCOVER_API_KEY } from '$env/static/private';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
+const MAX_ATTEMPTS = 4;
+const NO_CACHE = { 'cache-control': 'no-store' };
+
 const book_fields = `
 	title
 	slug
@@ -84,7 +87,7 @@ export const GET: RequestHandler = async ({ url }) => {
 	const listType = url.searchParams.get('list') || 'recent';
 	const slug = url.searchParams.get('slug');
 
-	let books_query;
+	let books_query: string;
 
 	if (slug) {
 		// single read book looked up by its hardcover slug — powers /bookshelf/[slug]
@@ -177,7 +180,9 @@ export const GET: RequestHandler = async ({ url }) => {
 		`;
 	}
 
-	try {
+	// hardcover's auth rejects perfectly valid tokens on a large share of requests,
+	// so retry instead of treating the first failure as "this user has no books"
+	async function requestBooks(attempt = 1): Promise<any> {
 		const response = await fetch('https://api.hardcover.app/v1/graphql', {
 			method: 'POST',
 			headers: {
@@ -189,11 +194,23 @@ export const GET: RequestHandler = async ({ url }) => {
 			})
 		});
 
-		const result = await response.json();
+		if (!response.ok) {
+			if (attempt < MAX_ATTEMPTS) {
+				await new Promise((resolve) => setTimeout(resolve, attempt * 400));
+				return requestBooks(attempt + 1);
+			}
+			throw new Error(`hardcover responded ${response.status} after ${attempt} attempts`);
+		}
+
+		return response.json();
+	}
+
+	try {
+		const result = await requestBooks();
 
 		if (result.errors) {
 			console.error('GraphQL errors:', result.errors);
-			return json({ error: 'Failed to fetch books' }, { status: 500 });
+			return json({ error: 'Failed to fetch books' }, { status: 500, headers: NO_CACHE });
 		}
 
 		let books = [];
@@ -208,10 +225,17 @@ export const GET: RequestHandler = async ({ url }) => {
 			);
 		}
 
+		// an empty shelf is almost always a bad response that slipped through rather
+		// than a real result, and caching one would hide the books for a full day
+		if (!books.length) {
+			return json({ books }, { headers: NO_CACHE });
+		}
+
 		// the bookshelf page calls this on every visit — cache a day so Hardcover
 		// sees roughly one request regardless of traffic
 		return json({ books }, { headers: { 'cache-control': 'public, max-age=0, s-maxage=86400' } });
 	} catch (error) {
-		return json({ error: 'Failed to fetch books' }, { status: 500 });
+		console.error('Failed to fetch books:', error);
+		return json({ error: 'Failed to fetch books' }, { status: 500, headers: NO_CACHE });
 	}
 };

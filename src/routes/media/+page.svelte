@@ -13,9 +13,7 @@
 	{#each content.pages as item, i}
 		<a href={item.link}>
 			<div
-				class="group hover:scale-105 duration-300 gap-2 flex md:-translate-y-4 items-center {i %
-					2 ===
-				0
+				class="group gap-2 flex md:-translate-y-4 items-center {i % 2 === 0
 					? ''
 					: 'flex-row-reverse'}"
 			>
@@ -32,7 +30,7 @@
 				<Image
 					src="media/{item.img}"
 					alt={item.alt}
-					class="ink aspect-square w-40 shrink-0 object-contain mix-blend-multiply opacity-90 transition-transform duration-300 md:w-60 lg:w-70 {item.img ===
+					class="ink aspect-square group-hover:scale-105  w-40 shrink-0 object-contain mix-blend-multiply opacity-90 transition-transform duration-300 md:w-60 lg:w-70 {item.img ===
 					'concert.png'
 						? 'group-hover:rotate-1'
 						: 'group-hover:rotate-3'}"
@@ -73,10 +71,10 @@
 	}
 
 	/* no entrance animation */
-	:global(body:has(.media) .animation-fly-up),
+	/* :global(body:has(.media) .animation-fly-up),
 	:global(body:has(.media) .animation-fly-down) {
 		animation: none;
-	}
+	} */
 
 	:global(body:has(.media) main),
 	:global(body:has(.media) main > div) {

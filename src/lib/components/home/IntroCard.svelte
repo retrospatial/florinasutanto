@@ -53,8 +53,9 @@
 					>{item.title === 'Time'
 						? getTime()
 						: item.title === 'Weather'
-							? condition + ' (' + temp + '°C)'
-							: item.text}</span
+							? condition
+							: // + ' (' + temp + '°C)'
+								item.text}</span
 				>
 			</li>
 		{/each}

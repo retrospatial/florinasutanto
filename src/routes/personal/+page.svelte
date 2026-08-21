@@ -15,7 +15,7 @@
 					<Image
 						src="random/hat.png"
 						alt="hat"
-						class="absolute md:-left-6 md:top-0 lg:-left-8 lg:top-1 z-10 -rotate-30 md:w-[70px] lg:w-[100px] w-[50px] -left-4 -top-1 h-auto max-w-none"
+						class="absolute md:-left-6 md:top-0 lg:-left-8 lg:top-0 z-10 -rotate-30 md:w-[70px] lg:w-[100px] w-[50px] -left-4 -top-1 h-auto max-w-none"
 					/>
 					p
 				</span>ersonal projects
@@ -52,7 +52,7 @@
 						{:else}
 							<Image
 								src={`cover_imgs/${item.cover}`}
-						lightbox={false}
+								lightbox={false}
 								alt={item.title}
 								class="w-full h-full object-cover"
 							/>
