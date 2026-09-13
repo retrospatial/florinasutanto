@@ -19,6 +19,16 @@ const book_fields = `
 	}
 `;
 
+// a book's own image can be null while the edition the user shelved has a cover,
+// so every query pulls the edition image to fall back on
+const edition_fields = `
+	edition {
+		image {
+			url
+		}
+	}
+`;
+
 function slateToHtml(nodes: any[]): string {
 	if (!nodes || !Array.isArray(nodes)) return '';
 	return nodes
@@ -78,7 +88,7 @@ function mapBookData(item: any, hasRating: boolean = true) {
 		authors: item.book.contributions?.map((c: any) => c.author.name).join(', ') || 'Unknown',
 		rating: hasRating ? item.rating : null,
 		review: reviewHtml,
-		image: item.book.image?.url,
+		image: item.book.image?.url ?? item.edition?.image?.url,
 		url: item.book.slug ? `https://hardcover.app/books/${item.book.slug}` : null
 	};
 }
@@ -110,6 +120,7 @@ export const GET: RequestHandler = async ({ url }) => {
 					book {
 						${book_fields}
 					}
+					${edition_fields}
 				}
 			}
 		`;
@@ -130,6 +141,7 @@ export const GET: RequestHandler = async ({ url }) => {
 						book {
 							${book_fields}
 						}
+						${edition_fields}
 					}
 				}
 			}
@@ -151,6 +163,7 @@ export const GET: RequestHandler = async ({ url }) => {
 					book {
 						${book_fields}
 					}
+					${edition_fields}
 				}
 			}
 		`;
@@ -175,6 +188,7 @@ export const GET: RequestHandler = async ({ url }) => {
 					book {
 						${book_fields}
 					}
+					${edition_fields}
 				}
 			}
 		`;

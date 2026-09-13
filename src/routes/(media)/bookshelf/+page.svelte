@@ -41,6 +41,13 @@
 		const res = await fetch('/api/books?list=recent');
 		if (!res.ok) return;
 		books = (await res.json()).books ?? [];
+
+		// console.log(
+		// 	books.map((book) => ({
+		// 		title: book.title,
+		// 		cover: book.image
+		// 	}))
+		// );
 	});
 </script>
 
