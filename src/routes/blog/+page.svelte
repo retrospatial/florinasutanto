@@ -26,7 +26,7 @@
 	);
 </script>
 
-<Section small class="justify-start ">
+<Section medium class="justify-start ">
 	<h1 class="heading-lg text-center w-full mb-6">more words</h1>
 
 	<div class="flex flex-col mx-auto">

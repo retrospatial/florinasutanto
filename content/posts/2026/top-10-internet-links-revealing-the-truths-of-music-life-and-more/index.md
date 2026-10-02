@@ -1,7 +1,7 @@
 ---
 title: top 10+ internet links revealing the truths of music, life, and more
 slug: internet-links-reclist
-desc: reclist of things i've found interesting
+desc: reclist of things i've recently found interesting
 date_published: 2026-10-02
 date_updated: ''
 tags:
