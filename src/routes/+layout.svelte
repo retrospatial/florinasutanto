@@ -36,15 +36,14 @@
 
 	const pageTitle = $derived(() => {
 		const postTitle = page.data?.post?.title ?? page.data?.book?.title;
-		if (postTitle) return `florina sutanto | ${postTitle}`;
+		if (postTitle) return `${postTitle}`;
 		if (pathname === '/') return 'florina sutanto';
 		const segment = pathname.split('/').filter(Boolean)[0];
-		return `florina sutanto | ${segment}`;
+		return `${segment}`;
 	});
 
 	const pageDescription = $derived(() => {
-		const postDesc = page.data?.post?.description;
-		if (postDesc) return postDesc;
+		if (pathname.startsWith('/blog/')) return page.data?.post?.desc ?? '';
 		const segment = pathname === '/' ? 'home' : pathname.split('/').filter(Boolean)[0];
 		return site?.descriptions?.[segment] ?? site?.description;
 	});
