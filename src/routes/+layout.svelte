@@ -39,7 +39,7 @@
 		if (postTitle) return `${postTitle}`;
 		if (pathname === '/') return 'florina sutanto';
 		const segment = pathname.split('/').filter(Boolean)[0];
-		return `${segment}`;
+		return `florina sutanto | ${segment}`;
 	});
 
 	const pageDescription = $derived(() => {
