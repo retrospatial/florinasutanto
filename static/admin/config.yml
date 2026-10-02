@@ -4,6 +4,8 @@ backend:
   branch: main
   skip_ci: true
 
+media_folder: /static/assets/images
+public_folder: /assets/images
 
 collections:
   - name: posts
@@ -12,6 +14,8 @@ collections:
     create: true
     path: "{{year}}/{{slug}}/index"
     slug: "{{slug}}"
+    media_folder: ""
+    public_folder: ""
     fields:
       - label: Title
         name: title
