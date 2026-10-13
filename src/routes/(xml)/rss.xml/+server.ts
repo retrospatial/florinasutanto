@@ -1,9 +1,6 @@
 import { render } from 'svelte/server';
 import { type MdsvexModule, getPostSlug } from '$lib/utils/blog';
 
-// not prerendered: book reviews come from Hardcover at runtime, so a build-time
-// feed would only pick up new ones on a redeploy. the s-maxage below keeps
-// Hardcover to roughly one request an hour.
 const SITE_URL = 'https://florinasutanto.com';
 const SITE_TITLE = 'florina sutanto';
 const SITE_DESCRIPTION = 'RSS feed for my blog posts and book reviews';
@@ -21,14 +18,7 @@ function hasReview(review: string | null | undefined): boolean {
 	return !!review && review.replace(/<[^>]*>/g, '').trim().length > 0;
 }
 
-/**
- * Reviewed books, as feed items.
- *
- * Goes through /api/books rather than Hardcover directly so the GraphQL query,
- * the Slate→HTML conversion and the API key all stay in one place. Returns []
- * on any failure — an upstream outage should cost the feed its books, not its
- * posts.
- */
+// add hardcover book reviews to rss feed
 async function bookItems(fetch: typeof globalThis.fetch): Promise<FeedItem[]> {
 	try {
 		const res = await fetch('/api/books?list=recent');
@@ -43,7 +33,7 @@ async function bookItems(fetch: typeof globalThis.fetch): Promise<FeedItem[]> {
 				link: `${SITE_URL}/bookshelf/${book.slug}`,
 				desc: `A book review of ${book.title}.`,
 				html: stripStyling(book.review),
-				date: new Date(book.last_read_date),
+				date: new Date(book.reviewed_at ?? book.last_read_date),
 				categories: ['books']
 			}))
 			.filter((item: FeedItem) => !Number.isNaN(item.date.getTime()));
@@ -111,7 +101,7 @@ export const GET = async ({ fetch }) => {
 	return new Response(xml, {
 		headers: {
 			'Content-Type': 'application/xml',
-			// one Hardcover call a day; a new review takes up to 24h to reach the feed
+			// one call to hardcover per day
 			'Cache-Control': 'max-age=0, s-maxage=86400'
 		}
 	});

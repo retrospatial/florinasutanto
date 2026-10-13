@@ -87,7 +87,9 @@ function mapBookData(item: any, hasRating: boolean = true) {
 		last_read_date: item.user_book_reads?.[0]?.finished_at || item.date_added,
 		authors: item.book.contributions?.map((c: any) => c.author.name).join(', ') || 'Unknown',
 		rating: hasRating ? item.rating : null,
+		dnf: item.status_id === 5,
 		review: reviewHtml,
+		reviewed_at: item.reviewed_at ?? null,
 		image: item.book.image?.url ?? item.edition?.image?.url,
 		url: item.book.slug ? `https://hardcover.app/books/${item.book.slug}` : null
 	};
@@ -168,18 +170,21 @@ export const GET: RequestHandler = async ({ url }) => {
 			}
 		`;
 	} else {
-		// query for recently read books (status id = 3)
+		// query for read (status id = 3) and did-not-finish (status id = 5) books
 		books_query = `
 			{
 				user_books(
 					where: {
 						user_id: {_eq: 67914},
-						status_id: {_eq: 3}
+						status_id: {_in: [3, 5]}
 					},
 					order_by: {date_added: desc}
 				) {
+					book_id
+					status_id
 					rating
 					review_slate
+					reviewed_at
 					date_added
 					last_read_date
 					user_book_reads(order_by: {finished_at: desc}, limit: 1) {
@@ -190,12 +195,22 @@ export const GET: RequestHandler = async ({ url }) => {
 					}
 					${edition_fields}
 				}
+				# hardcover has no dnf date field, so take it from when the status changed to dnf
+				dnf_activities: activities(
+					where: {
+						user_id: {_eq: 67914},
+						event: {_eq: "UserBookActivity"},
+						data: {_contains: {userBook: {statusId: 5}}}
+					},
+					order_by: {created_at: desc}
+				) {
+					book_id
+					created_at
+				}
 			}
 		`;
 	}
 
-	// hardcover's auth rejects perfectly valid tokens on a large share of requests,
-	// so retry instead of treating the first failure as "this user has no books"
 	async function requestBooks(attempt = 1): Promise<any> {
 		const response = await fetch('https://api.hardcover.app/v1/graphql', {
 			method: 'POST',
@@ -232,21 +247,26 @@ export const GET: RequestHandler = async ({ url }) => {
 		if (listType === 'favorite' && result.data?.lists?.[0]?.list_books) {
 			books = result.data.lists[0].list_books.map((item: any) => mapBookData(item, false));
 		} else if (result.data?.user_books) {
-			books = result.data.user_books.map((item: any) => mapBookData(item, true));
+			const dnfDates = new Map<number, string>();
+			for (const activity of result.data.dnf_activities ?? []) {
+				if (!dnfDates.has(activity.book_id)) dnfDates.set(activity.book_id, activity.created_at);
+			}
+
+			books = result.data.user_books.map((item: any) => {
+				const book = mapBookData(item, true);
+				const dnfDate = book.dnf && dnfDates.get(item.book_id);
+				return dnfDate ? { ...book, last_read_date: dnfDate } : book;
+			});
 			books.sort(
 				(a: any, b: any) =>
 					new Date(b.last_read_date).getTime() - new Date(a.last_read_date).getTime()
 			);
 		}
 
-		// an empty shelf is almost always a bad response that slipped through rather
-		// than a real result, and caching one would hide the books for a full day
 		if (!books.length) {
 			return json({ books }, { headers: NO_CACHE });
 		}
 
-		// the bookshelf page calls this on every visit — cache a day so Hardcover
-		// sees roughly one request regardless of traffic
 		return json({ books }, { headers: { 'cache-control': 'public, max-age=0, s-maxage=86400' } });
 	} catch (error) {
 		console.error('Failed to fetch books:', error);
